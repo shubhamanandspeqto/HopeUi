@@ -3,6 +3,9 @@
   padding: 0;
 
 }
+.text-gray{
+  color: #ADB5BD;
+}
 
 
 @keyframes App-logo-spin {

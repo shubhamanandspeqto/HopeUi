@@ -1,0 +1,80 @@
+.lock-screen-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.lock-screen-form {
+    box-sizing: border-box;
+    padding: 6rem;
+    background-image: url(/public/assets/bg-logo-l.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+}
+
+.lock-screen-form>div>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 33px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.lock-screen-form>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 33px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.lock-screen-form>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.lock-screen-form>div>label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.lock-screen-form>div>input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 227px;
+    width: 100%;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+}
+
+.lock-screen-form>button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 44px;
+    background: #3A57E8;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.lock-screen-form>button:hover {
+    background-color: #1035ee;
+}

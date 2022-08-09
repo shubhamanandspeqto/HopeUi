@@ -1,0 +1,73 @@
+.login-container {
+    min-height: 100vh;
+}
+
+.login-form>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.login-form>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.login-form>div {
+    padding: 5px 15%;
+}
+
+.login-form>div>label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.login-form>div>input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 227px;
+    width: 100%;
+    height: 44px;
+    background: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+}
+
+.login-form>button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 44px;
+    background: #3A57E8;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.login-form>button:hover {
+    background-color: #1035ee;
+}
+
+.login-background-container {
+    background-image: url('/public/assets/login_background.png');
+}
+
+.login-background-container>div {
+    height: 100%;
+}
