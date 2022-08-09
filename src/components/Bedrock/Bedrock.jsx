@@ -12,8 +12,8 @@ export default function Bedrock() {
                 <div className="col-md-6">
                   <div className="bedrock-image">
                     <img
-                      src="./assets/beared-guy.png"
-                      alt=""
+                      src="/assets/beared-guy.png"
+                      alt="bearedguy"
                       className="img-fluid"
                     />
                   </div>
