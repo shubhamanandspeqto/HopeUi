@@ -30,7 +30,7 @@
 .bedrockProfile {
   display: block;
   max-width: 100%;
-  padding-top: 100px;
+  margin-top: -34px;
 }
 .bedrock-content p {
   font-family: "Inter";
