@@ -1,7 +1,6 @@
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Login from './components/login/Login';
 import Dashboard from "./components/admin/Dashboard";
 import Login from "./components/login/Login";
 import Bedrock from "./components/Bedrock/Bedrock";
@@ -15,9 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />}>
-          {/* <Route path="/about" element={<Login />} /> */}
-          <Route path="/bedrock" element={<Bedrock />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="bedrock" element={<Bedrock />} />
         </Route>
         <Route exact path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
@@ -25,7 +23,6 @@ function App() {
         <Route path="/lock-screen" element={<LockScreen />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-        <Route path="/error-404" element={<Error404 />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
