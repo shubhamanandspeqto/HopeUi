@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+
 const Sidebar = () => {
     return (
         <>
-            <aside id="sidebar" className="sidebar">
+            <aside id="sidebar" className="sidebar" >
                 <div className="container-fluid">
-                    <div className="row flex-nowrap">
+                    <div className="row flex-nowrap text-gray">
                         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
-                            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
                                 <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                                     <span className="fs-5 d-none d-sm-inline">Menu</span>
                                 </a>
@@ -36,7 +37,7 @@ const Sidebar = () => {
                                     </li>
 
                                     <div className='hr_line' style={{background: "#E9ECEF", border: "1px solid #E9ECEF", width:"100%"}}></div>
-                                    
+
                                     <li className="nav-item">
                                         <a href="#" className="nav-link align-middle px-0">
                                             <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">Pages</span>
