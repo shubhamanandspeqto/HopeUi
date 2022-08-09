@@ -1,11 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Login from './components/login/Login';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='d-flex w-100 justify-content-center'>hello</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
