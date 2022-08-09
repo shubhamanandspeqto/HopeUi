@@ -12,6 +12,7 @@ import Signup from './components/login/Signup';
 import AfterSignup from './components/login/AfterSignup';
 import LockScreen from './components/login/LockScreen';
 import ResetPassword from './components/login/ResetPassword';
+import Error404 from './components/common/Error404';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />}>
           {/* <Route path='about' element={<Login />} /> */}
         </Route>
+
+        <Route path='/error-404' element={<Error404 />} />
+        <Route path='*' element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );
