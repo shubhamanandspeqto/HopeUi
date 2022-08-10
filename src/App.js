@@ -12,6 +12,7 @@ import Error404 from "./components/common/Error404";
 import Calender from "./components/admin/Calender/Calender";
 import Kanabn from "./components/admin/kanban/Kanabn";
 import Billing from "./components/admin/Billing/Billing";
+import Pricing from "./components/admin/Pricing/Pricing";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="billing" element={<Billing/>} />
           <Route path="calender" element={<Calender/>}/>
           <Route path="kanban" element={<Kanabn />} />
+          <Route path="pricing" element={<Pricing/>}/>
         </Route>
         <Route exact path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
