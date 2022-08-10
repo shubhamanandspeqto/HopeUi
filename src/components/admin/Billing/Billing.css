@@ -1,5 +1,5 @@
-.special-page-container {
-    /* background-image: url(/public/assets/Outlet.jpeg); */
+
+.special-page-container{
     background-image: url(/public/assets/new-dashboard-bg.png);
     background-repeat: no-repeat;
     background-position-y: top;
@@ -51,7 +51,7 @@
     animation: all 0.2s;
 }
 
-.billing-container {
+.billing-container{
     background: #FFFFFF;
     box-sizing: border-box;
     margin: 0 20px;

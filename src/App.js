@@ -9,10 +9,12 @@ import AfterSignup from "./components/login/AfterSignup";
 import LockScreen from "./components/login/LockScreen";
 import ResetPassword from "./components/login/ResetPassword";
 import Error404 from "./components/common/Error404";
-import Billing from "./components/admin/Billing";
+
 import Upload from "./components/Bedrock/Bedrock-upload/Upload.jsx";
-import Kanabn from "./components/admin/kanban/Kanabn";
 import Ai from "./components/Bedrock/Bedrock-ai/Ai";
+import Calender from "./components/admin/Calender/Calender";
+import Kanabn from "./components/admin/kanban/Kanabn";
+import Billing from "./components/admin/Billing/Billing";
 
 function App() {
   return (
@@ -20,9 +22,11 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="bedrock" element={<Bedrock />} />
+
           <Route path="upload" element={<Upload />} />
           <Route path="Ai" element={<Ai />} />
           <Route path="billing" element={<Billing />} />
+          <Route path="calender" element={<Calender />} />
           <Route path="kanban" element={<Kanabn />} />
         </Route>
         <Route exact path="/" element={<Login />} />
