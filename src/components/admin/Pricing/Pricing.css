@@ -1,0 +1,53 @@
+.special-page-pricing {
+    background-image: url(/public/assets/Cover.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    height: 234px;
+    background-size: 100% 230px;
+    background-color: #E5E5E5;
+}
+
+.pricing-card {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 20px;
+    position: relative;
+}
+
+/* .price-card {
+    background: #ffffff;
+    display: flex;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    gap: 24px;
+} */
+
+.price-title {
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+.price-para {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    margin: 8px;
+}
+.price-body{
+    background: #ffffff;
+    /* display: flex; */
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: center;
+    padding: 24px;
+}
