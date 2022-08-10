@@ -11,6 +11,7 @@ import ResetPassword from "./components/login/ResetPassword";
 import Error404 from "./components/common/Error404";
 import Billing from "./components/admin/Billing";
 import Upload from "./components/Bedrock/Bedrock-upload/Upload.jsx";
+import Kanabn from "./components/admin/kanban/Kanabn";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="bedrock" element={<Bedrock />} />
           <Route path="upload" element={<Upload />} />
           <Route path="billing" element={<Billing />} />
+          <Route path="kanban" element={<Kanabn />} />
         </Route>
         <Route exact path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />

@@ -1,0 +1,19 @@
+.kanaban-searchbar {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.kanaban-searchbar>div>input {
+    all: unset;
+}
+
+.kanaban-searchbar>div .dropdown button, .kanaban-searchbar>div span {
+    all: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #8A92A6;
+}
