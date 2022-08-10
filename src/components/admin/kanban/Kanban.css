@@ -102,6 +102,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .kanban-card-add-menu>div {
@@ -115,8 +116,32 @@
     align-items: center;
     position: relative;
     margin: -4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    animation: all 0.3s;
+}
+
+.kanban-card-add-menu>div:hover {
+    animation: all 0.3s;
+    transform: scale(110%);
+    cursor: pointer;
+    z-index: 1;
 }
 
 .kanban-card-add-menu>div:first-child {
     position: initial;
+}
+
+.kanban-card-add-menu>.first {
+    color: #444FBB;
+}
+
+.kanban-card-add-menu>.second {
+    color: #E57D44;
+}
+
+.kanban-card-add-menu>.third {
+    color: #237635;
 }
