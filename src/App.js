@@ -10,6 +10,7 @@ import LockScreen from "./components/login/LockScreen";
 import ResetPassword from "./components/login/ResetPassword";
 import Error404 from "./components/common/Error404";
 import Billing from "./components/admin/Billing";
+import Upload from "./components/Bedrock/Bedrock-upload/Upload.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="bedrock" element={<Bedrock />} />
+          <Route path="upload" element={<Upload />} />
           <Route path="billing" element={<Billing />} />
         </Route>
         <Route exact path="/" element={<Login />} />
