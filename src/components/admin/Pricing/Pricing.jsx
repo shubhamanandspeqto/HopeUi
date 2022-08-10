@@ -2,7 +2,8 @@ import React from 'react'
 import "./Pricing.css"
 export default function Pricing() {
     return (
-        <div className='special-page-pricing'>
+        <div className='special-page-pricing pb-3'>
+
             <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
                 <div className='d-flex flex-column'>
                     <h2>Hello Devs !</h2>
@@ -28,7 +29,7 @@ export default function Pricing() {
                         <button type="button" class="btn btn-outline-secondary" disabled>Sign Up For Free</button>
                     </div>
                 </div>
-               
+
                 <div className="price-card col-md-3 " >
                     <div className="price-body">
                         <h2 className="card-title">$15<span className='text-gray'>/mo</span></h2>
@@ -40,6 +41,7 @@ export default function Pricing() {
                         <button type="button" class="btn btn-outline-secondary" disabled>Get Started</button>
                     </div>
                 </div>
+
                 <div className="price-card col-md-3 " >
                     <div className="price-body">
                         <h2 className="card-title">$29<span className='text-gray'>/mo</span></h2>
@@ -64,6 +66,28 @@ export default function Pricing() {
                 </div>
             </div>
 
+            <div className='p-3 pricing-features mt-2 m-5'>
+                <h2>Features</h2>
+
+                <div className='pt-4 row pricing-features-header'>
+                    <div className='col-md-4'>
+
+                    </div>
+
+                    <div className='col-md-2 pricing-features-header-non-active'>
+                        <p>$0 / MONTH</p>
+                    </div>
+                    <div className='col-md-2 pricing-features-header-active'>
+                        <p>$15 / MONTH</p>
+                    </div>
+                    <div className='col-md-2 pricing-features-header-non-active'>
+                        <p>$29 / MONTH</p>
+                    </div>
+                    <div className='col-md-2 pricing-features-header-non-active'>
+                        <p>$49 / MONTH</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

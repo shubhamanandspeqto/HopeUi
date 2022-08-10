@@ -20,11 +20,12 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="bedrock" element={<Bedrock />} />
-          <Route path="billing" element={<Billing/>} />
-          <Route path="calender" element={<Calender/>}/>
+          <Route path="billing" element={<Billing />} />
+          <Route path="calender" element={<Calender />} />
           <Route path="kanban" element={<Kanabn />} />
-          <Route path="pricing" element={<Pricing/>}/>
+          <Route path="pricing" element={<Pricing />} />
         </Route>
+
         <Route exact path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route path="/signed-up" element={<AfterSignup />} />
