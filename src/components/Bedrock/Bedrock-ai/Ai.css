@@ -1,0 +1,23 @@
+.aiDemo {
+  width: 31%;
+}
+.karbon-button button {
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  gap: 8px;
+  width: 97px;
+  background: #3a57e8;
+  box-shadow: 0px 2px 4px rgba(58, 87, 232, 0.25);
+  border-radius: 4px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  /* line-height: 175%; */
+  margin-top: 10px;
+  color: #ffffff;
+}
+.bedrock-searchbar {
+  width: 89.5%;
+}
