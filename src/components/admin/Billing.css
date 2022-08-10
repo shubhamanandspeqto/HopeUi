@@ -1,11 +1,17 @@
 .special-page-container {
-    background-image: url(/public/assets/Outlet.jpeg);
+    /* background-image: url(/public/assets/Outlet.jpeg); */
+    background-image: url(/public/assets/new-dashboard-bg.png);
     background-repeat: no-repeat;
     background-position-y: top;
     background-position-x: left;
-    height: 234px;
-    background-size: contain;
+    background-size: 100% 215px;
     background-color: #E5E5E5;
+    box-sizing: border-box;
+    padding: 0 0 40px 0;
+}
+
+.special-page-container>div {
+    box-sizing: border-box;
 }
 
 .special-page-heading>div>h2 {
@@ -49,4 +55,105 @@
     background: #FFFFFF;
     box-sizing: border-box;
     margin: 0 20px;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.billing-container>div>h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    line-height: 130%;
+    color: #04040B;
+}
+
+.billing-container>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    text-align: right;
+    color: #04040B;
+}
+
+.billing-container>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 130%;
+    color: #04040B;
+}
+
+.billing-container>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #04040B;
+}
+
+.billing-table th {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #04040B;
+    padding: 10px 0;
+}
+
+.billing-table tr:first-child, .billing-last-row {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.billing-final-price p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #04040B;
+}
+
+.billing-final-price span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    text-align: right;
+    color: #04040B;
+}
+
+.billing-terms-conditions>img {
+    height: 28px;
+}
+
+.billing-terms-conditions>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    text-align: left !important;
+    word-wrap: break-word;
+    padding: 0;
+    margin: 0;
+}
+
+.billing-container>div>button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;
+    background: #738AFE;
+    color: white;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
 }
