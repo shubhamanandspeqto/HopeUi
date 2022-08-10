@@ -13,10 +13,10 @@ export default function Dashboard() {
                 <div className='' style={{ width: "20%" }}>
                     <Sidebar />
                 </div>
-                <div className='w-100' style={{ width: "80%", marginTop: "57px" }}>
+                <div className='w-100' style={{ width: "80%", marginTop: "57px", backgroundColor: "#E5E5E5" }}>
                     {/* <img style={{width:"100%"}} src={"/assets/Outlet.jpeg"} /> */}
                     <Outlet />
-                    <Footer />
+                    {/* <Footer /> */}
                 </div>
             </div>
 
