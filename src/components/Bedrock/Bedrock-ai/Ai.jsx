@@ -44,7 +44,7 @@ function Ai() {
             </div>
           </div>
         </div>
-        <div className="kanaban-searchbar bedrock-searchbar d-flex justify-content-between m-2 px-4 mx-4 py-3">
+        <div className="kanaban-searchbar bedrock-searchbar d-flex justify-content-between m-2 px-4 mx-3 py-3">
           <div>
             <img src="/assets/Filter.png" alt="" />
             <input
