@@ -16,7 +16,7 @@ export default function Dashboard() {
                 <div className='w-100' style={{ width: "80%", marginTop: "57px", backgroundColor: "#E5E5E5" }}>
                     {/* <img style={{width:"100%"}} src={"/assets/Outlet.jpeg"} /> */}
                     <Outlet />
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
             </div>
 
