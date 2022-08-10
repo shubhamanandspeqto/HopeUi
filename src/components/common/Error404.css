@@ -1,7 +1,0 @@
-.error-404 {
-    background-image: url(/public/assets/error404.png);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    min-width: 100vw;
-    background-size: cover;
-}

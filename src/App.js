@@ -9,6 +9,7 @@ import AfterSignup from "./components/login/AfterSignup";
 import LockScreen from "./components/login/LockScreen";
 import ResetPassword from "./components/login/ResetPassword";
 import Error404 from "./components/common/Error404";
+import Billing from "./components/admin/Billing";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="bedrock" element={<Bedrock />} />
+          <Route path="billing" element={<Billing />} />
         </Route>
         <Route exact path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
