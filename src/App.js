@@ -16,6 +16,11 @@ import Calender from "./components/admin/Calender/Calender";
 import Kanabn from "./components/admin/kanban/Kanabn";
 import Billing from "./components/admin/Billing/Billing";
 import Pricing from "./components/admin/Pricing/Pricing";
+import Timeline from "./components/admin/Timeline/Timeline";
+import MyDocumentsSelected from "./components/admin/DocumentsSelected/MyDocumentsSelected";
+import Proofs from "./components/admin/Proofs/Proofs";
+import Shares from "./components/admin/Shares/Shares";
+import Error500 from "./components/common/Error500";
 
 function App() {
   return (
@@ -29,6 +34,10 @@ function App() {
           <Route path="calender" element={<Calender />} />
           <Route path="kanban" element={<Kanabn />} />
           <Route path="pricing" element={<Pricing />} />
+          <Route path="timeline" element={<Timeline />} />
+          <Route path="documents" element={<MyDocumentsSelected />} />
+          <Route path="proofs" element={<Proofs />} />
+          <Route path="shares" element={<Shares />} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
@@ -38,6 +47,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path="*" element={<Error404 />} />
+        <Route path="error" element={<Error500 />} />
       </Routes>
     </BrowserRouter>
   );
