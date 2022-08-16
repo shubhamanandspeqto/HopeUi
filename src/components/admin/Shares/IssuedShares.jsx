@@ -1,4 +1,5 @@
 import React from 'react'
+import IssueNew from './IssueNew'
 
 export default function IssuedShares() {
     return (
@@ -10,8 +11,27 @@ export default function IssuedShares() {
                 <button className='me-5'>View</button>
             </div>
 
-            <div className='issue-new-share-btn d-flex justify-content-center mt-5'>
+            <div className='issue-new-share-btn d-flex justify-content-center mt-5' type="button" data-bs-toggle="modal"
+                data-bs-target="#issueNewShare">
                 <button>+ Issue New</button>
+            </div>
+
+            <div className="modal fade" id="issueNewShare" tabIndex={-1} aria-labelledby="issueNewShareLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        {/* <div className="modal-header">
+                            <h5 className="modal-title" id="issueNewShareLabel">Modal title</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                        </div> */}
+                        <div className="modal-body">
+                            <IssueNew />
+                        </div>
+                        {/* <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
+                        </div> */}
+                    </div>
+                </div>
             </div>
 
         </div>
