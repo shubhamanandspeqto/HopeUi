@@ -31,3 +31,56 @@
     padding: 10px 0;
     cursor: pointer;
 }
+
+.incoming-order-view-container {
+    background-color: #FFFFFF;
+}
+
+.incoming-order-view-table-border {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.incoming-order-net-amount p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #04040B;
+}
+
+.incoming-orders-first-buttons>button {
+    all: unset;
+    background: #0048B3;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFFFFF;
+    width: 40%;
+    padding: 10px 2%;
+    text-align: center;
+}
+
+.incoming-orders-accept-btn {
+    all: unset;
+    background: #409900;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.incoming-orders-decline-btn {
+    all: unset;
+    background: #C03221;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.incoming-orders-counteroffer-btn {
+    all: unset;
+    background: #CC8039;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
