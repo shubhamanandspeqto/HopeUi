@@ -17,3 +17,131 @@
     font-size: 16px;
     color: #8A92A6;
 }
+
+.kanban-body {
+    box-sizing: border-box;
+}
+
+.kanban-heading {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    align-items: center;
+}
+
+.kanban-heading>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.kanban-open-projects {
+    color: #232D42;
+}
+
+.kanban-progress-projects {
+    color: #FFD329;
+}
+
+.kanban-reviews-projects {
+    color: #409900;
+}
+
+.kanban-closed-projects {
+    color: #738AFE;
+}
+
+.kanban-new-task {
+    border: 1px dotted #717171;
+    border-radius: 8px;
+}
+
+.kanban-new-task>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #717171;
+}
+
+.kanban-new-task>img {
+    height: 14px;
+}
+
+.kanban-card {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.kanban-card>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    color: #131313;
+}
+
+.breadcrumb-item-css {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #717171;
+}
+
+.breadcrumb-container {
+    --bs-breadcrumb-divider: '>'
+}
+
+.kanban-card-icons>div {
+    background: #E9ECEF;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.kanban-card-add-menu>div {
+    background: #E9ECEF;
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: -4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    animation: all 0.3s;
+}
+
+.kanban-card-add-menu>div:hover {
+    animation: all 0.3s;
+    transform: scale(110%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.kanban-card-add-menu>div:first-child {
+    position: initial;
+}
+
+.kanban-card-add-menu>.first {
+    color: #444FBB;
+}
+
+.kanban-card-add-menu>.second {
+    color: #E57D44;
+}
+
+.kanban-card-add-menu>.third {
+    color: #237635;
+}

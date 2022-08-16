@@ -1,0 +1,118 @@
+.proof-page-content {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.proof-page-img-container>img {
+    border-radius: 100%;
+    position: relative;
+    margin-top: -60px;
+}
+
+.proof-page-img-container>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+    padding: 2rem 0;
+}
+
+.proof-page-img-container>p>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.proof-page-btn-container>button {
+    all: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #738AFE;
+    cursor: pointer;
+    animation: all 0.2s;
+}
+
+.proof-page-btn-container>.active {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #FFFFFF;
+    cursor: pointer;
+    animation: all 0.2s;
+}
+
+.new-proof-first-row>div,
+.new-proof-second-row>div {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    width: 486px;
+}
+
+.new-proof-card-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.new-proof-card-button>button {
+    all: unset;
+    border: 1px solid #8591FF;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.new-proof-card-button>button>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #2F35CF;
+}
+
+.new-proof-card-content>form label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.new-proof-card-content>form input {
+    all: unset;
+    background: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.new-proof-card-button-solid>button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 4px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #FFFFFF;
+    cursor: pointer;
+}

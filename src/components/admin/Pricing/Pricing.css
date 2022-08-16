@@ -3,7 +3,6 @@
     background-repeat: no-repeat;
     background-position-y: top;
     background-position-x: left;
-    height: 234px;
     background-size: 100% 230px;
     background-color: #E5E5E5;
 }
@@ -12,7 +11,6 @@
     display: flex;
     justify-content: space-around;
     margin: 0 20px;
-    position: relative;
 }
 
 /* .price-card {
@@ -41,7 +39,8 @@
     font-size: 12px;
     margin: 8px;
 }
-.price-body{
+
+.price-body {
     background: #ffffff;
     /* display: flex; */
     border-radius: 8px;
@@ -50,4 +49,307 @@
     /* align-items: center; */
     text-align: center;
     padding: 24px;
+}
+
+.pricing-features, .pricing-payments, .lifetime-membership {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.pricing-features-header>div>p {
+    /* background: #C4CCF8; */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+}
+
+.pricing-features-header-non-active {
+    background-image: url(/public/assets/features-header-light.png);
+    /* background-size: 95% 80%; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pricing-features-header-active {
+    background-image: url(/public/assets/features-header-dark.png);
+    /* background-size: 95% 80%; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+
+.pricing-features-header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 35px;
+}
+
+.pricing-features-header div>span {
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.5rem;
+    line-height: 130%;
+    color: #ffffff;
+}
+
+.pricing-features-header div>p {
+    padding-top: 8%;
+}
+
+.pricing-features-bottom-border-row {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.pricing-features-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.pricing-row-buy-buttons button {
+    all: unset;
+    background-color: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+    padding: 8px 24px;
+    box-sizing: border-box;
+    color: #738AFE;
+    cursor: pointer;
+}
+
+.pricing-row-buy-buttons button:hover {
+    background-color: #fbf6f6;
+}
+
+.pricing-payments>h2 {
+    margin: 0;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.pricing-payments-row-container>div {
+    width: 20%;
+}
+
+.pricing-payments-border-left {
+    border-left: 1px solid #E9ECEF;
+}
+
+.pricing-payments-button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    text-align: center;
+    padding: 8px 0;
+    color: white;
+}
+
+.pricing-payments-card-heading {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.pricing-payments-card-heading>span {
+    background: #D5EBDF;
+    border-radius: 50px;
+    padding: 2px 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: #1AA053;
+}
+
+.pricing-payments-card-price {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: #8A92A6;
+}
+
+.pricing-payments-card-price>span {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.pricing-payments-card-text>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.pricing-payments-sub-heading {
+    background-color: #DEE2E6;
+    padding: 25px;
+    margin: 15px 0 0 0;
+}
+
+.pricing-payments-sub-heading>h5 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.pricing-payments-features-table-row>td {
+    width: 20%;
+    padding: 10px;
+}
+
+.pricing-payments-features-table-row>td p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.lifetime-membership-first-column>h4 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.lifetime-membership-first-column>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.lifetime-membership-first-column>h6 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.included-features-checkbox>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.lifetime-membership-side-column {
+    background: #DEE2E6;
+}
+
+.lifetime-membership-side-column>h3>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    text-align: center;
+    color: #8A92A6;
+}
+
+.lifetime-membership-side-column>button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.pricing-big-card-1, .pricing-big-card-2, .pricing-big-card-3 {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.pricing-big-card-1>button, .pricing-big-card-3>button {
+    all: unset;
+    background: #C4CCF8;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.pricing-big-card-2>button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px 0;
+    color: #FFFFFF;
+}
+
+.pricing-big-card-2>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.7rem;
+    line-height: 130%;
+    text-align: center;
+    color: #344ED1;
+    background: #C4CCF8;
+    border-radius: 50px;
+
+}
+
+.pricing-big-card-1 .price, .pricing-big-card-2 .price, .pricing-big-card-3 .price {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 130%;
+    text-align: center;
+    color: #000000;
+}
+
+.pricing-big-card-1 .price span, .pricing-big-card-2 .price span, .pricing-big-card-3 .price span {
+    font-size: 1rem;
+    color: #8A92A6;
+    font-weight: 500;
+}
+
+.pricing-big-card-1>p, .pricing-big-card-2>p, .pricing-big-card-3>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    text-align: center;
+    color: #8A92A6;
 }

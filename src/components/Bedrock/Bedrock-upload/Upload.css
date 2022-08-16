@@ -1,0 +1,73 @@
+.bedrock-upload-button button {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: 86px;
+  height: 44px;
+  background: #738afe;
+  border-radius: 50px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #ffffff;
+}
+.bedrock-upload-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.bedrock-upload-button p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #738afe;
+  padding-left: 20px;
+}
+.bedrockUpload-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.bedrockUpload-card button {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 100%;
+  height: 44px;
+  background: #738afe;
+  border-radius: 4px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  text-align: center;
+  color: #ffffff;
+}
+.bedrockUpload-card {
+  align-items: flex-start;
+  padding: 24px;
+  gap: 40px;
+  left: 793px;
+  top: 784px;
+  background: #ffffff;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+}
+.card-row {
+  justify-content: center;
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+}
+.card-row-2 {
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}

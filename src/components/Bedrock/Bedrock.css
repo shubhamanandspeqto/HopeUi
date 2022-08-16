@@ -32,6 +32,9 @@
   max-width: 100%;
   margin-top: -34px;
 }
+.bed-padding {
+  height: 212px;
+}
 .bedrock-content p {
   font-family: "Inter";
   font-style: normal;

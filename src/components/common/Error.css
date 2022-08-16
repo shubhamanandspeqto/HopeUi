@@ -1,13 +1,39 @@
 .error-404 {
-    background-image: url(/public/assets/error404.png);
+    background-image: url(/public/assets/ErrorBG.svg);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
     background-size: cover;
 }
 
+.error-404 h2,
+.error-404 p {
+    color: #ffffff;
+}
+
+.error-404>div {
+    position: relative;
+    margin-top: -5%;
+}
+
+.error-404 h1 {
+    font-size: 35rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 800;
+}
+
+.error-404 button {
+    text-align: center;
+    all: unset;
+    padding: 10px 2%;
+    background: #E9ECEF;
+    box-shadow: 0px 8px 32px rgba(0, 16, 41, 0.05);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .error-500 {
-    background-image: url(/public/assets/error404.png);
+    background-image: url(/public/assets/ErrorBG.svg);
     background-repeat: no-repeat;
     min-height: 100vh;
     min-width: 100vw;
