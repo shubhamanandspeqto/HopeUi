@@ -46,3 +46,76 @@
     padding: 20px 5%;
     cursor: pointer;
 }
+
+.issue-new-container>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.issue-new-form>div, .issue-new-form>div>div {
+    box-sizing: border-box;
+}
+
+.issue-new-form>div>div>label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    margin-bottom: 5px;
+}
+
+.issue-new-form>div>div>input {
+    all: unset;
+    background: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.issue-new-upload-button>button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    color: #FFFFFF;
+}
+
+.issue-new-conditions>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.issue-new-create-button>button {
+    all: unset;
+    background: #3A57E8;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+#issueNewShare .modal-content {
+    border-radius: 0 !important;
+}
+
+.view-issued-shares>button {
+    all: unset;
+    background: #409900;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: center;
+}

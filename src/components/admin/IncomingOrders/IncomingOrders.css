@@ -1,0 +1,33 @@
+.incoming-orders-row {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.incoming-orders-row>h5 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.incoming-orders-row>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.incoming-orders-row>button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    width: 10%;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 10px 0;
+    cursor: pointer;
+}
