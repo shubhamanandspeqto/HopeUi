@@ -1,6 +1,39 @@
-*, body, p, div {
+*,
+body,
+p,
+div {
   margin: 0;
   padding: 0;
+
+}
+
+.text-gray {
+  color: #ADB5BD;
+}
+
+.prim {
+  background: #738AFE;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.prim:hover {
+  background: #738AFE;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.orange {
+  background: #F16A1B;
+  border-radius: 4px;
+  color: #ffffff;
+
+}
+
+.orange:hover {
+  background: #F16A1B;
+  border-radius: 4px;
+  color: #ffffff;
 
 }
 

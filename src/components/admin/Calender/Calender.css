@@ -1,0 +1,43 @@
+.special-page-calender {
+    background-image: url(/public/assets/Cover.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    height: 234px;
+    background-size: 100% 230px;
+    background-color: #E5E5E5;
+}
+
+.calender-head {
+    background: #FFFFFF;
+    box-sizing: border-box;
+    margin: 0 20px;
+    position: relative;
+    border-radius: 8px;
+}
+.calender-container{
+    background: #FFFFFF;
+    box-sizing: border-box;
+    margin: 0 20px;
+    position: relative;
+}
+.fc .fc-toolbar{
+    margin-top:15px 13px !important;
+}
+
+.calender-header {
+    width: 109px;
+    height: 35px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.calender-btn {
+    width: 87px;
+    height: 40px;
+
+    padding: 8px 24px;
+    background: #738AFE;
+    border-radius: 4px;
+}

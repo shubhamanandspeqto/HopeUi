@@ -1,0 +1,102 @@
+.signup-container {
+    min-height: 100vh;
+}
+
+.signup-form {
+    background-image: url(/public/assets/bg-logo.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: right;
+}
+
+.signup-form>h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 33px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.signup-form>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.signup-form>div {
+    padding: 5px 15%;
+}
+
+.signup-form>div label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    max-width: 100%;
+}
+
+.signup-form>div input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    height: 33px;
+    background: #FFFFFF;
+    border: 1px solid #738AFE;
+    border-radius: 4px;
+    outline: none;
+    max-width: 100%;
+}
+
+.signup-form>button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 44px;
+    background: #3A57E8;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.signup-form>button:hover {
+    background-color: #1035ee;
+}
+
+.signup-background-container {
+    background-image: url('/public/assets/login_background.png');
+}
+
+.signup-background-container>div {
+    height: 100%;
+}
+
+.signup-footer>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.signup-footer>div>img {
+    /* width: 10%; */
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 16, 41, 0.1);
+    border-radius: 64px;
+}
+
+.signup-footer>p>span {
+    color: blue;
+    cursor: pointer;
+}

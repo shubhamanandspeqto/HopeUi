@@ -1,0 +1,109 @@
+.documents-page-container {
+    background-image: url(/public/assets/new-dashboard-bg.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    background-size: 100% 215px;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+    padding: 0 0 40px 0;
+    min-height: 100vh;
+}
+
+.documents-page-container>div {
+    box-sizing: border-box;
+}
+
+.documents-page-heading>div>h4 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.documents-page-heading>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.documents-page-content {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.documents-page-img-container>img {
+    border-radius: 100%;
+    position: relative;
+    margin-top: -60px;
+}
+
+.documents-page-img-container>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+    padding: 2rem 0;
+}
+
+.documents-page-img-container>p>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.documents-page-btn-container>button:first-child {
+    all: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #738AFE;
+    cursor: pointer;
+}
+
+.documents-page-btn-container>button:last-child {
+    all: unset;
+    background: #738AFE;
+    border-radius: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.documents-page-row {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.documents-page-row>h5 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.documents-page-row>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}

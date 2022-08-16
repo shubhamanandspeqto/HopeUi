@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bedrock {
+  background: #e5e5e5;
+  height: auto;
+  padding-bottom: 40px;
+  padding-top: 10px;
+}
+.bedrock-row {
+  justify-content: space-between;
+  padding: 40px;
+  /* width: 100%; */
+  height: 116px;
+
+  background: #ffffff;
+  border-radius: 8px;
+}
+.bedrock-image img {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+.bedrock-image {
+  position: relative;
+  top: -100px;
+  left: -27px;
+}
+.bedrockProfile {
+  display: block;
+  max-width: 100%;
+  margin-top: -34px;
+}
+.bed-padding {
+  height: 212px;
+}
+.bedrock-content p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #232d42;
+  text-align: right;
+}
+.bedrock-content p span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  margin-left: 10px;
+  color: #8a92a6;
+}
+.bedrock-main {
+  display: flex;
+  flex-direction: row;
+}
+.bedrow {
+  justify-content: space-between;
+}
+.bedrock-intro-heading h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  color: #04040b;
+  text-align: left;
+}
+.bedrock-due-data p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  text-align: right;
+  color: #04040b;
+}
+.bedrock-intro-subheading h5 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 130%;
+  color: #04040b;
+}
+.bedrock-para p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #04040b;
+}
+.bedcu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  gap: 32px;
+  background: #ffffff;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+  margin-top: 50px;
+}
+.bedrock-total {
+  text-align: right;
+}
+.netrow {
+  justify-content: space-between;
+}
+.netAmount h4 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 175%;
+  color: #04040b;
+}
+.netAmountp h4 {
+  text-align: right;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 175%;
+  color: #04040b;
+}
+.bottom-p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 130%;
+  color: #04040b;
+}
+.print {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  text-align: left;
+  color: #04040b;
+  margin-top: 30px;
+}
+.bedrockButton {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px 24px;
+  width: 133px;
+  height: 45px;
+  background: #738afe;
+  box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+  border-radius: 4px;
+  color: #ffff;
+  margin: auto;
+  margin-top: 30px;
+}

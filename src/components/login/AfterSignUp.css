@@ -1,0 +1,67 @@
+.signed-up-container {
+    min-height: 100vh;
+}
+
+.signed-up-form>h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #0048B3;
+    padding: 10px;
+}
+
+.signed-up-form>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    text-align: center;
+    color: #232D42;
+}
+
+.signed-up-form>div {
+    width: 50%;
+}
+
+.signed-up-form>div>button:first-child {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 40%;
+    padding: 3px 15px;
+    height: 44px;
+    background: #738AFE;
+    color: white;
+    box-shadow: 0px 8px 16px rgba(59, 138, 255, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signed-up-form>div>button:first-child:hover {
+    background: #3e5eff;
+}
+
+.signed-up-form>div>button:last-child {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 40%;
+    padding: 3px 15px;
+    background: #DE7070;
+    color: white;
+    box-shadow: 0px 8px 16px rgba(59, 138, 255, 0.25);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signed-up-form>div>button:last-child:hover {
+    background: #e55555;
+}
