@@ -22,7 +22,7 @@ import Proofs from "./components/admin/Proofs/Proofs";
 import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
-import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
+import Maintenance from "./components/common/Maintenance";
 
 function App() {
   return (
@@ -41,7 +41,6 @@ function App() {
           <Route path="proofs" element={<Proofs />} />
           <Route path="shares" element={<Shares />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
-          <Route path="view-incoming-orders" element={<ViewIncomingOrders />} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
@@ -52,6 +51,7 @@ function App() {
 
         <Route path="*" element={<Error404 />} />
         <Route path="error" element={<Error500 />} />
+        <Route path="maintenance" element={<Maintenance />} />
       </Routes>
     </BrowserRouter>
   );
