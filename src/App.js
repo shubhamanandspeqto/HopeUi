@@ -23,12 +23,14 @@ import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
+import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
+          <Route exact path="" element={<DashboardHome />} />
           <Route path="bedrock" element={<Bedrock />} />
           <Route path="upload" element={<Upload />} />
           <Route path="Ai" element={<Ai />} />

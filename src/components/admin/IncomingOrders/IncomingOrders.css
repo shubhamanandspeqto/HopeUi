@@ -84,3 +84,25 @@
     border-radius: 4px;
     color: #FFFFFF;
 }
+
+.incoming-order-heading>span {
+    font-weight: 800;
+}
+
+.incoming-order-sub-heading>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.incoming-order-table>tr>td {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #04040B;
+}
