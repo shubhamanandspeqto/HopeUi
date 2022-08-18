@@ -319,7 +319,7 @@ export default function Widget() {
                   // changeRating={this.changeRating}
                   numberOfStars={5}
                   name="rating"
-                  size={24}
+                  size={2}
   
                 />
 
@@ -339,7 +339,7 @@ export default function Widget() {
                   <p>20% ($520)</p>
                 </div>
                 <div>
-                <button type="button" class="btn btn-danger btn-lg btn-block">Add Credit</button>
+                
 
                 </div>
               </div>
