@@ -119,3 +119,50 @@
     line-height: 130%;
     text-align: center;
 }
+
+.shares-issued-heading>span {
+    font-weight: 700;
+}
+
+.shares-issued-sub-heading>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+
+}
+
+.shares-issued-table>tr>td {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #04040B;
+}
+
+.issued-shares-edit-btn {
+    all: unset;
+    background: #CC8039;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.issued-shares-delete-btn {
+    all: unset;
+    background: #C03221;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.issued-shares-package-btn {
+    all: unset;
+    background: #3B8AFF;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}

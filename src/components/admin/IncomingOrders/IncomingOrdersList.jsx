@@ -8,14 +8,14 @@ export default function IncomingOrdersList() {
         return (
             <div className='incoming-order-view-container p-3'>
                 <div>
-                    <h4>Buyer: <span>User Name</span></h4>
+                    <h4 className='incoming-order-heading'>Buyer: <span>User Name</span></h4>
 
-                    <div className='mt-3 mb-5'>
+                    <div className='mt-3 mb-5 incoming-order-sub-heading'>
                         <p>Investor Accreditation: Verified</p>
                         <p>   Identification: Verified</p>
                     </div>
 
-                    <table className='w-100'>
+                    <table className='w-100 incoming-order-table'>
                         <tr className='incoming-order-view-table-border'>
                             <th className='pb-2 w-50'>Type</th>
                             <th className='text-end'>Quantity</th>
@@ -84,7 +84,7 @@ export default function IncomingOrdersList() {
                             <button className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
                         </div>
 
-                        <div>
+                        <div className='pb-4'>
                             <button className='incoming-orders-counteroffer-btn px-5 py-2'>Counteroffer</button>
                         </div>
                     </div>

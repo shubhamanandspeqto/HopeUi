@@ -23,12 +23,15 @@ import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import Maintenance from "./components/common/Maintenance";
+import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
+import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
+          <Route exact path="" element={<DashboardHome />} />
           <Route path="bedrock" element={<Bedrock />} />
           <Route path="upload" element={<Upload />} />
           <Route path="Ai" element={<Ai />} />
@@ -41,6 +44,7 @@ function App() {
           <Route path="proofs" element={<Proofs />} />
           <Route path="shares" element={<Shares />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
+          <Route path="widget-basic"element={<WidgetBasic/>} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
@@ -48,7 +52,6 @@ function App() {
         <Route path="/signed-up" element={<AfterSignup />} />
         <Route path="/lock-screen" element={<LockScreen />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-
         <Route path="*" element={<Error404 />} />
         <Route path="error" element={<Error500 />} />
         <Route path="maintenance" element={<Maintenance />} />
