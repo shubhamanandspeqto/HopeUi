@@ -222,6 +222,14 @@
   font-size: 16px;
 }
 
+.Createflex{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+
+
 
 .breadcrumb1-item-css {
   font-family: 'Inter';

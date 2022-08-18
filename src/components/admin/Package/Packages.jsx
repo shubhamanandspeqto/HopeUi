@@ -1,4 +1,5 @@
 import React from "react";
+import NewPackages from "./NewPackages";
 import "./Packages.css";
 
 export default function Packages() {
@@ -93,12 +94,56 @@ export default function Packages() {
               </button>
             </div>
             <div className="col-1 my-1">
-              <button className="img-margin container-button-color6">
+              <button
+                className="img-margin container-button-color6"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
                 <span>
                   <img src="/assets/plusicon1.png" />
                 </span>
                 <p>more</p>
               </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "44%",
+              maxWidth: "unset",
+            }}
+          >
+            <div class="modal-content Newpackage-Width">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body" style={{ padding: "2% 15%" }}>
+                <NewPackages />
+              </div>
+              <div class="modal-footer Createflex">
+                <button
+                  type="button"
+                  class="btn btn-primary "
+                  style={{ width: "11vw" }}
+                >
+                  <p>Create</p>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -165,7 +210,10 @@ export default function Packages() {
             <div className="card heightCard1">
               <div className="card-body">
                 <div className="img-margin1">
-                  <nav className="Packages-breadcrumb-container" aria-label="breadcrumb">
+                  <nav
+                    className="Packages-breadcrumb-container"
+                    aria-label="breadcrumb"
+                  >
                     <ol className="breadcrumb m-0 p-0">
                       <li
                         class="breadcrumb-item active breadcrumb1-item-css"
@@ -210,7 +258,10 @@ export default function Packages() {
             <div className="card ">
               <div className="card-body heightCard2">
                 <div className="img-margin1">
-                  <nav className="Packages-breadcrumb-container" aria-label="breadcrumb">
+                  <nav
+                    className="Packages-breadcrumb-container"
+                    aria-label="breadcrumb"
+                  >
                     <ol className="breadcrumb m-0 p-0">
                       <li
                         className="breadcrumb-item active breadcrumb1-item-css"
