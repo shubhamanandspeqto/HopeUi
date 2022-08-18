@@ -9,22 +9,25 @@ import Chart from "react-apexcharts";
 let barChartData = {
 
     series: [{
-        name: 'PRODUCT A',
+        name: '',
         data: [44, 55, 41, 67, 22, 43]
     }, {
-        name: 'PRODUCT B',
+        name: '',
         data: [13, 23, 20, 8, 13, 27]
     }],
     options: {
+        stroke: {
+            width: 1
+        },
         chart: {
             type: 'bar',
             height: 350,
             stacked: true,
             toolbar: {
-                show: true
+                show: false
             },
             zoom: {
-                enabled: true
+                enabled: false
             }
         },
         responsive: [{
@@ -59,7 +62,8 @@ let barChartData = {
         },
         legend: {
             position: 'right',
-            offsetY: 40
+            offsetY: 40,
+            show: false
         },
         fill: {
             opacity: 1
@@ -94,8 +98,8 @@ let donutData = {
                     size: "50%",
                     background: "transparent",
                     image: undefined,
-                    imageWidth: 150,
-                    imageHeight: 150,
+                    imageWidth: 200,
+                    imageHeight: 200,
                     imageOffsetX: 0,
                     imageOffsetY: 0,
                     imageClipped: true,
@@ -128,14 +132,14 @@ let donutData = {
                     show: true,
                     name: {
                         show: true,
-                        fontSize: "22px",
+                        fontSize: "10px",
                         fontFamily: undefined,
                         color: undefined,
-                        offsetY: -10
+                        offsetY: -10,
                     },
                     value: {
                         show: true,
-                        fontSize: "16px",
+                        fontSize: "10px",
                         fontFamily: undefined,
                         color: undefined,
                         offsetY: 16,
@@ -372,7 +376,7 @@ export default function DashboardHome() {
                     <div className='row m-0 p-0 py-4'>
                         <div className='col-md-5 p-0 m-0'>
                             <div className='w-100 p-2 dashboard-donut-chart-container'>
-                                <div className='w-100'>
+                                <div className='w-100 d-flex flex-column'>
                                     <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center'>
                                         <div>
                                             <h6 className='m-0 p-0'>Earnings</h6>
@@ -392,7 +396,7 @@ export default function DashboardHome() {
                                         </div>
                                     </div>
 
-                                    <div className='w-100'>
+                                    <div className='w-100 dashboard-donut-chart-div'>
                                         <Chart
                                             options={donutData.options}
                                             series={donutData.series}
@@ -404,10 +408,79 @@ export default function DashboardHome() {
                             </div>
                         </div>
 
-                        <div className='col-md-7 px-3'>
+                        <div className='col-md-7 ps-3 p-0'>
 
-                            <div className='w-100 dashboard-bar-graph'>
-                                <Chart options={barChartData.options} series={barChartData.series} type="bar" />
+                            <div className='dashboard-bar-graph'>
+
+                                <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center p-2'>
+                                    <div>
+                                        <h6 className='m-0 p-0'>Earnings</h6>
+                                    </div>
+                                    <div>
+                                        <div className="dropdown">
+                                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                This Week
+                                            </button>
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a className="dropdown-item" href="#">Action</a></li>
+                                                <li><a className="dropdown-item" href="#">Another action</a></li>
+                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div className='w-100 '>
+                                    <Chart options={barChartData.options} series={barChartData.series} type="bar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='py-4'>
+                        <div className='Enterprise-Client p-3'>
+                            <div className='d-flex justify-content-between enterprise-client-heading align-items-center'>
+                                <div>
+                                    <h6 className='p-0 m-0'>Enterprise Clients</h6>
+                                    <p className='d-flex gap-2 align-items-center'>
+                                        <img src="/assets/blue-tick-small.png" alt="" />
+                                        15 New Acquired ths month
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="/assets/DownArrow.png" alt="" />
+                                </div>
+                            </div>
+
+                            <div className='enterprise-client-body w-100 pt-3'>
+                                <table className='w-100'>
+                                    <tr>
+                                        <th className=''>COMPANIES</th>
+                                        <th className='text-end'>CONTACTS</th>
+                                        <th className='text-end'>ORDER</th>
+                                        <th className='text-end'>COMPLETION</th>
+                                    </tr>
+                                    <tr>
+                                        <td className='d-flex gap-2 py-2 dashboard-etnerprise-row-container align-items-center'>
+                                            <p className='dashboard-etnerprise-img-container'>
+                                                <img src="/assets/Cone-min.svg" alt="" />
+                                            </p>
+                                            <span>Addidas Sportwear</span>
+                                        </td>
+                                        <td className='dashboard-contact-class'>
+                                            <ul className='d-flex justify-content-end'>
+                                                <li className='p-2'>SP</li>
+                                                <li className='p-2'>PP</li>
+                                                <li className='p-2'>MM</li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <p className='text-end'>$14,000</p>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
