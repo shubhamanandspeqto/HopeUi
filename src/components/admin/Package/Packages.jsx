@@ -200,7 +200,7 @@ export default function Packages() {
                     <img src="/assets/PlusIcon.png" alt="" />
                   </div>
                 </div>
-                <div className="conatiner">
+                <div className="conatiner my-4">
                   <button className="exportBtn">Export</button>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function Packages() {
                     <img src="/assets/PlusIcon.png" alt="" />
                   </div>
                 </div>
-                <div className="conatiner">
+                <div className="conatiner my-3">
                   <button className="exportBtn">Export</button>
                 </div>
               </div>
