@@ -22,13 +22,16 @@ import Proofs from "./components/admin/Proofs/Proofs";
 import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
 import Packages from "./components/admin/Package/Packages";
-
+import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
+import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
+import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/dashboard" element={<Dashboard />}>
+          <Route exact path="" element={<DashboardHome />} />
           <Route path="bedrock" element={<Bedrock />} />
           <Route path="upload" element={<Upload />} />
           <Route path="Ai" element={<Ai />} />
@@ -41,8 +44,8 @@ function App() {
           <Route path="proofs" element={<Proofs />} />
           <Route path="shares" element={<Shares />} />
           <Route path="package" element={<Packages />} />
-          
-          
+          <Route path="incoming-orders" element={<IncomingOrders />} />
+          <Route path="view-incoming-orders" element={<ViewIncomingOrders />} />
         </Route>
 
         <Route exact path="/" element={<Login />} />

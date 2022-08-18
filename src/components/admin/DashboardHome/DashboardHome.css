@@ -1,0 +1,62 @@
+.dashboard-card {
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 30px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.dashboard-card>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.dashboard-card>div>h6 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.dashboard-card-icon {
+    position: absolute;
+    margin-left: 14px;
+}
+
+.dashboard-area-chart .apexcharts-svg.apexcharts-zoomable.hovering-zoom>foreignObject {
+    height: 20px;
+}
+
+.dashboard-area-chart .apexcharts-svg.apexcharts-zoomable.hovering-zoom>foreignObject span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6 !important;
+}
+
+.dashboard-area-chart {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.dashboard-area-chart .dropdown>button, .dashboard-donut-chart .dropdown>button {
+    all: unset;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.dashboard-donut-chart-container {
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
