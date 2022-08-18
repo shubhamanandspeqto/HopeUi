@@ -24,6 +24,7 @@ import Error500 from "./components/common/Error500";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
 import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
+import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="shares" element={<Shares />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
           <Route path="view-incoming-orders" element={<ViewIncomingOrders />} />
+          <Route path="widget-chart" element={<WidgetChart />} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
