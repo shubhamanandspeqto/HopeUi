@@ -21,6 +21,8 @@ import MyDocumentsSelected from "./components/admin/DocumentsSelected/MyDocument
 import Proofs from "./components/admin/Proofs/Proofs";
 import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
+import BuyOrderAccepted from "./components/admin/BuyOrder/BuyOrderAccepted";
+import Vector from "./components/admin/Map/Vector";
 
 function App() {
   return (
@@ -38,6 +40,9 @@ function App() {
           <Route path="documents" element={<MyDocumentsSelected />} />
           <Route path="proofs" element={<Proofs />} />
           <Route path="shares" element={<Shares />} />
+          <Route path="order" element={<BuyOrderAccepted />} />
+          <Route path="map" element={<Vector/>} />
+
         </Route>
 
         <Route exact path="/" element={<Login />} />
