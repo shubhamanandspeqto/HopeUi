@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
-import IssueNew from './IssueNew'
 
-export default function IssuedShares() {
-    const [rowId, setRowId] = useState();
+export default function IncomingOrdersList() {
+
+    const [rowID, setRowID] = useState()
 
     const table = () => {
         return (
             <div className='incoming-order-view-container p-3'>
-                <div >
-                    <h4 className='shares-issued-heading'>Shares Issued: <span>1/1/22</span></h4>
+                <div>
+                    <h4 className='incoming-order-heading'>Buyer: <span>User Name</span></h4>
 
-                    <div className='mt-3 mb-5 shares-issued-sub-heading'>
+                    <div className='mt-3 mb-5 incoming-order-sub-heading'>
                         <p>Investor Accreditation: Verified</p>
-                        <p>Identification: Verified</p>
-                        <p>Seller Identification: Verified Seller</p>
+                        <p>   Identification: Verified</p>
                     </div>
 
-                    <table className='w-100 shares-issued-table'>
+                    <table className='w-100 incoming-order-table'>
                         <tr className='incoming-order-view-table-border'>
                             <th className='pb-2 w-50'>Type</th>
                             <th className='text-end'>Quantity</th>
@@ -72,64 +71,77 @@ export default function IssuedShares() {
                         </tr>
                     </table>
 
-                    <div className='d-flex flex-column gap-4 justify-content-center align-items-center my-5'>
+                    <p className='mb-5'>Offer expires in 15 days. Thank you for your business.</p>
+
+                    <div className='d-flex flex-column gap-3 incoming-orders-first-buttons align-items-center mb-5'>
+                        <button>View Deal Documents</button>
+                        <button>Verify On-Chain</button>
+                    </div>
+
+                    <div className='d-flex flex-column gap-3 justify-content-center align-items-center'>
                         <div className='d-flex gap-3'>
-                            <button className='issued-shares-edit-btn px-5 py-2'>Edit</button>
-                            <button className='issued-shares-delete-btn px-3 py-2'>Delete/Revoke</button>
+                            <button className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
+                            <button className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
                         </div>
 
                         <div className='pb-4'>
-                            <button className='issued-shares-package-btn px-5 py-2'>Package</button>
+                            <button className='incoming-orders-counteroffer-btn px-5 py-2'>Counteroffer</button>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-
     return (
         <div className='m-3 mt-5 d-flex flex-column gap-4'>
 
-            <div>
+            <div className='d-flex flex-column'>
                 <div className='issued-shares-row d-flex justify-content-between align-items-center'>
-                    <h5 className='px-5 py-4 w-50'>SpaceX</h5>
-                    <p className='mx-5 px-5 w-50'>- created 01/20/2022</p>
-
+                    <h5 className='px-5 py-4 w-50'>Buy Order #1</h5>
+                    <p className='mx-5 px-5 w-50'>- received 01/20/2022</p>
                     {
-                        rowId === 1 ?
-                            <button onClick={() => { setRowId() }} className='me-5 px-3'>Minimize</button> :
-                            <button onClick={() => { setRowId(1) }} className='me-5 px-3'>View</button>
+                        rowID === 1 ? <button className='me-5 px-3' onClick={() => { setRowID() }}>
+                            Minimize
+                        </button> :
+                            <button onClick={() => { setRowID(1) }} className='me-5 px-3'>View</button>
                     }
-
                 </div>
                 {
-                    rowId === 1 && table()
+                    rowID === 1 && table()
                 }
             </div>
 
-            <div className='issue-new-share-btn d-flex justify-content-center mt-5' type="button" data-bs-toggle="modal"
-                data-bs-target="#issueNewShare">
-                <button>+ Issue New</button>
-            </div>
-
-            <div className="modal fade" id="issueNewShare" tabIndex={-1} aria-labelledby="issueNewShareLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        {/* <div className="modal-header">
-                            <h5 className="modal-title" id="issueNewShareLabel">Modal title</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
-                        </div> */}
-                        <div className="modal-body">
-                            <IssueNew />
-                        </div>
-                        {/* <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
-                        </div> */}
-                    </div>
+            <div className='d-flex flex-column'>
+                <div className='incoming-orders-row d-flex justify-content-between align-items-center'>
+                    <h5 className='px-5 py-4 w-50'>Buy Order #2</h5>
+                    <p className='mx-5 px-5 w-50'>- received 01/20/2022</p>
+                    {
+                        rowID === 2 ? <button className='me-5 px-3' onClick={() => { setRowID() }}>
+                            Minimize
+                        </button> :
+                            <button onClick={() => { setRowID(2) }} className='me-5 px-3'>View</button>
+                    }
                 </div>
+                {
+                    rowID === 2 && table()
+                }
             </div>
 
+            <div className='d-flex flex-column'>
+                <div className='incoming-orders-row d-flex justify-content-between align-items-center'>
+                    <h5 className='px-5 py-4 w-50'>Buy Order #3</h5>
+                    <p className='mx-5 px-5 w-50'>- received 01/20/2022</p>
+                    {
+                        rowID === 3 ? <button className='me-5 px-3' onClick={() => { setRowID() }}>
+                            Minimize
+                        </button> :
+                            <button onClick={() => { setRowID(3) }} className='me-5 px-3'>View</button>
+                    }
+                </div>
+                {
+                    rowID === 3 && table()
+                }
+            </div>
         </div>
     )
 }
