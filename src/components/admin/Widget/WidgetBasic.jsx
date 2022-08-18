@@ -4,14 +4,6 @@ import Progressbar from "../../common/Progress_bar";
 import StarRatings from "react-star-ratings";
 
 export default function Widget() {
-  // class Foo extends Component {
-  //   changeRating( newRating, name ) {
-  //     this.setState({
-  //       rating: newRating
-  //     });
-  //   }
-  // }
-
   return (
     <div className="widget-basic-page-container">
       <div className="d-flex justify-content-between widget-basic-page-heading py-5 px-4">
@@ -89,6 +81,7 @@ export default function Widget() {
             <Progressbar bgcolor="#17904B" progress="70" height={10} />
           </div>
         </div>
+
         <div className="widget-card col-md-3 ">
           <div className="widget-basic-body">
             <p className="widget-heading-para d-flex justify-content-center text-gray">
@@ -105,6 +98,7 @@ export default function Widget() {
             <Progressbar bgcolor="#344ED1" progress="70" height={10} />
           </div>
         </div>
+
         <div className="widget-medical-card col-md-3 py-5">
           <div className="widget-medical-body">
             <div className="d-flex justify-content-between">
@@ -122,6 +116,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-medical-card col-md-3 py-5">
           <div className="widget-medical-body-nurses">
             <div className="d-flex justify-content-between">
@@ -140,6 +135,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-medical-card col-md-3 py-5">
           <div className="widget-medical-body-patients">
             <div className="d-flex justify-content-between">
@@ -157,6 +153,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-medical-card col-md-3 py-5">
           <div className="widget-medical-body-pharmastics">
             <div className="d-flex justify-content-between">
@@ -174,6 +171,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-card col-md-3 ">
           <div className="widget-basic-body">
             <div className="d-flex justify-content-between">
@@ -187,6 +185,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-card col-md-3 ">
           <div className="widget-basic-body">
             <div className="d-flex justify-content-between">
@@ -200,6 +199,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-card col-md-3 ">
           <div className="widget-basic-body">
             <div className="d-flex justify-content-between">
@@ -213,6 +213,7 @@ export default function Widget() {
             </div>
           </div>
         </div>
+
         <div className="widget-card col-md-3 ">
           <div className="widget-basic-body">
             <div className="d-flex justify-content-between">
@@ -316,34 +317,177 @@ export default function Widget() {
                 <StarRatings
                   rating={5}
                   starRatedColor="#FAA938"
-                  // changeRating={this.changeRating}
-                  numberOfStars={5}
+                  numberOfStars={4}
                   name="rating"
                   size={2}
-  
                 />
-
                 <p>4.5/5</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-3  row m-0 p-0">
-            <div className="widget-working-credit-card col-md-4 ">
-              <div className="widget-basic-order-body">
-                <div>
+          <div className="row">
+            <div className="mt-3  row m-0 p-0">
+              <div className="widget-working-credit-card col-md-4 ">
+                <div className="widget-basic-order-credit-body ">
                   <h5>$3450</h5>
-                </div>
-                <div className=" text-gray">
-                  <p>Young Current Balance</p>
-                  <p>20% ($520)</p>
-                </div>
-                <div>
-                
+                  <div className=" text-gray">
+                    <p className="grey-1">Young Current Balance</p>
+                    <p className="grey-2">20% ($520)</p>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-lg btn-block w-100 mb-4"
+                    >
+                      Add Credit
+                    </button>
+                  </div>
+                  <div className="progres-details">
+                    <div className="pro-1 mb-3">
+                      <p className="widget-para d-flex justify-content-start text-gray mb-2">
+                        Insurance
+                      </p>
+                      <Progressbar
+                        bgcolor="#068B92"
+                        progress="70"
+                        height={10}
+                      />
+                    </div>
 
+                    <div className="pro-2 mb-3">
+                      <p className="widget-para d-flex justify-content-start text-gray mb-2">
+                        Savings
+                      </p>
+                      <Progressbar
+                        bgcolor="#344ED1"
+                        progress="70"
+                        height={10}
+                      />
+                    </div>
+                    <div className="pro-3 mb-3">
+                      <p className="widget-para d-flex justify-content-start text-gray mb-2">
+                        Investement
+                      </p>
+                      <Progressbar
+                        bgcolor="#068B92"
+                        progress="70"
+                        height={10}
+                      />
+                    </div>
+
+                    <div className="pro-4 mb-3">
+                      <p className="widget-para d-flex justify-content-start text-gray mb-2">
+                        Progress
+                      </p>
+                      <Progressbar
+                        bgcolor="#17904B"
+                        progress="70"
+                        height={10}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div className="col-md-2">
+                <div className="total-customers-card ">
+                  {/* <div className="total-cusmers-card col-md-6"> */}
+                  <div>
+                    <img src="/assets/totalcustomer.png" />
+                  </div>
+                  <div className="total-customerss">
+                    <p className="d-flex justify-content-between color-grey gap-3">
+                      customers
+                    </p>
+                    <h4>60,586</h4>
+                  </div>
+                  <div className="customer-control">
+                    <button type="button" className="btn btn-primary">
+                      <img src="assets/Arrow -Button.png" alt="" />
+                      3.48%
+                    </button>
+                  </div>
+                  {/* </div> */}
+                </div>
+                <div className="total-customers-card mt-5">
+                  {/* <div className="total-cusmers-card col-md-6"> */}
+                  <div>
+                    <img src="/assets/Plus.png" />
+                  </div>
+                  <div className="total-customerss">
+                    <p className="d-flex justify-content-between color-grey gap-3">
+                      customers
+                    </p>
+                    <h4>60,586</h4>
+                  </div>
+                  <div className="customer-control">
+                    <button type="button" className="btn btn-primary">
+                      <img src="assets/Arrow -Button.png" alt="" />
+                      3.48%
+                    </button>
+                  </div>
+                  {/* </div> */}
+                </div>
+              </div>
+              <div className="col-md-2">
+                <div className="total-customers-card ">
+                  {/* <div className="total-cusmers-card col-md-6"> */}
+                  <div>
+                    <img src="/assets/calculator.png" />
+                  </div>
+                  <div className="total-customerss">
+                    <p className="d-flex justify-content-between color-grey gap-3">
+                      customers
+                    </p>
+                    <h4>60,586</h4>
+                  </div>
+                  <div className="customer-control">
+                    <button type="button" className="btn btn-primary">
+                      <img src="assets/Arrow -Button.png" alt="" />
+                      3.48%
+                    </button>
+                  </div>
+                  {/* </div> */}
+                </div>
+                <div className="total-customers-card mt-5">
+                  {/* <div className="total-cusmers-card col-md-6"> */}
+                  <div>
+                    <img src="/assets/minus.png" />
+                  </div>
+                  <div className="total-customerss">
+                    <p className="d-flex justify-content-between color-grey gap-3">
+                      customers
+                    </p>
+                    <h4>60,586</h4>
+                  </div>
+                  <div className="customer-control">
+                    <button type="button" className="btn btn-primary">
+                      <img src="assets/Arrow -Button.png" alt="" />
+                      3.48%
+                    </button>
+                  </div>
+                  {/* </div> */}
+                </div>
+              </div>
+              <div className="col-md-4">
+              <div className="total-assets ">
+                <div>
+                  <h3>Assets</h3>
+                </div>
+                
+              </div>
+
+              </div>
+
+              <div className="col-md-4">
+              <div className="total-assets ">
+                
+              </div>
+
+              </div>
             </div>
+
+            <div className="mt-3 row m-0p-0"></div>
           </div>
         </div>
       </div>
