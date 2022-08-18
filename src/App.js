@@ -21,10 +21,14 @@ import MyDocumentsSelected from "./components/admin/DocumentsSelected/MyDocument
 import Proofs from "./components/admin/Proofs/Proofs";
 import Shares from "./components/admin/Shares/Shares";
 import Error500 from "./components/common/Error500";
+import BuyOrderAccepted from "./components/admin/BuyOrder/BuyOrderAccepted";
+import Vector from "./components/admin/Map/Vector";
 import Packages from "./components/admin/Package/Packages";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
-import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
+import Maintenance from "./components/common/Maintenance";
 import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
+import WidgetBasic from "./components/admin/Widget/WidgetBasic";
+
 
 function App() {
   return (
@@ -43,9 +47,11 @@ function App() {
           <Route path="documents" element={<MyDocumentsSelected />} />
           <Route path="proofs" element={<Proofs />} />
           <Route path="shares" element={<Shares />} />
+          <Route path="order" element={<BuyOrderAccepted />} />
+          <Route path="map" element={<Vector />} />
           <Route path="package" element={<Packages />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
-          <Route path="view-incoming-orders" element={<ViewIncomingOrders />} />
+          <Route path="widget-basic"element={<WidgetBasic/>} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
@@ -53,9 +59,9 @@ function App() {
         <Route path="/signed-up" element={<AfterSignup />} />
         <Route path="/lock-screen" element={<LockScreen />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-
         <Route path="*" element={<Error404 />} />
         <Route path="error" element={<Error500 />} />
+        <Route path="maintenance" element={<Maintenance />} />
       </Routes>
     </BrowserRouter>
   );

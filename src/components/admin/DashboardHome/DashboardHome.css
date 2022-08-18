@@ -59,4 +59,242 @@
     background-color: #FFFFFF;
     box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
     border-radius: 8px;
+    height: 100%;
+}
+
+.dashboard-donut-chart-container>div {
+    height: 100%;
+}
+
+.dashboard-bar-graph {
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.dashboard-donut-chart-div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Enterprise-Client {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.enterprise-client-heading>div>h6 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.enterprise-client-heading>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.dashboard-etnerprise-row-container span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #232D42;
+
+}
+
+.dashboard-etnerprise-img-container {
+    background: #C4CCF8;
+    border-radius: 4px;
+}
+
+.dashboard-contact-class>ul {
+    all: unset;
+}
+
+.dashboard-contact-class li:first-child {
+    position: initial;
+}
+
+.dashboard-contact-class li {
+    all: unset;
+    border: 2px solid #738AFE;
+    border-radius: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 175%;
+    color: #738AFE;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: -10px;
+    background-color: #FFFFFF;
+}
+
+.enterprise-client-body-header {
+    background-color: #F5F6FA;
+}
+
+.enterprise-client-body-header th {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.enterprise-table-border {
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.alternate-color {
+    background-color: #FBFCFC;
+}
+
+.dashboard-card-container {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-image: url(/public/assets/debit-card-bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dashboard-credit-card {
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(64px);
+    border-radius: 24px;
+    color: #FFFFFF;
+}
+
+.dashboard-credit-card-header h4 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.dashboard-credit-card p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.dashboard-below-card {
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.dashboard-below-card-header p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #232D42;
+}
+
+.dashboard-below-card-header span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: #8A92A6;
+}
+
+.dashboard-below-card-body>div>h4 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+}
+
+.dashboard-below-card-body>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #08B1BA;
+}
+
+.dashboard-below-card-body>p {
+    background: #1AA053;
+    border-radius: 35px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.dashboard-view-button {
+    all: unset;
+    background: #738AFE;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.dashboard-analytics-button {
+    all: unset;
+    background: #08B1BA;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.dashboard-website-visitors {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 30px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.dashboard-website-visitors p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.dashboard-activity-overview {
+    background: #FFFFFF;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+}
+
+.dashboard-activity-overview-header>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
 }

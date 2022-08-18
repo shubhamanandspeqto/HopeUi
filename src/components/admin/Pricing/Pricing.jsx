@@ -3,7 +3,6 @@ import "./Pricing.css"
 export default function Pricing() {
     return (
         <div className='special-page-pricing pb-3'>
-
             <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
                 <div className='d-flex flex-column'>
                     <h2>Hello Devs !</h2>
