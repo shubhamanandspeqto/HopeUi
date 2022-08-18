@@ -1,4 +1,4 @@
-.widget-basic-page-container{
+.widget-basic-page-container {
     background-image: url(/public/assets/new-dashboard-bg.png);
     background-repeat: no-repeat;
     background-position-y: top;
@@ -67,13 +67,121 @@
 }
 
 
-.arrowpicture1{
+.arrowpicture1 {
     background: rgba(192, 50, 33, 0.2);
     border-radius: 8px;
 }
 
 .arrowpicture {
     background: rgba(7, 154, 162, 0.2);
-border-radius: 8px;
+    border-radius: 8px;
 }
 
+.arrowpicture2 {
+    background: rgba(26, 160, 83, 0.2);
+    border-radius: 8px;
+}
+
+.arrow-blue {
+    background: rgba(58, 87, 232, 0.2);
+    border-radius: 8px;
+}
+
+
+
+.widget-medical-body {
+    background: rgba(6, 139, 146, 0.2);
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+}
+
+.widget-medical-body-nurses{
+    background:  rgba(217, 95, 24, 0.2);
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+
+}
+
+.widget-medical-body-patients{
+    background:  rgba(173, 45, 30, 0.2);
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+}
+
+.widget-medical-body-pharmastics{
+    background: rgba(52, 78, 209, 0.2);
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+
+}
+
+.widget-basic-working-time-body {
+    background: #ffffff;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+    border-bottom: 5px solid #738AFE;
+}
+
+.widget-basic-weekend-body{
+    background: #ffffff;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+    border-bottom: 5px solid #08B1BA;
+
+}
+
+.widget-basic-issue-body{
+    background: #ffffff;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+    border-bottom: 5px solid #C03221;
+}
+
+.widget-basic-income-body{
+    background: #ffffff;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 24px;
+    border-bottom: 5px solid #F16A1B;
+
+}
+
+.widget-basic-order-body{
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.earnigs{
+    color: green;
+}
+.reviews>p{
+    color: #079AA2;
+}
