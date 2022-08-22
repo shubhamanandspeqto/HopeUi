@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './DashboardHome.css'
 
 import { CircularProgressbar } from "react-circular-progressbar";
@@ -231,6 +231,52 @@ let state = {
 };
 
 export default function DashboardHome() {
+    // let darkTheme = true
+
+    let LightMode = () =>{
+        let elements = document.getElementsByClassName('dark-mode')
+        let Body = document.getElementsByClassName('extra-dark')
+        let enterprise = document.getElementsByClassName('dark-background')
+        
+        for(let i = 0 ; i<elements.length; i++){
+            console.log(elements[i].classList);
+            elements[i].classList.remove("dark-mode-dashboard-card")
+            // elements[i].classList.remove("dashboard-card")
+        }
+
+        for(let i = 0; i<Body.length; i++){
+            Body[i].classList.remove("Extra-dark")
+        }
+        for(let i = 0; i<enterprise.length; i++){
+            enterprise[i].classList.remove("color-mode-round-ul")
+        }
+    
+    }
+    
+
+    let themeChange = () =>{
+        let elements = document.getElementsByClassName('dark-mode')
+        let Body = document.getElementsByClassName('extra-dark')
+        let enterprise = document.getElementsByClassName('dark-background')
+        
+        
+        console.log(elements);
+        console.log(elements[0]);
+        for(let i = 0 ; i<elements.length; i++){
+            console.log(elements[i].classList);
+            elements[i].classList.add("dark-mode-dashboard-card")
+            // elements[i].classList.remove("dashboard-card")
+        }
+
+        for(let i = 0; i<Body.length; i++){
+            Body[i].classList.add("Extra-dark")
+        }
+        for(let i = 0; i<enterprise.length; i++){
+            enterprise[i].classList.add("color-mode-round-ul")
+        }
+
+    }
+    
     return (
         <div className='special-page-container'>
 
@@ -247,11 +293,11 @@ export default function DashboardHome() {
                 </div>
             </div>
 
-            <div className='p-3'>
+            <div className='p-3 extra-dark'>
                 <div className='d-flex w-100 row m-0 p-0'>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div id='first-card' className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -266,7 +312,7 @@ export default function DashboardHome() {
                     </div>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div className='dashboard-card d-flex dark-mode justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -281,7 +327,7 @@ export default function DashboardHome() {
                     </div>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -296,7 +342,7 @@ export default function DashboardHome() {
                     </div>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -311,7 +357,7 @@ export default function DashboardHome() {
                     </div>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -326,7 +372,7 @@ export default function DashboardHome() {
                     </div>
 
                     <div className='col-md-2'>
-                        <div className='dashboard-card d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
                             <div className='d-flex align-items-center' style={{ width: '50px' }}>
                                 <CircularProgressbar value={66} />
                                 <div className='dashboard-card-icon'>
@@ -348,8 +394,8 @@ export default function DashboardHome() {
 
                     <div className='col-md-8'>
 
-                        <div className='w-100 p-3 dashboard-area-chart'>
-                            <div className='d-flex justify-content-between'>
+                        <div className='w-100 p-3  dashboard-area-chart dark-mode'>
+                            <div className='d-flex  justify-content-between'>
                                 <div>
                                     <h6>$855.8K</h6>
                                     <p>Gross Sales</p>
@@ -374,13 +420,14 @@ export default function DashboardHome() {
                                 type="area"
                                 width={'100%'}
                                 height="100%"
+                                
                             />
                         </div>
 
 
                         <div className='row m-0 p-0 py-4'>
-                            <div className='col-md-5 p-0 m-0'>
-                                <div className='w-100 p-2 dashboard-donut-chart-container'>
+                            <div className='col-md-5 dark-p-0 m-0'>
+                                <div className='w-100 p-2 dashboard-donut-chart-container dark-mode'>
                                     <div className='w-100 d-flex flex-column'>
                                         <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center'>
                                             <div>
@@ -413,9 +460,9 @@ export default function DashboardHome() {
                                 </div>
                             </div>
 
-                            <div className='col-md-7 ps-3 p-0'>
+                            <div className='col-md-7  ps-3 p-0'>
 
-                                <div className='dashboard-bar-graph'>
+                                <div className='dashboard-bar-graph dark-mode '>
 
                                     <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center p-2'>
                                         <div>
@@ -437,7 +484,7 @@ export default function DashboardHome() {
                                     </div>
 
 
-                                    <div className='w-100 '>
+                                    <div className='w-100  '>
                                         <Chart options={barChartData.options} series={barChartData.series} type="bar" />
                                     </div>
                                 </div>
@@ -446,7 +493,7 @@ export default function DashboardHome() {
 
                         <div className='py-4'>
                             <div className='Enterprise-Client'>
-                                <div className='d-flex justify-content-between enterprise-client-heading align-items-center p-3'>
+                                <div className='d-flex justify-content-between enterprise-client-heading dark-mode align-items-center p-3'>
                                     <div>
                                         <h6 className='p-0 m-0'>Enterprise Clients</h6>
                                         <p className='d-flex gap-2 align-items-center'>
@@ -459,17 +506,17 @@ export default function DashboardHome() {
                                     </div>
                                 </div>
 
-                                <div className='enterprise-client-body w-100 pt-3'>
+                                <div className='enterprise-client-body w-100 pt-3 extra-dark'>
                                     <table className='w-100'>
 
-                                        <tr className='enterprise-client-body-header'>
+                                        <tr className='enterprise-client-body-header extra-dark'>
                                             <th className='ps-2'>COMPANIES</th>
                                             <th className='ps-4'>CONTACTS</th>
                                             <th className='ps-4'>ORDER</th>
                                             <th className='text-end pe-2'>COMPLETION</th>
                                         </tr>
 
-                                        <tr className='enterprise-table-border'>
+                                        <tr className='enterprise-table-border dark-mode'>
                                             <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
                                                 <p className='dashboard-etnerprise-img-container'>
                                                     <img src="/assets/Cone-min.svg" alt="" />
@@ -478,10 +525,10 @@ export default function DashboardHome() {
                                             </td>
                                             <td className='dashboard-contact-class'>
                                                 <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2'>SP</li>
-                                                        <li className='p-2'>PP</li>
-                                                        <li className='p-2'>MM</li>
+                                                    <ul className='d-flex w-100 mb-0 '>
+                                                        <li className='p-2 dark-background'>SP</li>
+                                                        <li className='p-2 dark-background'>PP</li>
+                                                        <li className='p-2 dark-background'>MM</li>
                                                     </ul>
                                                 </p>
                                             </td>
@@ -494,7 +541,7 @@ export default function DashboardHome() {
                                             </td>
                                         </tr>
 
-                                        <tr className='enterprise-table-border alternate-color'>
+                                        <tr className='enterprise-table-border alternate-color dark-mode'>
                                             <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
                                                 <p className='dashboard-etnerprise-img-container'>
                                                     <img src="/assets/Sphere-min.svg" alt="" />
@@ -504,8 +551,8 @@ export default function DashboardHome() {
                                             <td className='dashboard-contact-class'>
                                                 <p className='d-flex justify-content-end'>
                                                     <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2'>SP</li>
-                                                        <li className='p-2'>MM</li>
+                                                        <li className='p-2 dark-background'>SP</li>
+                                                        <li className='p-2 dark-background'>MM</li>
                                                     </ul>
                                                 </p>
                                             </td>
@@ -518,7 +565,7 @@ export default function DashboardHome() {
                                             </td>
                                         </tr>
 
-                                        <tr className='enterprise-table-border alternate-color'>
+                                        <tr className='enterprise-table-border alternate-color dark-mode'>
                                             <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
                                                 <p className='dashboard-etnerprise-img-container'>
                                                     <img src="/assets/Cube-min.svg" alt="" />
@@ -528,8 +575,8 @@ export default function DashboardHome() {
                                             <td className='dashboard-contact-class'>
                                                 <p className='d-flex justify-content-end'>
                                                     <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2'>PP</li>
-                                                        <li className='p-2'>TP</li>
+                                                        <li className='p-2 dark-background'>PP</li>
+                                                        <li className='p-2 dark-background'>TP</li>
                                                     </ul>
                                                 </p>
                                             </td>
@@ -542,7 +589,7 @@ export default function DashboardHome() {
                                             </td>
                                         </tr>
 
-                                        <tr className='enterprise-table-border alternate-color'>
+                                        <tr className='enterprise-table-border alternate-color dark-mode'>
                                             <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
                                                 <p className='dashboard-etnerprise-img-container'>
                                                     <img src="/assets/Cube-min.svg" alt="" />
@@ -552,10 +599,10 @@ export default function DashboardHome() {
                                             <td className='dashboard-contact-class'>
                                                 <p className='d-flex justify-content-end'>
                                                     <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2'>SP</li>
-                                                        <li className='p-2'>PP</li>
-                                                        <li className='p-2'>MM</li>
-                                                        <li className='p-2'>TP</li>
+                                                        <li className='p-2 dark-background'>SP</li>
+                                                        <li className='p-2 dark-background'>PP</li>
+                                                        <li className='p-2 dark-background'>MM</li>
+                                                        <li className='p-2 dark-background'>TP</li>
                                                     </ul>
                                                 </p>
                                             </td>
@@ -568,7 +615,7 @@ export default function DashboardHome() {
                                             </td>
                                         </tr>
 
-                                        <tr className='enterprise-table-border alternate-color'>
+                                        <tr className='enterprise-table-border alternate-color dark-mode'>
                                             <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
                                                 <p className='dashboard-etnerprise-img-container'>
                                                     <img src="/assets/Cube-min.svg" alt="" />
@@ -578,7 +625,7 @@ export default function DashboardHome() {
                                             <td className='dashboard-contact-class'>
                                                 <p className='d-flex justify-content-end'>
                                                     <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2'>MM</li>
+                                                        <li className='p-2 dark-background'>MM</li>
                                                     </ul>
                                                 </p>
                                             </td>
@@ -599,8 +646,8 @@ export default function DashboardHome() {
 
                     <div className='col-md-4'>
                         <div className=''>
-                            <div className='dashboard-card-container p-4'>
-                                <div className='dashboard-credit-card p-3 d-flex flex-column gap-4'>
+                            <div className='dashboard-card-container  dark-mode p-4'>
+                                <div className='dashboard-credit-card  p-3 d-flex flex-column gap-4'>
 
                                     <div className='d-flex justify-content-between dashboard-credit-card-header'>
                                         <div>
@@ -630,7 +677,7 @@ export default function DashboardHome() {
                                 </div>
                             </div>
 
-                            <div className='dashboard-below-card'>
+                            <div className='dashboard-below-card dark-mode'>
 
                                 <div className='d-flex gap-4 dashboard-below-card-header p-4'>
                                     <div className='d-flex align-items-center gap-2'>
@@ -666,19 +713,19 @@ export default function DashboardHome() {
                             </div>
                         </div>
 
-                        <div className='dashboard-website-visitors d-flex justify-content-between p-3 mt-4'>
+                        <div className='dashboard-website-visitors dark-mode d-flex justify-content-between p-3 mt-4'>
                             <div className='d-flex flex-column justify-content-center align-items-center'>
                                 <h4>750K</h4>
                                 <p>Website Visitors</p>
                             </div>
 
-                            <div className='d-flex flex-column justify-content-center align-items-center'>
+                            <div className='d-flex flex-column  justify-content-center align-items-center'>
                                 <h4>7,500</h4>
                                 <p>New Customers</p>
                             </div>
                         </div>
 
-                        <div className='dashboard-activity-overview mt-4 p-3'>
+                        <div className='dashboard-activity-overview dark-mode mt-4 p-3'>
                             <div className='d-flex flex-column dashboard-activity-overview-header'>
                                 <h5>Actvity overview</h5>
                                 <div className='d-flex gap-3 align-items-center ps-2'>
@@ -698,6 +745,8 @@ export default function DashboardHome() {
 
                 </div>
             </div>
+            <button onClick={()=>{themeChange()}} >Theme</button>
+            <button onClick={()=>{LightMode()}} >Theme</button>
         </div>
     )
 }
