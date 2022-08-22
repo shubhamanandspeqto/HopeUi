@@ -1,0 +1,264 @@
+.package-page-content {
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.package-page-img-container>img {
+  border-radius: 100%;
+  position: relative;
+  margin-top: -60px;
+}
+
+.package-page-img-container>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 130%;
+  color: #232D42;
+  padding: 2rem 0;
+  position: absolute;
+  right: 30px;
+
+}
+
+.package-page-img-container>p>span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #8A92A6;
+
+}
+
+.user-admin {
+  justify-content: center;
+  align-items: center;
+}
+
+.img-margin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  
+
+}
+.img-margin1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  
+  margin-bottom: 1rem;
+
+}
+
+.margin-right {
+  margin-right: 5rem;
+}
+
+.No-1 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.No-3 {
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+}
+
+.No-4 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.No-5 {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.heightCard1 {
+  /* height: 16rem; */
+  background: #7188FF;
+}
+
+.heightCard2 {
+  /* height: 14rem; */
+  background: #7188FF;
+}
+
+
+
+
+
+
+
+
+.container-button-color4 {
+  background: #A60F69;
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  color: white;
+  margin-top: 8px;
+
+}
+.container-button-color6 {
+  background: #E95757;
+  border: none;
+  border-radius: 4px;
+  height: 2rem;
+  color: white;
+  margin-top: 8px;
+
+}
+
+.container-button-color5 {
+  background: #A60F69;
+  height: 57px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  width: 100%;
+
+}
+
+.container-button-color3 {
+  background: #1BAD29;
+  height: 57px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  width: 100%;
+}
+
+.container-button-color2 {
+  background: #E95757;
+  height: 57px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  width: 100%;
+}
+
+.container-button-color1 {
+
+  height: 57px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  background: #5F77F0;
+  width: 100%;
+}
+
+.Packages-card-add-menu>div {
+  background: #E9ECEF;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: -4px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  animation: all 0.3s;
+}
+
+.Packages-card-add-menu>div:hover {
+  animation: all 0.3s;
+  transform: scale(110%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.Packages-card-add-menu>div:first-child {
+  position: initial;
+}
+
+.Packages-card-add-menu>.first {
+  background: #A60F69;
+}
+
+.Packages-card-add-menu>.second {
+  background: #E95757;
+}
+
+.Packages-card-add-menu>.third {
+  background: #1BAD29;
+}
+
+.exportBtn {
+  /* width: 94px;
+  height: 34px; */
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  background: #5F77F0;
+  
+  border-radius: 4px;
+  /* margin-top: 10px; */
+  border: none;
+  padding: 8px 24px;
+
+  color: #f6f3f3;
+}
+
+.textColor {
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.Createflex{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+.breadcrumb1-item-css {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+ 
+}
+
+
+
+.Packages-breadcrumb-container {
+  --bs-breadcrumb-divider: '>';
+  color: white;
+  
+
+}
+
+.breadcrumb1-item-css::before{
+  color: #FFFFFF !important;
+}
+
+.straightPara{
+  color: white;
+ 
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  width: 107%;
+  
+  
+}
