@@ -51,7 +51,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  
   margin-bottom: 1rem;
 
 }
@@ -81,12 +81,12 @@
 }
 
 .heightCard1 {
-  height: 16rem;
+  /* height: 16rem; */
   background: #7188FF;
 }
 
 .heightCard2 {
-  height: 14rem;
+  /* height: 14rem; */
   background: #7188FF;
 }
 
@@ -122,6 +122,7 @@
   border: none;
   border-radius: 4px;
   color: white;
+  width: 100%;
 
 }
 
@@ -131,6 +132,7 @@
   border: none;
   border-radius: 6px;
   color: white;
+  width: 100%;
 }
 
 .container-button-color2 {
@@ -139,6 +141,7 @@
   border: none;
   border-radius: 6px;
   color: white;
+  width: 100%;
 }
 
 .container-button-color1 {
@@ -148,6 +151,7 @@
   border-radius: 6px;
   color: white;
   background: #5F77F0;
+  width: 100%;
 }
 
 .Packages-card-add-menu>div {
@@ -192,8 +196,8 @@
 }
 
 .exportBtn {
-  width: 94px;
-  height: 34px;
+  /* width: 94px;
+  height: 34px; */
 
   font-family: 'Inter';
   font-style: normal;
@@ -203,8 +207,9 @@
   background: #5F77F0;
   
   border-radius: 4px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   border: none;
+  padding: 8px 24px;
 
   color: #f6f3f3;
 }
@@ -216,6 +221,14 @@
   font-weight: 400;
   font-size: 16px;
 }
+
+.Createflex{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+
 
 
 .breadcrumb1-item-css {
@@ -231,6 +244,8 @@
 .Packages-breadcrumb-container {
   --bs-breadcrumb-divider: '>';
   color: white;
+  
+
 }
 
 .breadcrumb1-item-css::before{
@@ -239,9 +254,11 @@
 
 .straightPara{
   color: white;
-  width: 20rem;
+ 
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
+  width: 107%;
+  
   
 }
