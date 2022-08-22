@@ -2,10 +2,12 @@ import React from 'react'
 import './DashboardHome.css'
 
 import { CircularProgressbar } from "react-circular-progressbar";
+import { Chrono } from "react-chrono";
 import "react-circular-progressbar/dist/styles.css";
 
 import Chart from "react-apexcharts";
 import Progress_bar from '../../common/Progress_bar';
+import { dashboardTimelineData } from '../Timeline/TimelineData';
 
 let barChartData = {
 
@@ -687,8 +689,8 @@ export default function DashboardHome() {
                                 </div>
                             </div>
 
-                            <div>
-
+                            <div className='dashboard-timeline' style={{ height: "335px" }}>
+                                <Chrono items={dashboardTimelineData} mode="VERTICAL" hideControls={true} cardHeight={10} />
                             </div>
                         </div>
 
