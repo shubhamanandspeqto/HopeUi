@@ -28,6 +28,7 @@ import Vector from "./components/admin/Map/Vector";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import ViewIncomingOrders from "./components/admin/IncomingOrders/ViewIncomingOrders";
 import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
+import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
           <Route path="map" element={<Vector/>} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
           <Route path="view-incoming-orders" element={<ViewIncomingOrders />} />
+          <Route path="widgetCard" element={<WidgetCard/>} />
+
         </Route>
 
         <Route exact path="/" element={<Login />} />
