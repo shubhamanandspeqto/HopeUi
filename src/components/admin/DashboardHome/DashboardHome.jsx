@@ -2,10 +2,12 @@ import React, { useEffect } from 'react'
 import './DashboardHome.css'
 
 import { CircularProgressbar } from "react-circular-progressbar";
+import { Chrono } from "react-chrono";
 import "react-circular-progressbar/dist/styles.css";
 
 import Chart from "react-apexcharts";
 import Progress_bar from '../../common/Progress_bar';
+import { dashboardTimelineData } from '../Timeline/TimelineData';
 
 let barChartData = {
 
@@ -726,12 +728,16 @@ export default function DashboardHome() {
                         <div className='dashboard-activity-overview dark-mode mt-4 p-3'>
                             <div className='d-flex flex-column dashboard-activity-overview-header'>
                                 <h5>Actvity overview</h5>
-                                <div className='d-flex gap-3 align-items-center'>
+                                <div className='d-flex gap-3 align-items-center ps-2'>
                                     <img src="/assets/green-arrow- up.png" alt="" />
                                     <p>
                                         16% this month
                                     </p>
                                 </div>
+                            </div>
+
+                            <div className='dashboard-timeline' style={{ height: "335px" }}>
+                                <Chrono items={dashboardTimelineData} mode="VERTICAL" hideControls={true} cardHeight={10} />
                             </div>
                         </div>
 

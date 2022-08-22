@@ -66,6 +66,9 @@
     line-height: 130%;
     color: #04040B;
 }
-.google-map{
 
+.mapPosition{
+    position: relative;
+    width: 100%;
+    height:500px;
 }
