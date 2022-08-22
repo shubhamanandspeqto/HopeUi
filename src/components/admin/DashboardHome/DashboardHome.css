@@ -299,6 +299,11 @@
     color: #8A92A6;
 }
 
+.dashboard-timeline .timeline-main-wrapper, .dashboard-timeline .timeline-main-wrapper>div, .dashboard-timeline .timeline-main-wrapper section {
+    margin: 0;
+    padding: 0;
+}
+
 .dashboard-timeline .dZOxgG::after {
     background: #C4C4C4
 }

@@ -681,7 +681,7 @@ export default function DashboardHome() {
                         <div className='dashboard-activity-overview mt-4 p-3'>
                             <div className='d-flex flex-column dashboard-activity-overview-header'>
                                 <h5>Actvity overview</h5>
-                                <div className='d-flex gap-3 align-items-center'>
+                                <div className='d-flex gap-3 align-items-center ps-2'>
                                     <img src="/assets/green-arrow- up.png" alt="" />
                                     <p>
                                         16% this month

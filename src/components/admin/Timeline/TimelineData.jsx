@@ -80,7 +80,7 @@ export const dashboardTimelineData = [
     {
         // title: "Mar 2020",
         cardTitle: "Affilate Payout",
-        cardSubtitle: 'Affilate Payout',
+        cardSubtitle: '11 JUL 1:21 AM',
         // cardDetailedText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur pulvinar cursus in donec mauris enim. Sit sed vel molestie ullamcorper.",
     },
     {
