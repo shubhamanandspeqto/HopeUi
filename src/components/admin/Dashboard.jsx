@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
+import BedRock_Sidebar from "../common/BedRock_Sidebar";
 
 export default function Dashboard() {
   return (
@@ -10,7 +11,8 @@ export default function Dashboard() {
       <Navbar />
       <div className="d-flex w-100">
         <div className="" style={{ width: "20%" }}>
-          <Sidebar />
+          {/* <Sidebar /> */}
+          <BedRock_Sidebar/>
         </div>
         <div
           className="w-100"

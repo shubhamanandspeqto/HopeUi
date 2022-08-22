@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./WidgetBasic.css";
 import Progressbar from "../../common/Progress_bar";
-import StarRating from 'react-star-rating'
+//import StarRating from 'react-star-rating'
 import { Rating } from 'react-simple-star-rating'
 
 
@@ -334,7 +334,7 @@ export default function Widget() {
                 /> */}
                 {/* <StarRating name="react-star-rating" caption="Rate this component!" totalStars={5} /> */}
 
-                <Rating size={15} onClick={handleRating} ratingValue={rating} /* Available Props */ />
+                <Rating size={15} onClick={handleRating} ratingValue={rating} />
                 <p>4.5/5</p>
               </div>
             </div>

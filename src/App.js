@@ -28,8 +28,7 @@ import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import Maintenance from "./components/common/Maintenance";
 import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
-import BedRock_Sidebar from "./components/common/BedRock_Sidebar";
-
+import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 
 function App() {
   return (
@@ -52,8 +51,8 @@ function App() {
           <Route path="map" element={<Vector />} />
           <Route path="package" element={<Packages />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
-          <Route path="widget-basic"element={<WidgetBasic/>} />
-          {/* <Route path="bedRock-Sidebar" element={<BedRock_Sidebar/>} />    */}
+          <Route path="widget-basic" element={<WidgetBasic />} />
+          <Route path="widget-chart" element={<WidgetChart />} />
         </Route>
 
         <Route exact path="/" element={<Login />} />
