@@ -3,12 +3,13 @@ import { Outlet } from "react-router-dom";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
+import '../admin/DashboardHome/DashboardHome.css'
 
 export default function Dashboard() {
   return (
     <div className="d-flex flex-column">
       <Navbar />
-      <div className="d-flex w-100">
+      <div className="d-flex w-100 dark-mode">
         <div className="" style={{ width: "20%" }}>
           <Sidebar />
         </div>
