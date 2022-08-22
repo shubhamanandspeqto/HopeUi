@@ -63,6 +63,16 @@ export default function NewPackages() {
             <input type="checkbox" name="Tick" id="tick" />  <p className='mx-2' style={{color:"rgba(138, 146, 166, 1)"}}>Require Reciver to submit file.</p>
           </div>
 
+          <div class="Createflex">
+                <button
+                  type="button"
+                  class="btn btn-primary "
+                  style={{ width: "11vw" }}
+                >
+                  <p>Create</p>
+                </button>
+              </div>
+
 
     </form>
     </div>
