@@ -1,24 +1,31 @@
 .widget .apexcharts-xaxis {
   display: none;
 }
+
 .widget #SvgjsG1145 {
   display: none;
 }
+
 .widget #SvgjsLine1178 {
   display: none;
 }
+
 .widget .apexcharts-toolbar {
   display: none;
 }
+
 .widget .apexcharts-yaxis-texts-g {
   display: none !important;
 }
+
 .widget .apexcharts-toolbar {
   display: none !important;
 }
+
 .widget .apexcharts-gridline {
   display: none !important;
 }
+
 .today_gains {
   align-items: center;
   padding: 24px;
@@ -29,23 +36,28 @@
   top: -37px;
   height: 255px;
 }
+
 .widget .apexcharts-svg.apexcharts-zoomable {
   margin-left: -64px;
   /* top: 105px; */
   /* margin-top: 107px; */
 }
+
 .widget .apexcharts-xaxis-tick {
   display: none;
 }
+
 .icon-top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .icon-top img {
   width: 25%;
   margin-top: -3px;
 }
+
 .icon-top p {
   font-family: "Inter";
   font-style: normal;
@@ -55,12 +67,14 @@
   text-align: right;
   color: #8a92a6;
 }
+
 .icon-middle {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-top: 36px;
 }
+
 .icon-p {
   font-family: "Inter";
   font-style: normal;
@@ -69,6 +83,7 @@
   line-height: 40px;
   color: #232d42;
 }
+
 .icon-span {
   font-family: "Inter";
   font-style: normal;
@@ -77,6 +92,7 @@
   line-height: 19px;
   color: #1aa053;
 }
+
 .icon-p-2 {
   font-family: "Inter";
   font-style: normal;
@@ -84,4 +100,150 @@
   font-size: 16px;
   line-height: 19px;
   color: #232d42;
+}
+
+.widget-line-chart-card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+}
+
+.widget-line-chart-card p {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+  color: #8A92A6;
+}
+
+.widget-line-chart-card span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: right;
+  color: #232D42;
+}
+
+.line-chart-container {
+  position: absolute;
+  margin-top: -50px;
+}
+
+.z-index-container {
+  z-index: 99;
+}
+
+.widget-chartless-card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+}
+
+.widget-chartless-card-top>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #8A92A6;
+}
+
+.widget-chartless-card-bottom {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 33px;
+  color: #232D42;
+}
+
+.area-chart-card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+}
+
+.small-chart-card, .small-chart-card-long {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+  height: 100%;
+}
+
+.small-chart-card p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #8A92A6;
+}
+
+.small-chart-card h4, .small-chart-card-long h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 33px;
+  color: #232D42;
+}
+
+.small-chart-card-long p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: #8A92A6;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.widget-upcoming-card {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+  height: 100%;
+}
+
+.widget-upcoming-card-first>h6 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  color: #232D42;
+}
+
+.widget-upcoming-card-first>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #8A92A6;
+}
+
+.widget-upcoming-card-second>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #C03221;
+}
+
+.widget-upcoming-card-second>span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #8A92A6;
+}
+
+.widget-upcoming-card-third>img {
+  border: 1px solid #C03221;
+  border-radius: 4px;
+  cursor: pointer;
 }
