@@ -26,11 +26,17 @@ export default function Vector() {
                 <div className='map-container p-3'>
                     <div className='d-flex justify-content-between'>
                         <h2>Vector</h2>
+
                     </div>
-                    <div className='google-map'>
-                        <MapContainer/>
+                    <div className='mapPosition'>
+                        <MapContainer />
                     </div>
+
+
+
+
                 </div>
+
             </div>
         </>
     )
