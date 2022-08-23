@@ -8,6 +8,8 @@ import "react-circular-progressbar/dist/styles.css";
 import Chart from "react-apexcharts";
 import Progress_bar from '../../common/Progress_bar';
 import { dashboardTimelineData } from '../Timeline/TimelineData';
+import Iconly from '../../common/Iconly';
+
 
 let barChartData = {
 
@@ -255,53 +257,53 @@ let state = {
 export default function DashboardHome() {
     // let darkTheme = true
 
-    let LightMode = () => {
-        let elements = document.getElementsByClassName('dark-mode')
-        let Body = document.getElementsByClassName('extra-dark')
-        let enterprise = document.getElementsByClassName('dark-background')
+    // let LightMode = () => {
+    //     let elements = document.getElementsByClassName('dark-mode')
+    //     let Body = document.getElementsByClassName('extra-dark')
+    //     let enterprise = document.getElementsByClassName('dark-background')
 
-        for (let i = 0; i < elements.length; i++) {
-            console.log(elements[i].classList);
-            elements[i].classList.remove("dark-mode-dashboard-card")
-            // elements[i].classList.remove("dashboard-card")
-        }
+    //     for (let i = 0; i < elements.length; i++) {
+    //         console.log(elements[i].classList);
+    //         elements[i].classList.remove("dark-mode-dashboard-card")
+    //         // elements[i].classList.remove("dashboard-card")
+    //     }
 
-        for (let i = 0; i < Body.length; i++) {
-            Body[i].classList.remove("Extra-dark")
-        }
-        for (let i = 0; i < enterprise.length; i++) {
-            enterprise[i].classList.remove("color-mode-round-ul")
-        }
+    //     for (let i = 0; i < Body.length; i++) {
+    //         Body[i].classList.remove("Extra-dark")
+    //     }
+    //     for (let i = 0; i < enterprise.length; i++) {
+    //         enterprise[i].classList.remove("color-mode-round-ul")
+    //     }
 
-    }
-
-
-    let themeChange = () => {
-        let elements = document.getElementsByClassName('dark-mode')
-        let Body = document.getElementsByClassName('extra-dark')
-        let enterprise = document.getElementsByClassName('dark-background')
+    // }
 
 
-        console.log(elements);
-        console.log(elements[0]);
-        for (let i = 0; i < elements.length; i++) {
-            console.log(elements[i].classList);
-            elements[i].classList.add("dark-mode-dashboard-card")
-            // elements[i].classList.remove("dashboard-card")
-        }
+    // let themeChange = () => {
+    //     let elements = document.getElementsByClassName('dark-mode')
+    //     let Body = document.getElementsByClassName('extra-dark')
+    //     let enterprise = document.getElementsByClassName('dark-background')
 
-        for (let i = 0; i < Body.length; i++) {
-            Body[i].classList.add("Extra-dark")
-        }
-        for (let i = 0; i < enterprise.length; i++) {
-            enterprise[i].classList.add("color-mode-round-ul")
-        }
 
-    }
+    //     console.log(elements);
+    //     console.log(elements[0]);
+    //     for (let i = 0; i < elements.length; i++) {
+    //         console.log(elements[i].classList);
+    //         elements[i].classList.add("dark-mode-dashboard-card")
+    //         // elements[i].classList.remove("dashboard-card")
+    //     }
+
+    //     for (let i = 0; i < Body.length; i++) {
+    //         Body[i].classList.add("Extra-dark")
+    //     }
+    //     for (let i = 0; i < enterprise.length; i++) {
+    //         enterprise[i].classList.add("color-mode-round-ul")
+    //     }
+
+    // }
 
     return (
         <>
-
+       <Iconly/>
         <div className='special-page-container extra-dark'>
 
             <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
@@ -318,7 +320,7 @@ export default function DashboardHome() {
             </div>
 
             <div className='p-3'>
-                <div className='d-flex w-100 row m-0 p-0'>
+                <div className='d-flex w-100 row m-0 p-0' style={{color: 'black'}}>
 
                     <div className='col-md-2'>
                         <div id='first-card' className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
@@ -723,7 +725,7 @@ export default function DashboardHome() {
 
                                 <div className='dashboard-below-card-body d-flex justify-content-between p-4 align-items-center'>
                                     <div className='d-flex flex-column'>
-                                        <h4>$4,050,12,300</h4>
+                                        <h4 className='dark-mode'>$4,050,12,300</h4>
                                         <p>Life time sales</p>
                                     </div>
                                     <p className='p-2'>YoY 24%</p>
@@ -769,10 +771,10 @@ export default function DashboardHome() {
 
                 </div>
             </div>
-            <div style = {{position: "absolute"}}>
+            {/* <div style = {{position: "absolute"}}>
             <button  onClick={() => { themeChange() }} >Theme</button>
             <button  onClick={() => { LightMode() }} >Theme</button>
-            </div>
+            </div> */}
         </div>
         </>
     )

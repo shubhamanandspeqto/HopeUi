@@ -1,6 +1,6 @@
 import React from "react";
 import "./Iconly.css";
-export default function Iconly() {
+export default function Iconly(props) {
   const darkTheme = () =>{
     let element = document.getElementsByClassName('LTR')
     let element2 = document.getElementsByClassName('RTL')
@@ -131,6 +131,51 @@ export default function Iconly() {
 
 
   }
+
+  let themeChange = () => {
+    let elements = document.getElementsByClassName('dark-mode')
+    let Body = document.getElementsByClassName('extra-dark')
+    let enterprise = document.getElementsByClassName('dark-background')
+
+
+    console.log(elements);
+    console.log(elements[0]);
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i].classList);
+        elements[i].classList.add("dark-mode-dashboard-card")
+        // elements[i].classList.remove("dashboard-card")
+    }
+
+    for (let i = 0; i < Body.length; i++) {
+        Body[i].classList.add("Extra-dark")
+    }
+    for (let i = 0; i < enterprise.length; i++) {
+        enterprise[i].classList.add("color-mode-round-ul")
+    }
+
+
+}
+
+let LightMode = () => {
+  let elements = document.getElementsByClassName('dark-mode')
+  let Body = document.getElementsByClassName('extra-dark')
+  let enterprise = document.getElementsByClassName('dark-background')
+
+  for (let i = 0; i < elements.length; i++) {
+      console.log(elements[i].classList);
+      elements[i].classList.remove("dark-mode-dashboard-card")
+      // elements[i].classList.remove("dashboard-card")
+  }
+
+  for (let i = 0; i < Body.length; i++) {
+      Body[i].classList.remove("Extra-dark")
+  }
+  for (let i = 0; i < enterprise.length; i++) {
+      enterprise[i].classList.remove("color-mode-round-ul")
+  }
+
+}
+
   return (
     <div className="setings-modal">
       <button
@@ -170,10 +215,10 @@ export default function Iconly() {
                 <button type="button" class="modal-button btn btn-light ms-4 me-5 mt-2 p-3">
                   <i class="fa fa-bolt"></i> Auto{" "}
                 </button>
-                <button onClick={()=>{darkTheme()}} type="button" class="modal-button1 btn btn-light ms-4 me-5 mt-2 p-3">
+                <button onClick={()=>{themeChange(); darkTheme(); }} type="button" class="modal-button1 btn btn-light ms-4 me-5 mt-2 p-3">
                   <img src={"/assets/Rectangle.png"} alt="" /> Dark{" "}
                 </button>
-                <button onClick={()=>{lightTheme()}} type="button" class="modal-button2 btn btn-light ms-4 mt-2 p-3 me-3">
+                <button onClick={()=>{LightMode();lightTheme(); }} type="button" class="modal-button2 btn btn-light ms-4 mt-2 p-3 me-3">
                   {" "}
                   <i class="fa fa-cog"></i>Light{" "}
                 </button>

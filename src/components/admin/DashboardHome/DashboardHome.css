@@ -430,7 +430,7 @@
     background-color: rgba(34, 39, 56, 1) !important;
 }
 
-.dark-mode-dashboard-card.dashboard-timeline .timeline-main-wrapper .timeline-vertical-circle>div::after {
+.dark-mode-dashboard-card .timeline-vertical-circle>div::after {
     background: black !important;
     /* border: 1px solid rgba(58, 87, 232, 1) ; */
 }
