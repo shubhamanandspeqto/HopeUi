@@ -40,6 +40,67 @@
     background-size: cover;
 }
 
+.maintenence-container {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+.maintenence-top {
+    height: 70%;
+    background-image: url(/public/assets/Maintenance-Icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    min-height: 300px;
+}
+
+.maintenence-bottom {
+    background-image: url(/public/assets/Maintenance-bg.png);
+    background-repeat: no-repeat;
+    height: 30%;
+    color: #FFFFFF;
+    min-height: 220px;
+}
+
+.maintenence-bottom h1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.maintenence-bottom p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 175%;
+}
+
+.maintenence-bottom h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+}
+
+.maintenence-bottom input {
+    all: unset;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    color: #FFFFFF;
+    width: 65%;
+}
+
+.maintenence-bottom input::placeholder {
+    color: #FFFFFF;
+}
+
+.maintenence-bottom button {
+    all: unset;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(75, 118, 249, 0.5);
+    border-radius: 4px;
+    color: #738AFE;
+}
 
 .maintenance-page {
     background-image: url(/public/assets/Maintenance-Icon.png);
@@ -83,7 +144,7 @@
 
 }
 
-.maintainance-form-page::placeholder{
+.maintainance-form-page::placeholder {
     color: #FFFFFF;
 }
 
