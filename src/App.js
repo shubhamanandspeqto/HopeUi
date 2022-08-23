@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/admin/Dashboard";
 import Login from "./components/login/Login";
@@ -9,7 +8,6 @@ import AfterSignup from "./components/login/AfterSignup";
 import LockScreen from "./components/login/LockScreen";
 import ResetPassword from "./components/login/ResetPassword";
 import Error404 from "./components/common/Error404";
-
 import Upload from "./components/Bedrock/Bedrock-upload/Upload.jsx";
 import Ai from "./components/Bedrock/Bedrock-ai/Ai";
 import Calender from "./components/admin/Calender/Calender";
@@ -27,9 +25,11 @@ import Packages from "./components/admin/Package/Packages";
 import IncomingOrders from "./components/admin/IncomingOrders/IncomingOrders";
 import Maintenance from "./components/common/Maintenance";
 import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
+import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 import Maintenancee from "./components/common/Maintenancee";
+
 
 function App() {
   return (
@@ -52,6 +52,7 @@ function App() {
           <Route path="map" element={<Vector />} />
           <Route path="package" element={<Packages />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
+          <Route path="widgetCard" element={<WidgetCard/>} />
           <Route path="widget-basic" element={<WidgetBasic />} />
           <Route path="widget-chart" element={<WidgetChart />} />
         </Route>

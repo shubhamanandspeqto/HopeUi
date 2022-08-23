@@ -1,0 +1,345 @@
+.widget-card-container {
+    background-image: url(/public/assets/new-dashboard-bg.png);
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: left;
+    background-size: 100% 215px;
+    background-color: #E5E5E5;
+    box-sizing: border-box;
+    padding: 0 0 40px 0;
+}
+
+.widget-card-container>div {
+    box-sizing: border-box;
+}
+
+.widget-card-heading>div>h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.widget-card-heading>div>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 130%;
+    color: #FFFFFF;
+}
+
+.widget-card-heading>div>button {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;
+    gap: 10px;
+    background: rgba(58, 87, 232, 0.35);
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+    animation: all 0.2s;
+}
+
+.widget-card-heading>div>button:hover {
+    background: rgba(32, 67, 243, 0.35);
+    animation: all 0.2s;
+}
+
+/* .widget-card-container{
+    background: #FFFFFF;
+    box-sizing: border-box;
+    margin: 0 20px;
+    box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+    border-radius: 8px;
+    
+}
+
+.widget-card-container>div>h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 130%;
+    color: #04040B;
+} */
+
+.widget-card {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.widget-card-body {
+    background: #ffffff;
+    /* display: flex; */
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: center;
+    padding: 24px;
+    width: 30%;
+
+
+}
+
+.widget-card2-body {
+    background: #ffffff;
+    /* display: flex; */
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: center;
+    padding: 24px;
+
+}
+
+.star {
+    height: 26px;
+    left: 0px;
+    top: 79px;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    height: 26px;
+    justify-content: center;
+}
+
+.widget-card-body-second img {
+    border: 1px solid #8A92A6;
+    border-radius: 65px;
+
+}
+
+.widget-card-body-third p {
+    width: 453px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    margin-left: -12%;
+    padding: 0px;
+    color: #8A92A6;
+    margin-left: -68px;
+    margin-bottom: 5px;
+}
+.beared-icons img{
+    padding-left: 5px;
+}
+.Regina-para1 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    padding: 5px;
+
+}
+
+.Regina-para2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 5px;
+}
+
+.holiday p {
+    text-align: left;
+}
+
+.holiday-smile img {
+    width: 50px;
+    height: 50px;
+}
+
+.widget-card2-body {
+    background: #ffffff;
+    /* display: flex; */
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    text-align: center;
+    padding: 24px;
+
+}
+
+.holiday-para3 {
+    text-align: left;
+
+}
+
+.holiday-para3 p {
+    padding: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A92A6;
+
+}
+
+.cone {
+    text-align: left;
+}
+
+.cone img {
+    border: 1px solid #8A92A6;
+    border-radius: 100%;
+    height: 75px;
+    width: 75px;
+}
+
+.cone-para {
+    text-align: left;
+    display: flex;
+    padding-left: 2px;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.admin-id-card1 {
+    width: 30%;
+}
+
+.admin-id-card2 {
+    width: 38%;
+}
+
+.admin-id-card3 {
+    width: 25%;
+}
+
+.birthday-img img {
+    width: 67px;
+    height: 67px;
+    border-radius: 100%;
+}
+
+.birthday-name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 175%;
+    /* or 33px */
+
+
+    color: #000000;
+
+}
+
+.birthday-date {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+
+}
+
+.birthday-detail p {
+    text-align: left;
+}
+
+.button-background {
+    background: #738AFE;
+}
+
+.conversion-button {
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid #E9ECEF;
+}
+
+.conversion-form {
+    border: 1px solid #E9ECEF;
+}
+
+.sphere-img img {
+    border: 1px solid #8A92A6;
+    border-radius: 100%;
+}
+
+.icoSpher-img img {
+    border: 1px solid #8A92A6;
+    border-radius: 100%;
+}
+
+.gallery-row-card1,
+.gallery-row-card2,
+.gallery-row-card3 {
+    width: 30%;
+}
+
+.shape-img img {
+    width: 100px;
+    height: 100px;
+}
+
+.Suggestion-name {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 175%;
+    color: #000000;
+}
+
+.mutual-friends {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 198%;
+    color: #8A92A6;
+}
+
+.twitter-img img {
+    width: 63px;
+    height: 63px;
+}
+.twitter-para p{
+    padding: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+.hash-para{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 175%;
+color: #0048B3;
+}
+.gallery-row-card2 hr{
+    color: #c0c2c4f5;
+}
+.wade-para{
+    padding: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A92A6;
+}
