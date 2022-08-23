@@ -4,6 +4,7 @@ import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
 import BedRock_Sidebar from "../common/BedRock_Sidebar";
+import Iconly from "../common/Iconly";
 
 export default function Dashboard() {
   const location = useLocation();
@@ -29,6 +30,7 @@ export default function Dashboard() {
           }}
         >
           {/* <img style={{width:"100%"}} src={"/assets/Outlet.jpeg"} /> */}
+          <Iconly />
           <Outlet />
           <Footer />
         </div>
