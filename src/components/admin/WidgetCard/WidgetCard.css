@@ -121,17 +121,17 @@
 }
 
 .widget-card-body-third p {
-    width: 453px;
-    height: 19px;
+    /* width: 453px;
+    height: 19px; */
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 19px;
+    /* line-height: 19px; */
     margin-left: -12%;
     padding: 0px;
     color: #8A92A6;
-    margin-left: -68px;
+    /* margin-left: -68px; */
     margin-bottom: 5px;
 }
 .beared-icons img{
@@ -281,11 +281,11 @@
     border-radius: 100%;
 }
 
-.gallery-row-card1,
-.gallery-row-card2,
+
+/* .gallery-row-card2,
 .gallery-row-card3 {
     width: 30%;
-}
+}  */
 
 .shape-img img {
     width: 100px;
