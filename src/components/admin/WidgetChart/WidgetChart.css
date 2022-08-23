@@ -28,13 +28,9 @@
 
 .today_gains {
   align-items: center;
-  padding: 24px;
   background: #ffffff;
   box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
   border-radius: 8px;
-  position: relative;
-  top: -37px;
-  height: 255px;
 }
 
 .widget .apexcharts-svg.apexcharts-zoomable {
@@ -127,8 +123,7 @@
 }
 
 .line-chart-container {
-  position: absolute;
-  margin-top: -50px;
+  margin-top: -60px;
 }
 
 .z-index-container {
@@ -195,11 +190,11 @@
 }
 
 .red {
-  color: red;
+  color: red !important;
 }
 
 .green {
-  color: green;
+  color: green !important;
 }
 
 .widget-upcoming-card {
@@ -246,4 +241,38 @@
   border: 1px solid #C03221;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.area-chart-card>div>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #8A92A6;
+}
+
+.widget-bar-chart-container {
+  background: rgba(52, 78, 209, 0.2);
+  box-shadow: 0px 10px 13px rgba(17, 38, 146, 0.05);
+  border-radius: 8px;
+  height: 100%;
+}
+
+.widget-bar-chart-container>div>h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  color: #232D42;
+}
+
+.widget-bar-chart-container>div>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  color: #738AFE;
+}
+
+.widget-bar-chart {
+  height: 70%;
 }

@@ -360,9 +360,12 @@ export default function Widget() {
                 </div>
                 <div className="progres-details">
                   <div className="pro-1 mb-3">
-                    <p className="widget-para d-flex justify-content-start text-gray mb-2">
+                    <p className="widget-para d-flex justify-content-between text-gray mb-2">
                       Insurance
                     </p>
+              
+                    </div>
+                    <div>
                     <Progressbar bgcolor="#068B92" progress="70" height={10} />
                   </div>
 

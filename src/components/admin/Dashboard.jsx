@@ -9,10 +9,10 @@ export default function Dashboard() {
   return (
     <div className="d-flex flex-column">
       <Navbar />
-      <div className="d-flex w-100">
+      <div className="d-flex w-100 dark-mode">
         <div className="" style={{ width: "20%" }}>
-          {/* <Sidebar /> */}
-          <BedRock_Sidebar/>
+          <Sidebar />
+          {/* <BedRock_Sidebar/> */}
         </div>
         <div
           className="w-100"

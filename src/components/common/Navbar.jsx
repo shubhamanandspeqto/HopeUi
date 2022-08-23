@@ -1,14 +1,15 @@
 import React from 'react';
 
+import '../admin/DashboardHome/DashboardHome.css'
 
 
 export default function Navbar() {
     return (
-        <nav className="navbar fixed-top bg-light">
+        <nav className="navbar fixed-top bg-light dark-mode">
             <div className="container-fluid">
-                <div className='row w-100'>
-                <div className='col-md-2'>
-                    <a className="navbar-brand" href="#">
+                <div className='row w-100 extra-dark'>
+                <div className='col-md-2 '>
+                    <a className="navbar-brand dark-mode" href="#" >
                         <img src={"/assets/logo.png"} alt="" width="30" height="24" className="d-inline-block align-text-top" />
                         Hope Ui
                     </a>
@@ -17,7 +18,7 @@ export default function Navbar() {
 
                 <div className='col-md-7'>
                     <form className="d-flex w-50" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search..." aria-label="Search" />
+                        <input className="form-control dark-mode me-2" type="search" placeholder="Search..." aria-label="Search" />
               
                     </form>
                 </div>

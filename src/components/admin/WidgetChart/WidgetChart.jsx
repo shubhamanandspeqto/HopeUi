@@ -4,13 +4,33 @@ import "./WidgetChart.css";
 
 import LineChart from 'react-linechart';
 import '../../../../node_modules/react-linechart/dist/styles.css';
+import { barChartData, blueAreaChartOptionFourthR, blueAreaGraphFR, blueLineChartOptionSR, curvedLineChartOption, greenAreaChartOptionFourthR, greenAreaGraphFR, greenLineChartOptionSR, orangeAreaChartOptionFourthR, orangeAreaGraphFR, orangeLineChartOptionSR, redAreaChartOptionFourthR, redAreaGraphFR, redLineChartOptionSR } from "./ChartData";
 
 export default function WidgetChart() {
 
   let state = {
+    stroke: {
+      width: 2
+    },
     chart: {
       height: 280,
       type: "area",
+      toolbar: {
+        show: false
+      },
+    },
+    grid: {
+      show: false,      // you can either change hear to disable all grids
+      yaxis: {
+        lines: {
+          show: false  //or just here to disable only x axis grids
+        }
+      },
+      xaxis: {
+        lines: {
+          show: false  //or just here to disable only x axis grids
+        }
+      },
     },
     dataLabels: {
       enabled: false,
@@ -18,7 +38,8 @@ export default function WidgetChart() {
     series: [
       {
         name: "Series 1",
-        data: [45, 52, 38, 45, 19, 23, 2],
+        data: [45, 0, 40, 25, 50],
+        color: "#3A57E8"
       },
     ],
     fill: {
@@ -30,7 +51,20 @@ export default function WidgetChart() {
         stops: [0, 90, 100],
       },
     },
+    yaxis: {
+      show: false
+    },
     xaxis: {
+      labels: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false,
+      },
+      show: false,
       categories: [
         "01 Jan",
         "02 Jan",
@@ -79,7 +113,12 @@ export default function WidgetChart() {
       labels: {
         show: false
       },
-      show: false,
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false,
+      },
       categories: [
         "01 Jan",
         "02 Jan",
@@ -150,64 +189,64 @@ export default function WidgetChart() {
     }
   };
 
-  let curvedLineChartOption = {
-    series: [
-      {
-        name: "Desktops",
-        data: [0, 50, 0, 25, 0, 15, 0]
-      }
-    ],
-    grid: {
-      show: false
-    },
-    chart: {
-      background: '#fff',
-      toolbar: {
-        show: false
-      },
-      height: 350,
-      type: "line",
-      zoom: {
-        enabled: false
-      }
-    },
-    dataLabels: {
-      enabled: false
-    },
-    stroke: {
-      curve: "smooth",
-      width: 2
-    },
-    // title: {
-    //   text: "Product Trends by Month",
-    //   align: "left"
-    // },
-    grid: {
-      row: {
-        colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-        opacity: 0.5
-      }
-    },
-    yaxis: {
-      show: false
-    },
-    xaxis: {
-      labels: {
-        show: false
-      },
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep"
-      ]
-    }
-  };
+  // let curvedLineChartOption = {
+  //   series: [
+  //     {
+  //       name: "Desktops",
+  //       data: [0, 50, 0, 25, 0, 15, 0]
+  //     }
+  //   ],
+  //   grid: {
+  //     show: false
+  //   },
+  //   chart: {
+  //     background: '#fff',
+  //     toolbar: {
+  //       show: false
+  //     },
+  //     height: 350,
+  //     type: "line",
+  //     zoom: {
+  //       enabled: false
+  //     }
+  //   },
+  //   dataLabels: {
+  //     enabled: false
+  //   },
+  //   stroke: {
+  //     curve: "smooth",
+  //     width: 2
+  //   },
+  //   // title: {
+  //   //   text: "Product Trends by Month",
+  //   //   align: "left"
+  //   // },
+  //   grid: {
+  //     row: {
+  //       colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+  //       opacity: 0.5
+  //     }
+  //   },
+  //   yaxis: {
+  //     show: false
+  //   },
+  //   xaxis: {
+  //     labels: {
+  //       show: false
+  //     },
+  //     categories: [
+  //       "Jan",
+  //       "Feb",
+  //       "Mar",
+  //       "Apr",
+  //       "May",
+  //       "Jun",
+  //       "Jul",
+  //       "Aug",
+  //       "Sep"
+  //     ]
+  //   }
+  // };
 
   return (
     <>
@@ -229,13 +268,16 @@ export default function WidgetChart() {
         </div>
 
 
-        <div className="container p-3 m-0">
+        <div className="p-3 m-0 pt-0">
 
 
           <div className="row m-0 p-0">
+
             <div className="col-md-3 p-1 m-0">
-              <div className="today_gains p-2">
-                <div className="icon-top">
+
+              <div className="today_gains d-flex flex-column">
+
+                <div className="icon-top w-100 p-2">
                   <img
                     src="/assets/icon-plus-1.png"
                     alt="icon"
@@ -243,6 +285,7 @@ export default function WidgetChart() {
                   />
                   <p className="lead">Todays Gains</p>
                 </div>
+
                 <div className="icon-middle">
                   <p className="lead icon-p">65M</p>
                   <p className="lead icon-p-2">
@@ -254,20 +297,25 @@ export default function WidgetChart() {
                     <span className="icon-span">10%</span>Increased
                   </p>
                 </div>
-                <div id="chart" className="widget">
+
+                <div>
                   <Chart
-                    options={state}
-                    series={state.series}
+                    options={blueAreaGraphFR}
+                    series={blueAreaGraphFR.series}
                     type="area"
-                    height={150}
-                    width={300}
+                    height={'80%'}
+                    width='108%'
                   />
                 </div>
+
               </div>
             </div>
+
             <div className="col-md-3 p-1 m-0">
-              <div className="today_gains p-2">
-                <div className="icon-top">
+
+              <div className="today_gains d-flex flex-column">
+
+                <div className="icon-top w-100 p-2">
                   <img
                     src="/assets/icon-plus-2.png"
                     alt="icon"
@@ -275,6 +323,7 @@ export default function WidgetChart() {
                   />
                   <p className="lead">Todays Gains</p>
                 </div>
+
                 <div className="icon-middle">
                   <p className="lead icon-p">65M</p>
                   <p className="lead icon-p-2">
@@ -286,20 +335,25 @@ export default function WidgetChart() {
                     <span className="icon-span">10%</span>Increased
                   </p>
                 </div>
-                <div id="chart" className="widget">
+
+                <div>
                   <Chart
-                    options={state}
-                    series={state.series}
+                    options={orangeAreaGraphFR}
+                    series={orangeAreaGraphFR.series}
                     type="area"
-                    height={150}
-                    width={292}
+                    height={'80%'}
+                    width='108%'
                   />
                 </div>
+
               </div>
             </div>
+
             <div className="col-md-3 p-1 m-0">
-              <div className="today_gains p-2">
-                <div className="icon-top">
+
+              <div className="today_gains d-flex flex-column">
+
+                <div className="icon-top w-100 p-2">
                   <img
                     src="/assets/icon-plus-3.png"
                     alt="icon"
@@ -307,6 +361,7 @@ export default function WidgetChart() {
                   />
                   <p className="lead">Todays Gains</p>
                 </div>
+
                 <div className="icon-middle">
                   <p className="lead icon-p">65M</p>
                   <p className="lead icon-p-2">
@@ -318,20 +373,25 @@ export default function WidgetChart() {
                     <span className="icon-span">10%</span>Increased
                   </p>
                 </div>
-                <div id="chart" className="widget">
+
+                <div>
                   <Chart
-                    options={state}
-                    series={state.series}
+                    options={greenAreaGraphFR}
+                    series={greenAreaGraphFR.series}
                     type="area"
-                    height={150}
-                    width={292}
+                    height={'80%'}
+                    width='108%'
                   />
                 </div>
+
               </div>
             </div>
+
             <div className="col-md-3 p-1 m-0">
-              <div className="today_gains p-2">
-                <div className="icon-top">
+
+              <div className="today_gains d-flex flex-column">
+
+                <div className="icon-top w-100 p-2">
                   <img
                     src="/assets/icon-plus-4.png"
                     alt="icon"
@@ -339,6 +399,7 @@ export default function WidgetChart() {
                   />
                   <p className="lead">Todays Gains</p>
                 </div>
+
                 <div className="icon-middle">
                   <p className="lead icon-p">65M</p>
                   <p className="lead icon-p-2">
@@ -350,24 +411,27 @@ export default function WidgetChart() {
                     <span className="icon-span">10%</span>Increased
                   </p>
                 </div>
-                <div id="chart" className="widget">
+
+                <div>
                   <Chart
-                    options={state}
-                    series={state.series}
+                    options={redAreaGraphFR}
+                    series={redAreaGraphFR.series}
                     type="area"
-                    height={150}
-                    width={292}
+                    height={'80%'}
+                    width='108%'
                   />
                 </div>
+
               </div>
             </div>
+
           </div>
 
 
-          <div className="row m-0 p-0">
+          <div className="row m-0 p-0 mt-3">
 
             <div className="col-md-3 p-1 m-0">
-              <div className="widget-line-chart-card p-2 py-3 pb-5">
+              <div className="widget-line-chart-card p-2 py-3 pb-2">
                 <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column align-items-center z-index-container">
                     <img src="/assets/TotalSalesIcon.svg" alt="" />
@@ -375,16 +439,18 @@ export default function WidgetChart() {
                   </div>
                   <div className="d-flex flex-column gap-5 z-index-container">
                     <p>Total Sales</p>
-                    <span>+14%</span>
+                    <span className="d-flex gap-2 red justify-content-end">+14%
+                      <img src="/assets/red-up-arrow.svg" alt="" />
+                    </span>
                   </div>
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center line-chart-container">
                   <Chart
-                    options={lineChartOption}
-                    series={lineChartOption.series}
+                    options={blueLineChartOptionSR}
+                    series={blueLineChartOptionSR.series}
                     type="line"
-                    width="80%"
+                    width="60%"
                     height='60%'
                   />
                 </div>
@@ -392,21 +458,26 @@ export default function WidgetChart() {
             </div>
 
             <div className="col-md-3 p-1 m-0">
-              <div className="widget-line-chart-card p-2 py-3 pb-5">
+              <div className="widget-line-chart-card p-2 py-3 pb-2">
                 <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column align-items-center z-index-container">
-                    <img src="/assets/TotalSalesIcon.svg" alt="" />
+                    <img src="/assets/SalesTodayIcon.png" alt="" />
                     <span>$18 378</span>
                   </div>
-                  <p>Total Sales</p>
+                  <div className="d-flex flex-column gap-5 z-index-container">
+                    <p>Sales Today</p>
+                    <span className="d-flex gap-2 red justify-content-end">-6%
+                      <img src="/assets/red-up-arrow.svg" alt="" />
+                    </span>
+                  </div>
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center line-chart-container">
                   <Chart
-                    options={lineChartOption}
-                    series={lineChartOption.series}
+                    options={redLineChartOptionSR}
+                    series={redLineChartOptionSR.series}
                     type="line"
-                    width="80%"
+                    width="60%"
                     height='60%'
                   />
                 </div>
@@ -414,21 +485,26 @@ export default function WidgetChart() {
             </div>
 
             <div className="col-md-3 p-1 m-0">
-              <div className="widget-line-chart-card p-2 py-3 pb-5">
+              <div className="widget-line-chart-card p-2 py-3 pb-2">
                 <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column align-items-center z-index-container">
-                    <img src="/assets/TotalSalesIcon.svg" alt="" />
+                    <img src="/assets/TotalClassonIcon.png" alt="" />
                     <span>$18 378</span>
                   </div>
-                  <p>Total Sales</p>
+                  <div className="d-flex flex-column gap-5 z-index-container">
+                    <p>Total Classon</p>
+                    <span className="d-flex gap-2 red justify-content-end">+14%
+                      <img src="/assets/red-up-arrow.svg" alt="" />
+                    </span>
+                  </div>
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center line-chart-container">
                   <Chart
-                    options={lineChartOption}
-                    series={lineChartOption.series}
+                    options={orangeLineChartOptionSR}
+                    series={orangeLineChartOptionSR.series}
                     type="line"
-                    width="80%"
+                    width="60%"
                     height='60%'
                   />
                 </div>
@@ -436,21 +512,26 @@ export default function WidgetChart() {
             </div>
 
             <div className="col-md-3 p-1 m-0">
-              <div className="widget-line-chart-card p-2 py-3 pb-5">
+              <div className="widget-line-chart-card p-2 py-3 pb-2">
                 <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column align-items-center z-index-container">
-                    <img src="/assets/TotalSalesIcon.svg" alt="" />
+                    <img src="/assets/TotalProfitIcon.png" alt="" />
                     <span>$18 378</span>
                   </div>
-                  <p>Total Sales</p>
+                  <div className="d-flex flex-column gap-5 z-index-container">
+                    <p>Total Profit</p>
+                    <span className="d-flex gap-2 red justify-content-end">+14%
+                      <img src="/assets/red-up-arrow.svg" alt="" />
+                    </span>
+                  </div>
                 </div>
 
                 <div className="d-flex align-items-center justify-content-center line-chart-container">
                   <Chart
-                    options={lineChartOption}
-                    series={lineChartOption.series}
+                    options={greenLineChartOptionSR}
+                    series={greenLineChartOptionSR.series}
                     type="line"
-                    width="80%"
+                    width="60%"
                     height='60%'
                   />
                 </div>
@@ -487,15 +568,15 @@ export default function WidgetChart() {
               <div className="widget-chartless-card p-2 d-flex flex-column gap-2">
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-top">
-                  <p>Invoice Sent</p>
+                  <p>Credited From Accounts</p>
                   <img src="/assets/Danger Circle.png" alt="" />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-bottom">
 
                   <div className="d-flex align-items-center gap-2">
-                    <img src="/assets/InvoiceScent.png" alt="" />
-                    <p>352</p>
+                    <img src="/assets/CreditedFromAccounts.png" alt="" />
+                    <p>$37k</p>
                   </div>
 
                   <img src="/assets/Document.png" alt="" />
@@ -507,15 +588,15 @@ export default function WidgetChart() {
               <div className="widget-chartless-card p-2 d-flex flex-column gap-2">
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-top">
-                  <p>Invoice Sent</p>
+                  <p>AVG Employee Costs</p>
                   <img src="/assets/Danger Circle.png" alt="" />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-bottom">
 
                   <div className="d-flex align-items-center gap-2">
-                    <img src="/assets/InvoiceScent.png" alt="" />
-                    <p>352</p>
+                    <img src="/assets/avg-emplyee-cost.png" alt="" />
+                    <p>32%</p>
                   </div>
 
                   <img src="/assets/Document.png" alt="" />
@@ -527,14 +608,14 @@ export default function WidgetChart() {
               <div className="widget-chartless-card p-2 d-flex flex-column gap-2">
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-top">
-                  <p>Invoice Sent</p>
+                  <p>Avergage Payment dealy</p>
                   <img src="/assets/Danger Circle.png" alt="" />
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center widget-chartless-card-bottom">
 
                   <div className="d-flex align-items-center gap-2">
-                    <img src="/assets/InvoiceScent.png" alt="" />
+                    <img src="/assets/avg-payment-delay.png" alt="" />
                     <p>352</p>
                   </div>
 
@@ -550,15 +631,15 @@ export default function WidgetChart() {
             <div className="col-md-3 p-1 m-0">
               <div className="d-flex area-chart-card p-2">
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column justify-content-center">
                   <h5>24%</h5>
                   <p>Service Used</p>
                 </div>
 
                 <div>
                   <Chart
-                    options={areaChartOption}
-                    series={areaChartOption.series}
+                    options={blueAreaChartOptionFourthR}
+                    series={blueAreaChartOptionFourthR.series}
                     type="area"
                     width={'100%'}
                     height="70%"
@@ -570,15 +651,15 @@ export default function WidgetChart() {
             <div className="col-md-3 p-1 m-0">
               <div className="d-flex area-chart-card p-2">
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column justify-content-center">
                   <h5>24%</h5>
                   <p>Service Used</p>
                 </div>
 
                 <div>
                   <Chart
-                    options={areaChartOption}
-                    series={areaChartOption.series}
+                    options={redAreaChartOptionFourthR}
+                    series={redAreaChartOptionFourthR.series}
                     type="area"
                     width={'100%'}
                     height="70%"
@@ -590,15 +671,15 @@ export default function WidgetChart() {
             <div className="col-md-3 p-1 m-0">
               <div className="d-flex area-chart-card p-2">
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column justify-content-center">
                   <h5>24%</h5>
                   <p>Service Used</p>
                 </div>
 
                 <div>
                   <Chart
-                    options={areaChartOption}
-                    series={areaChartOption.series}
+                    options={orangeAreaChartOptionFourthR}
+                    series={orangeAreaChartOptionFourthR.series}
                     type="area"
                     width={'100%'}
                     height="70%"
@@ -610,15 +691,15 @@ export default function WidgetChart() {
             <div className="col-md-3 p-1 m-0">
               <div className="d-flex area-chart-card p-2">
 
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column justify-content-center">
                   <h5>24%</h5>
                   <p>Service Used</p>
                 </div>
 
                 <div>
                   <Chart
-                    options={areaChartOption}
-                    series={areaChartOption.series}
+                    options={greenAreaChartOptionFourthR}
+                    series={greenAreaChartOptionFourthR.series}
                     type="area"
                     width={'100%'}
                     height="70%"
@@ -627,7 +708,6 @@ export default function WidgetChart() {
               </div>
             </div>
           </div>
-
 
           <div className="row m-0 p-0 mt-3">
 
@@ -658,12 +738,12 @@ export default function WidgetChart() {
             <div className="col-md-2 p-1 m-0">
               <div className="small-chart-card p-2 d-flex flex-column">
                 <div>
-                  <img src="/assets/FrontendTime.png" alt="" />
+                  <img src="/assets/BackendTime.png" alt="" />
                 </div>
 
                 <div className="pt-2">
                   <h4>2.14s</h4>
-                  <p>Frontend time</p>
+                  <p>Backend time</p>
                 </div>
 
                 <div>
@@ -682,12 +762,12 @@ export default function WidgetChart() {
             <div className="col-md-2 p-1 m-0">
               <div className="small-chart-card p-2 d-flex flex-column">
                 <div>
-                  <img src="/assets/FrontendTime.png" alt="" />
+                  <img src="/assets/LocalTime.png" alt="" />
                 </div>
 
                 <div className="pt-2">
                   <h4>2.14s</h4>
-                  <p>Frontend time</p>
+                  <p>Local time</p>
                 </div>
 
                 <div>
@@ -706,12 +786,12 @@ export default function WidgetChart() {
             <div className="col-md-2 p-1 m-0">
               <div className="small-chart-card p-2 d-flex flex-column">
                 <div>
-                  <img src="/assets/FrontendTime.png" alt="" />
+                  <img src="/assets/ProcessingTime.png" alt="" />
                 </div>
 
                 <div className="pt-2">
                   <h4>2.14s</h4>
-                  <p>Frontend time</p>
+                  <p>Processing time</p>
                 </div>
 
                 <div>
@@ -736,8 +816,8 @@ export default function WidgetChart() {
                     <h4>12</h4>
                     {/* //Charat */}
                     <Chart
-                      options={areaChartOption}
-                      series={areaChartOption.series}
+                      options={greenAreaChartOptionFourthR}
+                      series={greenAreaChartOptionFourthR.series}
                       type="area"
                       width={'90%'}
                       height="70%"
@@ -763,7 +843,23 @@ export default function WidgetChart() {
           <div className="row m-0 p-0 mt-3">
 
             <div className="col-md-6 p-1 m-0">
-              <div></div>
+              <div className="p-2 widget-bar-chart-container d-flex flex-column">
+
+                <div className="d-flex flex-column">
+                  <h4>Analytics</h4>
+                  <p>Status</p>
+                </div>
+
+                <div className="widget-bar-chart px-4 pt-4">
+                  <Chart
+                    options={barChartData}
+                    series={barChartData.series}
+                    type="bar"
+                    width="100%"
+                    height='100%'
+                  />
+                </div>
+              </div>
             </div>
 
             <div className="col-md-6 p-1 m-0">

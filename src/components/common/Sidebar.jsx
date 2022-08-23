@@ -7,8 +7,8 @@ const Sidebar = () => {
       <aside id="sidebar" className="sidebar">
         <div className="container-fluid">
           <div className="row flex-nowrap ">
-            <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
-              <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
+            <div className="col-auto bg-white">
+              <div className="d-flex flex-column align-items-center  text-white min-vh-100 ">
                 <a
                   href="/"
                   className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
@@ -46,7 +46,7 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex justify-content-center algn-items-center">
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Filter1.png" alt="" />
                         <p>MenuStyle</p>
                         <img src="/assets/Shape.png" alt="" />
@@ -60,8 +60,6 @@ const Sidebar = () => {
                       <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Game.png" alt="" />
                         <p> Example</p>
-                        <img src="/assets/Shape.png" alt="" />
-                       
                       </div>
                       <li>
                         <a href="#" className="nav-link px-0">
@@ -97,10 +95,10 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                     
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Game.png" alt="" />
                         <p> Example </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -126,17 +124,15 @@ const Sidebar = () => {
                       </li>
                     </ul>
 
-
                     <a
                       href="#submenu8"
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                    
-
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Ticket Star.png" alt="" />
                         <p> Widgets </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -167,12 +163,10 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                   
                       <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Location.png" alt="" />
                         <p> Maps </p>
                         <img src="/assets/Shape.png" alt="" />
-
                       </div>
                     </a>
                     <ul
@@ -203,7 +197,6 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                     
                       <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Shield Done.png" alt="" />
                         <p> Authentication </p>
@@ -241,10 +234,10 @@ const Sidebar = () => {
                       {/* <span className="ms-1 d-none d-sm-inline text-gray">
                         Users
                       </span>{" "} */}
-                      <div className="d-flex">
-                        <img src="/assets/ 3 Users.png" alt="" />
+                      <div className="d-flex justify-content-around align-items -center">
+                        <img src="/assets/3Users.png" alt="" />
                         <p> Users </p>
-                        
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -272,8 +265,7 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                   
-                      <div className="d-flex justify-content-between algn-items-center">
+                      <div className="d-flex justify-content-center algn-items-center">
                         <img src="/assets/Info Circle.png" alt="" />
                         <p> Error 404 </p>
                         <img src="/assets/Shape.png" alt="" />
@@ -283,6 +275,7 @@ const Sidebar = () => {
                       className="collapse hide nav flex-column ms-1"
                       id="submenu3"
                       data-bs-parent="#menu"
+                      
                     >
                       <li className="w-100">
                         <a href="#" className="nav-link px-0">
@@ -467,13 +460,10 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-grid"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                        icons
-                      </span>{" "} */}
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-between  align-items-center">
                         <img src="/assets/icon.png" alt="" />
                         <p> Icons </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
