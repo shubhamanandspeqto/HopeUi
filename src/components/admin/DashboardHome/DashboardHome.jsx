@@ -13,10 +13,12 @@ let barChartData = {
 
     series: [{
         name: '',
-        data: [44, 55, 41, 67, 22, 43]
+        data: [44, 55, 41, 67, 22, 43],
+        color: '#738AFE'
     }, {
         name: '',
-        data: [13, 23, 20, 8, 13, 27]
+        data: [13, 23, 20, 8, 13, 27],
+        color: '#85F4FA'
     }],
     options: {
         stroke: {
@@ -46,7 +48,8 @@ let barChartData = {
         plotOptions: {
             bar: {
                 horizontal: false,
-                borderRadius: 10
+                borderRadius: 10,
+                columnWidth: '25px',
             },
             radialBar: {
                 dataLabels: {
@@ -176,17 +179,36 @@ let state = {
 
     series: [{
         name: 'Sales',
-        data: [50, 45, 50, 45, 50, 45, 50, 45, 50, 45, 50, 45],
+        data: [50, 45, 50, 45, 50, 45, 50, 45, 50],
         color: "#3A57E8",
     }, {
         name: 'Cost',
-        data: [40, 35, 40, 35, 40, 35, 40, 35, 40, 35, 40, 35],
-        color: "#3A57E8"
+        data: [40, 35, 40, 35, 40, 35, 40, 35, 40],
+        color: "#85C5FA"
     }],
     options: {
+        legend: {
+            position: 'top',
+        },
+        grid: {
+            show: false,      // you can either change hear to disable all grids
+            yaxis: {
+                lines: {
+                    show: false  //or just here to disable only x axis grids
+                }
+            },
+            xaxis: {
+                lines: {
+                    show: false  //or just here to disable only x axis grids
+                }
+            }
+        },
         chart: {
             height: 350,
-            type: 'area'
+            type: 'area',
+            toolbar: {
+                show: false
+            },
         },
         dataLabels: {
             enabled: false
@@ -218,7 +240,7 @@ let state = {
             labels: {
                 format: "MMM"
             },
-            categories: ["2017-12-19T00:00:00.000Z", "2018-01-19T00:00:00.000Z", "2018-02-19T01:30:00.000Z", "2018-03-19T02:30:00.000Z", "2018-04-19T03:30:00.000Z", "2018-05-19T04:30:00.000Z", "2018-06-19T05:30:00.000Z", "2018-07-19T06:30:00.000Z", "2018-08-19T06:30:00.000Z", "2018-09-19T06:30:00.000Z", "2018-10-19T06:30:00.000Z", "2018-11-19T06:30:00.000Z", "2018-12-19T06:30:00.000Z"]
+            categories: ["2017-12-19T00:00:00.000Z", "2018-01-19T00:00:00.000Z", "2018-02-19T01:30:00.000Z", "2018-03-19T02:30:00.000Z", "2018-04-19T03:30:00.000Z", "2018-05-19T04:30:00.000Z", "2018-06-19T05:30:00.000Z", "2018-07-19T06:30:00.000Z", "2018-08-19T06:30:00.000Z"]
         },
         tooltip: {
             x: {
