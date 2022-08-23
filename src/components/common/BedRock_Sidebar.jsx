@@ -38,7 +38,7 @@ export default function BedRock_Sidebar() {
                       <div className="d-flex justify-content-around">
                         <img src="/assets/Category.png" alt="" />
                         <p>Dashboard</p>
-                     
+
                       </div>
                     </Link>
                   </li>
@@ -80,7 +80,7 @@ export default function BedRock_Sidebar() {
                       <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/File Outline Icon.png" alt="" />
                         <p> BED15 </p>
-                        <img src="/assets/Shape.png" alt=""/>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -89,30 +89,13 @@ export default function BedRock_Sidebar() {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/upload'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            --Bed1
+                            Upload
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            --Bed2
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                            --Bed3
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <a
@@ -124,7 +107,7 @@ export default function BedRock_Sidebar() {
                       <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Shield Done.png" alt="" />
                         <p> BED70 </p>
-                        <img src="/assets/Shape.png" alt=""/>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -133,30 +116,13 @@ export default function BedRock_Sidebar() {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/proofs'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            --Bed701
+                            Issue Proof
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            --Bed702
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                            --Bed703
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
 
@@ -166,11 +132,11 @@ export default function BedRock_Sidebar() {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                   
+
                       <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Fill 1.png" alt="" />
                         <p> BED80 </p>
-                        <img src="/assets/Shape.png" alt=""/>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -179,30 +145,43 @@ export default function BedRock_Sidebar() {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/documents'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                           -- Bed801
+                            Documents
                           </span>
-                        </a>
+                        </Link>
                       </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                          --  Bed802
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
+
+                      <li className="w-100">
+                        <Link to={'/dashboard/shares'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            --Bed803
-                          </span>{" "}
-                        </a>
+                            Issued Shares
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="w-100">
+                        <Link to={'/dashboard/incoming-orders'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            Incoming Orders
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="w-100">
+                        <Link to={'/dashboard/order'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            Orders Accepted
+                          </span>
+                        </Link>
                       </li>
                     </ul>
 
@@ -211,11 +190,11 @@ export default function BedRock_Sidebar() {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      
+
                       <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Ticket Star(bed-rock).png" alt="" />
                         <p> BED100 </p>
-                        <img src="/assets/Shape.png" alt=""/>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
 
@@ -225,30 +204,13 @@ export default function BedRock_Sidebar() {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/package'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                           -- Bed101
+                            Packages
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Bed102
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                            --Bed103
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <a
@@ -257,7 +219,7 @@ export default function BedRock_Sidebar() {
                       className="nav-link px-0 align-middle"
                     >
                       <i className="fs-4 bi-speedometer2"></i>{" "}
-                    
+
                       <div className="d-flex justify-content-around">
                         <img src="/assets/ Bedrock(coming-soon).png" alt="" />
                         <p> Coming Soon </p>
@@ -270,11 +232,11 @@ export default function BedRock_Sidebar() {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                     
+
                       <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Bedrock(coming-soon).png" alt="" />
                         <p> Bedrock A.I.</p>
-                        <img src="/assets/Shape.png" alt=""/>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -283,30 +245,13 @@ export default function BedRock_Sidebar() {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/Ai'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            --BedRock-1
+                            BedRock AI
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            --BedRock-2
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                          -- BedRock-3
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>

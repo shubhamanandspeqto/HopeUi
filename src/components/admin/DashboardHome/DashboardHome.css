@@ -68,7 +68,7 @@
 
 .dashboard-card-icon {
     position: absolute;
-    margin-left: 14px;
+    margin: 14px;
 }
 
 .dashboard-area-chart .apexcharts-svg.apexcharts-zoomable.hovering-zoom>foreignObject span {
