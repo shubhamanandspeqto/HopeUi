@@ -28,6 +28,7 @@ import DashboardHome from "./components/admin/DashboardHome/DashboardHome";
 import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
+import Maintenancee from "./components/common/Maintenancee";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
         <Route path="*" element={<Error404 />} />
         <Route path="error" element={<Error500 />} />
         <Route path="maintenance" element={<Maintenance />} />
+        <Route path="maintenance1" element={<Maintenancee />} />
       </Routes>
     </BrowserRouter>
   );

@@ -124,18 +124,18 @@ export default function Packages() {
             }}
           >
             <div class="modal-content Newpackage-Width">
-              <div class="modal-header">
-                <button
+              {/* <div class="modal-header"> */}
+                {/* <button
                   type="button"
                   class="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
-              </div>
+              </div> */}
               <div class="modal-body" style={{ padding: "2% 15%" }}>
                 <NewPackages />
               </div>
-              <div class="modal-footer Createflex">
+              {/* <div class="modal-footer Createflex">
                 <button
                   type="button"
                   class="btn btn-primary "
@@ -143,7 +143,7 @@ export default function Packages() {
                 >
                   <p>Create</p>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

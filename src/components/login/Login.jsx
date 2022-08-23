@@ -1,6 +1,10 @@
 import React from 'react'
 import './Login.css'
+import { useNavigate } from 'react-router-dom'
 export default function Login() {
+
+    const navigate = useNavigate();
+
     return (
         <div className='w-100 d-flex login-container'>
             <div className='w-50 d-flex flex-column login-form justify-content-center align-items-center'>
@@ -13,9 +17,22 @@ export default function Login() {
                 <div className='d-flex flex-column w-100'>
                     <label htmlFor="betaCode">Beta Code</label>
                     <input type="password" name="betaCode" id="betaCode" />
+                    <p className='text-end text-gray reset-password'
+                        onClick={() => {
+                            navigate('/reset-password')
+                        }}
+                    >Reset Password</p>
                 </div>
 
-                <button className='mt-3' type="submit">Create Account</button>
+                <button
+                    onClick={() => {
+                        navigate('/dashboard')
+                    }}
+                    className='mt-3' type="submit">Log in</button>
+
+                <p onClick={() => {
+                    navigate('/sign-up')
+                }} className='create-account'>Create Account</p>
             </div>
 
             <div className='w-50 login-background-container' >
