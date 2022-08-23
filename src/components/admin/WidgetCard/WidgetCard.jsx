@@ -1,7 +1,16 @@
-import React from 'react'
-import '../WidgetCard/WidgetCard.css'
+import React ,{useState} from 'react'
+import '../WidgetCard/WidgetCard.css';
+import { Rating } from 'react-simple-star-rating'
+
+
+
 
 export default function WidgetCard() {
+    const [rating, setRating] = useState(0);
+
+    const handleRating = (rate) => {
+      setRating(rate)
+    }
     return (
         <>
             <div className='widget-card-container'>
@@ -23,13 +32,14 @@ export default function WidgetCard() {
                         <div className='widget-card-body-first'>
                         <p className='birthday-name text-centerga'>Regina Miles</p>
                             <p className='Regina-para2'>Trainer Expert</p>
-                            <div className='star '>
+                            {/* <div className='star '>
                                 <img src="..\assets\Star 6.png" alt="" />
                                 <img src="..\assets\Star 6.png" alt="" />
                                 <img src="..\assets\Star 6.png" alt="" />
                                 <img src="..\assets\Star 9.png" alt="" />
                                 <img src="..\assets\Star 9.png" alt="" />
-                            </div>
+                            </div> */}
+                              <Rating size={25} onClick={handleRating} ratingValue={rating} />
                         </div>
                         <div className="widget-card-body-second">
                             <img src="..\assets\beared-guy.png" alt="" />
