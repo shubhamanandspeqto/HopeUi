@@ -34,7 +34,7 @@ const Sidebar = () => {
                       className="text-gray"
                       style={{ textDecoration: "none" }}
                     >
-                      <div className="d-flex">
+                      <div className="d-flex  justify-content-between align-items-center gap-2">
                         <img src="/assets/Category.png" alt="" />
                         <p>Dashboard</p>
                       </div>
@@ -46,9 +46,12 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex justify-content-between algn-items-center">
+                      <div className="d-flex justify-content-between align-items-center gap-5">
+                        <div className="d-flex gap-2">
                         <img src="/assets/Filter1.png" alt="" />
                         <p>MenuStyle</p>
+                        </div>
+                       
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -57,10 +60,10 @@ const Sidebar = () => {
                       id="submenu1"
                       data-bs-parent="#menu"
                     >
-                      <div className="d-flex justify-content-between algn-items-center">
+                      {/* <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Game.png" alt="" />
-                        <p> Example</p>
-                      </div>
+                        <p> Special Pages</p>
+                      </div> */}
                       <li>
                         <a href="#" className="nav-link px-0">
                           {" "}
@@ -98,7 +101,7 @@ const Sidebar = () => {
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex gap-2">
                         <img src="/assets/Game.png" alt="" />
-                        <p> Example </p>
+                        <p> Special Pages </p>
                         </div>
                        
                         <img src="/assets/Shape.png" alt="" />
@@ -113,7 +116,7 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Billing
                           </span>
                         </a>
                       </li>
@@ -121,7 +124,39 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Calender
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Kanban
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            RTL Support
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Timeline
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Pricing
                           </span>{" "}
                         </a>
                       </li>
@@ -261,14 +296,28 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Widgets
+                          User Profile
                           </span>
                         </a>
                       </li>
-                      <div className="d-flex">
-                        <img src="/assets/Category.png" alt="" />
-                        <p> maps</p>
-                      </div>
+
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                        Edit User
+                          </span>
+                        </a>
+                      </li>
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                          User List
+                          </span>
+                        </a>
+                      </li>
+                    
                     </ul>
                   </li>
                   <li>
