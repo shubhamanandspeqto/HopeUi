@@ -4,6 +4,15 @@
     border-radius: 8px;
 }
 
+.dashboard-card p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
 .dark-mode-dashboard-card {
     background-color: rgba(34, 39, 56, 1) !important;
     box-shadow: 0px 10px 30px rgba(17, 38, 146, 0.05);

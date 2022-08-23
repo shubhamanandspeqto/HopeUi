@@ -48,10 +48,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Filter1.png" alt="" />
-                        <p>MenuStyle</p>
+                          <img src="/assets/Filter1.png" alt="" />
+                          <p>MenuStyle</p>
                         </div>
-                       
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -100,10 +100,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Game.png" alt="" />
-                        <p> Special Pages </p>
+                          <img src="/assets/Game.png" alt="" />
+                          <p> Special Pages </p>
                         </div>
-                       
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -169,10 +169,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Ticket Star.png" alt="" />
-                        <p> Widgets </p>
+                          <img src="/assets/Ticket Star.png" alt="" />
+                          <p> Widgets </p>
                         </div>
-                      
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -206,10 +206,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Location.png" alt="" />
-                        <p> Maps </p>
+                          <img src="/assets/Location.png" alt="" />
+                          <p> Maps </p>
                         </div>
-                      
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -243,10 +243,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Shield Done.png" alt="" />
-                        <p> Authentication </p>
+                          <img src="/assets/Shield Done.png" alt="" />
+                          <p> Authentication </p>
                         </div>
-                       
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -278,12 +278,12 @@ const Sidebar = () => {
                       className="nav-link px-0 align-middle"
                     >
                       <i className="fs-4 bi-speedometer2"></i>{" "}
-                    
+
                       <div className="d-flex justify-content-between align-items-center gap-5">
-                     <div className="d-flex gap-2">
-                     <img src="/assets/3Users.png" alt="" />
-                        <p>Users</p>
-                     </div>
+                        <div className="d-flex gap-2">
+                          <img src="/assets/3Users.png" alt="" />
+                          <p>Users</p>
+                        </div>
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -296,7 +296,7 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                          User Profile
+                            User Profile
                           </span>
                         </a>
                       </li>
@@ -305,7 +305,7 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                        Edit User
+                            Edit User
                           </span>
                         </a>
                       </li>
@@ -313,11 +313,11 @@ const Sidebar = () => {
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                          User List
+                            User List
                           </span>
                         </a>
                       </li>
-                    
+
                     </ul>
                   </li>
                   <li>
@@ -365,10 +365,10 @@ const Sidebar = () => {
                     >
                       <div className="d-flex justify-content-center align-items-center  gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Danger.png" alt="" />
-                        <p> Error 505 </p>
+                          <img src="/assets/Danger.png" alt="" />
+                          <p> Error 505 </p>
                         </div>
-                       
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -412,13 +412,13 @@ const Sidebar = () => {
                       className="nav-link px-0 align-middle"
                     >
                       <i className="fs-4 bi-speedometer2"></i>{" "}
-                     
+
                       <div className="d-flex justify-content-center align-items-center gap-5">
                         <div className="d-flex gap 2">
-                        <img src="/assets/Bookmark.png" alt="" />
-                        <p> Maintence </p>
+                          <img src="/assets/Bookmark.png" alt="" />
+                          <p> Maintence </p>
                         </div>
-                       
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -490,10 +490,10 @@ const Sidebar = () => {
                       </span> */}
                       <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
-                        <img src="/assets/Game.png" alt="" />
-                        <p> Components </p>
+                          <img src="/assets/Game.png" alt="" />
+                          <p> Components </p>
                         </div>
-                      
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
@@ -529,12 +529,12 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex justify-content-between  align-items-center">
-                        <div className="d-flex gap-2">
-                        <img src="/assets/icon.png" alt="" />
-                        <p> Icons </p>
+                      <div className="d-flex justify-content-between  align-items-center gap-5">
+                        <div className="d-flex gap-2 align-items-center">
+                          <img src="/assets/icon.png" alt="" />
+                          <p> Icons </p>
                         </div>
-                        
+
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
