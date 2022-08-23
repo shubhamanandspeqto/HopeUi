@@ -133,8 +133,8 @@ export default function WidgetCard() {
 
                 <div className="row widget-card p-4">
                     <div className="widget-card2-body col-md-4 admin-id-card1 birthday-img">
-                        <div className='row birthday-img'>
-                            <div><p className='birthday-name text-start'>Upcoming Birthday</p></div>
+                        <div className='row birthday-img '>
+                            <div className='row mb-3'><p className='birthday-name text-start'>Upcoming Birthday</p></div>
                             <div className='d-flex mb-2'>
                                 <div className="col-md-4">
                                     <img src="..\assets\Frame 35515.png" alt="" />
@@ -208,25 +208,25 @@ export default function WidgetCard() {
                             </div>
                         </div>
                         <hr />
-                        <div className="row d-flex align-content-left">
+                        <div className="row d-flex align-content-left mb-2">
                             <div className="col-md-2 sphere-img">
                                 <img src="..\assets\Sphere-min.png" alt="" />
                             </div>
                             <div className="col-md-10">
-                                <p className='text-md-left'>Paul Molive</p>
+                                <p className='text-start'>Paul Molive</p>
                                 <p className=' wade-para text-start holiday-para3'>Lorem ipsum dolor sit amet, consectetur elit.</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="input-group">
-                                <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
+                                <input type="text" className="form-control" aria-label="Amount (to the nearest dollar)"placeholder='Recipient’s Username' />
 
                             </div>
                         </div>
                     </div>
                     <div className="widget-card2-body col-md-3 admin-id-card3">
                         <div className='row birthday-img'>
-                            <div><p className='Regina-para1 mb-3'>Stories</p></div>
+                            <div><p className='Regina-para1 mb-3 text-start'>Stories</p></div>
                             <div className='row d-flex mb-2'>
                                 <div className="col-md-4">
                                     <img src="..\assets\Frame 35515.png" alt="" />
@@ -265,7 +265,7 @@ export default function WidgetCard() {
                 </div>
                 <div className="row widget-card p-4">
                     <div className="widget-card2-body col-md-4 gallery-row-card1">
-                        <div className="row mb-4">
+                        <div className="row mb-5">
                             <div className="col-md-6">
                                 <p className='birthday-name text-start'>Gallery</p>
                             </div>
@@ -273,7 +273,7 @@ export default function WidgetCard() {
                                 <p className='birthday-date text-end'>132 pics</p>
                             </div>
                         </div>
-                        <div className="row d-flex mb-3">
+                        <div className="row d-flex mb-5">
                             <div className="col-md-4 shape-img">
                                 <img src="..\assets\Frame 35676.png" alt="" />
                             </div>
@@ -284,7 +284,7 @@ export default function WidgetCard() {
                                 <img src="..\assets\Frame 35678.png" alt="" />
                             </div>
                         </div>
-                        <div className="row d-flex mb-3">
+                        <div className="row d-flex mb-5">
                             <div className="col-md-4 shape-img">
                                 <img src="..\assets\Frame 35679 (1).png" alt="" />
                             </div>
