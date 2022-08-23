@@ -29,7 +29,7 @@ export default function Packages() {
         </div>
 
         <div className="container No-1 ">
-          <div className="row align-items margin-right ">
+          <div className="row align-items  ">
             <div className="col-md-3 ">
               <button className="img-margin container-button-color1">
                 <p> Create a new task for Line up</p>
