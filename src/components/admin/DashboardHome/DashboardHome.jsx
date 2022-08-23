@@ -13,10 +13,12 @@ let barChartData = {
 
     series: [{
         name: '',
-        data: [44, 55, 41, 67, 22, 43]
+        data: [44, 55, 41, 67, 22, 43],
+        color: '#738AFE'
     }, {
         name: '',
-        data: [13, 23, 20, 8, 13, 27]
+        data: [13, 23, 20, 8, 13, 27],
+        color: '#85F4FA'
     }],
     options: {
         stroke: {
@@ -46,7 +48,8 @@ let barChartData = {
         plotOptions: {
             bar: {
                 horizontal: false,
-                borderRadius: 10
+                borderRadius: 10,
+                columnWidth: '25px',
             },
             radialBar: {
                 dataLabels: {
