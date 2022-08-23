@@ -53,7 +53,6 @@ function App() {
           <Route path="package" element={<Packages />} />
           <Route path="incoming-orders" element={<IncomingOrders />} />
           <Route path="widget-basic" element={<WidgetBasic />} />
-          {/* <Route path="view-incoming-orders" element={<ViewIn />} /> */}
           <Route path="widget-chart" element={<WidgetChart />} />
         </Route>
 
