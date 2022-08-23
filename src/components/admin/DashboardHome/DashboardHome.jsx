@@ -736,7 +736,7 @@ export default function DashboardHome() {
                                 </div>
                             </div>
 
-                            <div className='dashboard-timeline' style={{ height: "335px" }}>
+                            <div className='dashboard-timeline dark-mode' style={{ height: "335px" }}>
                                 <Chrono items={dashboardTimelineData} mode="VERTICAL" hideControls={true} cardHeight={10} />
                             </div>
                         </div>
