@@ -1,0 +1,197 @@
+.collpased-page-content {
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.collpased-page-img-container>img {
+  border-radius: 100%;
+  position: relative;
+  margin-top: -60px;
+}
+
+.collpased-page-img-container>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 130%;
+  color: #232D42;
+  padding: 2rem 0;
+}
+
+.collpased-page-img-container>p>span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #8A92A6;
+}
+.collpased-page-btn-container>button {
+  all: unset;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #738AFE;
+  cursor: pointer;
+  animation: all 0.2s;
+}
+
+.collpased-page-btn-container>.active {
+  all: unset;
+  background: #738AFE;
+  border-radius: 50px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #FFFFFF;
+  cursor: pointer;
+  animation: all 0.2s;
+}
+
+.collpased-pages-row {
+  background: #FFFFFF;
+  border-radius: 8px;
+}
+
+.collpased-pages-row>h5 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 130%;
+  color: #232D42;
+}
+
+.collpased-pages-row>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #8A92A6;
+}
+
+.collpased-pages-row>button {
+  all: unset;
+  background: #738AFE;
+  border-radius: 50px;
+  width: 10%;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.collpaseds-page-view-container {
+  background-color: #FFFFFF;
+}
+
+.collpaseds-page-view-table-border {
+  border-bottom: 1px solid #C4C4C4;
+}
+
+.collpaseds-page-net-amount p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 175%;
+  color: #04040B;
+}
+
+.collpased-pages-first-buttons>button {
+  all: unset;
+  background: #0048B3;
+  box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  color: #FFFFFF;
+  width: 40%;
+  padding: 10px 2%;
+  text-align: center;
+}
+
+.collpased-pages-accept-btn {
+  all: unset;
+  background: #CC8039;
+  box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+  border-radius: 4px;
+  color: #FFFFFF;
+  margin-top: 150px;
+}
+
+.collpased-pages-decline-btn {
+  all: unset;
+  background: #C03221;
+  box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+  border-radius: 4px;
+  color: #FFFFFF;
+  margin-top: 150px;
+}
+
+.collpased-pages-counteroffer-btn {
+  all: unset;
+  background: #3B8AFF;
+  box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+  border-radius: 4px;
+  color: #FFFFFF;
+  margin-top: 10px;
+}
+
+.collpaseds-page-heading>span {
+  font-weight: 800;
+}
+
+.collpaseds-page-sub-heading>p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #8A92A6;
+}
+
+.collpaseds-page-table>tr>td {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  color: #04040B;
+}
+
+.issue-new-collpased-btn>button {
+  all: unset;
+  background: #738AFE;
+  border-radius: 50px;
+  text-align: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 130%;
+  color: #FFFFFF;
+  padding: 20px 5%;
+  cursor: pointer;
+}
+
+#collpasedNew .modal-content {
+  border-radius: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+

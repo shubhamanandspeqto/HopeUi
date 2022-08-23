@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../common/Footer";
+import Iconly from "../common/Iconly";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
 import BedRock_Sidebar from "../common/BedRock_Sidebar";
@@ -29,6 +30,7 @@ export default function Dashboard() {
           }}
         >
           {/* <img style={{width:"100%"}} src={"/assets/Outlet.jpeg"} /> */}
+          <Iconly />
           <Outlet />
           <Footer />
         </div>
