@@ -11,7 +11,7 @@ export default function Navbar() {
     return (
         <nav className="navbar fixed-top bg-light dark-mode">
             <div className="container-fluid">
-                <div className='row w-100 extra-dark'>
+                <div className='row w-100 dark-mode'>
                 <div className='col-md-2 '>
                     <a className="navbar-brand dark-mode" href="#" >
                         <img src={"/assets/logo.png"} alt="" width="30" height="24" className="d-inline-block align-text-top" />
