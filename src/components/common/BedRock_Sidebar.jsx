@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+//import "../common/BedRock_sidebar.css"
 
 export default function BedRock_Sidebar() {
   return (
@@ -34,43 +35,25 @@ export default function BedRock_Sidebar() {
                       className="text-gray"
                       style={{ textDecoration: "none" }}
                     >
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-around">
                         <img src="/assets/Category.png" alt="" />
                         <p>Dashboard</p>
+                     
                       </div>
                     </Link>
                   </li>
                   <li>
                     <a
-                      href="#submenu1"
+                      href="#"
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex">
+                      <div className="d-flex justiy-content-between">
                         <img src="/assets/Filter1.png" alt="" />
-                        <p>MenuStyle</p>
+                        <p>Identities</p>
                       </div>
                     </a>
-                    <ul
-                      className="collapse hide nav flex-column ms-1"
-                      id="submenu1"
-                      data-bs-parent="#menu"
-                    >
-                      <div className="d-flex">
-                        <img src="/assets/Game.png" alt="" />
-                        <p> Example</p>
-                      </div>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Sub Menu
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
                   </li>
-
                   <div
                     className="hr_line"
                     style={{
@@ -90,59 +73,184 @@ export default function BedRock_Sidebar() {
                   </li>
                   <li>
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse1"
+                      href="#subject1"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Example
-                      </span>{" "} */}
-                      <div className="d-flex justify-content-around">
+                      <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/File Outline Icon.png" alt="" />
                         <p> BED15 </p>
+                        <img src="/assets/Shape.png" alt=""/>
                       </div>
                     </a>
-
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="subject1"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed1
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            --Bed2
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed3
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse2"
+                      href="#subject2"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Widgets
-                      </span>{" "} */}
 
-                      <div className="d-flex justify-content-around">
+                      <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Shield Done.png" alt="" />
                         <p> BED70 </p>
+                        <img src="/assets/Shape.png" alt=""/>
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="subject2"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed701
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            --Bed702
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed703
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
+
 
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse3"
+                      href="#subject3"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
                    
-                      <div className="d-flex justify-content-around">
+                      <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Fill 1.png" alt="" />
                         <p> BED80 </p>
+                        <img src="/assets/Shape.png" alt=""/>
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="subject3"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                           -- Bed801
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                          --  Bed802
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed803
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
 
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse4"
+                      href="#subject4"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
                       
-                      <div className="d-flex justify-content">
+                      <div className="d-flex justify-content-between align-items-center">
                         <img src="/assets/Ticket Star(bed-rock).png" alt="" />
                         <p> BED100 </p>
+                        <img src="/assets/Shape.png" alt=""/>
                       </div>
                     </a>
+
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="subject4"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                           -- Bed101
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Bed102
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                            --Bed103
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
                     <a
                       href="#submenu2"
                       data-bs-toggle="collapse"
@@ -155,41 +263,58 @@ export default function BedRock_Sidebar() {
                         <p> Coming Soon </p>
                       </div>
                     </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#subject5"
+                      data-bs-toggle="collapse"
+                      className="nav-link px-0 align-middle"
+                    >
+                     
+                      <div className="d-flex justify-content-between align-items-center">
+                        <img src="/assets/Bedrock(coming-soon).png" alt="" />
+                        <p> Bedrock A.I.</p>
+                        <img src="/assets/Shape.png" alt=""/>
+                      </div>
+                    </a>
                     <ul
                       className="collapse hide nav flex-column ms-1"
-                      id="submenu2"
+                      id="subject5"
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Widgets
+                            {" "}
+                            --BedRock-1
                           </span>
                         </a>
                       </li>
-                      <div className="d-flex justify-content-around">
-                        <img src="/assets/Category.png" alt="" />
-                        <p> maps</p>
-                      </div>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            --BedRock-2
+                          </span>{" "}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            {" "}
+                          -- BedRock-3
+                          </span>{" "}
+                        </a>
+                      </li>
                     </ul>
-                  </li>
-                  <li>
-                    <a
-                      href="#submenu3"
-                      data-bs-toggle="collapse"
-                      className="nav-link px-0 align-middle"
-                    >
-                     
-                      <div className="d-flex justify-content-around">
-                        <img src="/assets/Bedrock(coming-soon).png" alt="" />
-                        <p> Bedrock A.I.</p>
-                      </div>
-                    </a>
                   </li>
                 </ul>
                 <hr />
               </div>
+
+
             </div>
           </div>
         </div>

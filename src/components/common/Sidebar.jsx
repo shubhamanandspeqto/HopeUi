@@ -46,9 +46,10 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-center algn-items-center">
                         <img src="/assets/Filter1.png" alt="" />
                         <p>MenuStyle</p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -56,9 +57,11 @@ const Sidebar = () => {
                       id="submenu1"
                       data-bs-parent="#menu"
                     >
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Game.png" alt="" />
                         <p> Example</p>
+                        <img src="/assets/Shape.png" alt="" />
+                       
                       </div>
                       <li>
                         <a href="#" className="nav-link px-0">
@@ -90,65 +93,145 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse1"
+                      href="#submenu9"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Example
-                      </span>{" "} */}
+                     
                       <div className="d-flex">
                         <img src="/assets/Game.png" alt="" />
                         <p> Example </p>
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="submenu9"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
+
 
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse2"
+                      href="#submenu8"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Widgets
-                      </span>{" "} */}
+                    
 
                       <div className="d-flex">
                         <img src="/assets/Ticket Star.png" alt="" />
                         <p> Widgets </p>
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="submenu8"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
 
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse3"
+                      href="#submenu7"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Maps
-                      </span>{" "} */}
-                      <div className="d-flex">
+                   
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Location.png" alt="" />
                         <p> Maps </p>
+                        <img src="/assets/Shape.png" alt="" />
+
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="submenu7"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
 
                     <a
-                      href="#submenu5"
-                      data-bs-toggle="collapse4"
+                      href="#submenu6"
+                      data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Authentication
-                      </span>{" "} */}
-                      <div className="d-flex">
+                     
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Shield Done.png" alt="" />
                         <p> Authentication </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
+                    <ul
+                      className="collapse hide nav flex-column ms-1"
+                      id="submenu6"
+                      data-bs-parent="#menu"
+                    >
+                      <li className="w-100">
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Sub Auth
+                          </span>{" "}
+                        </a>
+                      </li>
+                    </ul>
                     <a
                       href="#submenu2"
                       data-bs-toggle="collapse"
@@ -161,6 +244,7 @@ const Sidebar = () => {
                       <div className="d-flex">
                         <img src="/assets/ 3 Users.png" alt="" />
                         <p> Users </p>
+                        
                       </div>
                     </a>
                     <ul
@@ -188,13 +272,11 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                        Error 404
-                      </span>{" "} */}
-                      <div className="d-flex">
+                   
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Info Circle.png" alt="" />
                         <p> Error 404 </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -226,13 +308,10 @@ const Sidebar = () => {
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      {/* <i className="fs-4 bi-speedometer2"></i>{" "}
-                      <span className="ms-1 d-none d-sm-inline text-gray">
-                      Error 505
-                      </span>{" "} */}
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-center algn-items-center">
                         <img src="/assets/Danger.png" alt="" />
                         <p> Error 505 </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -278,9 +357,10 @@ const Sidebar = () => {
                       {/* <span className="ms-1 d-none d-sm-inline text-gray">
                         Maintence
                       </span>{" "} */}
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-center algn-items-center">
                         <img src="/assets/Bookmark.png" alt="" />
                         <p> Maintence </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -349,9 +429,10 @@ const Sidebar = () => {
                       {/* <span className="ms-1 d-none d-sm-inline text-gray">
                         Components
                       </span> */}
-                      <div className="d-flex">
+                      <div className="d-flex justify-content-between algn-items-center">
                         <img src="/assets/Game.png" alt="" />
                         <p> Components </p>
+                        <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
                     <ul
@@ -372,15 +453,10 @@ const Sidebar = () => {
                       </div>
 
                       <li>
-                        {/* <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Table
-                          </span>
-                        </a> */}
-                        <div className="d-flex">
+                        <div className="d-flex justify-content-between algn-items-center">
                           <img src="/assets/Setting.png" alt="" />
                           <p> Icons </p>
+                          <img src="/assets/Shape.png" alt="" />
                         </div>
                       </li>
                     </ul>
@@ -427,9 +503,6 @@ const Sidebar = () => {
                 <hr />
               </div>
             </div>
-            {/* <div className="col py-3">
-                            Content area...
-                        </div> */}
           </div>
         </div>
       </aside>
