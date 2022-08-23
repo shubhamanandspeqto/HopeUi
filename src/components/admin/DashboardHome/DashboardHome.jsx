@@ -302,7 +302,7 @@ export default function DashboardHome() {
     return (
         <>
 
-        <div className='special-page-container'>
+        <div className='special-page-container extra-dark'>
 
             <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
                 <div className='d-flex flex-column'>
@@ -317,7 +317,7 @@ export default function DashboardHome() {
                 </div>
             </div>
 
-            <div className='p-3 extra-dark'>
+            <div className='p-3'>
                 <div className='d-flex w-100 row m-0 p-0'>
 
                     <div className='col-md-2'>
@@ -769,8 +769,10 @@ export default function DashboardHome() {
 
                 </div>
             </div>
-            <button onClick={() => { themeChange() }} >Theme</button>
-            <button onClick={() => { LightMode() }} >Theme</button>
+            <div style = {{position: "absolute"}}>
+            <button  onClick={() => { themeChange() }} >Theme</button>
+            <button  onClick={() => { LightMode() }} >Theme</button>
+            </div>
         </div>
         </>
     )
