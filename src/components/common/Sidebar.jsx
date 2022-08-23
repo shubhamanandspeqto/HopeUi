@@ -13,7 +13,7 @@ const Sidebar = () => {
       <aside id="sidebar" className="sidebar">
         <div className="container-fluid">
           <div className="row flex-nowrap ">
-            <div className="col-auto bg-white">
+            <div className="col-auto bg-white dark-mode">
               <div className="d-flex flex-column align-items-center  text-white min-vh-100 ">
                 <a
                   href="/"

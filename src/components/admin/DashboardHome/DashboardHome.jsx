@@ -300,6 +300,7 @@ export default function DashboardHome() {
     }
 
     return (
+        <>
         <div className='special-page-container'>
 
             <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
@@ -770,5 +771,6 @@ export default function DashboardHome() {
             <button onClick={() => { themeChange() }} >Theme</button>
             <button onClick={() => { LightMode() }} >Theme</button>
         </div>
+        </>
     )
 }
