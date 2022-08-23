@@ -363,9 +363,7 @@ const Sidebar = () => {
                       className="nav-link px-0 align-middle"
                     >
                       <i className="fs-4 bi-speedometer2"></i>{" "}
-                      {/* <span className="ms-1 d-none d-sm-inline text-gray">
-                        Maintence
-                      </span>{" "} */}
+                     
                       <div className="d-flex justify-content-center align-items-center gap-5">
                         <div className="d-flex gap 2">
                         <img src="/assets/Bookmark.png" alt="" />
