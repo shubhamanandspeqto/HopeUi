@@ -233,50 +233,50 @@ let state = {
 export default function DashboardHome() {
     // let darkTheme = true
 
-    let LightMode = () =>{
+    let LightMode = () => {
         let elements = document.getElementsByClassName('dark-mode')
         let Body = document.getElementsByClassName('extra-dark')
         let enterprise = document.getElementsByClassName('dark-background')
-        
-        for(let i = 0 ; i<elements.length; i++){
+
+        for (let i = 0; i < elements.length; i++) {
             console.log(elements[i].classList);
             elements[i].classList.remove("dark-mode-dashboard-card")
             // elements[i].classList.remove("dashboard-card")
         }
 
-        for(let i = 0; i<Body.length; i++){
+        for (let i = 0; i < Body.length; i++) {
             Body[i].classList.remove("Extra-dark")
         }
-        for(let i = 0; i<enterprise.length; i++){
+        for (let i = 0; i < enterprise.length; i++) {
             enterprise[i].classList.remove("color-mode-round-ul")
         }
-    
-    }
-    
 
-    let themeChange = () =>{
+    }
+
+
+    let themeChange = () => {
         let elements = document.getElementsByClassName('dark-mode')
         let Body = document.getElementsByClassName('extra-dark')
         let enterprise = document.getElementsByClassName('dark-background')
-        
-        
+
+
         console.log(elements);
         console.log(elements[0]);
-        for(let i = 0 ; i<elements.length; i++){
+        for (let i = 0; i < elements.length; i++) {
             console.log(elements[i].classList);
             elements[i].classList.add("dark-mode-dashboard-card")
             // elements[i].classList.remove("dashboard-card")
         }
 
-        for(let i = 0; i<Body.length; i++){
+        for (let i = 0; i < Body.length; i++) {
             Body[i].classList.add("Extra-dark")
         }
-        for(let i = 0; i<enterprise.length; i++){
+        for (let i = 0; i < enterprise.length; i++) {
             enterprise[i].classList.add("color-mode-round-ul")
         }
 
     }
-    
+
     return (
         <div className='special-page-container'>
 
@@ -420,7 +420,7 @@ export default function DashboardHome() {
                                 type="area"
                                 width={'100%'}
                                 height="100%"
-                                
+
                             />
                         </div>
 
@@ -745,8 +745,8 @@ export default function DashboardHome() {
 
                 </div>
             </div>
-            <button onClick={()=>{themeChange()}} >Theme</button>
-            <button onClick={()=>{LightMode()}} >Theme</button>
+            <button onClick={() => { themeChange() }} >Theme</button>
+            <button onClick={() => { LightMode() }} >Theme</button>
         </div>
     )
 }
