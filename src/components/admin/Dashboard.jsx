@@ -1,17 +1,23 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
 import BedRock_Sidebar from "../common/BedRock_Sidebar";
 
 export default function Dashboard() {
+  const location = useLocation();
+  console.log(location);
+
   return (
     <div className="d-flex flex-column">
       <Navbar />
       <div className="d-flex w-100 dark-mode">
         <div className="" style={{ width: "20%" }}>
-          <Sidebar />
+          {
+            location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' ? <BedRock_Sidebar /> : <Sidebar />
+          }
+          {/* <Sidebar /> */}
           {/* <BedRock_Sidebar/> */}
         </div>
         <div

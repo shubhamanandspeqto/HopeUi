@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+
+  const changeDirection = () => {
+    let element = document.getElementById('root')
+    element.setAttribute('dir', "rtl")
+  }
+
   return (
     <>
       <aside id="sidebar" className="sidebar">
@@ -40,7 +46,7 @@ const Sidebar = () => {
                       </div>
                     </Link>
                   </li>
-                  <li>
+                  <li className="w-100">
                     <a
                       href="#submenu1"
                       data-bs-toggle="collapse"
@@ -92,7 +98,9 @@ const Sidebar = () => {
                       </span>
                     </a>
                   </li>
+
                   <li>
+
                     <a
                       href="#submenu9"
                       data-bs-toggle="collapse"
@@ -107,58 +115,64 @@ const Sidebar = () => {
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
+
                     <ul
                       className="collapse hide nav flex-column ms-1"
                       id="submenu9"
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/billing'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Billing
                           </span>
-                        </a>
+                        </Link>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/calender'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Calender
                           </span>{" "}
-                        </a>
+                        </Link>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/kanban'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Kanban
                           </span>{" "}
-                        </a>
+                        </Link>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <a href="#" onClick={() => { changeDirection() }} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             RTL Support
                           </span>{" "}
                         </a>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/timeline'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Timeline
                           </span>{" "}
-                        </a>
+                        </Link>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/pricing'} href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Pricing
                           </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
 
@@ -176,27 +190,40 @@ const Sidebar = () => {
                         <img src="/assets/Shape.png" alt="" />
                       </div>
                     </a>
+
                     <ul
                       className="collapse hide nav flex-column ms-1"
                       id="submenu8"
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
+                        <Link to={'/dashboard/widget-basic'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Widgets Basic
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="w-100">
+                        <Link to={'/dashboard/widget-chart'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Widgets Chart
+                          </span>
+                        </Link>
+                      </li>
+
+                      <li className="w-100">
                         <a href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Widgets Card
                           </span>
                         </a>
                       </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
-                          </span>{" "}
-                        </a>
-                      </li>
+
+
                     </ul>
 
                     <a
@@ -219,20 +246,12 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/map'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Map
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
 
@@ -256,20 +275,48 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/'} href="#" className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Login
                           </span>
-                        </a>
+                        </Link>
                       </li>
+
                       <li>
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/sign-up'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            SignUp
                           </span>{" "}
-                        </a>
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link to={'/signed-up'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            After Registration
+                          </span>{" "}
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link to={'/lock-screen'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Lock Screen
+                          </span>{" "}
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link to={'/reset-password'} className="nav-link px-0">
+                          {" "}
+                          <span className="d-none d-sm-inline text-gray">
+                            Reset Password
+                          </span>{" "}
+                        </Link>
                       </li>
                     </ul>
                     <a
@@ -293,12 +340,12 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/bedrock'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             User Profile
                           </span>
-                        </a>
+                        </Link>
                       </li>
 
                       <li className="w-100">
@@ -320,13 +367,14 @@ const Sidebar = () => {
 
                     </ul>
                   </li>
-                  <li>
+
+                  <li className="w-100">
                     <a
                       href="#submenu3"
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex justify-content-center align-items-center gap-5">
+                      <div className="d-flex justify-content-between align-items-center gap-5">
                         <div className="d-flex gap-2">
                           <img src="/assets/Info Circle.png" alt="" />
                           <p> Error 404 </p>
@@ -340,30 +388,23 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/errorPage'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
+                            Error 404
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Sub Auth
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
-                  <li>
+
+                  <li className="w-100">
                     <a
                       href="#submenu4"
                       data-bs-toggle="collapse"
                       className="nav-link px-0 align-middle"
                     >
-                      <div className="d-flex justify-content-center align-items-center  gap-5">
+                      <div className="d-flex justify-content-between align-items-center  gap-5">
                         <div className="d-flex gap-2">
                           <img src="/assets/Danger.png" alt="" />
                           <p> Error 505 </p>
@@ -378,34 +419,19 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/error'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            User Profile
+                            Error
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Edit User
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                            User List
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
-                  <li>
+
+
+                  <li className="w-100">
                     <a
                       href="#submenu5"
                       data-bs-toggle="collapse"
@@ -413,10 +439,10 @@ const Sidebar = () => {
                     >
                       <i className="fs-4 bi-speedometer2"></i>{" "}
 
-                      <div className="d-flex justify-content-center align-items-center gap-5">
-                        <div className="d-flex gap 2">
+                      <div className="d-flex justify-content-between align-items-center gap-5">
+                        <div className="d-flex gap-2">
                           <img src="/assets/Bookmark.png" alt="" />
-                          <p> Maintence </p>
+                          <p> Maintenence </p>
                         </div>
 
                         <img src="/assets/Shape.png" alt="" />
@@ -428,30 +454,13 @@ const Sidebar = () => {
                       data-bs-parent="#menu"
                     >
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/maintenance1'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             {" "}
-                            Sub Utilities 1
+                            Maintenance
                           </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            Sub Utilities 2{" "}
-                          </span>{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="nav-link px-0">
-                          {" "}
-                          <span className="d-none d-sm-inline text-gray">
-                            {" "}
-                            Sub Utilities 3
-                          </span>{" "}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -478,7 +487,7 @@ const Sidebar = () => {
                     </a>
                   </li>
 
-                  <li>
+                  <li className="w-100">
                     <a
                       href="#submenu6"
                       data-bs-toggle="collapse"
@@ -523,7 +532,8 @@ const Sidebar = () => {
                       </li>
                     </ul>
                   </li>
-                  <li>
+
+                  <li className="w-100">
                     <a
                       href="#submenu7"
                       data-bs-toggle="collapse"

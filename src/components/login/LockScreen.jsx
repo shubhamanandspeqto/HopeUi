@@ -1,7 +1,9 @@
 import React from 'react'
 import './LockScreen.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function LockScreen() {
+    const navigate = useNavigate();
     return (
         <div className='w-100 d-flex lock-screen-container'>
             <div className='w-50 d-flex flex-column lock-screen-form justify-content-center align-items-center'>
@@ -22,7 +24,9 @@ export default function LockScreen() {
                     <input type="password" name="password" id="password" />
                 </div>
 
-                <button className='mt-3' type="submit">Login</button>
+                <button onClick={() => {
+                    navigate('/dashboard')
+                }} className='mt-3' type="submit">Login</button>
             </div>
 
             <div className='w-50 login-background-container' >

@@ -71,3 +71,11 @@
 .login-background-container>div {
     height: 100%;
 }
+
+.create-account {
+    cursor: pointer;
+}
+
+.reset-password {
+    cursor: pointer;
+}
