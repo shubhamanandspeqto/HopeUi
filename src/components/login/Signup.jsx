@@ -1,7 +1,9 @@
 import React from 'react'
 import './Signup.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function Signup() {
+    const navigate = useNavigate()
     return (
         <div className='w-100 d-flex signup-container'>
 
@@ -55,7 +57,11 @@ export default function Signup() {
                 </div>
 
 
-                <button className='mt-3' type="submit">Sign up</button>
+                <button
+                    onClick={() => {
+                        navigate('/signed-up')
+                    }}
+                    className='mt-3' type="submit">Sign up</button>
 
                 <div className='signup-footer mt-2'>
                     <p>or sign up with other accounts?</p>

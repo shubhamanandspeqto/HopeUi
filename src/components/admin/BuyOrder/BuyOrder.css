@@ -1,0 +1,116 @@
+.buy-order-content {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.buy-order-img-container>img {
+    border-radius: 100%;
+    position: relative;
+    margin-top: -60px;
+}
+
+.buy-order-img-container>p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 130%;
+    color: #232D42;
+    padding: 2rem 0;
+}
+
+.buy-order-img-container>p>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+/* .noHover{
+    pointer-events: none;
+    cursor: pointer !important;
+} */
+
+
+
+.buy-order-button button {
+    justify-content: center;
+    align-items: center;
+    
+   
+    height: 44px;
+    background: #738afe;
+    border-radius: 50px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #ffffff;
+    
+}
+
+
+.buy-order-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buy-order-button p {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #738afe;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+
+.buy-order-button button {
+
+    background: #738afe;
+    border-radius: 50px;
+    border: none;
+
+}
+
+.receive-date>span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+   
+}
+
+.order-accepted-container {
+    display: flex;
+    min-height: 100px;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+
+}
+
+.order-accepted-content {
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+.order-accepted {
+    width: 100%;
+    background: #409900;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-family: 'Inter';
+    border-radius: 5px;
+    
+
+}
