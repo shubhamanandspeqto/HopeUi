@@ -97,7 +97,7 @@ export default function Packages() {
               <button
                 className="img-margin container-button-color6"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
+                data-bs-target="#package"
               >
                 <span>
                   <img src="/assets/plusicon1.png" />
@@ -109,7 +109,7 @@ export default function Packages() {
         </div>
         <div
           class="modal fade"
-          id="exampleModal"
+          id="package"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -195,7 +195,11 @@ export default function Packages() {
               </button>
             </div>
             <div className="col-1 my-1">
-              <button className="  img-margin container-button-color4">
+            <button
+                className="img-margin container-button-color6"
+                data-bs-toggle="modal"
+                data-bs-target="#package"
+              >
                 <span>
                   <img src="/assets/plusicon1.png" />
                 </span>
