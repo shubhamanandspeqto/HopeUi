@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Iconly.css";
-export default function Iconly(props) {
+
+export default function Iconly() {
+
   const darkTheme = () => {
+
     let element = document.getElementsByClassName('LTR')
     let element2 = document.getElementsByClassName('RTL')
     let element1 = document.getElementsByClassName('mini')
@@ -133,17 +136,27 @@ export default function Iconly(props) {
   }
 
   let themeChange = () => {
+    sessionStorage.setItem('theme', 'dark')
     let elements = document.getElementsByClassName('dark-mode')
     let Body = document.getElementsByClassName('extra-dark')
     let enterprise = document.getElementsByClassName('dark-background')
 
-
+    // if(localStorage){
+    //   elements = localStorage.getItem("elements")
+    // }
     console.log(elements);
     console.log(elements[0]);
     for (let i = 0; i < elements.length; i++) {
+
+        console.log(elements[i].classList);
+        elements[i].classList.add("dark-mode-dashboard-card")
+        // localStorage.setItem("elements")
+        // elements[i].classList.remove("dashboard-card")
+
       console.log(elements[i].classList);
       elements[i].classList.add("dark-mode-dashboard-card")
       // elements[i].classList.remove("dashboard-card")
+ 
     }
 
     for (let i = 0; i < Body.length; i++) {
@@ -156,10 +169,12 @@ export default function Iconly(props) {
 
   }
 
-  let LightMode = () => {
-    let elements = document.getElementsByClassName('dark-mode')
-    let Body = document.getElementsByClassName('extra-dark')
-    let enterprise = document.getElementsByClassName('dark-background')
+
+let LightMode = () => {
+  sessionStorage.setItem('theme', 'light')
+  let elements = document.getElementsByClassName('dark-mode')
+  let Body = document.getElementsByClassName('extra-dark')
+  let enterprise = document.getElementsByClassName('dark-background')
 
     for (let i = 0; i < elements.length; i++) {
       console.log(elements[i].classList);
