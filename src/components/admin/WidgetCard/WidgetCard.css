@@ -93,7 +93,7 @@
     /* display: flex; */
     border-radius: 8px;
     flex-direction: column;
-    justify-content: space-between;
+    
     /* align-items: center; */
     text-align: center;
     padding: 24px;
@@ -128,7 +128,7 @@
     font-weight: 400;
     font-size: 14px;
     /* line-height: 19px; */
-    margin-left: -12%;
+    /* margin-left: -12%; */
     padding: 0px;
     color: #8A92A6;
     /* margin-left: -68px; */
@@ -170,7 +170,7 @@
     /* display: flex; */
     border-radius: 8px;
     flex-direction: column;
-    justify-content: space-between;
+    
     /* align-items: center; */
     text-align: center;
     padding: 24px;
@@ -201,7 +201,7 @@
     border: 1px solid #8A92A6;
     border-radius: 100%;
     height: 75px;
-    width: 75px;
+    /* width: 75px; */
 }
 
 .cone-para {
@@ -288,8 +288,8 @@
 }  */
 
 .shape-img img {
-    width: 100px;
-    height: 100px;
+    width:5rem;
+    height:5rem;
 }
 
 .Suggestion-name {
@@ -331,7 +331,7 @@ font-size: 16px;
 line-height: 175%;
 color: #0048B3;
 }
-.gallery-row-card2 hr{
+.gallery-row-card2,.admin-id-card2 hr{
     color: #c0c2c4f5;
 }
 .wade-para{
@@ -343,3 +343,48 @@ color: #0048B3;
     line-height: 175%;
     color: #8A92A6;
 }
+
+
+.input-icons span {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .icon {
+    padding: 10px;
+    min-width: 40px;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    
+  }
+  .input-with-img{
+    align-items: center;
+    justify-content: end;
+  }
+  .gallery-row-card1{
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-gap{
+    height: 22%;
+  }
+  .gallery-tittle{
+    height: 22%;
+  }
+  .twitter-id img{
+    height: 14px;
+    padding-left: 10px;
+    align-self: center;
+}
+.stories-btn button{
+    width: 95%;
+}
+  
