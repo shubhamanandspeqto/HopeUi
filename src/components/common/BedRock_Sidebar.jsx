@@ -30,7 +30,7 @@ export default function BedRock_Sidebar() {
                   </li>
                   <li>
                     <Link
-                      to={"/"}
+                      to={"/dashboard"}
                       type="button"
                       className="text-gray"
                       style={{ textDecoration: "none" }}
