@@ -258,10 +258,10 @@ export default function DashboardHome() {
     // let darkTheme = true
 
     useEffect(()=>{
-        if(localStorage.getItem('theme') === 'dark'){
+        if(sessionStorage.getItem('theme') === 'dark'){
 themeChange()
         }else{
-            LightMode()
+            LightMode()  
         }
     },[])
 

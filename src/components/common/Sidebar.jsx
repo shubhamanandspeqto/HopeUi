@@ -35,7 +35,7 @@ const Sidebar = () => {
                   </li>
                   <li>
                     <Link
-                      to={"/"}
+                      to={"/dashboard"}
                       type="button"
                       className="text-gray"
                       style={{ textDecoration: "none" }}
@@ -215,12 +215,12 @@ const Sidebar = () => {
                       </li>
 
                       <li className="w-100">
-                        <a href="#" className="nav-link px-0">
+                        <Link to={'/dashboard/widgetCard'} className="nav-link px-0">
                           {" "}
                           <span className="d-none d-sm-inline text-gray">
                             Widgets Card
                           </span>
-                        </a>
+                        </Link>
                       </li>
 
 
