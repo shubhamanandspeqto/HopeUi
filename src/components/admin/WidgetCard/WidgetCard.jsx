@@ -264,7 +264,8 @@ export default function WidgetCard() {
 
                 </div>
                 <div className="row widget-card p-4">
-                    <div className="widget-card2-body col-md-4 gallery-row-card1">
+                    <div className='col-md-4'>
+                    <div className="widget-card2-body h-100  gallery-row-card1">
                         <div className="row mb-5">
                             <div className="col-md-6">
                                 <p className='birthday-name text-start'>Gallery</p>
@@ -308,7 +309,11 @@ export default function WidgetCard() {
                         </div>
 
                     </div>
-                    <div className="widget-card2-body col-md-4 gallery-row-card2">
+                    </div>
+                    <div className="col-md-4">
+                    <div className="widget-card2-body h-100 gallery-row-card2">
+                        
+                        
                         <div className="row mb-4">
                             <p className='birthday-name text-start'>Twitter feed</p>
                         </div>
@@ -318,7 +323,7 @@ export default function WidgetCard() {
                             </div>
                             <div className="col-md-9">
                                 <p className='Suggestion-name text-start'>Jane Cooper</p>
-                                <div className="row">
+                                <div className="row d-flex">
                                     <div className="col-md-3">
                                         <p className='mutual-friends text-start'>@jane59</p>
                                     </div>
@@ -346,7 +351,7 @@ export default function WidgetCard() {
                             </div>
                             <div className="col-md-9">
                                 <p className='Suggestion-name text-start'>Jane Cooper</p>
-                                <div className="row">
+                                <div className="row d-flex">
                                     <div className="col-md-3">
                                         <p className='mutual-friends text-start'>@jane59</p>
                                     </div>
@@ -367,11 +372,12 @@ export default function WidgetCard() {
                             <p className='text-start mutual-friends'>07 Jan 2020</p>
                         </div>
                         <hr />
-
+                        </div>
                     </div>
 
-
-                    <div className="widget-card2-body col-md-4 gallery-row-card3">
+                    <div className="col-md-4">
+                    <div className="widget-card2-body h-100 gallery-row-card3">
+                        
                         <div className="row mb-4">
                             <p className='birthday-name text-start'>Suggestions</p>
                         </div>
@@ -460,7 +466,7 @@ export default function WidgetCard() {
                             </div>
                         </div>
 
-
+                        </div>
                     </div>
 
                 </div>
