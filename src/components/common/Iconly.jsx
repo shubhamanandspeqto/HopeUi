@@ -150,7 +150,7 @@ export default function Iconly() {
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header border-0">
               <h2 class="modal-title heading-modal ms-4 mt-3" id="exampleModalLabel">
                 Settings
               </h2>
@@ -234,7 +234,7 @@ export default function Iconly() {
             <div className="container">
               <div class="row">
                 <h3 class="modal-title modal-headings3 mt-3 ms-4 mb-2" id="exampleModalLabel">
-                  Scheme Direction
+                  Sidebar Types
                 </h3>
                 <div class="col ms-4">
                 <div className="mini">
@@ -264,7 +264,7 @@ export default function Iconly() {
                 </div>
                   {/* <img src={"/assets/Rounded.png"} alt="" /> */}
                   <p class="ms-3">Ronuded One Side</p>
-                  <div className="rounded1">
+                  <div className="rounded1 mt-2">
                 </div>
                   {/* <img src={"/assets/Rounded.png"} alt="" class="mt-2" /> */}
                   <p class="ms-3">Pill One Side</p>
@@ -274,7 +274,7 @@ export default function Iconly() {
                 </div>
                   {/* <img src={"/assets/Rounded.png"} alt="" /> */}
                   <p class="ms-3">Rounded All Side</p>
-                  <div className="rounded3">
+                  <div className="rounded3 mt-2">
                 </div>
                   {/* <img src={"/assets/Rounded.png"} alt="" class="mt-2" /> */}
                   <p class="ms-3">Pill All Side</p>
@@ -290,7 +290,7 @@ export default function Iconly() {
                 <div className="Headers"></div>
                   {/* <img src={"/assets/Headerglass.png"} alt="" /> */}
                   <p class="ms-3">Glass</p>
-                  <div className="Header"></div>
+                  <div className="Header mt-2"></div>
                   {/* <img src={"/assets/Headercolor.png"} alt="" class="mt-2" /> */}
                   <p class="ms-3">Sticky</p>
                 </div>
@@ -298,7 +298,7 @@ export default function Iconly() {
                 <div className="Headersss"></div>
                   {/* <img src={"/assets/Headercolor.png"} alt="" /> */}
                   <p class="ms-3">Color</p>
-                  <div className="Headerss"></div>
+                  <div className="Headerss mt-2"></div>
                   {/* <img src={"/assets/Transparent.png"} alt="" class="mt-2" /> */}
                   <p class="ms-3">Transparent</p>
                 </div>
@@ -313,6 +313,6 @@ export default function Iconly() {
             </div>
           </div>
         </div>
-      </div>
+    </div>
   );
 }
