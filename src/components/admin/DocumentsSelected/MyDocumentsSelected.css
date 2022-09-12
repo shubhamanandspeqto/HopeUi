@@ -107,3 +107,7 @@
     line-height: 175%;
     color: #8A92A6;
 }
+
+.BED80documentsTable header {
+    padding: 1rem;
+}

@@ -1,7 +1,37 @@
 import React from "react";
 import "../Bedrock-upload/Upload.css";
 
+import { BsUpload } from 'react-icons/bs'
+import { useDropzone } from 'react-dropzone';
+import { RiComputerLine } from 'react-icons/ri'
+import { AiOutlineDropbox } from 'react-icons/ai'
+import { DiGoogleDrive } from 'react-icons/di'
+import { successPopup } from "../../../utils/PopupMessages";
+import { useEffect } from "react";
+import { useState } from "react";
+
 export default function Upload() {
+
+  const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
+    // Disable click and keydown behavior
+    noClick: true,
+    noKeyboard: true
+  });
+
+  const files = acceptedFiles.map(file => {
+    console.log(file);
+    let formdata = new FormData();
+    formdata.append("file", file)
+    return (
+      <li key={file.path}>
+        {file.path} - {file.size} bytes
+        <br />
+        <span style={{ fontSize: '14px', color: 'red' }}>*Add Documents Details Below</span>
+      </li>
+    )
+  }
+  );
+
   return (
     <div>
       <div className="special-page-container">
@@ -54,15 +84,66 @@ export default function Upload() {
                       <div className="bedrockUpload-card">
                         <div className="bedrockUpload-card-content">
                           <h3>Select a document</h3>
-                          <img
+                          {/* <img
                             src="/assets/bedrock-dot.png"
                             alt=""
                             className="img-fluid"
-                          />
+                          /> */}
                         </div>
-                        <button className="btn">
+                        {/* <button className="btn">
                           Click Here to Browse Files
-                        </button>
+                        </button> */}
+                        {/* <div class="btn-group"> */}
+                        <div className="pb-3">
+                          <button type="button" className="d-flex gap-2 align-items-center">
+                            <BsUpload color="white" size={20} />
+                            <p onClick={open} className="d-flex justify-content-between">Upload</p>
+                          </button>
+                        </div>
+
+                        {/* </div> */}
+
+                        <div className="drag-drop-container">
+                          <div {...getRootProps({ className: 'dropzone' })}>
+                            <input {...getInputProps()} />
+                            <p>Drag 'n' drop some file here</p>
+                            {/* <button type="button" onClick={open}>
+                              Open File Dialog
+                            </button> */}
+                            <div className="btn-group">
+                              <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                Upload File
+                              </button>
+                              <ul className="dropdown-menu dropdown-menu-lg-end m-0 p-0">
+                                <li>
+                                  <p onClick={open} className="d-flex gap-2 align-items-center p-2">
+                                    <span><RiComputerLine /></span>
+                                    <label>Browse Computer</label>
+                                  </p>
+                                </li>
+
+                                <li>
+                                  <p className="d-flex gap-2 align-items-center p-2">
+                                    <span><AiOutlineDropbox /></span>
+                                    <label>Dropbox</label>
+                                  </p>
+                                </li>
+
+                                <li>
+                                  <p className="d-flex gap-2 align-items-center p-2">
+                                    <span><DiGoogleDrive /></span>
+                                    <label>Google Drive</label>
+                                  </p>
+                                </li>
+
+                              </ul>
+                            </div>
+
+                          </div>
+                          <aside>
+                            <ul className="my-0 py-0 pt-1">{files}</ul>
+                          </aside>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -97,7 +178,7 @@ export default function Upload() {
                           </div>
                           <div class="mb-3">
                             <label for="" class="form-label">
-                              Document Desc
+                              Document Description
                             </label>
                             <input type="text" class="form-control" />
                           </div>

@@ -1,9 +1,27 @@
 import React from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
+import Torus from "@toruslabs/torus-embed";
+import Web3 from "web3";
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../ContextAPI/Context';
+
 export default function Login() {
 
+    const context = useContext(UserContext)
+    let { loginFunction, logoutFunction } = context;
+    console.log(loginFunction, logoutFunction);
     const navigate = useNavigate();
+    let torus;
+
+    const login = async (e) => {
+        loginFunction(e)
+    }
+
+    const logout = () => {
+        logoutFunction();
+    }
 
     return (
         <div className='w-100 d-flex login-container'>
@@ -25,14 +43,16 @@ export default function Login() {
                 </div>
 
                 <button
-                    onClick={() => {
-                        navigate('/dashboard')
+                    onClick={(e) => {
+                        // navigate('/dashboard')
+                        login(e)
                     }}
                     className='mt-3' type="submit">Log in</button>
 
                 <p onClick={() => {
                     navigate('/sign-up')
                 }} className='create-account'>Create Account</p>
+                <p onClick={logout}>Logout</p>
             </div>
 
             <div className='w-50 login-background-container' >

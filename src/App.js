@@ -29,44 +29,50 @@ import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 import Maintenancee from "./components/common/Maintenancee";
+import { Context } from "./ContextAPI/Context";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route exact path="" element={<DashboardHome />} />
-          <Route path="bedrock" element={<Bedrock />} />
-          <Route path="upload" element={<Upload />} />
-          <Route path="Ai" element={<Ai />} />
-          <Route path="billing" element={<Billing />} />
-          <Route path="calender" element={<Calender />} />
-          <Route path="kanban" element={<Kanabn />} />
-          <Route path="pricing" element={<Pricing />} />
-          <Route path="timeline" element={<Timeline />} />
-          <Route path="documents" element={<MyDocumentsSelected />} />
-          <Route path="proofs" element={<Proofs />} />
-          <Route path="shares" element={<Shares />} />
-          <Route path="order" element={<BuyOrderAccepted />} />
-          <Route path="map" element={<Vector />} />
-          <Route path="package" element={<Packages />} />
-          <Route path="incoming-orders" element={<IncomingOrders />} />
-          <Route path="widgetCard" element={<WidgetCard/>} />
-          <Route path="widget-basic" element={<WidgetBasic />} />
-          <Route path="widget-chart" element={<WidgetChart />} />
-        </Route>
+      <Context>
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route exact path="" element={<DashboardHome />} />
+            <Route path="bedrock" element={<Bedrock />} />
+            <Route path="upload" element={<Upload />} />
+            <Route path="Ai" element={<Ai />} />
+            <Route path="billing" element={<Billing />} />
+            <Route path="calender" element={<Calender />} />
+            <Route path="kanban" element={<Kanabn />} />
+            <Route path="pricing" element={<Pricing />} />
+            <Route path="timeline" element={<Timeline />} />
+            <Route path="documents" element={<MyDocumentsSelected />} />
+            <Route path="proofs" element={<Proofs />} />
+            <Route path="shares" element={<Shares />} />
+            <Route path="order" element={<BuyOrderAccepted />} />
+            <Route path="map" element={<Vector />} />
+            <Route path="package" element={<Packages />} />
+            <Route path="incoming-orders" element={<IncomingOrders />} />
+            <Route path="widgetCard" element={<WidgetCard />} />
+            <Route path="widget-basic" element={<WidgetBasic />} />
+            <Route path="widget-chart" element={<WidgetChart />} />
+          </Route>
 
-        <Route exact path="/" element={<Login />} />
-        <Route path="/sign-up" element={<Signup />} />
-        <Route path="/signed-up" element={<AfterSignup />} />
-        <Route path="/lock-screen" element={<LockScreen />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="*" element={<Error404 />} />
-        <Route path="error" element={<Error500 />} />
-        <Route path="maintenance" element={<Maintenance />} />
-        <Route path="maintenance1" element={<Maintenancee />} />
-      </Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/signed-up" element={<AfterSignup />} />
+          <Route path="/lock-screen" element={<LockScreen />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="*" element={<Error404 />} />
+          <Route path="error" element={<Error500 />} />
+          <Route path="maintenance" element={<Maintenance />} />
+          <Route path="maintenance1" element={<Maintenancee />} />
+        </Routes>
+      </Context>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

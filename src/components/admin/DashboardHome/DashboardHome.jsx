@@ -257,13 +257,13 @@ let state = {
 export default function DashboardHome() {
     // let darkTheme = true
 
-    useEffect(()=>{
-        if(sessionStorage.getItem('theme') === 'dark'){
-themeChange()
-        }else{
-            LightMode()  
+    useEffect(() => {
+        if (sessionStorage.getItem('theme') === 'dark') {
+            themeChange()
+        } else {
+            LightMode()
         }
-    },[])
+    }, [])
 
     let LightMode = () => {
         let elements = document.getElementsByClassName('dark-mode')
@@ -271,7 +271,7 @@ themeChange()
         let enterprise = document.getElementsByClassName('dark-background')
 
         for (let i = 0; i < elements.length; i++) {
-            console.log(elements[i].classList);
+            // console.log(elements[i].classList);
             elements[i].classList.remove("dark-mode-dashboard-card")
             // elements[i].classList.remove("dashboard-card")
         }
@@ -311,159 +311,194 @@ themeChange()
 
     return (
         <>
-       <Iconly/>
-        <div className='special-page-container extra-dark'>
+            <Iconly />
+            <div className='special-page-container extra-dark'>
 
-            <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
-                <div className='d-flex flex-column'>
-                    <h2>Hello Devs !</h2>
-                    <p>We are on a mission to help developers like you to build beautiful projects for FREE.</p>
-                </div>
-                <div>
-                    <button>
-                        <img src="/assets/VoiceIcon.png" alt="" />
-                        Announcments
-                    </button>
-                </div>
-            </div>
-
-            <div className='p-3'>
-                <div className='d-flex w-100 row m-0 p-0' style={{color: 'black'}}>
-
-                    <div className='col-md-2'>
-                        <div id='first-card' className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Total Sales</p>
-                                <h6>$560K</h6>
-                            </div>
-                        </div>
+                <div className='d-flex justify-content-between special-page-heading py-5 px-4'>
+                    <div className='d-flex flex-column'>
+                        <h2>Hello Devs !</h2>
+                        <p>We are on a mission to help developers like you to build beautiful projects for FREE.</p>
                     </div>
-
-                    <div className='col-md-2'>
-                        <div className='dashboard-card d-flex dark-mode justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Total Profit</p>
-                                <h6>$185K</h6>
-                            </div>
-                        </div>
+                    <div>
+                        <button>
+                            <img src="/assets/VoiceIcon.png" alt="" />
+                            Announcments
+                        </button>
                     </div>
-
-                    <div className='col-md-2'>
-                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Total Cost</p>
-                                <h6>$375K</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-md-2'>
-                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Revenue</p>
-                                <h6>$742K</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-md-2'>
-                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Net Income</p>
-                                <h6>$150K</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-md-2'>
-                        <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
-                            <div className='d-flex align-items-center' style={{ width: '50px' }}>
-                                <CircularProgressbar value={66} />
-                                <div className='dashboard-card-icon'>
-                                    <img src="/assets/graph-arrow.svg" alt="" />
-                                </div>
-                            </div>
-                            <div className='d-flex flex-column gap-2'>
-                                <p>Today</p>
-                                <h6>$4600</h6>
-                            </div>
-                        </div>
-                    </div>
-
-
-
                 </div>
 
-                <div className='row m-0 p-0 pt-3'>
+                <div className='p-3'>
+                    <div className='d-flex w-100 row m-0 p-0' style={{ color: 'black' }}>
 
-                    <div className='col-md-8'>
-
-                        <div className='w-100 p-3  dashboard-area-chart dark-mode'>
-                            <div className='d-flex  justify-content-between'>
-                                <div>
-                                    <h6>$855.8K</h6>
-                                    <p>Gross Sales</p>
-                                </div>
-                                <div>
-                                    <div className="dropdown">
-                                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            This Week
-                                        </button>
-                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a className="dropdown-item" href="#">Action</a></li>
-                                            <li><a className="dropdown-item" href="#">Another action</a></li>
-                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
+                        <div className='col-md-2'>
+                            <div id='first-card' className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
                                     </div>
-
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Total Sales</p>
+                                    <h6>$560K</h6>
                                 </div>
                             </div>
-                            <Chart
-                                options={state.options}
-                                series={state.series}
-                                type="area"
-                                width={'100%'}
-                                height="100%"
+                        </div>
 
-                            />
+                        <div className='col-md-2'>
+                            <div className='dashboard-card d-flex dark-mode justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Total Profit</p>
+                                    <h6>$185K</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='col-md-2'>
+                            <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Total Cost</p>
+                                    <h6>$375K</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='col-md-2'>
+                            <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Revenue</p>
+                                    <h6>$742K</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='col-md-2'>
+                            <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Net Income</p>
+                                    <h6>$150K</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='col-md-2'>
+                            <div className='dashboard-card dark-mode d-flex justify-content-center align-items-center p-2 py-3 gap-2'>
+                                <div className='d-flex align-items-center' style={{ width: '50px' }}>
+                                    <CircularProgressbar value={66} />
+                                    <div className='dashboard-card-icon'>
+                                        <img src="/assets/graph-arrow.svg" alt="" />
+                                    </div>
+                                </div>
+                                <div className='d-flex flex-column gap-2'>
+                                    <p>Today</p>
+                                    <h6>$4600</h6>
+                                </div>
+                            </div>
                         </div>
 
 
-                        <div className='row m-0 p-0 py-4'>
-                            <div className='col-md-5 dark-p-0 m-0'>
-                                <div className='w-100 p-2 dashboard-donut-chart-container dark-mode'>
-                                    <div className='w-100 d-flex flex-column'>
-                                        <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center'>
+
+                    </div>
+
+                    <div className='row m-0 p-0 pt-3'>
+
+                        <div className='col-md-8'>
+
+                            <div className='w-100 p-3  dashboard-area-chart dark-mode'>
+                                <div className='d-flex  justify-content-between'>
+                                    <div>
+                                        <h6>$855.8K</h6>
+                                        <p>Gross Sales</p>
+                                    </div>
+                                    <div>
+                                        <div className="dropdown">
+                                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                This Week
+                                            </button>
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a className="dropdown-item" href="#">Action</a></li>
+                                                <li><a className="dropdown-item" href="#">Another action</a></li>
+                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <Chart
+                                    options={state.options}
+                                    series={state.series}
+                                    type="area"
+                                    width={'100%'}
+                                    height="100%"
+
+                                />
+                            </div>
+
+
+                            <div className='row m-0 p-0 py-4'>
+                                <div className='col-md-5 dark-p-0 m-0'>
+                                    <div className='w-100 p-2 dashboard-donut-chart-container dark-mode'>
+                                        <div className='w-100 d-flex flex-column'>
+                                            <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center'>
+                                                <div>
+                                                    <h6 className='m-0 p-0'>Earnings</h6>
+                                                </div>
+                                                <div>
+                                                    <div className="dropdown">
+                                                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            This Week
+                                                        </button>
+                                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                            <li><a className="dropdown-item" href="#">Action</a></li>
+                                                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div className='w-100 dashboard-donut-chart-div'>
+                                                <Chart
+                                                    options={donutData.options}
+                                                    series={donutData.series}
+                                                    type="radialBar"
+                                                    width={'100%'}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='col-md-7  ps-3 p-0'>
+
+                                    <div className='dashboard-bar-graph dark-mode '>
+
+                                        <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center p-2'>
                                             <div>
                                                 <h6 className='m-0 p-0'>Earnings</h6>
                                             </div>
@@ -482,308 +517,273 @@ themeChange()
                                             </div>
                                         </div>
 
-                                        <div className='w-100 dashboard-donut-chart-div'>
-                                            <Chart
-                                                options={donutData.options}
-                                                series={donutData.series}
-                                                type="radialBar"
-                                                width={'100%'}
-                                            />
+
+                                        <div className='w-100  '>
+                                            <Chart options={barChartData.options} series={barChartData.series} type="bar" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='col-md-7  ps-3 p-0'>
-
-                                <div className='dashboard-bar-graph dark-mode '>
-
-                                    <div className='d-flex justify-content-between w-100 dashboard-donut-chart align-items-center p-2'>
+                            <div className='py-4'>
+                                <div className='Enterprise-Client'>
+                                    <div className='d-flex justify-content-between enterprise-client-heading dark-mode align-items-center p-3'>
                                         <div>
-                                            <h6 className='m-0 p-0'>Earnings</h6>
+                                            <h6 className='p-0 m-0'>Enterprise Clients</h6>
+                                            <p className='d-flex gap-2 align-items-center'>
+                                                <img src="/assets/blue-tick-small.png" alt="" />
+                                                15 New Acquired ths month
+                                            </p>
                                         </div>
                                         <div>
-                                            <div className="dropdown">
-                                                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    This Week
-                                                </button>
-                                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                                </ul>
+                                            <img src="/assets/DownArrow.png" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div className='enterprise-client-body w-100 pt-3 extra-dark'>
+                                        <table className='w-100'>
+
+                                            <tr className='enterprise-client-body-header extra-dark'>
+                                                <th className='ps-2'>COMPANIES</th>
+                                                <th className='ps-4'>CONTACTS</th>
+                                                <th className='ps-4'>ORDER</th>
+                                                <th className='text-end pe-2'>COMPLETION</th>
+                                            </tr>
+
+                                            <tr className='enterprise-table-border dark-mode'>
+                                                <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
+                                                    <p className='dashboard-etnerprise-img-container'>
+                                                        <img src="/assets/Cone-min.svg" alt="" />
+                                                    </p>
+                                                    <span>Addidas Sportwear</span>
+                                                </td>
+                                                <td className='dashboard-contact-class'>
+                                                    <p className='d-flex justify-content-end'>
+                                                        <ul className='d-flex w-100 mb-0 '>
+                                                            <li className='p-2 dark-background'>SP</li>
+                                                            <li className='p-2 dark-background'>PP</li>
+                                                            <li className='p-2 dark-background'>MM</li>
+                                                        </ul>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className='ps-4'>$14,000</p>
+                                                </td>
+                                                <td className='ps-3 pe-2'>
+                                                    <p>70%</p>
+                                                    <Progress_bar bgcolor={'#738AFE'} progress={70} height={10} />
+                                                </td>
+                                            </tr>
+
+                                            <tr className='enterprise-table-border alternate-color dark-mode'>
+                                                <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
+                                                    <p className='dashboard-etnerprise-img-container'>
+                                                        <img src="/assets/Sphere-min.svg" alt="" />
+                                                    </p>
+                                                    <span>Netflix</span>
+                                                </td>
+                                                <td className='dashboard-contact-class'>
+                                                    <p className='d-flex justify-content-end'>
+                                                        <ul className='d-flex w-100 mb-0'>
+                                                            <li className='p-2 dark-background'>SP</li>
+                                                            <li className='p-2 dark-background'>MM</li>
+                                                        </ul>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className='ps-4'>$14,000</p>
+                                                </td>
+                                                <td className='ps-3 pe-2'>
+                                                    <p>25%</p>
+                                                    <Progress_bar bgcolor={'#738AFE'} progress={25} height={10} />
+                                                </td>
+                                            </tr>
+
+                                            <tr className='enterprise-table-border alternate-color dark-mode'>
+                                                <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
+                                                    <p className='dashboard-etnerprise-img-container'>
+                                                        <img src="/assets/Cube-min.svg" alt="" />
+                                                    </p>
+                                                    <span>Shopifi Stores</span>
+                                                </td>
+                                                <td className='dashboard-contact-class'>
+                                                    <p className='d-flex justify-content-end'>
+                                                        <ul className='d-flex w-100 mb-0'>
+                                                            <li className='p-2 dark-background'>PP</li>
+                                                            <li className='p-2 dark-background'>TP</li>
+                                                        </ul>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className='ps-4'>$14,000</p>
+                                                </td>
+                                                <td className='ps-3 pe-2'>
+                                                    <p>100%</p>
+                                                    <Progress_bar bgcolor={'#1AA053'} progress={100} height={10} />
+                                                </td>
+                                            </tr>
+
+                                            <tr className='enterprise-table-border alternate-color dark-mode'>
+                                                <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
+                                                    <p className='dashboard-etnerprise-img-container'>
+                                                        <img src="/assets/Cube-min.svg" alt="" />
+                                                    </p>
+                                                    <span>Boostrap Technologies</span>
+                                                </td>
+                                                <td className='dashboard-contact-class'>
+                                                    <p className='d-flex justify-content-end'>
+                                                        <ul className='d-flex w-100 mb-0'>
+                                                            <li className='p-2 dark-background'>SP</li>
+                                                            <li className='p-2 dark-background'>PP</li>
+                                                            <li className='p-2 dark-background'>MM</li>
+                                                            <li className='p-2 dark-background'>TP</li>
+                                                        </ul>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className='ps-4'>$14,000</p>
+                                                </td>
+                                                <td className='ps-3 pe-2'>
+                                                    <p>100%</p>
+                                                    <Progress_bar bgcolor={'#1AA053'} progress={100} height={10} />
+                                                </td>
+                                            </tr>
+
+                                            <tr className='enterprise-table-border alternate-color dark-mode'>
+                                                <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
+                                                    <p className='dashboard-etnerprise-img-container'>
+                                                        <img src="/assets/Cube-min.svg" alt="" />
+                                                    </p>
+                                                    <span>Community First</span>
+                                                </td>
+                                                <td className='dashboard-contact-class'>
+                                                    <p className='d-flex justify-content-end'>
+                                                        <ul className='d-flex w-100 mb-0'>
+                                                            <li className='p-2 dark-background'>MM</li>
+                                                        </ul>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p className='ps-4'>$14,000</p>
+                                                </td>
+                                                <td className='ps-3 pe-2'>
+                                                    <p>75%</p>
+                                                    <Progress_bar bgcolor={'#738AFE'} progress={75} height={10} />
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='col-md-4'>
+                            <div className=''>
+                                <div className='dashboard-card-container  dark-mode p-4'>
+                                    <div className='dashboard-credit-card  p-3 d-flex flex-column gap-4'>
+
+                                        <div className='d-flex justify-content-between dashboard-credit-card-header'>
+                                            <div>
+                                                <h4 className='m-0 p-0'>VISA</h4>
+                                                <p>PREMIUM ACCOUNT</p>
+                                            </div>
+                                            <div>
+                                                <img src="/assets/debit-card-icon.svg" alt="" />
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <p>5789 **** **** 2847</p>
+                                        </div>
+
+                                        <div className='d-flex justify-content-between'>
+                                            <div>
+                                                <p>Card Holder</p>
+                                                <h6>Mike Smith</h6>
                                             </div>
 
+                                            <div>
+                                                <p>Expire Date</p>
+                                                <h6>06/21</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='dashboard-below-card dark-mode'>
+
+                                    <div className='d-flex gap-4 dashboard-below-card-header p-4'>
+                                        <div className='d-flex align-items-center gap-2'>
+                                            <img src="/assets/Bag.png" alt="" />
+                                            <div className='d-flex flex-column'>
+                                                <p className='dark-mode'>1153</p>
+                                                <span>Products</span>
+                                            </div>
+                                        </div>
+
+                                        <div className='d-flex align-items-center gap-2'>
+                                            <img src="/assets/Buy.svg" alt="" />
+                                            <div className='d-flex flex-column'>
+                                                <p className='dark-mode'>81K</p>
+                                                <span>Order Served</span>
+                                            </div>
                                         </div>
                                     </div>
 
-
-                                    <div className='w-100  '>
-                                        <Chart options={barChartData.options} series={barChartData.series} type="bar" />
+                                    <div className='dashboard-below-card-body d-flex justify-content-between p-4 align-items-center'>
+                                        <div className='d-flex flex-column'>
+                                            <h4 className='dark-mode'>$4,050,12,300</h4>
+                                            <p>Life time sales</p>
+                                        </div>
+                                        <p className='p-2'>YoY 24%</p>
                                     </div>
+
+                                    <div className='d-flex justify-content-around pb-4'>
+                                        <button className='dashboard-view-button px-3 py-1'>View Project</button>
+                                        <button className='dashboard-analytics-button px-3 py-1'>Analytics</button>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
 
-                        <div className='py-4'>
-                            <div className='Enterprise-Client'>
-                                <div className='d-flex justify-content-between enterprise-client-heading dark-mode align-items-center p-3'>
-                                    <div>
-                                        <h6 className='p-0 m-0'>Enterprise Clients</h6>
-                                        <p className='d-flex gap-2 align-items-center'>
-                                            <img src="/assets/blue-tick-small.png" alt="" />
-                                            15 New Acquired ths month
+                            <div className='dashboard-website-visitors dark-mode d-flex justify-content-between p-3 mt-4'>
+                                <div className='d-flex flex-column justify-content-center align-items-center'>
+                                    <h4>750K</h4>
+                                    <p>Website Visitors</p>
+                                </div>
+
+                                <div className='d-flex flex-column  justify-content-center align-items-center'>
+                                    <h4>7,500</h4>
+                                    <p>New Customers</p>
+                                </div>
+                            </div>
+
+                            <div className='dashboard-activity-overview dark-mode mt-4 p-3'>
+                                <div className='d-flex flex-column dashboard-activity-overview-header'>
+                                    <h5>Actvity overview</h5>
+                                    <div className='d-flex gap-3 align-items-center ps-2'>
+                                        <img src="/assets/green-arrow- up.png" alt="" />
+                                        <p>
+                                            16% this month
                                         </p>
                                     </div>
-                                    <div>
-                                        <img src="/assets/DownArrow.png" alt="" />
-                                    </div>
                                 </div>
 
-                                <div className='enterprise-client-body w-100 pt-3 extra-dark'>
-                                    <table className='w-100'>
-
-                                        <tr className='enterprise-client-body-header extra-dark'>
-                                            <th className='ps-2'>COMPANIES</th>
-                                            <th className='ps-4'>CONTACTS</th>
-                                            <th className='ps-4'>ORDER</th>
-                                            <th className='text-end pe-2'>COMPLETION</th>
-                                        </tr>
-
-                                        <tr className='enterprise-table-border dark-mode'>
-                                            <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
-                                                <p className='dashboard-etnerprise-img-container'>
-                                                    <img src="/assets/Cone-min.svg" alt="" />
-                                                </p>
-                                                <span>Addidas Sportwear</span>
-                                            </td>
-                                            <td className='dashboard-contact-class'>
-                                                <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0 '>
-                                                        <li className='p-2 dark-background'>SP</li>
-                                                        <li className='p-2 dark-background'>PP</li>
-                                                        <li className='p-2 dark-background'>MM</li>
-                                                    </ul>
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className='ps-4'>$14,000</p>
-                                            </td>
-                                            <td className='ps-3 pe-2'>
-                                                <p>70%</p>
-                                                <Progress_bar bgcolor={'#738AFE'} progress={70} height={10} />
-                                            </td>
-                                        </tr>
-
-                                        <tr className='enterprise-table-border alternate-color dark-mode'>
-                                            <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
-                                                <p className='dashboard-etnerprise-img-container'>
-                                                    <img src="/assets/Sphere-min.svg" alt="" />
-                                                </p>
-                                                <span>Netflix</span>
-                                            </td>
-                                            <td className='dashboard-contact-class'>
-                                                <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2 dark-background'>SP</li>
-                                                        <li className='p-2 dark-background'>MM</li>
-                                                    </ul>
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className='ps-4'>$14,000</p>
-                                            </td>
-                                            <td className='ps-3 pe-2'>
-                                                <p>25%</p>
-                                                <Progress_bar bgcolor={'#738AFE'} progress={25} height={10} />
-                                            </td>
-                                        </tr>
-
-                                        <tr className='enterprise-table-border alternate-color dark-mode'>
-                                            <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
-                                                <p className='dashboard-etnerprise-img-container'>
-                                                    <img src="/assets/Cube-min.svg" alt="" />
-                                                </p>
-                                                <span>Shopifi Stores</span>
-                                            </td>
-                                            <td className='dashboard-contact-class'>
-                                                <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2 dark-background'>PP</li>
-                                                        <li className='p-2 dark-background'>TP</li>
-                                                    </ul>
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className='ps-4'>$14,000</p>
-                                            </td>
-                                            <td className='ps-3 pe-2'>
-                                                <p>100%</p>
-                                                <Progress_bar bgcolor={'#1AA053'} progress={100} height={10} />
-                                            </td>
-                                        </tr>
-
-                                        <tr className='enterprise-table-border alternate-color dark-mode'>
-                                            <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
-                                                <p className='dashboard-etnerprise-img-container'>
-                                                    <img src="/assets/Cube-min.svg" alt="" />
-                                                </p>
-                                                <span>Boostrap Technologies</span>
-                                            </td>
-                                            <td className='dashboard-contact-class'>
-                                                <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2 dark-background'>SP</li>
-                                                        <li className='p-2 dark-background'>PP</li>
-                                                        <li className='p-2 dark-background'>MM</li>
-                                                        <li className='p-2 dark-background'>TP</li>
-                                                    </ul>
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className='ps-4'>$14,000</p>
-                                            </td>
-                                            <td className='ps-3 pe-2'>
-                                                <p>100%</p>
-                                                <Progress_bar bgcolor={'#1AA053'} progress={100} height={10} />
-                                            </td>
-                                        </tr>
-
-                                        <tr className='enterprise-table-border alternate-color dark-mode'>
-                                            <td className='d-flex gap-2 py-2 ps-2 dashboard-etnerprise-row-container align-items-center'>
-                                                <p className='dashboard-etnerprise-img-container'>
-                                                    <img src="/assets/Cube-min.svg" alt="" />
-                                                </p>
-                                                <span>Community First</span>
-                                            </td>
-                                            <td className='dashboard-contact-class'>
-                                                <p className='d-flex justify-content-end'>
-                                                    <ul className='d-flex w-100 mb-0'>
-                                                        <li className='p-2 dark-background'>MM</li>
-                                                    </ul>
-                                                </p>
-                                            </td>
-                                            <td>
-                                                <p className='ps-4'>$14,000</p>
-                                            </td>
-                                            <td className='ps-3 pe-2'>
-                                                <p>75%</p>
-                                                <Progress_bar bgcolor={'#738AFE'} progress={75} height={10} />
-                                            </td>
-                                        </tr>
-
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-md-4'>
-                        <div className=''>
-                            <div className='dashboard-card-container  dark-mode p-4'>
-                                <div className='dashboard-credit-card  p-3 d-flex flex-column gap-4'>
-
-                                    <div className='d-flex justify-content-between dashboard-credit-card-header'>
-                                        <div>
-                                            <h4 className='m-0 p-0'>VISA</h4>
-                                            <p>PREMIUM ACCOUNT</p>
-                                        </div>
-                                        <div>
-                                            <img src="/assets/debit-card-icon.svg" alt="" />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <p>5789 **** **** 2847</p>
-                                    </div>
-
-                                    <div className='d-flex justify-content-between'>
-                                        <div>
-                                            <p>Card Holder</p>
-                                            <h6>Mike Smith</h6>
-                                        </div>
-
-                                        <div>
-                                            <p>Expire Date</p>
-                                            <h6>06/21</h6>
-                                        </div>
-                                    </div>
+                                <div className='dashboard-timeline dark-mode' style={{ height: "335px" }}>
+                                    <Chrono items={dashboardTimelineData} mode="VERTICAL" hideControls={true} cardHeight={10} />
                                 </div>
                             </div>
 
-                            <div className='dashboard-below-card dark-mode'>
-
-                                <div className='d-flex gap-4 dashboard-below-card-header p-4'>
-                                    <div className='d-flex align-items-center gap-2'>
-                                        <img src="/assets/Bag.png" alt="" />
-                                        <div className='d-flex flex-column'>
-                                            <p className='dark-mode'>1153</p>
-                                            <span>Products</span>
-                                        </div>
-                                    </div>
-
-                                    <div className='d-flex align-items-center gap-2'>
-                                        <img src="/assets/Buy.svg" alt="" />
-                                        <div className='d-flex flex-column'>
-                                            <p className='dark-mode'>81K</p>
-                                            <span>Order Served</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className='dashboard-below-card-body d-flex justify-content-between p-4 align-items-center'>
-                                    <div className='d-flex flex-column'>
-                                        <h4 className='dark-mode'>$4,050,12,300</h4>
-                                        <p>Life time sales</p>
-                                    </div>
-                                    <p className='p-2'>YoY 24%</p>
-                                </div>
-
-                                <div className='d-flex justify-content-around pb-4'>
-                                    <button className='dashboard-view-button px-3 py-1'>View Project</button>
-                                    <button className='dashboard-analytics-button px-3 py-1'>Analytics</button>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div className='dashboard-website-visitors dark-mode d-flex justify-content-between p-3 mt-4'>
-                            <div className='d-flex flex-column justify-content-center align-items-center'>
-                                <h4>750K</h4>
-                                <p>Website Visitors</p>
-                            </div>
-
-                            <div className='d-flex flex-column  justify-content-center align-items-center'>
-                                <h4>7,500</h4>
-                                <p>New Customers</p>
-                            </div>
-                        </div>
-
-                        <div className='dashboard-activity-overview dark-mode mt-4 p-3'>
-                            <div className='d-flex flex-column dashboard-activity-overview-header'>
-                                <h5>Actvity overview</h5>
-                                <div className='d-flex gap-3 align-items-center ps-2'>
-                                    <img src="/assets/green-arrow- up.png" alt="" />
-                                    <p>
-                                        16% this month
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className='dashboard-timeline dark-mode' style={{ height: "335px" }}>
-                                <Chrono items={dashboardTimelineData} mode="VERTICAL" hideControls={true} cardHeight={10} />
-                            </div>
                         </div>
 
                     </div>
-
                 </div>
-            </div>
-            {/* <div style = {{position: "absolute"}}>
+                {/* <div style = {{position: "absolute"}}>
             <button  onClick={() => { themeChange() }} >Theme</button>
             <button  onClick={() => { LightMode() }} >Theme</button>
             </div> */}
-        </div>
+            </div>
         </>
     )
 }

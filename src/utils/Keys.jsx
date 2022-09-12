@@ -1,0 +1,3 @@
+export const web3authClientID = 'BHKVivuT4u1ceMcB8hKlwy_qWmqVVhn4AHBbH_pT-8mvzCeWPAAt1T5f30spyaXZBRsZrEohw_8sRTCjPpcXgYM'
+
+export const web3authClientSecret = '61405c684a00c8de135685ad291f6e4971372aa88b0e40fc7b7d6e1a5e922b65'

@@ -5,6 +5,8 @@ import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
 import BedRock_Sidebar from "../common/BedRock_Sidebar";
 import Iconly from "../common/Iconly";
+import { useContext } from "react";
+import { UserContext } from "../../ContextAPI/Context";
 
 export default function Dashboard() {
   const location = useLocation();

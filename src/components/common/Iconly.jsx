@@ -192,14 +192,14 @@ export default function Iconly() {
 
   return (
     <div className="setings-modal">
-      <button
+      {/* <button
         type="button"
         class="iconly-page"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
         <img src={"/assets/SettingsIcon.png"} alt="" />
-      </button>
+      </button> */}
       <div
         class="modal fade"
         id="exampleModal"
@@ -229,10 +229,14 @@ export default function Iconly() {
                   <button type="button" class="modal-button btn btn-light ms-4 me-5 mt-2 p-3">
                     <i class="fa fa-bolt"></i> Auto{" "}
                   </button>
-                  <button onClick={() => { darkTheme(); themeChange(); }} type="button" class="modal-button1 btn btn-light ms-4 me-5 mt-2 p-3">
+                  <button
+                    // onClick={() => { darkTheme(); themeChange(); }}
+                    type="button" class="modal-button1 btn btn-light ms-4 me-5 mt-2 p-3">
                     <img src={"/assets/Rectangle.png"} alt="" /> Dark{" "}
                   </button>
-                  <button onClick={() => { lightTheme(); LightMode(); }} type="button" class="modal-button2 btn btn-light ms-4 mt-2 p-3 me-3">
+                  <button
+                    //  onClick={() => { lightTheme(); LightMode(); }}
+                    type="button" class="modal-button2 btn btn-light ms-4 mt-2 p-3 me-3">
                     {" "}
                     <i class="fa fa-cog"></i>Light{" "}
                   </button>
