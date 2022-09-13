@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import IssuedShares from './IssuedShares';
+import IssueNew from './IssueNew';
 import './Shares.css'
 
 export default function Shares() {
@@ -22,7 +23,10 @@ export default function Shares() {
                     {/* <p className='ps-5 d-flex gap-2 ms-5'>Issue BED80 <span>- user name</span></p> */}
                 </div>
                 <div className='d-flex gap-3 pe-3 proof-page-btn-container'>
-                    <button onClick={() => { setNewProof(true) }} className={`${newProof ? 'active' : ""} px-3 py-1`} > + Issue New BED80</button>
+                    <button data-bs-toggle="modal"
+                        data-bs-target="#issueNewShare"
+                        // onClick={() => { setNewProof(true) }}
+                        className={`${newProof ? 'active' : ""} px-3 py-1`} > + Issue New BED80</button>
                     <button onClick={() => { setNewProof(false) }} className={`${!newProof ? 'active' : ""} px-3 py-1`}>Issued BED80</button>
                 </div>
             </div>
@@ -30,6 +34,24 @@ export default function Shares() {
             {
                 newProof ? "" : <IssuedShares />
             }
+
+            <div className="modal fade" id="issueNewShare" tabIndex={-1} aria-labelledby="issueNewShareLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        {/* <div className="modal-header">
+                            <h5 className="modal-title" id="issueNewShareLabel">Modal title</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+                        </div> */}
+                        <div className="modal-body">
+                            <IssueNew />
+                        </div>
+                        {/* <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
+                        </div> */}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

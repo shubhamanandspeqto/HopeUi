@@ -72,7 +72,7 @@ export default function MyDocumentsSelected() {
                 </div>
             </div>
 
-            {/* <div className='m-3 mt-5 d-flex flex-column gap-4'>
+            <div className='m-3 mt-5 d-flex flex-column gap-4'>
 
                 <div className='documents-page-row d-flex justify-content-between align-items-center'>
                     <h5 className='px-5 py-4 w-50'>document name 1</h5>
@@ -83,16 +83,16 @@ export default function MyDocumentsSelected() {
                     <h5 className='px-5 py-4 w-50'>document name 2</h5>
                     <p className='mx-5 px-5 w-50'>- created 01/20/2022</p>
                 </div>
-            </div> */}
+            </div>
 
-            <div className='m-3 mt-5 BED80documentsTable'>
+            {/* <div className='m-3 mt-5 BED80documentsTable'>
                 <DataTable
                     columns={columns}
                     data={data}
                     subHeader
                     subHeaderComponent={subHeaderComponent()}
                 />
-            </div>
+            </div> */}
 
         </div>
     )

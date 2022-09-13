@@ -6,9 +6,11 @@ import Web3 from "web3";
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextAPI/Context';
+import { useState } from 'react';
 
 export default function Login() {
 
+    const [loading, setLoading] = useState(false)
     const context = useContext(UserContext)
     let { loginFunction, logoutFunction } = context;
     console.log(loginFunction, logoutFunction);
@@ -16,7 +18,9 @@ export default function Login() {
     let torus;
 
     const login = async (e) => {
-        loginFunction(e)
+        setLoading(true)
+        await loginFunction(e)
+        setLoading(false);
     }
 
     const logout = () => {
@@ -47,7 +51,11 @@ export default function Login() {
                         // navigate('/dashboard')
                         login(e)
                     }}
-                    className='mt-3' type="submit">Log in</button>
+                    className='mt-3 d-flex gap-2' type="submit">Log in
+                    {
+                        loading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                    }
+                </button>
 
                 <p onClick={() => {
                     navigate('/sign-up')
