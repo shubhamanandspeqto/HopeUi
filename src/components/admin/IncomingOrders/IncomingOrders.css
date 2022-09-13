@@ -106,3 +106,19 @@
     line-height: 175%;
     color: #04040B;
 }
+
+.incoming-orders-table header {
+    padding: 1rem;
+    background-color: #E5E5E5;
+}
+
+.incoming-orders-table .rdt_TableHeadRow, .incoming-orders-table .rdt_TableBody, .incoming-orders-table .rdt_Pagination {
+    background: #E5E5E5;
+}
+
+.incoming-orders-table .rdt_TableRow {
+    background: #dbdbdb;
+    border: 1px solid darkgray !important;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}

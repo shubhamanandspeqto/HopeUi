@@ -1,11 +1,74 @@
 import React, { useState } from 'react'
+import DataTable from 'react-data-table-component';
 import IssuedShares from './IssuedShares';
 import IssueNew from './IssueNew';
 import './Shares.css'
+import { FaRegEye } from 'react-icons/fa'
+import { BiSearch } from 'react-icons/bi'
+
+const columns = [
+    {
+        name: 'Shareholder',
+        selector: row => row.documentName,
+        sortable: true,
+    },
+    {
+        name: 'Quantity',
+        selector: row => row.documentType,
+        sortable: true,
+    },
+    {
+        name: 'Price/Share',
+        selector: row => row.createdDate,
+        sortable: true,
+    },
+    {
+        name: 'Market Value',
+        selector: row => row.createdDate,
+        sortable: true,
+    },
+    // {
+    //     name: 'View/Download',
+    //     selector: row => {
+    //         return (
+    //             <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
+    //         )
+    //     },
+    //     ignoreRowClick: true,
+    //     allowOverflow: true,
+    //     button: true,
+    // },
+];
+
+const data = [
+    {
+        id: 1,
+        documentName: 'Beetlejuice',
+        documentType: '1988',
+        createdDate: "01/01/2022"
+    },
+    {
+        id: 2,
+        documentName: 'Beetlejuice',
+        documentType: '1988',
+        createdDate: "01/01/2022"
+    },
+]
+
 
 export default function Shares() {
 
     const [newProof, setNewProof] = useState(false);
+
+    const subHeaderComponent = () => {
+        return (
+            <div className='d-flex align-items-center'>
+                <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
+                <input style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
+            </div>
+        )
+    }
+
 
     return (
         <div className='documents-page-container pb-3'>
@@ -31,9 +94,9 @@ export default function Shares() {
                 </div>
             </div>
 
-            {
+            {/* {
                 newProof ? "" : <IssuedShares />
-            }
+            } */}
 
             <div className="modal fade" id="issueNewShare" tabIndex={-1} aria-labelledby="issueNewShareLabel" aria-hidden="true">
                 <div className="modal-dialog">
@@ -51,6 +114,16 @@ export default function Shares() {
                         </div> */}
                     </div>
                 </div>
+            </div>
+
+            <div className='m-3 mt-5 issued-shares-table'>
+                <DataTable
+                    columns={columns}
+                    data={data}
+                    subHeader
+                    subHeaderComponent={subHeaderComponent()}
+                    pagination
+                />
             </div>
         </div>
     )

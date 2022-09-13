@@ -23,8 +23,8 @@ const Sidebar = () => {
                 </a>
                 <ul
                   className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                  id="menu"
-                >
+                  id="menu" >
+
                   <li className="nav-item">
                     <a href="#" className="nav-link align-middle px-0">
                       <i className="fs-4 bi-house"></i>{" "}
@@ -33,6 +33,7 @@ const Sidebar = () => {
                       </span>
                     </a>
                   </li>
+
                   <li>
                     <Link
                       to={"/dashboard"}
@@ -46,6 +47,7 @@ const Sidebar = () => {
                       </div>
                     </Link>
                   </li>
+
                   <li className="w-100">
                     <a
                       href="#submenu1"

@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@toruslabs/openlogin": "^2.6.0",
     "@toruslabs/torus-embed": "^1.35.5",
+    "@trendmicro/react-dropdown": "^1.4.0",
     "@web3auth/web3auth": "^2.0.2",
     "apexcharts": "^3.35.4",
     "google-maps-react": "^2.0.6",

@@ -7,6 +7,7 @@ import BedRock_Sidebar from "../common/BedRock_Sidebar";
 import Iconly from "../common/Iconly";
 import { useContext } from "react";
 import { UserContext } from "../../ContextAPI/Context";
+import BedrockSidebar from "../common/BedrockSidebar";
 
 export default function Dashboard() {
   const location = useLocation();
@@ -18,7 +19,7 @@ export default function Dashboard() {
       <div className="d-flex w-100 dark-mode">
         <div className="" style={{ width: "20%" }}>
           {
-            location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' ? <BedRock_Sidebar /> : <Sidebar />
+            location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' ? <BedrockSidebar /> : <Sidebar />
           }
           {/* <Sidebar /> */}
           {/* <BedRock_Sidebar/> */}
