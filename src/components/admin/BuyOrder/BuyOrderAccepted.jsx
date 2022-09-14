@@ -27,7 +27,7 @@ export default function BuyOrderAccepted() {
         </div>
 
         <div className='m-3 mb-0 buy-order-content d-flex p-0  align-items-center justify-content-start'>
-          <div className='ps-3 d-flex gap-5 align-items-center buy-order-img-container ' style={{width:'50%'}}>
+          <div className='ps-3 d-flex gap-5 align-items-center buy-order-img-container ' style={{ width: '50%' }}>
 
             <p className='ps-5 d-flex gap-2 '>Buy Order #1 for SpaceX</p>
           </div>
@@ -42,7 +42,7 @@ export default function BuyOrderAccepted() {
           <div className=' d-flex gap-5 align-items-center order-accepted-container '>
 
             {/* <p className='ps-5 d-flex gap-2 ms-5'>Buy Order #1 for SpaceX</p> */}
-            <button type="button" class=" py-3 ps-3 gap-2 order-accepted noHover "><b>Order Accepted</b><span>- See 'Completed' for Post-Deal Documentation</span></button>
+            <button type="button" className=" py-3 ps-3 gap-2 order-accepted noHover "><b>Order Accepted</b><span>- See 'Completed' for Post-Deal Documentation</span></button>
           </div>
 
 

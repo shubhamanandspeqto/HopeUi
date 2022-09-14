@@ -2,15 +2,26 @@ import React from "react";
 import "../Bedrock-upload/Upload.css";
 
 import { BsUpload } from 'react-icons/bs'
-import { useDropzone } from 'react-dropzone';
 import { RiComputerLine } from 'react-icons/ri'
 import { AiOutlineDropbox } from 'react-icons/ai'
 import { DiGoogleDrive } from 'react-icons/di'
-import { successPopup } from "../../../utils/PopupMessages";
+import { errorPopup, successPopup } from "../../../utils/PopupMessages";
 import { useEffect } from "react";
 import { useState } from "react";
+import { dropboxKey, googleDriveClientID, googleDriveClientSecret, googleDriveKey } from "../../../utils/Keys";
+
+import { useDropzone } from 'react-dropzone';
+import ReactDropboxChooser from "react-dropbox-chooser";
+import useDrivePicker from 'react-google-drive-picker'
+import axios from "axios";
 
 export default function Upload() {
+
+  const [selectedFile, setSelectedFile] = useState();
+  const [alertMessage, setAlertMessage] = useState("");
+  const [uploadedFileUrl, setUploadedFileUrl] = useState("");
+  const [documentTitle, setDocumentTitle] = useState("");
+  const [documentDescription, setDocumentDescription] = useState("");
 
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     // Disable click and keydown behavior
@@ -18,19 +29,106 @@ export default function Upload() {
     noKeyboard: true
   });
 
-  const files = acceptedFiles.map(file => {
-    console.log(file);
-    let formdata = new FormData();
-    formdata.append("file", file)
-    return (
-      <li key={file.path}>
-        {file.path} - {file.size} bytes
+  // let files = acceptedFiles.map(file => {
+  //   console.log(file);
+  //   return ({
+  //     html: <li key={file.path}>
+  //       {file.path} - {file.size} bytes
+  //       <br />
+  //       {/* <span style={{ fontSize: '14px', color: 'red' }}>*Add Documents Details Below</span> */}
+  //     </li>,
+  //     file: file
+  //   })
+  // }
+  // );
+
+  // For Drag and Drop or Browse From Computer
+  useEffect(() => {
+    console.log(acceptedFiles);
+    if (!acceptedFiles.length) return
+    let newImage = {
+      html: <li key={acceptedFiles[0].name}>
+        {acceptedFiles[0].name} - {acceptedFiles[0].size} bytes
         <br />
-        <span style={{ fontSize: '14px', color: 'red' }}>*Add Documents Details Below</span>
-      </li>
-    )
+      </li>,
+      file: acceptedFiles[0]
+    }
+
+    setSelectedFile(newImage)
+  }, [acceptedFiles])
+
+  // For Select File From Dropbox
+  const onSuccess = (file) => {
+    console.log(file);
+    let newImage = {
+      html: <li key={file[0].name}>
+        {file[0].name} - {file[0].bytes} bytes
+        <br />
+      </li>,
+      file: file[0]
+    }
+    setSelectedFile(newImage);
   }
-  );
+
+  // For Cancel Upload Of Dropbox
+  const onCancel = () => {
+    console.log("User Cancelled Upload");
+  }
+
+  // Google Drive
+
+  const [openPicker, authResponse] = useDrivePicker();
+
+  const handleOpenPicker = (e) => {
+    e.preventDefault()
+    openPicker({
+      clientId: googleDriveClientID,
+      developerKey: googleDriveKey,
+      viewId: "DOCS",
+      // token: token, // pass oauth token in case you already have one
+      showUploadView: true,
+      showUploadFolders: true,
+      supportDrives: true,
+      multiselect: true,
+      // customViews: customViewsArray, // custom view
+      callbackFunction: (data) => {
+        if (data.action === 'cancel') {
+          console.log('User clicked cancel/close button')
+        }
+        console.log(data)
+      },
+    })
+  }
+
+  // For Uploading File Selected By User
+  const uploadFile = (e) => {
+    e.preventDefault();
+    if (!selectedFile) return errorPopup("File Not Selected")
+    console.log(selectedFile);
+
+    let formData = new FormData();
+    formData.append('file', selectedFile.file)
+
+    axios.post('https://bedrock-backend.herokuapp.com/file-upload', formData, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then((res) => {
+      console.log(res);
+      setUploadedFileUrl(res.data?.data)
+      successPopup(res?.data?.msg)
+      setAlertMessage("*Add Documents Details Below")
+    }).catch((err) => {
+      console.log(err);
+      errorPopup(err?.response?.data?.message)
+    })
+
+  }
+
+  const submitDocumentDetails = (e) => {
+    e.preventDefault()
+    console.log(documentTitle, documentDescription, uploadedFileUrl);
+  }
 
   return (
     <div>
@@ -93,11 +191,11 @@ export default function Upload() {
                         {/* <button className="btn">
                           Click Here to Browse Files
                         </button> */}
-                        {/* <div class="btn-group"> */}
+                        {/* <div className="btn-group"> */}
                         <div className="pb-3">
-                          <button type="button" className="d-flex gap-2 align-items-center">
+                          <button onClick={(e) => { uploadFile(e) }} type="button" className="d-flex gap-2 align-items-center">
                             <BsUpload color="white" size={20} />
-                            <p onClick={open} className="d-flex justify-content-between">Upload</p>
+                            <p className="d-flex justify-content-between">Upload</p>
                           </button>
                         </div>
 
@@ -123,25 +221,38 @@ export default function Upload() {
                                 </li>
 
                                 <li>
-                                  <p className="d-flex gap-2 align-items-center p-2">
-                                    <span><AiOutlineDropbox /></span>
-                                    <label>Dropbox</label>
-                                  </p>
+                                  <ReactDropboxChooser
+                                    appKey={dropboxKey}
+                                    success={files => onSuccess(files)}
+                                    cancel={() => onCancel()}
+                                    multiselect={false} >
+                                    <p className="d-flex gap-2 align-items-center p-2">
+                                      <span><AiOutlineDropbox /></span>
+                                      <label>Dropbox</label>
+                                    </p>
+                                  </ReactDropboxChooser>
                                 </li>
 
-                                <li>
-                                  <p className="d-flex gap-2 align-items-center p-2">
+                                {/* <li>
+                                  <p
+                                    onClick={(e) => { handleOpenPicker(e) }}
+                                    className="d-flex gap-2 align-items-center p-2">
                                     <span><DiGoogleDrive /></span>
                                     <label>Google Drive</label>
                                   </p>
-                                </li>
+                                </li> */}
 
                               </ul>
                             </div>
 
                           </div>
                           <aside>
-                            <ul className="my-0 py-0 pt-1">{files}</ul>
+                            {
+                              selectedFile && <ul className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
+                            }
+                            {
+                              alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>*Add Documents Details Below</span>
+                            }
                           </aside>
                         </div>
                       </div>
@@ -170,20 +281,20 @@ export default function Upload() {
                           />
                         </div>
                         <form>
-                          <div class="mb-3">
-                            <label for="" class="form-label">
+                          <div className="mb-3">
+                            <label htmlFor="" className="form-label">
                               Document Title
                             </label>
-                            <input type="text" class="form-control" />
+                            <input value={documentTitle} onChange={(e) => { setDocumentTitle(e.target.value) }} type="text" className="form-control" />
                           </div>
-                          <div class="mb-3">
-                            <label for="" class="form-label">
+                          <div className="mb-3">
+                            <label htmlFor="" className="form-label">
                               Document Description
                             </label>
-                            <input type="text" class="form-control" />
+                            <input value={documentDescription} onChange={(e) => { setDocumentDescription(e.target.value) }} type="text" className="form-control" />
                           </div>
 
-                          <button type="submit" class="btn btn-primary">
+                          <button onClick={(e) => { submitDocumentDetails(e) }} type="submit" className="btn btn-primary">
                             Submit
                           </button>
                         </form>

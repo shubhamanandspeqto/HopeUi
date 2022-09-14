@@ -122,3 +122,20 @@
     border-radius: 8px;
     margin: 0.5rem 0;
 }
+
+.table-dropdown {
+    background: #b3a6a6;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.table-dropdown>p {
+    cursor: pointer;
+    padding: 3px 1rem;
+}
+
+.table-dropdown>p:hover {
+    background: #738AFE;
+    border-radius: 6px;
+    color: #FFFFFF;
+}

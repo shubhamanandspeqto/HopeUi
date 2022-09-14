@@ -6,84 +6,7 @@ import { FaRegEye } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import DataTable from 'react-data-table-component'
-
-const columns = [
-    {
-        name: 'Order',
-        selector: row => row.order,
-        sortable: true,
-    },
-    {
-        name: 'Holder',
-        selector: row => row.holder,
-        sortable: true,
-    },
-    {
-        name: 'Proposed Buyer',
-        selector: row => row.proposedBuyer,
-        sortable: true,
-    },
-    {
-        name: 'Quantity',
-        selector: row => row.quantity,
-        sortable: true,
-    },
-    {
-        name: 'Type of shares',
-        selector: row => row.typeOfShare,
-        sortable: true,
-    },
-    {
-        name: 'Offered Price',
-        selector: row => row.offerdPrice,
-        sortable: true,
-    },
-    {
-        name: 'Status',
-        selector: row => {
-            if (row.status === 'Pending') {
-                return (
-                    <p style={{ color: '#c5c502' }}>Pending Review</p>
-                )
-            }
-            if (row.status === 'Approved') {
-                return (
-                    <div className='d-flex align-items-center gap-3'>
-                        <p style={{ color: 'green' }}>Approved</p>
-
-                        {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
-                            <option></option>
-                            <option>View</option>
-                        </select> */}
-
-                        <span style={{ cursor: 'pointer', fontSize: '10px' }}>
-                            {/* <HiOutlineDotsHorizontal size={15} /> */}
-                            View
-                        </span>
-
-                    </div>
-                )
-            }
-            if (row.status === 'Denied') {
-                return (
-                    <p style={{ color: 'red' }}>Denied</p>
-                )
-            }
-        },
-        sortable: true,
-    },
-    // {
-    //     name: 'View/Download',
-    //     selector: row => {
-    //         return (
-    //             <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
-    //         )
-    //     },
-    //     ignoreRowClick: true,
-    //     allowOverflow: true,
-    //     button: true,
-    // },
-];
+import { useState } from 'react'
 
 const data = [
     {
@@ -120,6 +43,97 @@ const data = [
 
 export default function IncomingOrders() {
 
+    const [dropDownVisible, setDropDownVisible] = useState(false)
+
+    const columns = [
+        {
+            name: 'Order',
+            selector: row => row.order,
+            sortable: true,
+        },
+        {
+            name: 'Holder',
+            selector: row => row.holder,
+            sortable: true,
+        },
+        {
+            name: 'Proposed Buyer',
+            selector: row => row.proposedBuyer,
+            sortable: true,
+        },
+        {
+            name: 'Quantity',
+            selector: row => row.quantity,
+            sortable: true,
+        },
+        {
+            name: 'Type of shares',
+            selector: row => row.typeOfShare,
+            sortable: true,
+        },
+        {
+            name: 'Offered Price',
+            selector: row => row.offerdPrice,
+            sortable: true,
+        },
+        {
+            name: 'Status',
+            selector: row => {
+                if (row.status === 'Pending') {
+                    return (
+                        <p style={{ color: '#c5c502' }}>Pending Review</p>
+                    )
+                }
+                if (row.status === 'Approved') {
+                    return (
+                        <div className='d-flex align-items-center gap-3'>
+                            <p style={{ color: 'green' }}>Approved</p>
+
+                            {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
+                            <option></option>
+                            <option>View</option>
+                            </select> */}
+
+                            <span onClick={(e) => {
+                                setDropDownVisible(!dropDownVisible)
+                            }} style={{ cursor: 'pointer', fontSize: '10px' }}>
+                                <HiOutlineDotsHorizontal size={15} />
+                                {/* View */}
+                            </span>
+
+                            <div className='table-dropdown py-2'
+                                style={dropDownVisible ? { position: 'absolute', display: 'block' } : { display: 'none' }}>
+                                <p onClick={(e) => {
+                                    e.preventDefault();
+                                    console.log("View Details");
+                                }}>View Details</p>
+                            </div>
+
+                        </div>
+                    )
+                }
+                if (row.status === 'Denied') {
+                    return (
+                        <p style={{ color: 'red' }}>Denied</p>
+                    )
+                }
+            },
+            sortable: true,
+            ignoreRowClick: true,
+        },
+        // {
+        //     name: 'View/Download',
+        //     selector: row => {
+        //         return (
+        //             <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
+        //         )
+        //     },
+        //     ignoreRowClick: true,
+        //     allowOverflow: true,
+        //     button: true,
+        // },
+    ];
+
     const subHeaderComponent = () => {
         return (
             <div className='d-flex justify-content-between w-100'>
@@ -133,7 +147,9 @@ export default function IncomingOrders() {
     }
 
     return (
-        <div className='documents-page-container pb-3'>
+        <div className='documents-page-container pb-3' onClick={() => {
+            if (dropDownVisible) setDropDownVisible(false)
+        }}>
 
             <div className='d-flex justify-content-between documents-page-heading py-5 px-4'>
                 <div className='d-flex flex-column'>

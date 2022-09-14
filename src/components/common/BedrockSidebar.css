@@ -20,6 +20,7 @@
 
 .bedrock-sidebar-subheading {
     font-weight: 600 !important;
+    cursor: context-menu;
 }
 
 .bedrock-sidebar li {

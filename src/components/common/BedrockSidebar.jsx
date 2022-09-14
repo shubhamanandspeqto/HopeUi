@@ -182,7 +182,7 @@ export default function BedrockSidebar() {
                 </div>
 
                 <div className='d-flex flex-column gap-2'>
-                    <p className='py-2 bedrock-sidebar-subheading'>Coming Soon</p>
+                    <p className='py-2 bedrock-sidebar-subheading px-2'>Coming Soon</p>
 
                     <a
                         href="#BedrockAI"

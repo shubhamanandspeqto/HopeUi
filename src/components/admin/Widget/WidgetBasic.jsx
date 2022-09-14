@@ -13,7 +13,7 @@ export default function Widget() {
   const handleRating = (rate) => {
     setRating(rate)
   }
-  
+
   return (
     <div className="widget-basic-page-container">
       <div className="d-flex justify-content-between widget-basic-page-heading py-5 px-4">
@@ -353,7 +353,7 @@ export default function Widget() {
                 <div>
                   <button
                     type="button"
-                    class="btn btn-danger btn-lg btn-block w-100 mb-4"
+                    className="btn btn-danger btn-lg btn-block w-100 mb-4"
                   >
                     Add Credit
                   </button>
@@ -363,9 +363,9 @@ export default function Widget() {
                     <p className="widget-para d-flex justify-content-between text-gray mb-2">
                       Insurance
                     </p>
-              
-                    </div>
-                    <div>
+
+                  </div>
+                  <div>
                     <Progressbar bgcolor="#068B92" progress="70" height={10} />
                   </div>
 

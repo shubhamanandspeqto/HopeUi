@@ -4,6 +4,7 @@ import './MyDocumentsSelected.css'
 import DataTable from 'react-data-table-component';
 import { BiSearch } from 'react-icons/bi'
 import { FaRegEye } from 'react-icons/fa'
+import { IoDocumentTextOutline } from 'react-icons/io5'
 
 const columns = [
     {
@@ -22,12 +23,20 @@ const columns = [
         name: 'View/Download',
         selector: row => {
             return (
-                <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
+                <div style={{ cursor: 'pointer' }} className='d-flex gap-2'>
+                    <div>
+                        <IoDocumentTextOutline size={25} color='gray' />
+                    </div>
+                    <div>
+                        {row.documentName} - {row.createdDate}
+                    </div>
+                </div>
+                // <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
             )
         },
         ignoreRowClick: true,
         allowOverflow: true,
-        button: true,
+        // button: true,
     },
 ];
 
@@ -37,6 +46,12 @@ const data = [
         documentName: 'Beetlejuice',
         documentType: '1988',
         createdDate: "01/01/2022"
+    },
+    {
+        id: 2,
+        documentName: 'New Order',
+        documentType: 'PDF',
+        createdDate: "01/02/2022"
     },
 ]
 
