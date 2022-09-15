@@ -23,6 +23,8 @@ export default function Upload() {
   const [documentTitle, setDocumentTitle] = useState("");
   const [documentDescription, setDocumentDescription] = useState("");
 
+  const [fileUploadLoading, setFileUploadLoading] = useState(false);
+
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     // Disable click and keydown behavior
     noClick: true,
@@ -106,6 +108,7 @@ export default function Upload() {
     if (!selectedFile) return errorPopup("File Not Selected")
     console.log(selectedFile);
 
+    setFileUploadLoading(true)
     let formData = new FormData();
     formData.append('file', selectedFile.file)
 
@@ -118,9 +121,11 @@ export default function Upload() {
       setUploadedFileUrl(res.data?.data)
       successPopup(res?.data?.msg)
       setAlertMessage("*Add Documents Details Below")
+      setFileUploadLoading(false)
     }).catch((err) => {
       console.log(err);
       errorPopup(err?.response?.data?.message)
+      setFileUploadLoading(false)
     })
 
   }
@@ -193,9 +198,12 @@ export default function Upload() {
                         </button> */}
                         {/* <div className="btn-group"> */}
                         <div className="pb-3">
-                          <button onClick={(e) => { uploadFile(e) }} type="button" className="d-flex gap-2 align-items-center">
+                          <button disabled={fileUploadLoading} onClick={(e) => { uploadFile(e) }} type="button" className="d-flex gap-2 align-items-center">
                             <BsUpload color="white" size={20} />
                             <p className="d-flex justify-content-between">Upload</p>
+                            {
+                              fileUploadLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                            }
                           </button>
                         </div>
 

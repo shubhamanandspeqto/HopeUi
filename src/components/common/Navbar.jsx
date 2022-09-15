@@ -24,7 +24,7 @@ export default function Navbar() {
     }
 
     let userDetails = useContext(UserContext)
-    const { logoutFunction } = userDetails
+    const { logoutFunction, torus } = userDetails
 
     let userInfo = JSON.parse(localStorage.getItem('userInfo'))
 
@@ -97,7 +97,7 @@ export default function Navbar() {
                                             </p>
                                         </li>
                                         <li>
-                                            <p onClick={() => { logoutFunction() }} className='p-2 d-flex align-items-center gap-2'>
+                                            <p onClick={() => { logoutFunction(torus) }} className='p-2 d-flex align-items-center gap-2'>
                                                 <FiLogOut />
                                                 <span>Logout</span>
                                             </p>
