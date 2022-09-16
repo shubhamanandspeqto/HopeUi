@@ -4,16 +4,19 @@ import "../Bedrock-upload/Upload.css";
 import { BsUpload } from 'react-icons/bs'
 import { RiComputerLine } from 'react-icons/ri'
 import { AiOutlineDropbox } from 'react-icons/ai'
-import { DiGoogleDrive } from 'react-icons/di'
+// import { DiGoogleDrive } from 'react-icons/di'
 import { errorPopup, successPopup } from "../../../utils/PopupMessages";
 import { useEffect } from "react";
 import { useState } from "react";
-import { dropboxKey, googleDriveClientID, googleDriveClientSecret, googleDriveKey } from "../../../utils/Keys";
+import { dropboxKey } from "../../../utils/Keys";
 
 import { useDropzone } from 'react-dropzone';
 import ReactDropboxChooser from "react-dropbox-chooser";
-import useDrivePicker from 'react-google-drive-picker'
+// import useDrivePicker from 'react-google-drive-picker'
 import axios from "axios";
+import { URLS } from "../../../utils/ApiURLs";
+import { useContext } from "react";
+import { UserContext } from "../../../ContextAPI/Context";
 
 export default function Upload() {
 
@@ -24,6 +27,11 @@ export default function Upload() {
   const [documentDescription, setDocumentDescription] = useState("");
 
   const [fileUploadLoading, setFileUploadLoading] = useState(false);
+  const [documentSubmitLoading, setDocumentSubmitLoading] = useState(false);
+
+  let userDetails = useContext(UserContext)
+
+  const { userInfo, address } = userDetails
 
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     // Disable click and keydown behavior
@@ -79,28 +87,28 @@ export default function Upload() {
 
   // Google Drive
 
-  const [openPicker, authResponse] = useDrivePicker();
+  // const [openPicker, authResponse] = useDrivePicker();
 
-  const handleOpenPicker = (e) => {
-    e.preventDefault()
-    openPicker({
-      clientId: googleDriveClientID,
-      developerKey: googleDriveKey,
-      viewId: "DOCS",
-      // token: token, // pass oauth token in case you already have one
-      showUploadView: true,
-      showUploadFolders: true,
-      supportDrives: true,
-      multiselect: true,
-      // customViews: customViewsArray, // custom view
-      callbackFunction: (data) => {
-        if (data.action === 'cancel') {
-          console.log('User clicked cancel/close button')
-        }
-        console.log(data)
-      },
-    })
-  }
+  // const handleOpenPicker = (e) => {
+  //   e.preventDefault()
+  //   openPicker({
+  //     clientId: googleDriveClientID,
+  //     developerKey: googleDriveKey,
+  //     viewId: "DOCS",
+  //     // token: token, // pass oauth token in case you already have one
+  //     showUploadView: true,
+  //     showUploadFolders: true,
+  //     supportDrives: true,
+  //     multiselect: true,
+  //     // customViews: customViewsArray, // custom view
+  //     callbackFunction: (data) => {
+  //       if (data.action === 'cancel') {
+  //         console.log('User clicked cancel/close button')
+  //       }
+  //       console.log(data)
+  //     },
+  //   })
+  // }
 
   // For Uploading File Selected By User
   const uploadFile = (e) => {
@@ -112,15 +120,15 @@ export default function Upload() {
     let formData = new FormData();
     formData.append('file', selectedFile.file)
 
-    axios.post('https://bedrock-backend.herokuapp.com/file-upload', formData, {
+    axios.post(URLS.uploadFile, formData, {
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
     }).then((res) => {
       console.log(res);
       setUploadedFileUrl(res.data?.data)
-      successPopup(res?.data?.msg)
-      setAlertMessage("*Add Documents Details Below")
+      successPopup(res?.data?.message)
+      setAlertMessage("File Uploaded Succesfully, *Add Documents Details Below")
       setFileUploadLoading(false)
     }).catch((err) => {
       console.log(err);
@@ -132,7 +140,35 @@ export default function Upload() {
 
   const submitDocumentDetails = (e) => {
     e.preventDefault()
-    console.log(documentTitle, documentDescription, uploadedFileUrl);
+
+    if (!uploadedFileUrl) return errorPopup("No File Uploaded");
+
+    if (!documentTitle || !documentDescription || !userInfo.email || !address) return errorPopup("Please fill all the fields.")
+
+    const data = {
+      title: documentTitle,
+      description: documentDescription,
+      email: userInfo.email,
+      wallet_address: address,
+      file_url: uploadedFileUrl
+    }
+
+    console.log(data);
+
+    setDocumentSubmitLoading(true)
+    axios.post(URLS.submitDocumentDetails, data, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then((res) => {
+      console.log(res);
+      successPopup(res.data.message)
+      setDocumentSubmitLoading(false)
+    }).catch((err) => {
+      console.log(err);
+      setDocumentSubmitLoading(false)
+    })
+
   }
 
   return (
@@ -259,7 +295,7 @@ export default function Upload() {
                               selectedFile && <ul className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
                             }
                             {
-                              alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>*Add Documents Details Below</span>
+                              alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>{alertMessage}</span>
                             }
                           </aside>
                         </div>
@@ -302,8 +338,11 @@ export default function Upload() {
                             <input value={documentDescription} onChange={(e) => { setDocumentDescription(e.target.value) }} type="text" className="form-control" />
                           </div>
 
-                          <button onClick={(e) => { submitDocumentDetails(e) }} type="submit" className="btn btn-primary">
+                          <button disabled={documentSubmitLoading} onClick={(e) => { submitDocumentDetails(e) }} type="submit" className="btn btn-primary d-flex gap-2 align-items-center">
                             Submit
+                            {
+                              documentSubmitLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                            }
                           </button>
                         </form>
                       </div>

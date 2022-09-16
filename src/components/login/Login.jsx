@@ -1,9 +1,9 @@
 import React from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
-import Torus from "@toruslabs/torus-embed";
-import Web3 from "web3";
-import { useEffect } from 'react';
+// import Torus from "@toruslabs/torus-embed";
+// import Web3 from "web3";
+// import { useEffect } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../ContextAPI/Context';
 import { useState } from 'react';
@@ -12,15 +12,16 @@ export default function Login() {
 
     const [loading, setLoading] = useState(false)
     const context = useContext(UserContext)
-    let { loginFunction, logoutFunction } = context;
+    let { loginFunction } = context;
     const navigate = useNavigate();
-    let torus;
+    // let torus;
 
     const login = async (e) => {
         e.preventDefault()
         setLoading(true)
         let result = await loginFunction()
         console.log(result);
+        if (result?.torus) navigate('/dashboard/bedrock');
         setLoading(false);
     }
 

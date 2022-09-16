@@ -27,7 +27,7 @@ function Context({ children }) {
             localStorage.setItem("userInfo", JSON.stringify(fetchedUserInfo));
             console.log(init, "init", login, "login", web3, "web3", fetchedUserInfo, "userInfo", torus.provider);
 
-            navigate('/dashboard/bedrock');
+            // navigate('/dashboard/bedrock');
 
             return {
                 loading: false,

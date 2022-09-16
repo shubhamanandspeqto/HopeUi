@@ -3,59 +3,44 @@ import './MyDocumentsSelected.css'
 
 import DataTable from 'react-data-table-component';
 import { BiSearch } from 'react-icons/bi'
-import { FaRegEye } from 'react-icons/fa'
+// import { FaRegEye } from 'react-icons/fa'
 import { IoDocumentTextOutline } from 'react-icons/io5'
+import { useContext } from 'react';
+import { UserContext } from '../../../ContextAPI/Context';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { URLS } from '../../../utils/ApiURLs';
+import { useState } from 'react';
+import { errorPopup } from '../../../utils/PopupMessages';
 
-const columns = [
-    {
-        name: 'Document Name',
-        selector: row => row.documentName,
-    },
-    {
-        name: 'Document Type',
-        selector: row => row.documentType,
-    },
-    {
-        name: 'Created Date',
-        selector: row => row.createdDate,
-    },
-    {
-        name: 'View/Download',
-        selector: row => {
-            return (
-                <div style={{ cursor: 'pointer' }} className='d-flex gap-2'>
-                    <div>
-                        <IoDocumentTextOutline size={25} color='gray' />
-                    </div>
-                    <div>
-                        {row.documentName} - {row.createdDate}
-                    </div>
-                </div>
-                // <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
-            )
-        },
-        ignoreRowClick: true,
-        allowOverflow: true,
-        // button: true,
-    },
-];
-
-const data = [
-    {
-        id: 1,
-        documentName: 'Beetlejuice',
-        documentType: '1988',
-        createdDate: "01/01/2022"
-    },
-    {
-        id: 2,
-        documentName: 'New Order',
-        documentType: 'PDF',
-        createdDate: "01/02/2022"
-    },
-]
+// const data = [
+//     {
+//         id: 1,
+//         title: "atul",
+//         description: "desc",
+//         file_url: "https://res.cloudinary.com/bedrock/image/upload/v1663313519/qjnjqxvoodaq6pyb7dzb.jpg",
+//         timestamp: '01/01/2022',
+//         email: "abc@gmail.com",
+//         wallet_address: "0x1234567890123456789012345"
+//     },
+//     {
+//         id: 2,
+//         title: "sumit",
+//         description: "desc 2",
+//         file_url: "https://res.cloudinary.com/bedrock/image/upload/v1663315755/nbm8u7wksoxeqs7i0qvh.pdf",
+//         createdDate: '01/01/2022',
+//         email: "abc@gmail.com",
+//         wallet_address: "0x1234567890123456789012345"
+//     },
+// ]
 
 export default function MyDocumentsSelected() {
+
+    const [fetchedDocumentData, setFetchedDocumentData] = useState([]);
+
+    let userDetails = useContext(UserContext)
+    const { userInfo } = userDetails
+    console.log(userInfo.email);
 
     const subHeaderComponent = () => {
         return (
@@ -65,6 +50,66 @@ export default function MyDocumentsSelected() {
             </div>
         )
     }
+
+    const viewFile = (url) => {
+        window.open(url, '_blank')
+    }
+
+    const columns = [
+        {
+            name: 'Document Name',
+            selector: row => row.title,
+        },
+        {
+            name: 'Document Type',
+            selector: row => row.description,
+        },
+        {
+            name: 'Created Date',
+            selector: row => {
+                let date = new Date(row.timestamp * 1000)
+                return date.toLocaleDateString()
+            },
+        },
+        {
+            name: 'View/Download',
+            selector: row => {
+                let date = new Date(row.timestamp * 1000)
+                return (
+                    <div onClick={() => { viewFile(row.file_url) }} style={{ cursor: 'pointer' }} className='d-flex gap-2'>
+                        <div>
+                            <IoDocumentTextOutline size={25} color='gray' />
+                        </div>
+                        <div>
+                            {row.title} - {date.toLocaleDateString()}
+                        </div>
+                    </div>
+                    // <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
+                )
+            },
+            ignoreRowClick: true,
+            allowOverflow: true,
+            // button: true,
+        },
+    ];
+
+    useEffect(() => {
+
+        if (userInfo.email) {
+            axios.get(`${URLS.getDocumentDetails}/${userInfo.email}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((res) => {
+                console.log(res);
+                setFetchedDocumentData(res.data.data)
+            }).catch((err) => {
+                console.log(err);
+                errorPopup("Some Error Occured")
+            })
+        }
+
+    }, [userInfo.email])
 
     return (
         <div className='documents-page-container pb-3'>
@@ -103,7 +148,7 @@ export default function MyDocumentsSelected() {
             <div className='m-3 mt-5 BED80documentsTable'>
                 <DataTable
                     columns={columns}
-                    data={data}
+                    data={fetchedDocumentData}
                     subHeader
                     subHeaderComponent={subHeaderComponent()}
                     pagination
