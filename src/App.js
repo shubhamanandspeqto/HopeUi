@@ -33,11 +33,13 @@ import { Context } from "./ContextAPI/Context";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
       <Context>
+        <ScrollToTop />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}>
             <Route exact path="" element={<DashboardHome />} />

@@ -3,10 +3,10 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../common/Footer";
 import Navbar from "../common/Navbar";
 import Sidebar from "../common/Sidebar";
-import BedRock_Sidebar from "../common/BedRock_Sidebar";
+// import BedRock_Sidebar from "../common/BedRock_Sidebar";
 import Iconly from "../common/Iconly";
-import { useContext } from "react";
-import { UserContext } from "../../ContextAPI/Context";
+// import { useContext } from "react";
+// import { UserContext } from "../../ContextAPI/Context";
 import BedrockSidebar from "../common/BedrockSidebar";
 
 export default function Dashboard() {
@@ -17,7 +17,7 @@ export default function Dashboard() {
     <div className="d-flex flex-column">
       <Navbar />
       <div className="d-flex w-100 dark-mode">
-        <div className="" style={{ width: "20%" }}>
+        <div className="sidebar-parent-container" style={{ width: "20%", position: 'fixed', height: '100vh', overflow: 'auto' }}>
           {
             location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' ? <BedrockSidebar /> : <Sidebar />
           }
@@ -30,6 +30,7 @@ export default function Dashboard() {
             width: "80%",
             marginTop: "57px",
             backgroundColor: "#E5E5E5",
+            marginLeft: '20%'
           }}
         >
           {/* <img style={{width:"100%"}} src={"/assets/Outlet.jpeg"} /> */}

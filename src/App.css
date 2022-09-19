@@ -47,3 +47,14 @@ div {
     transform: rotate(360deg);
   }
 }
+
+.sidebar-parent-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-parent-container {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

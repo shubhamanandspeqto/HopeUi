@@ -17,8 +17,11 @@ import axios from "axios";
 import { URLS } from "../../../utils/ApiURLs";
 import { useContext } from "react";
 import { UserContext } from "../../../ContextAPI/Context";
+import BED15Documents from "./BED15Documents";
 
 export default function Upload() {
+
+  const [showUploadComponent, setShowUploadComponent] = useState(false)
 
   const [selectedFile, setSelectedFile] = useState();
   const [alertMessage, setAlertMessage] = useState("");
@@ -126,7 +129,7 @@ export default function Upload() {
       }
     }).then((res) => {
       console.log(res);
-      setUploadedFileUrl(res.data?.data)
+      setUploadedFileUrl(res?.data?.data)
       successPopup(res?.data?.message)
       setAlertMessage("File Uploaded Succesfully, *Add Documents Details Below")
       setFileUploadLoading(false)
@@ -164,11 +167,21 @@ export default function Upload() {
       console.log(res);
       successPopup(res.data.message)
       setDocumentSubmitLoading(false)
+
+      resetAllFields()
     }).catch((err) => {
       console.log(err);
       setDocumentSubmitLoading(false)
     })
 
+  }
+
+  function resetAllFields() {
+    setSelectedFile("")
+    setAlertMessage('')
+    setUploadedFileUrl("")
+    setDocumentTitle("")
+    setDocumentDescription("")
   }
 
   return (
@@ -203,81 +216,88 @@ export default function Upload() {
                     <div className="col-md-4">
                       <div className="bedrock-content">
                         <p className="lead">
-                          Upload<span>- user name</span>
+                          Upload<span>- {userInfo?.name}</span>
                         </p>
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="bedrock-upload-button">
-                        <button className="btn">Upload</button>
-                        <p>My Documents</p>
+                        <div className='d-flex gap-3 pe-3 proof-page-btn-container'>
+                          <button onClick={() => { setShowUploadComponent(true) }} className={`${showUploadComponent ? 'active' : ""} px-3 py-1`} >Upload</button>
+                          <button onClick={() => { setShowUploadComponent(false) }} className={`${!showUploadComponent ? 'active' : ""} px-3 py-1`}>My Documents</button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </section>
-              <section className="bedrockUpload">
-                <div className="container">
-                  <div className="row card-row-2">
-                    <div className="col-md-5">
-                      <div className="bedrockUpload-card">
-                        <div className="bedrockUpload-card-content">
-                          <h3>Select a document</h3>
-                          {/* <img
+
+              <>
+                {
+                  showUploadComponent ?
+                    <>
+                      <section className="bedrockUpload">
+                        <div className="container">
+                          <div className="row card-row-2">
+                            <div className="col-md-5">
+                              <div className="bedrockUpload-card">
+                                <div className="bedrockUpload-card-content">
+                                  <h3>Select a document</h3>
+                                  {/* <img
                             src="/assets/bedrock-dot.png"
                             alt=""
                             className="img-fluid"
                           /> */}
-                        </div>
-                        {/* <button className="btn">
+                                </div>
+                                {/* <button className="btn">
                           Click Here to Browse Files
                         </button> */}
-                        {/* <div className="btn-group"> */}
-                        <div className="pb-3">
-                          <button disabled={fileUploadLoading} onClick={(e) => { uploadFile(e) }} type="button" className="d-flex gap-2 align-items-center">
-                            <BsUpload color="white" size={20} />
-                            <p className="d-flex justify-content-between">Upload</p>
-                            {
-                              fileUploadLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
-                            }
-                          </button>
-                        </div>
+                                {/* <div className="btn-group"> */}
+                                <div className="pb-3">
+                                  <button disabled={fileUploadLoading || !selectedFile} onClick={(e) => { uploadFile(e) }} type="button" className="d-flex gap-2 align-items-center">
+                                    <BsUpload color="white" size={20} />
+                                    <p className="d-flex justify-content-between">Upload</p>
+                                    {
+                                      fileUploadLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                    }
+                                  </button>
+                                </div>
 
-                        {/* </div> */}
+                                {/* </div> */}
 
-                        <div className="drag-drop-container">
-                          <div {...getRootProps({ className: 'dropzone' })}>
-                            <input {...getInputProps()} />
-                            <p>Drag 'n' drop some file here</p>
-                            {/* <button type="button" onClick={open}>
+                                <div className="drag-drop-container">
+                                  <div {...getRootProps({ className: 'dropzone' })}>
+                                    <input {...getInputProps()} />
+                                    <p>Drag 'n' drop some file here</p>
+                                    {/* <button type="button" onClick={open}>
                               Open File Dialog
                             </button> */}
-                            <div className="btn-group">
-                              <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                Upload File
-                              </button>
-                              <ul className="dropdown-menu dropdown-menu-lg-end m-0 p-0">
-                                <li>
-                                  <p onClick={open} className="d-flex gap-2 align-items-center p-2">
-                                    <span><RiComputerLine /></span>
-                                    <label>Browse Computer</label>
-                                  </p>
-                                </li>
+                                    <div className="btn-group">
+                                      <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        Upload File
+                                      </button>
+                                      <ul className="dropdown-menu dropdown-menu-lg-end m-0 p-0">
+                                        <li>
+                                          <p onClick={open} className="d-flex gap-2 align-items-center p-2">
+                                            <span><RiComputerLine /></span>
+                                            <label>Browse Computer</label>
+                                          </p>
+                                        </li>
 
-                                <li>
-                                  <ReactDropboxChooser
-                                    appKey={dropboxKey}
-                                    success={files => onSuccess(files)}
-                                    cancel={() => onCancel()}
-                                    multiselect={false} >
-                                    <p className="d-flex gap-2 align-items-center p-2">
-                                      <span><AiOutlineDropbox /></span>
-                                      <label>Dropbox</label>
-                                    </p>
-                                  </ReactDropboxChooser>
-                                </li>
+                                        <li>
+                                          <ReactDropboxChooser
+                                            appKey={dropboxKey}
+                                            success={files => onSuccess(files)}
+                                            cancel={() => onCancel()}
+                                            multiselect={false} >
+                                            <p className="d-flex gap-2 align-items-center p-2">
+                                              <span><AiOutlineDropbox /></span>
+                                              <label>Dropbox</label>
+                                            </p>
+                                          </ReactDropboxChooser>
+                                        </li>
 
-                                {/* <li>
+                                        {/* <li>
                                   <p
                                     onClick={(e) => { handleOpenPicker(e) }}
                                     className="d-flex gap-2 align-items-center p-2">
@@ -286,90 +306,95 @@ export default function Upload() {
                                   </p>
                                 </li> */}
 
-                              </ul>
+                                      </ul>
+                                    </div>
+
+                                  </div>
+                                  <aside>
+                                    {
+                                      selectedFile && <ul className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
+                                    }
+                                    {
+                                      alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>{alertMessage}</span>
+                                    }
+                                  </aside>
+                                </div>
+                              </div>
                             </div>
-
-                          </div>
-                          <aside>
-                            {
-                              selectedFile && <ul className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
-                            }
-                            {
-                              alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>{alertMessage}</span>
-                            }
-                          </aside>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="row justify-content-center">
-                    <div className="col-md-1">
-                      <img
-                        src="/assets/arrow.png"
-                        alt=""
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="row card-row">
-                    <div className="col-md-5">
-                      <div className="bedrockUpload-card">
-                        <div className="bedrockUpload-card-content">
-                          <h3>Add Document Details</h3>
-                          <img
-                            src="/assets/bedrock-dot.png"
-                            alt=""
-                            className="img-fluid"
-                          />
-                        </div>
-                        <form>
-                          <div className="mb-3">
-                            <label htmlFor="" className="form-label">
-                              Document Title
-                            </label>
-                            <input value={documentTitle} onChange={(e) => { setDocumentTitle(e.target.value) }} type="text" className="form-control" />
-                          </div>
-                          <div className="mb-3">
-                            <label htmlFor="" className="form-label">
-                              Document Description
-                            </label>
-                            <input value={documentDescription} onChange={(e) => { setDocumentDescription(e.target.value) }} type="text" className="form-control" />
                           </div>
 
-                          <button disabled={documentSubmitLoading} onClick={(e) => { submitDocumentDetails(e) }} type="submit" className="btn btn-primary d-flex gap-2 align-items-center">
-                            Submit
-                            {
-                              documentSubmitLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
-                            }
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+                          <div className="row justify-content-center">
+                            <div className="col-md-1">
+                              <img
+                                src="/assets/arrow.png"
+                                alt=""
+                                className="img-fluid"
+                              />
+                            </div>
+                          </div>
 
-              <section className="bedrockUpload">
-                <div className="container">
-                  <div className="row card-row-2">
-                    <div className="col-md-5">
-                      <div className="bedrockUpload-card">
-                        <div className="bedrockUpload-card-content">
-                          <h3>Sign Transaction</h3>
-                          <img
-                            src="/assets/bedrock-dot.png"
-                            alt=""
-                            className="img-fluid"
-                          />
+                          <div className="row card-row">
+                            <div className="col-md-5">
+                              <div className="bedrockUpload-card">
+                                <div className="bedrockUpload-card-content">
+                                  <h3>Add Document Details</h3>
+                                  <img
+                                    src="/assets/bedrock-dot.png"
+                                    alt=""
+                                    className="img-fluid"
+                                  />
+                                </div>
+                                <form onSubmit={(e) => { submitDocumentDetails(e) }}>
+                                  <div className="mb-3">
+                                    <label htmlFor="" className="form-label">
+                                      Document Title
+                                    </label>
+                                    <input value={documentTitle} onChange={(e) => { setDocumentTitle(e.target.value) }} type="text" className="form-control" />
+                                  </div>
+                                  <div className="mb-3">
+                                    <label htmlFor="" className="form-label">
+                                      Document Description
+                                    </label>
+                                    <input value={documentDescription} onChange={(e) => { setDocumentDescription(e.target.value) }} type="text" className="form-control" />
+                                  </div>
+
+                                  <button disabled={documentSubmitLoading || !uploadedFileUrl}
+                                    //  onClick={(e) => { submitDocumentDetails(e) }} 
+                                    type="submit" className="btn btn-primary d-flex gap-2 align-items-center">
+                                    Submit
+                                    {
+                                      documentSubmitLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                    }
+                                  </button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <button className="btn">Sign Transaction</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+                      </section>
+
+                      <section className="bedrockUpload">
+                        <div className="container">
+                          <div className="row card-row-2">
+                            <div className="col-md-5">
+                              <div className="bedrockUpload-card">
+                                <div className="bedrockUpload-card-content">
+                                  <h3>Sign Transaction</h3>
+                                  <img
+                                    src="/assets/bedrock-dot.png"
+                                    alt=""
+                                    className="img-fluid"
+                                  />
+                                </div>
+                                <button className="btn">Sign Transaction</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                    </> : <BED15Documents />
+                }
+              </>
             </div>
           </div>
         </div>
