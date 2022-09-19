@@ -21,7 +21,7 @@ import BED15Documents from "./BED15Documents";
 
 export default function Upload() {
 
-  const [showUploadComponent, setShowUploadComponent] = useState(false)
+  const [showUploadComponent, setShowUploadComponent] = useState(true)
 
   const [selectedFile, setSelectedFile] = useState();
   const [alertMessage, setAlertMessage] = useState("");
