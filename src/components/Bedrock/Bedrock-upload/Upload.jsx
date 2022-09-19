@@ -345,6 +345,7 @@ export default function Upload() {
                                   />
                                 </div>
                                 <form onSubmit={(e) => { submitDocumentDetails(e) }}>
+
                                   <div className="mb-3">
                                     <label htmlFor="" className="form-label">
                                       Document Title
@@ -366,6 +367,7 @@ export default function Upload() {
                                       documentSubmitLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
                                     }
                                   </button>
+
                                 </form>
                               </div>
                             </div>
