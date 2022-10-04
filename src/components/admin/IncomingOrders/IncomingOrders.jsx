@@ -7,6 +7,7 @@ import { BiSearch } from 'react-icons/bi'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
+import CreateOrder from './CreateOrder'
 
 const data = [
     {
@@ -146,8 +147,12 @@ export default function IncomingOrders() {
         )
     }
 
+    const changeDropdownVisible = (flag) => {
+        setDropDownVisible(flag)
+    }
+
     return (
-        <div className='documents-page-container pb-3' onClick={() => {
+        <div style={{ scrollBehavior: 'smooth' }} className='documents-page-container pb-3' onClick={() => {
             if (dropDownVisible) setDropDownVisible(false)
         }}>
 
@@ -164,14 +169,35 @@ export default function IncomingOrders() {
                     <p className='ps-5 d-flex gap-2'>Pending orders <span>- user name</span></p>
                 </div>
                 <div className='d-flex gap-3 pe-3 documents-page-btn-container'>
-                    <button>Completed</button>
-                    <button className='px-3 py-1'>Pending</button>
+                    {/* <button>Completed</button>
+                    <button className='px-3 py-1'>Pending</button> */}
+                    <button data-bs-toggle="modal" data-bs-target="#createNewOrder" className='px-3 py-1'>Create New</button>
                 </div>
             </div>
 
-            {/* <IncomingOrdersList /> */}
+            <div class="modal fade" id="createNewOrder" tabindex="-1" role="dialog" aria-labelledby="createNewOrderLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        {/* <div class="modal-header">
+                            <h5 class="modal-title" id="createNewOrderLabel">Modal title</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div> */}
+                        <div class="modal-body">
+                            <CreateOrder />
+                        </div>
+                        {/* <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div> */}
+                    </div>
+                </div>
+            </div>
 
-            <div className='m-3 mt-5 incoming-orders-table'>
+            <IncomingOrdersList changeDropdownVisible={changeDropdownVisible} dropDownVisible={dropDownVisible} />
+
+            {/* <div className='m-3 mt-5 incoming-orders-table'>
                 <DataTable
                     columns={columns}
                     data={data}
@@ -179,7 +205,7 @@ export default function IncomingOrders() {
                     subHeaderComponent={subHeaderComponent()}
                     pagination
                 />
-            </div>
+            </div> */}
 
         </div>
     )
