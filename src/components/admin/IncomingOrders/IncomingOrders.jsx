@@ -178,7 +178,7 @@ export default function IncomingOrders() {
     }
 
     const handleRefresh = () => {
-        // createOrderModal.hide()
+        createOrderModal.hide()
         setRefreshOrderComponent(!refreshOrderComponent)
     }
 
