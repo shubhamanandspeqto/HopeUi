@@ -8,6 +8,12 @@ import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
 import CreateOrder from './CreateOrder'
+import { useEffect } from 'react'
+import { Modal } from 'bootstrap'
+import axios from 'axios'
+import { URLS } from '../../../utils/ApiURLs'
+import { useContext } from 'react'
+import { UserContext } from '../../../ContextAPI/Context'
 
 const data = [
     {
@@ -45,6 +51,13 @@ const data = [
 export default function IncomingOrders() {
 
     const [dropDownVisible, setDropDownVisible] = useState(false)
+    const [createOrderModal, setCreateOrderModal] = useState();
+    const [refreshOrderComponent, setRefreshOrderComponent] = useState(false);
+    const [singleOrderData, setSingleOrderData] = useState();
+
+    const handleSingleOrderData = (data) => {
+        setSingleOrderData(data)
+    }
 
     const columns = [
         {
@@ -135,21 +148,41 @@ export default function IncomingOrders() {
         // },
     ];
 
-    const subHeaderComponent = () => {
-        return (
-            <div className='d-flex justify-content-between w-100'>
-                <h4>PENDING ORDERS</h4>
-                <div className='d-flex align-items-center'>
-                    <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
-                    <input style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
-                </div>
-            </div>
-        )
+    // const subHeaderComponent = () => {
+    //     return (
+    //         <div className='d-flex justify-content-between w-100'>
+    //             <h4>PENDING ORDERS</h4>
+    //             <div className='d-flex align-items-center'>
+    //                 <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
+    //                 <input style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
+    //             </div>
+    //         </div>
+    //     )
+    // }
+
+    const showModal = () => {
+        createOrderModal.show()
     }
+
+    const hideModal = () => {
+        createOrderModal.hide()
+    }
+
+    useEffect(() => {
+        let createOrderModalElement = new Modal(document.getElementById('createNewOrder'), {});
+        setCreateOrderModal(createOrderModalElement);
+    }, [])
 
     const changeDropdownVisible = (flag) => {
         setDropDownVisible(flag)
     }
+
+    const handleRefresh = () => {
+        // createOrderModal.hide()
+        setRefreshOrderComponent(!refreshOrderComponent)
+    }
+
+
 
     return (
         <div style={{ scrollBehavior: 'smooth' }} className='documents-page-container pb-3' onClick={() => {
@@ -171,31 +204,43 @@ export default function IncomingOrders() {
                 <div className='d-flex gap-3 pe-3 documents-page-btn-container'>
                     {/* <button>Completed</button>
                     <button className='px-3 py-1'>Pending</button> */}
-                    <button data-bs-toggle="modal" data-bs-target="#createNewOrder" className='px-3 py-1'>Create New</button>
+                    <button
+                        onClick={() => {
+                            setSingleOrderData()
+                            showModal()
+                        }}
+                        // data-bs-toggle="modal" data-bs-target="#createNewOrder"
+                        className='px-3 py-1'>Create New</button>
                 </div>
             </div>
 
-            <div class="modal fade" id="createNewOrder" tabindex="-1" role="dialog" aria-labelledby="createNewOrderLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        {/* <div class="modal-header">
-                            <h5 class="modal-title" id="createNewOrderLabel">Modal title</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <div className="modal fade" id="createNewOrder" tabindex="-1" role="dialog" aria-labelledby="createNewOrderLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        {/* <div className="modal-header">
+                            <h5 className="modal-title" id="createNewOrderLabel">Modal title</h5>
+                            <button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div> */}
-                        <div class="modal-body">
-                            <CreateOrder />
+                        <div className="modal-body">
+                            <CreateOrder singleOrderData={singleOrderData} handleRefresh={handleRefresh} />
                         </div>
-                        {/* <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                        {/* <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-primary">Save changes</button>
                         </div> */}
                     </div>
                 </div>
             </div>
 
-            <IncomingOrdersList changeDropdownVisible={changeDropdownVisible} dropDownVisible={dropDownVisible} />
+            <IncomingOrdersList
+                changeDropdownVisible={changeDropdownVisible}
+                dropDownVisible={dropDownVisible}
+                refreshOrderComponent={refreshOrderComponent}
+                handleRefresh={handleRefresh}
+                handleSingleOrderData={handleSingleOrderData}
+                showModal={showModal} />
 
             {/* <div className='m-3 mt-5 incoming-orders-table'>
                 <DataTable

@@ -16,6 +16,7 @@
     "@web3auth/web3auth": "^2.0.2",
     "apexcharts": "^3.35.4",
     "axios": "^0.27.2",
+    "bootstrap": "^5.2.2",
     "google-maps-react": "^2.0.6",
     "jquery": "^3.6.1",
     "radium": "^0.26.2",

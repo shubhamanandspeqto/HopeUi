@@ -84,6 +84,11 @@
     background: #738AFE;
     border-radius: 50px;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.issue-new-upload-button>input {
+    display: none;
 }
 
 .issue-new-conditions>span {
@@ -95,11 +100,19 @@
     color: #8A92A6;
 }
 
+.issue-new-conditions>input {
+    cursor: pointer;
+}
+
 .issue-new-create-button>button {
     all: unset;
     background: #3A57E8;
     border-radius: 4px;
     color: #FFFFFF;
+}
+
+.issue-new-create-button>button:disabled {
+    opacity: 0.60;
 }
 
 #issueNewShare .modal-content {

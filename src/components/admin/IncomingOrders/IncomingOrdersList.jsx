@@ -6,6 +6,12 @@ import { AiOutlineRight } from 'react-icons/ai'
 import { AiOutlineLeft } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import $ from 'jquery';
+import { useContext } from 'react';
+import { UserContext } from '../../../ContextAPI/Context';
+import axios from 'axios';
+import { URLS } from '../../../utils/ApiURLs';
+import { errorPopup, successPopup } from '../../../utils/PopupMessages';
+import { Modal } from 'bootstrap'
 
 const styles = {
     fadeIn: {
@@ -14,7 +20,7 @@ const styles = {
     }
 }
 
-export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisible }) {
+export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisible, refreshOrderComponent, handleRefresh, handleSingleOrderData, showModal }) {
 
     const [rowID, setRowID] = useState();
     const [viewDetailId, setViewDetailId] = useState();
@@ -23,12 +29,35 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [totalPages, setTotalPages] = useState(1);
 
+    const [filteredOrderList, setFilteredOrderList] = useState([])
+    const [fetchedOrderList, setFetchedOrderList] = useState([]);
+
+    const [searchOrder, setSearchOrder] = useState("");
+    const [isDataLoading, setIsDataLoading] = useState(true);
+
+    let userDetails = useContext(UserContext)
+    const { userInfo, address } = userDetails
+
     const nextPage = () => {
         if (totalPages >= pageNo + 1) setPageNo(pageNo + 1)
     }
 
     const previousPage = () => {
         if (pageNo > 1) setPageNo(pageNo - 1)
+    }
+
+    const deleteOrder = (id) => {
+        axios.delete(`${URLS.deleteOrder}/${id}`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            successPopup(res.data.message)
+            handleRefresh()
+        }).catch((error) => {
+            console.log(error);
+        })
     }
 
     let dummyData = [
@@ -75,11 +104,15 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
     ]
 
+    // useEffect(() => {
+
+    // }, [])
+
     const table = (order) => {
         return (
             <div style={styles.fadeIn} className='incoming-order-view-container p-3'>
                 <div>
-                    <h4 className='incoming-order-heading'>Buyer: <span>User Name</span></h4>
+                    <h4 className='incoming-order-heading'>Buyer: <span>{order.proposed_buyer}</span></h4>
 
                     <div className='mt-3 mb-5 incoming-order-sub-heading'>
                         <p>Investor Accreditation: Verified</p>
@@ -155,26 +188,39 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                             <button className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
                             {
                                 order.status === "Pending" && <>
-                                    <button className='incoming-orders-edit-btn px-5 py-2'>Edit</button>
-                                    <button data-bs-toggle="modal" data-bs-target="#deleteOrders" className='incoming-orders-delete-btn px-5 py-2'>Delete</button>
+                                    <button onClick={(e) => {
+                                        e.stopPropagation();
+                                        console.log("Edit Details");
+                                        handleSingleOrderData(order);
+                                        showModal()
+                                    }} className='incoming-orders-edit-btn px-5 py-2'>Edit</button>
+                                    <button
+                                        data-bs-toggle="modal" data-bs-target="#deleteOrders"
+                                        className='incoming-orders-delete-btn px-5 py-2'>Delete</button>
                                 </>
                             }
 
                         </div>
 
-                        <div class="modal fade" id="deleteOrders" tabindex="-1" aria-labelledby="deleteOrdersLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteOrdersLabel">Are You Sure ?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div className="modal fade" id="deleteOrders" tabindex="-1" aria-labelledby="deleteOrdersLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="deleteOrdersLabel">Are You Sure ?</h5>
+                                        <button type="button" className="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        {order.order} will be deleted.
+                                    <div className="modal-body">
+                                        {order.order_name} will be deleted.
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                        <button data-bs-dismiss="modal" onClick={(e) => {
+                                            e.stopPropagation();
+                                            console.log("View Details");
+                                            deleteOrder(order.id);
+                                        }} type="button" className="btn btn-danger">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +238,40 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     const statusRender = (order) => {
         if (order.status === 'Pending') {
             return (
-                <p style={{ color: '#c5c502' }}>Pending Review</p>
+                <div className='d-flex align-items-center gap-3 justify-content-end'>
+                    <p style={{ color: '#c5c502' }}>Pending</p>
+
+                    {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
+                            <option></option>
+                            <option>View</option>
+                            </select> */}
+
+                    <span onClick={(e) => {
+                        e.stopPropagation();
+                        setViewDetailId(order.id)
+                        changeDropdownVisible(!dropDownVisible);
+                    }} style={{ cursor: 'pointer', fontSize: '10px' }} className='px-2'>
+                        <HiOutlineDotsHorizontal size={15} />
+                        {/* View */}
+                    </span>
+
+                    <div className='table-dropdown py-2'
+                        style={dropDownVisible && viewDetailId === order.id ? { position: 'absolute', marginTop: '105px' } : { display: 'none' }}>
+                        <p onClick={(e) => {
+                            e.stopPropagation();
+                            console.log("Edit Details");
+                            handleSingleOrderData(order);
+                            showModal()
+                        }}>Edit Details</p>
+
+                        <p onClick={(e) => {
+                            e.stopPropagation();
+                            console.log("View Details");
+                            deleteOrder(order.id)
+                        }}>Delete Details</p>
+                    </div>
+
+                </div>
             )
         }
         if (order.status === 'Approved') {
@@ -227,15 +306,81 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
         }
         if (order.status === 'Denied') {
             return (
-                <p style={{ color: 'red' }}>Denied</p>
+                <div className='d-flex align-items-center gap-3 justify-content-end'>
+                    <p style={{ color: 'red' }}>Denied</p>
+
+                    {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
+                            <option></option>
+                            <option>View</option>
+                            </select> */}
+
+                    <span onClick={(e) => {
+                        e.stopPropagation();
+                        setViewDetailId(order.id)
+                        changeDropdownVisible(!dropDownVisible);
+                    }} style={{ cursor: 'pointer', fontSize: '10px' }} className='px-2'>
+                        <HiOutlineDotsHorizontal size={15} />
+                        {/* View */}
+                    </span>
+
+                    <div className='table-dropdown py-2'
+                        style={dropDownVisible && viewDetailId === order.id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
+                        <p onClick={(e) => {
+                            e.stopPropagation();
+                            console.log("View Details");
+                        }}>View Details</p>
+                    </div>
+
+                </div>
             )
         }
     }
 
     useEffect(() => {
-        let pages = Math.ceil(dummyData.length / rowsPerPage);
-        setTotalPages(pages)
-    }, [rowsPerPage])
+        setIsDataLoading(true);
+        if (userInfo.email) {
+            axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((res) => {
+                console.log(res);
+                setIsDataLoading(false)
+                setFetchedOrderList(res.data.data)
+                setFilteredOrderList(res.data.data)
+                let pages = Math.ceil(res.data.total_record / rowsPerPage);
+                setTotalPages(pages)
+            }).catch((error) => {
+                console.log(error);
+                setIsDataLoading(false)
+                errorPopup("Some Error Occured")
+            })
+        }
+    }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo])
+
+    useEffect(() => {
+        if (searchOrder) {
+            let filteredItem = fetchedOrderList.filter((order) => {
+                return String(order.order_name).toLowerCase().includes(searchOrder) ||
+                    String(order.holder).toLowerCase().includes(searchOrder) ||
+                    String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
+                    String(order.quantity).toLowerCase().includes(searchOrder) ||
+                    String(order.share_type).toLowerCase().includes(searchOrder) ||
+                    String(order.offered_price).toLowerCase().includes(searchOrder)
+            })
+            setFilteredOrderList(filteredItem)
+        } else {
+            setFilteredOrderList(fetchedOrderList)
+        }
+    }, [searchOrder])
+
+    const customLoader = () => {
+        return (
+            <div className='d-flex justify-content-center'>
+                <i className="fa fa-circle-o-notch fa-spin py-5" style={{ fontSize: 50 }} />
+            </div>
+        )
+    }
 
 
     return (
@@ -245,7 +390,9 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 <div className='d-flex justify-content-end'>
                     <div className='d-flex align-items-center'>
                         <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
-                        <input style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
+                        <input value={searchOrder} onChange={(e) => {
+                            setSearchOrder(e.target.value)
+                        }} style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
                     </div>
                 </div>
 
@@ -262,31 +409,33 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                     </div>
 
                     {
-                        dummyData.map((order) => {
-                            return (
-                                <>
-                                    <div id={order.id} onClick={(e) => {
-                                        e.stopPropagation();
-                                        rowID === order.id ? setRowID() : setRowID(order.id);
-                                        window.location.href = `#${order.id}`
-                                    }} className='incoming-orders-data-table-header-row d-flex py-3' >
-                                        <div>{order.order}</div>
-                                        <div>{order.Holder}</div>
-                                        <div>{order.ProposedBuyer}</div>
-                                        <div>{order.Quantity}</div>
-                                        <div>{order.TypeOfShares}</div>
-                                        <div>{order.OfferedPrice}</div>
-                                        <div>
-                                            {
-                                                statusRender(order)
-                                            }
+                        isDataLoading ?
+                            customLoader() :
+                            filteredOrderList.map((order) => {
+                                return (
+                                    <div key={order.id}>
+                                        <div id={order.id} onClick={(e) => {
+                                            e.stopPropagation();
+                                            rowID === order.id ? setRowID() : setRowID(order.id);
+                                            window.location.href = `#${order.id}`
+                                        }} className='incoming-orders-data-table-header-row d-flex py-3' >
+                                            <div>{order.order_name}</div>
+                                            <div>{order.holder}</div>
+                                            <div>{order.proposed_buyer}</div>
+                                            <div>{order.quantity}</div>
+                                            <div>{order.share_type}</div>
+                                            <div>{order.offered_price}</div>
+                                            <div>
+                                                {
+                                                    statusRender(order)
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    {rowID === order.id && table(order)}
-                                </>
-                            )
-                        })
+                                        {rowID === order.id && table(order)}
+                                    </div>
+                                )
+                            })
                     }
 
                     <div className='incoming-orders-data-table-footer d-flex justify-content-end gap-4 pt-3'>
