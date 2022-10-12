@@ -7,6 +7,7 @@
     border-radius: 100%;
     position: relative;
     margin-top: -60px;
+    border: 1px solid #ffffff;
 }
 
 .buy-order-img-container>p {
@@ -38,8 +39,8 @@
 .buy-order-button button {
     justify-content: center;
     align-items: center;
-    
-   
+
+
     height: 44px;
     background: #738afe;
     border-radius: 50px;
@@ -49,7 +50,7 @@
     font-size: 16px;
     line-height: 175%;
     color: #ffffff;
-    
+
 }
 
 
@@ -85,7 +86,7 @@
     font-size: 16px;
     line-height: 175%;
     color: #8A92A6;
-   
+
 }
 
 .order-accepted-container {
@@ -111,6 +112,6 @@
     outline: none;
     font-family: 'Inter';
     border-radius: 5px;
-    
+
 
 }

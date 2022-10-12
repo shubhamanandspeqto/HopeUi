@@ -20,7 +20,7 @@ const styles = {
     }
 }
 
-export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisible, refreshOrderComponent, handleRefresh, handleSingleOrderData, showModal }) {
+export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisible, refreshOrderComponent, handleRefresh, handleSingleOrderData, showModal, handleRefreshOnly }) {
 
     const [rowID, setRowID] = useState();
     const [viewDetailId, setViewDetailId] = useState();
@@ -28,6 +28,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     const [pageNo, setPageNo] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     const [totalPages, setTotalPages] = useState(1);
+    const [totalOrdersLength, setTotalOrdersLength] = useState();
 
     const [filteredOrderList, setFilteredOrderList] = useState([])
     const [fetchedOrderList, setFetchedOrderList] = useState([]);
@@ -108,6 +109,34 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
     // }, [])
 
+    const handleAcceptOrder = (e, id) => {
+        e.preventDefault();
+        axios.put(`${URLS.updateOrderStatus}/${id}?status=Approved`, {}, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            handleRefreshOnly()
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    const handleDeclineOrder = (e, id) => {
+        e.preventDefault();
+        axios.put(`${URLS.updateOrderStatus}/${id}?status=Denied`, {}, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            handleRefreshOnly()
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
     const table = (order) => {
         return (
             <div style={styles.fadeIn} className='incoming-order-view-container p-3'>
@@ -120,72 +149,77 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                     </div>
 
                     <table className='w-100 incoming-order-table'>
-                        <tr className='incoming-order-view-table-border'>
-                            <th className='pb-2 w-50'>Type</th>
-                            <th className='text-end'>Quantity</th>
-                            <th className='text-end'>Price</th>
-                            <th className='text-end'>Totals</th>
-                        </tr>
+                        <tbody>
+                            <tr className='incoming-order-view-table-border'>
+                                <th className='pb-2 w-50'>Type</th>
+                                <th className='text-end'>Quantity</th>
+                                <th className='text-end'>Price</th>
+                                <th className='text-end'>Totals</th>
+                            </tr>
 
-                        <tr>
-                            <td className='pb-2'>
-                                <p>Preferred Shares</p>
-                                <p>Preferential shares of stock in SpaceX. </p>
-                            </td>
-                            <td className='text-end'>10000</td>
-                            <td className='text-end'>$100.00</td>
-                            <td className='text-end'>$100,000</td>
-                        </tr>
+                            <tr>
+                                <td className='pb-2'>
+                                    <p>Preferred Shares</p>
+                                    <p>Preferential shares of stock in SpaceX. </p>
+                                </td>
+                                <td className='text-end'>10000</td>
+                                <td className='text-end'>$100.00</td>
+                                <td className='text-end'>$100,000</td>
+                            </tr>
 
-                        <tr>
-                            <td className='pb-2'>
-                                <p>Common Shares</p>
-                                <p>Common shares of stock in SpaceX. </p>
-                            </td>
-                            <td className='text-end'>10000</td>
-                            <td className='text-end'>$100.00</td>
-                            <td className='text-end'>$100,000</td>
-                        </tr>
+                            <tr>
+                                <td className='pb-2'>
+                                    <p>Common Shares</p>
+                                    <p>Common shares of stock in SpaceX. </p>
+                                </td>
+                                <td className='text-end'>10000</td>
+                                <td className='text-end'>$100.00</td>
+                                <td className='text-end'>$100,000</td>
+                            </tr>
 
-                        <tr>
-                            <td className='pb-2'>
-                                <p>Total</p>
-                            </td>
-                            <td className='text-end'></td>
-                            <td className='text-end'></td>
-                            <td className='text-end'>$100,000</td>
-                        </tr>
+                            <tr>
+                                <td className='pb-2'>
+                                    <p>Total</p>
+                                </td>
+                                <td className='text-end'></td>
+                                <td className='text-end'></td>
+                                <td className='text-end'>$100,000</td>
+                            </tr>
 
-                        <tr className='incoming-order-view-table-border'>
-                            <td className='pb-2'>
-                                <p>Discount</p>
-                            </td>
-                            <td className='text-end'></td>
-                            <td className='text-end'></td>
-                            <td className='text-end'>0%</td>
-                        </tr>
+                            <tr className='incoming-order-view-table-border'>
+                                <td className='pb-2'>
+                                    <p>Discount</p>
+                                </td>
+                                <td className='text-end'></td>
+                                <td className='text-end'></td>
+                                <td className='text-end'>0%</td>
+                            </tr>
 
-                        <tr className='incoming-order-net-amount'>
-                            <td className='pb-2'>
-                                <p>Net Amount</p>
-                            </td>
-                            <td className='text-end'></td>
-                            <td className='text-end'></td>
-                            <td className='text-end'><p>$105,000</p></td>
-                        </tr>
+                            <tr className='incoming-order-net-amount'>
+                                <td className='pb-2'>
+                                    <p>Net Amount</p>
+                                </td>
+                                <td className='text-end'></td>
+                                <td className='text-end'></td>
+                                <td className='text-end'><p>$105,000</p></td>
+                            </tr>
+                        </tbody>
                     </table>
 
                     <p className='mb-5'>Offer expires in 15 days. Thank you for your business.</p>
 
                     <div className='d-flex flex-column gap-3 incoming-orders-first-buttons align-items-center mb-5'>
-                        <button>View Deal Documents</button>
+                        <button onClick={(e) => {
+                            e.preventDefault()
+                            window.open(order.document_url, '_blank')
+                        }}>View Deal Documents</button>
                         <button>Verify On-Chain</button>
                     </div>
 
                     <div className='d-flex flex-column gap-3 justify-content-center align-items-center flex-wrap'>
                         <div className='d-flex gap-3'>
-                            <button className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
-                            <button className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
+                            <button onClick={(e) => handleAcceptOrder(e, order.id)} className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
+                            <button onClick={(e) => handleDeclineOrder(e, order.id)} className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
                             {
                                 order.status === "Pending" && <>
                                     <button onClick={(e) => {
@@ -202,7 +236,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
                         </div>
 
-                        <div className="modal fade" id="deleteOrders" tabindex="-1" aria-labelledby="deleteOrdersLabel" aria-hidden="true">
+                        <div className="modal fade" id="deleteOrders" tabIndex="-1" aria-labelledby="deleteOrdersLabel" aria-hidden="true">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
@@ -336,43 +370,83 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
         }
     }
 
+    const loadOrders = () => {
+        axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            setTotalOrdersLength(res.data.total_record)
+            setIsDataLoading(false)
+            setFetchedOrderList(res.data.data)
+            setFilteredOrderList(res.data.data)
+            let pages = Math.ceil(res.data.total_record / rowsPerPage);
+            setTotalPages(pages)
+        }).catch((error) => {
+            console.log(error);
+            setIsDataLoading(false)
+            errorPopup("Some Error Occured")
+        })
+    }
+
     useEffect(() => {
         setIsDataLoading(true);
-        if (userInfo.email) {
-            axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            }).then((res) => {
-                console.log(res);
-                setIsDataLoading(false)
-                setFetchedOrderList(res.data.data)
-                setFilteredOrderList(res.data.data)
-                let pages = Math.ceil(res.data.total_record / rowsPerPage);
-                setTotalPages(pages)
-            }).catch((error) => {
-                console.log(error);
-                setIsDataLoading(false)
-                errorPopup("Some Error Occured")
-            })
+        if (userInfo.email && !searchOrder) {
+            loadOrders()
         }
     }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo])
 
     useEffect(() => {
         if (searchOrder) {
-            let filteredItem = fetchedOrderList.filter((order) => {
-                return String(order.order_name).toLowerCase().includes(searchOrder) ||
-                    String(order.holder).toLowerCase().includes(searchOrder) ||
-                    String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
-                    String(order.quantity).toLowerCase().includes(searchOrder) ||
-                    String(order.share_type).toLowerCase().includes(searchOrder) ||
-                    String(order.offered_price).toLowerCase().includes(searchOrder)
+            setIsDataLoading(true)
+            axios.get(`${URLS.getOrder}/${userInfo.email}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((res) => {
+                console.log(res);
+                let filteredItem = res.data.data.filter((order) => {
+                    return String(order.order_name).toLowerCase().includes(searchOrder) ||
+                        String(order.holder).toLowerCase().includes(searchOrder) ||
+                        String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
+                        String(order.quantity).toLowerCase().includes(searchOrder) ||
+                        String(order.share_type).toLowerCase().includes(searchOrder) ||
+                        String(order.offered_price).toLowerCase().includes(searchOrder) ||
+                        String(order.status).toLowerCase().includes(searchOrder)
+                })
+                console.log(filteredItem);
+                setIsDataLoading(false)
+                let pages = Math.ceil(filteredItem.length / rowsPerPage);
+                setTotalPages(pages)
+                setTotalOrdersLength(filteredItem.length)
+
+                if (rowsPerPage * pageNo - rowsPerPage > filteredItem.length) setPageNo(pageNo - 1)
+                let totalFilteredData = filteredItem
+                let filterByPagination = totalFilteredData.slice(rowsPerPage * pageNo - rowsPerPage, rowsPerPage * pageNo)
+                console.log(filterByPagination);
+                setFilteredOrderList(filterByPagination)
+            }).catch((error) => {
+                console.log(error);
+                setIsDataLoading(false)
+                errorPopup("Some Error Occured")
             })
-            setFilteredOrderList(filteredItem)
+
+            // let filteredItem = fetchedOrderList.filter((order) => {
+            //     return String(order.order_name).toLowerCase().includes(searchOrder) ||
+            //         String(order.holder).toLowerCase().includes(searchOrder) ||
+            //         String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
+            //         String(order.quantity).toLowerCase().includes(searchOrder) ||
+            //         String(order.share_type).toLowerCase().includes(searchOrder) ||
+            //         String(order.offered_price).toLowerCase().includes(searchOrder) ||
+            //         String(order.status).toLowerCase().includes(searchOrder)
+            // })
+            // setFilteredOrderList(filteredItem)
         } else {
-            setFilteredOrderList(fetchedOrderList)
+            // setFilteredOrderList(fetchedOrderList)
+            loadOrders()
         }
-    }, [searchOrder])
+    }, [searchOrder, rowsPerPage, pageNo, refreshOrderComponent])
 
     const customLoader = () => {
         return (
@@ -410,32 +484,32 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
                     {
                         isDataLoading ?
-                            customLoader() :
-                            filteredOrderList.map((order) => {
-                                return (
-                                    <div key={order.id}>
-                                        <div id={order.id} onClick={(e) => {
-                                            e.stopPropagation();
-                                            rowID === order.id ? setRowID() : setRowID(order.id);
-                                            window.location.href = `#${order.id}`
-                                        }} className='incoming-orders-data-table-header-row d-flex py-3' >
-                                            <div>{order.order_name}</div>
-                                            <div>{order.holder}</div>
-                                            <div>{order.proposed_buyer}</div>
-                                            <div>{order.quantity}</div>
-                                            <div>{order.share_type}</div>
-                                            <div>{order.offered_price}</div>
-                                            <div>
-                                                {
-                                                    statusRender(order)
-                                                }
+                            customLoader() : filteredOrderList.length ?
+                                filteredOrderList.map((order) => {
+                                    return (
+                                        <div key={order.id}>
+                                            <div id={order.id} onClick={(e) => {
+                                                e.stopPropagation();
+                                                rowID === order.id ? setRowID() : setRowID(order.id);
+                                                window.location.href = `#${order.id}`
+                                            }} className='incoming-orders-data-table-header-row d-flex py-3' >
+                                                <div>{order.order_name}</div>
+                                                <div>{order.holder}</div>
+                                                <div>{order.proposed_buyer}</div>
+                                                <div>{order.quantity}</div>
+                                                <div>{order.share_type}</div>
+                                                <div>{order.offered_price}</div>
+                                                <div>
+                                                    {
+                                                        statusRender(order)
+                                                    }
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        {rowID === order.id && table(order)}
-                                    </div>
-                                )
-                            })
+                                            {rowID === order.id && table(order)}
+                                        </div>
+                                    )
+                                }) : <p className='text-center py-4'>No Data Found</p>
                     }
 
                     <div className='incoming-orders-data-table-footer d-flex justify-content-end gap-4 pt-3'>
@@ -447,6 +521,15 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                 <option value="10">10</option>
                                 <option value="15">15</option>
                             </select>
+                        </div>
+
+                        <div>
+                            {
+                                totalOrdersLength > rowsPerPage * pageNo ?
+                                    <p>{(rowsPerPage * pageNo) - (rowsPerPage - 1)} - {(rowsPerPage * pageNo)} / {totalOrdersLength}</p>
+                                    :
+                                    <p>{(rowsPerPage * pageNo) - (rowsPerPage - 1)} - {totalOrdersLength} / {totalOrdersLength}</p>
+                            }
                         </div>
 
                         <div className='d-flex gap-3 align-items-center pe-3'>
@@ -483,7 +566,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         </button> :
                             <button onClick={() => { setRowID(2) }} className='me-5 px-3'>View</button>
                     }
-                </div>
+                </div> 
                 {
                     rowID === 2 && table()
                 }

@@ -40,6 +40,9 @@
     border-radius: 100%;
     position: relative;
     margin-top: -60px;
+    max-width: 121px;
+    max-height: 121px;
+    border: 1px solid #ffffff;
 }
 
 .documents-page-img-container>p {

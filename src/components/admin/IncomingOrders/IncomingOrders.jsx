@@ -55,6 +55,9 @@ export default function IncomingOrders() {
     const [refreshOrderComponent, setRefreshOrderComponent] = useState(false);
     const [singleOrderData, setSingleOrderData] = useState();
 
+    let userDetails = useContext(UserContext)
+    const { userInfo, address } = userDetails
+
     const handleSingleOrderData = (data) => {
         setSingleOrderData(data)
     }
@@ -182,7 +185,9 @@ export default function IncomingOrders() {
         setRefreshOrderComponent(!refreshOrderComponent)
     }
 
-
+    const handleRefreshOnly = () => {
+        setRefreshOrderComponent(!refreshOrderComponent)
+    }
 
     return (
         <div style={{ scrollBehavior: 'smooth' }} className='documents-page-container pb-3' onClick={() => {
@@ -198,23 +203,28 @@ export default function IncomingOrders() {
 
             <div className='m-3 documents-page-content d-flex p-0 justify-content-between align-items-center'>
                 <div className='ps-3 d-flex gap-5 align-items-center documents-page-img-container'>
-                    <img className='pb-3' src="/assets/beared-guy.png" alt="" />
-                    <p className='ps-5 d-flex gap-2'>Pending orders <span>- user name</span></p>
+                    {
+                        userInfo?.profileImage ?
+                            <img className='pb-3' src={userInfo?.profileImage} alt="Profile Image" />
+                            :
+                            <img className='pb-3' src="/assets/beared-guy.png" alt="" />
+                    }
+                    <p className='ps-5 d-flex gap-2'>Pending orders <span>- {userInfo?.name}</span></p>
                 </div>
                 <div className='d-flex gap-3 pe-3 documents-page-btn-container'>
                     {/* <button>Completed</button>
                     <button className='px-3 py-1'>Pending</button> */}
                     <button
                         onClick={() => {
-                            setSingleOrderData()
-                            showModal()
+                            setSingleOrderData();
+                            showModal();
                         }}
                         // data-bs-toggle="modal" data-bs-target="#createNewOrder"
                         className='px-3 py-1'>Create New</button>
                 </div>
             </div>
 
-            <div className="modal fade" id="createNewOrder" tabindex="-1" role="dialog" aria-labelledby="createNewOrderLabel" aria-hidden="true">
+            <div className="modal fade" id="createNewOrder" tabIndex="-1" role="dialog" aria-labelledby="createNewOrderLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         {/* <div className="modal-header">
@@ -240,6 +250,7 @@ export default function IncomingOrders() {
                 refreshOrderComponent={refreshOrderComponent}
                 handleRefresh={handleRefresh}
                 handleSingleOrderData={handleSingleOrderData}
+                handleRefreshOnly={handleRefreshOnly}
                 showModal={showModal} />
 
             {/* <div className='m-3 mt-5 incoming-orders-table'>

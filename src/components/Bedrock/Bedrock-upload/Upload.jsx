@@ -1,6 +1,7 @@
 import React from "react";
 import "../Bedrock-upload/Upload.css";
 
+import Dropdown from 'react-bootstrap/Dropdown';
 import { BsUpload } from 'react-icons/bs'
 import { RiComputerLine } from 'react-icons/ri'
 import { AiOutlineDropbox } from 'react-icons/ai'
@@ -205,11 +206,12 @@ export default function Upload() {
                   <div className="row bedrock-row">
                     <div className="col-md-4">
                       <div className="bedrock-image">
-                        <img
-                          src="/assets/beared-guy.png"
-                          alt="bearedguy"
-                          className="img-fluid"
-                        />
+                        {
+                          userInfo?.profileImage ?
+                            <img className='pb-3' src={userInfo?.profileImage} alt="Profile Image" />
+                            :
+                            <img className='pb-3' src="/assets/beared-guy.png" alt="" />
+                        }
                       </div>
                     </div>
 
@@ -270,13 +272,40 @@ export default function Upload() {
                                     <input {...getInputProps()} />
                                     <p>Drag 'n' drop some file here</p>
                                     {/* <button type="button" onClick={open}>
-                              Open File Dialog
-                            </button> */}
+                                      Open File Dialog
+                                       </button> */}
                                     <div className="btn-group">
-                                      <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                      {/* <button type="button" className="dropdown-toggle"
+                                        data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                         Upload File
-                                      </button>
-                                      <ul className="dropdown-menu dropdown-menu-lg-end m-0 p-0">
+                                      </button> */}
+                                      <Dropdown>
+                                        <Dropdown.Toggle id="dropdown-basic">
+                                          Upload File
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu className="m-0 p-0">
+                                          <Dropdown.Item>
+                                            <p onClick={open} className="d-flex gap-2 align-items-center p-2">
+                                              <span><RiComputerLine /></span>
+                                              <label>Browse Computer</label>
+                                            </p>
+                                          </Dropdown.Item>
+                                          <Dropdown.Item>
+                                            <ReactDropboxChooser
+                                              appKey={dropboxKey}
+                                              success={files => onSuccess(files)}
+                                              cancel={() => onCancel()}
+                                              multiselect={false} >
+                                              <p className="d-flex gap-2 align-items-center p-2">
+                                                <span><AiOutlineDropbox /></span>
+                                                <label>Dropbox</label>
+                                              </p>
+                                            </ReactDropboxChooser>
+                                          </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                      </Dropdown>
+                                      {/* <ul className="dropdown-menu dropdown-menu-lg-end m-0 p-0">
                                         <li>
                                           <p onClick={open} className="d-flex gap-2 align-items-center p-2">
                                             <span><RiComputerLine /></span>
@@ -297,16 +326,16 @@ export default function Upload() {
                                           </ReactDropboxChooser>
                                         </li>
 
-                                        {/* <li>
-                                  <p
+                                        <li>
+                                    <p
                                     onClick={(e) => { handleOpenPicker(e) }}
                                     className="d-flex gap-2 align-items-center p-2">
                                     <span><DiGoogleDrive /></span>
                                     <label>Google Drive</label>
-                                  </p>
-                                </li> */}
+                                    </p>
+                                    </li>
 
-                                      </ul>
+                                      </ul> */}
                                     </div>
 
                                   </div>

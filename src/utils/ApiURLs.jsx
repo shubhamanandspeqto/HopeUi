@@ -13,5 +13,6 @@ export const URLS = {
     createOrder: `${host}/orders`,
     getOrder: `${host}/orders`,
     updateOrder: `${host}/orders/update`,
-    deleteOrder: `${host}/orders/delete`
+    deleteOrder: `${host}/orders/delete`,
+    updateOrderStatus: `${host}/updatestatus`
 }

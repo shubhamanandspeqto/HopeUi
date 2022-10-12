@@ -209,8 +209,13 @@ export default function Shares() {
             </div>
 
             <div className='m-3 proof-page-content d-flex p-0 gap-5 align-items-center'>
-                <div className='ps-3 d-flex gap-5 align-items-center proof-page-img-container'>
-                    <img className='pb-3' src="/assets/beared-guy.png" alt="" />
+                <div className='ps-3 d-flex gap-5 align-items-center proof-page-img-container py-2'>
+                    {
+                        userInfo?.profileImage ?
+                            <img className='pb-3' src={userInfo?.profileImage} alt="Profile Image" />
+                            :
+                            <img className='pb-3' src="/assets/beared-guy.png" alt="" />
+                    }
                     {/* <p className='ps-5 d-flex gap-2 ms-5'>Issue BED80 <span>- user name</span></p> */}
                 </div>
                 <div className='d-flex gap-3 pe-3 proof-page-btn-container'>
