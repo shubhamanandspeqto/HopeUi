@@ -1,5 +1,15 @@
-import "./App.css";
+// Packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+
+// Style and css
+import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+
+// 
+import { Context } from "./ContextAPI/Context";
+import ScrollToTop from "./utils/ScrollToTop";
+
 import Dashboard from "./components/admin/Dashboard";
 import Login from "./components/login/Login";
 import Bedrock from "./components/Bedrock/Bedrock";
@@ -29,11 +39,6 @@ import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 import Maintenancee from "./components/common/Maintenancee";
-import { Context } from "./ContextAPI/Context";
-
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   return (
