@@ -1,5 +1,27 @@
 .navbar-button {
     cursor: pointer;
+    background: none;
+    color: black;
+    border: none;
+    outline: none;
+}
+
+.navbar-button:hover, .navbar-button:active {
+    cursor: pointer;
+    background: none;
+    color: black;
+    border: none;
+    outline: none !important;
+    box-shadow: none
+}
+
+.navbar-button:focus{
+     cursor: pointer;
+    background: none;
+    color: black;
+    border: none;
+    box-shadow: none;
+    outline: none !important;
 }
 
 .navbar-back-button {

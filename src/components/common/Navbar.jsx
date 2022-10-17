@@ -11,6 +11,8 @@ import { FiLogOut } from 'react-icons/fi'
 import { UserContext } from '../../ContextAPI/Context';
 import { useContext } from 'react';
 import { useEffect } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 export default function Navbar() {
 
@@ -73,15 +75,49 @@ export default function Navbar() {
                             >Marketing Administrator</p>
                         </div> */}
                                 <div className="btn-group">
-                                    <div className="dropdown-toggle d-flex align-items-center gap-2 navbar-button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <Dropdown align="end" >
+                                        <Dropdown.Toggle className="d-flex align-items-center gap-2 navbar-button" id="dropdown-basic">
+                                            {
+                                                userImage ?
+                                                    <img className='navbar-user-image' src={userImage} alt="user" /> :
+                                                    <p className='navbar-user-text'>{username.slice(0, 2).toUpperCase()}</p>
+                                            }
+                                            <h5 className='p-0 m-0'>{username}</h5>
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item>
+                                                <p className='p-2 d-flex align-items-center gap-2'>
+                                                <HiOutlineUser />
+                                                <span>My Profile</span>
+                                            </p>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item >
+                                                 <p data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal"
+                                                className='p-2 d-flex align-items-center gap-2'>
+                                                <FiSettings />
+                                                <span>Settings</span>
+                                            </p>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item>
+                                                 <p onClick={() => { logoutFunction(torus) }} className='p-2 d-flex align-items-center gap-2'>
+                                                <FiLogOut />
+                                                <span>Logout</span>
+                                            </p>
+                                            </Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+
+                                    {/* <div className="dropdown-toggle d-flex align-items-center gap-2 navbar-button" data-bs-toggle="dropdown" aria-expanded="false">
                                         {
                                             userImage ?
                                                 <img className='navbar-user-image' src={userImage} alt="user" /> :
                                                 <p className='navbar-user-text'>{username.slice(0, 2).toUpperCase()}</p>
                                         }
                                         <h5 className='p-0 m-0'>{username}</h5>
-                                    </div>
-                                    <ul className="dropdown-menu dropdown-menu-end navbar-button-menu m-0 p-0">
+                                    </div> */}
+                                    {/* <ul className="dropdown-menu dropdown-menu-end navbar-button-menu m-0 p-0">
                                         <li>
                                             <p className='p-2 d-flex align-items-center gap-2'>
                                                 <HiOutlineUser />
@@ -102,7 +138,7 @@ export default function Navbar() {
                                                 <span>Logout</span>
                                             </p>
                                         </li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>

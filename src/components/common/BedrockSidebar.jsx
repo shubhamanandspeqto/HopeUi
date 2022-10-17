@@ -11,7 +11,7 @@ export default function BedrockSidebar() {
                 <p className='py-2 bedrock-sidebar-subheading px-2'>Home</p>
 
                 <div className='d-flex flex-column gap-2'>
-                    <Link to='/dashboard'>
+                    <Link to='/dashboard/dashboard-bedrock'>
                         <div className='d-flex gap-2 align-items-center px-2'>
                             <img src="/assets/Category.png" alt="" />
                             <p>Dashboard</p>

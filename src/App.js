@@ -39,6 +39,7 @@ import WidgetCard from "./components/admin/WidgetCard/WidgetCard";
 import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 import Maintenancee from "./components/common/Maintenancee";
+import AllSharesDashboard from "./components/Bedrock/Bedrock-dashboard/AllSharesDashboard";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}>
             <Route exact path="" element={<DashboardHome />} />
+            <Route exact path="dashboard-bedrock" element={<AllSharesDashboard />} />
             <Route path="bedrock" element={<Bedrock />} />
             <Route path="upload" element={<Upload />} />
             <Route path="Ai" element={<Ai />} />
