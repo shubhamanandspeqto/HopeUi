@@ -1,19 +1,17 @@
 import React from 'react'
-import IncomingOrdersList from './IncomingOrdersList'
-import './IncomingOrders.css'
 
 import { FaRegEye } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'
 import DataTable from 'react-data-table-component'
 import { useState } from 'react'
-import CreateOrder from './CreateOrder'
 import { useEffect } from 'react'
 import { Modal } from 'bootstrap'
 import axios from 'axios'
 import { URLS } from '../../../utils/ApiURLs'
 import { useContext } from 'react'
 import { UserContext } from '../../../ContextAPI/Context'
+import EditOrder from './EditOrder'
 
 const data = [
     {
@@ -48,12 +46,16 @@ const data = [
     },
 ]
 
-export default function IncomingOrders() {
+export default function MyOrders() {
 
     const [dropDownVisible, setDropDownVisible] = useState(false)
     const [createOrderModal, setCreateOrderModal] = useState();
     const [refreshOrderComponent, setRefreshOrderComponent] = useState(false);
     const [singleOrderData, setSingleOrderData] = useState();
+
+    const [searchInput, setSearchInput] = useState("");
+    const [totalOrders, setTotalOrders] = useState([]);
+    const [filteredOrders, setFilteredOrders] = useState([]);
 
     let userDetails = useContext(UserContext)
     const { userInfo, address } = userDetails
@@ -65,32 +67,32 @@ export default function IncomingOrders() {
     const columns = [
         {
             name: 'Order',
-            selector: row => row.order,
+            selector: row => row.company_name,
             sortable: true,
         },
         {
             name: 'Holder',
-            selector: row => row.holder,
+            selector: row => row.company_ticket,
             sortable: true,
         },
         {
             name: 'Proposed Buyer',
-            selector: row => row.proposedBuyer,
+            selector: row => row.proposed_buyer,
             sortable: true,
         },
         {
             name: 'Quantity',
-            selector: row => row.quantity,
+            selector: row => row.share_amt,
             sortable: true,
         },
         {
             name: 'Type of shares',
-            selector: row => row.typeOfShare,
+            selector: row => row.share_type,
             sortable: true,
         },
         {
             name: 'Offered Price',
-            selector: row => row.offerdPrice,
+            selector: row => row.share_price,
             sortable: true,
         },
         {
@@ -98,7 +100,24 @@ export default function IncomingOrders() {
             selector: row => {
                 if (row.status === 'Pending') {
                     return (
-                        <p style={{ color: '#c5c502' }}>Pending Review</p>
+                        <div className='d-flex align-items-center gap-3'>
+                            <p style={{ color: '#c5c502' }}>Pending</p>
+
+                            {/* <span onClick={(e) => {
+                                setDropDownVisible(!dropDownVisible)
+                            }} style={{ cursor: 'pointer', fontSize: '10px' }}>
+                                <HiOutlineDotsHorizontal size={15} />
+                                View
+                            </span>
+
+                            <div className='table-dropdown-self-orders py-2'
+                                style={dropDownVisible ? { position: 'absolute', display: 'block' } : { display: 'none' }}>
+                                <p onClick={(e) => {
+                                    e.preventDefault();
+                                    console.log("View Details");
+                                }}>View Details</p>
+                            </div> */}
+                        </div>
                     )
                 }
                 if (row.status === 'Approved') {
@@ -110,22 +129,6 @@ export default function IncomingOrders() {
                             <option></option>
                             <option>View</option>
                             </select> */}
-
-                            <span onClick={(e) => {
-                                setDropDownVisible(!dropDownVisible)
-                            }} style={{ cursor: 'pointer', fontSize: '10px' }}>
-                                <HiOutlineDotsHorizontal size={15} />
-                                {/* View */}
-                            </span>
-
-                            <div className='table-dropdown py-2'
-                                style={dropDownVisible ? { position: 'absolute', display: 'block' } : { display: 'none' }}>
-                                <p onClick={(e) => {
-                                    e.preventDefault();
-                                    console.log("View Details");
-                                }}>View Details</p>
-                            </div>
-
                         </div>
                     )
                 }
@@ -138,30 +141,33 @@ export default function IncomingOrders() {
             sortable: true,
             ignoreRowClick: true,
         },
-        // {
-        //     name: 'View/Download',
-        //     selector: row => {
-        //         return (
-        //             <p className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
-        //         )
-        //     },
-        //     ignoreRowClick: true,
-        //     allowOverflow: true,
-        //     button: true,
-        // },
+        {
+            name: 'Edit',
+            selector: row => {
+                return (
+                    <p onClick={() => {
+                        setSingleOrderData(row)
+                        showModal()
+                    }} className='text-center' style={{ cursor: 'pointer' }}><FaRegEye size={20} /></p>
+                )
+            },
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+        },
     ];
 
-    // const subHeaderComponent = () => {
-    //     return (
-    //         <div className='d-flex justify-content-between w-100'>
-    //             <h4>PENDING ORDERS</h4>
-    //             <div className='d-flex align-items-center'>
-    //                 <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
-    //                 <input style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
-    //             </div>
-    //         </div>
-    //     )
-    // }
+    const subHeaderComponent = () => {
+        return (
+            <div className='d-flex justify-content-between w-100'>
+                <h4>MY ORDERS</h4>
+                <div className='d-flex align-items-center'>
+                    <span className='ps-2' style={{ position: 'absolute' }}><BiSearch size={25} color='gray' /></span>
+                    <input onChange={(e) => setSearchInput(e.target.value)} style={{ borderRadius: '10px', border: 'none', outline: 'none' }} className='ps-5 py-2' placeholder='Search Records' />
+                </div>
+            </div>
+        )
+    }
 
     const showModal = () => {
         createOrderModal.show()
@@ -171,17 +177,45 @@ export default function IncomingOrders() {
         createOrderModal.hide()
     }
 
+    const getSelfOrders = () => {
+        axios.get(`${URLS.getSelfOrders}/${address}`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            setTotalOrders(res.data.data)
+            setFilteredOrders(res.data.data)
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
     useEffect(() => {
         let createOrderModalElement = new Modal(document.getElementById('createNewOrder'), {});
         setCreateOrderModal(createOrderModalElement);
     }, [])
+
+    useEffect(() => {
+        if (address) {
+            getSelfOrders()
+        }
+    }, [address])
+
+    useEffect(() => {
+        if (searchInput) {
+            // totalOrders.filter(())
+        } else {
+
+        }
+    }, [searchInput])
 
     const changeDropdownVisible = (flag) => {
         setDropDownVisible(flag)
     }
 
     const handleRefresh = () => {
-        // createOrderModal.hide()
+        createOrderModal.hide()
         setRefreshOrderComponent(!refreshOrderComponent)
     }
 
@@ -209,7 +243,7 @@ export default function IncomingOrders() {
                             :
                             <img className='pb-3' src="/assets/beared-guy.png" alt="" />
                     }
-                    <p className='ps-5 d-flex gap-2'>Pending orders <span>- {userInfo?.name}</span></p>
+                    <p className='ps-5 d-flex gap-2'>My orders <span>- {userInfo?.name}</span></p>
                 </div>
                 {/* <div className='d-flex gap-3 pe-3 documents-page-btn-container'>
                     <button>Completed</button>
@@ -234,9 +268,7 @@ export default function IncomingOrders() {
                             </button>
                         </div> */}
                         <div className="modal-body">
-                            {
-                                address && <CreateOrder singleOrderData={singleOrderData} handleRefresh={handleRefresh} />
-                            }
+                            <EditOrder singleOrderData={singleOrderData} handleRefresh={handleRefresh} />
                         </div>
                         {/* <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -246,26 +278,24 @@ export default function IncomingOrders() {
                 </div>
             </div>
 
-            {
-                <IncomingOrdersList
-                    changeDropdownVisible={changeDropdownVisible}
-                    dropDownVisible={dropDownVisible}
-                    refreshOrderComponent={refreshOrderComponent}
-                    handleRefresh={handleRefresh}
-                    handleSingleOrderData={handleSingleOrderData}
-                    handleRefreshOnly={handleRefreshOnly}
-                    showModal={showModal} />
-            }
+            {/* <IncomingOrdersList
+                changeDropdownVisible={changeDropdownVisible}
+                dropDownVisible={dropDownVisible}
+                refreshOrderComponent={refreshOrderComponent}
+                handleRefresh={handleRefresh}
+                handleSingleOrderData={handleSingleOrderData}
+                handleRefreshOnly={handleRefreshOnly}
+                showModal={showModal} /> */}
 
-            {/* <div className='m-3 mt-5 incoming-orders-table'>
+            <div className='m-3 mt-5 incoming-orders-table'>
                 <DataTable
                     columns={columns}
-                    data={data}
+                    data={filteredOrders}
                     subHeader
                     subHeaderComponent={subHeaderComponent()}
                     pagination
                 />
-            </div> */}
+            </div>
 
         </div>
     )

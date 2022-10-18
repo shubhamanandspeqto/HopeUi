@@ -108,6 +108,21 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     // useEffect(() => {
 
     // }, [])
+    const handleUpdateOrderStatus = (e, status, id) => {
+        e.preventDefault();
+        let bodyContent = new FormData();
+        bodyContent.append('wallet_address', address)
+        axios.put(`${URLS.updateOrderStatus}/${id}?status=${status ? "Approved" : "Denied"}`, bodyContent, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then((res) => {
+            console.log(res);
+            handleRefreshOnly();
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
 
     const handleAcceptOrder = (e, id) => {
         e.preventDefault();
@@ -218,9 +233,9 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
                     <div className='d-flex flex-column gap-3 justify-content-center align-items-center flex-wrap'>
                         <div className='d-flex gap-3'>
-                            <button onClick={(e) => handleAcceptOrder(e, order.id)} className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
-                            <button onClick={(e) => handleDeclineOrder(e, order.id)} className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
-                            {
+                            <button onClick={(e) => handleUpdateOrderStatus(e, true, order.order_id)} className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
+                            <button onClick={(e) => handleUpdateOrderStatus(e, false, order.order_id)} className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
+                            {/* {
                                 order.status === "Pending" && <>
                                     <button onClick={(e) => {
                                         e.stopPropagation();
@@ -232,7 +247,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                         data-bs-toggle="modal" data-bs-target="#deleteOrders"
                                         className='incoming-orders-delete-btn px-5 py-2'>Delete</button>
                                 </>
-                            }
+                            } */}
 
                         </div>
 
@@ -246,14 +261,14 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                             aria-label="Close"></button>
                                     </div>
                                     <div className="modal-body">
-                                        {order.order_name} will be deleted.
+                                        {order.company_name} will be deleted.
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                         <button data-bs-dismiss="modal" onClick={(e) => {
                                             e.stopPropagation();
                                             console.log("View Details");
-                                            deleteOrder(order.id);
+                                            deleteOrder(order.order_id);
                                         }} type="button" className="btn btn-danger">Delete</button>
                                     </div>
                                 </div>
@@ -272,7 +287,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     const statusRender = (order) => {
         if (order.status === 'Pending') {
             return (
-                <div className='d-flex align-items-center gap-3 justify-content-end'>
+                <div className='d-flex align-items-center gap-3 justify-content-center'>
                     <p style={{ color: '#c5c502' }}>Pending</p>
 
                     {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
@@ -280,17 +295,16 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                             <option>View</option>
                             </select> */}
 
-                    <span onClick={(e) => {
+                    {/* <span onClick={(e) => {
                         e.stopPropagation();
-                        setViewDetailId(order.id)
+                        setViewDetailId(order.order_id)
                         changeDropdownVisible(!dropDownVisible);
                     }} style={{ cursor: 'pointer', fontSize: '10px' }} className='px-2'>
                         <HiOutlineDotsHorizontal size={15} />
-                        {/* View */}
                     </span>
 
                     <div className='table-dropdown py-2'
-                        style={dropDownVisible && viewDetailId === order.id ? { position: 'absolute', marginTop: '105px' } : { display: 'none' }}>
+                        style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '105px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
                             console.log("Edit Details");
@@ -301,16 +315,16 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         <p onClick={(e) => {
                             e.stopPropagation();
                             console.log("View Details");
-                            deleteOrder(order.id)
+                            deleteOrder(order.order_id)
                         }}>Delete Details</p>
-                    </div>
+                    </div> */}
 
                 </div>
             )
         }
         if (order.status === 'Approved') {
             return (
-                <div className='d-flex align-items-center gap-3 justify-content-end'>
+                <div className='d-flex align-items-center gap-3 justify-content-center'>
                     <p style={{ color: 'green' }}>Approved</p>
 
                     {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
@@ -318,29 +332,28 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                             <option>View</option>
                             </select> */}
 
-                    <span onClick={(e) => {
+                    {/* <span onClick={(e) => {
                         e.stopPropagation();
-                        setViewDetailId(order.id)
+                        setViewDetailId(order.order_id)
                         changeDropdownVisible(!dropDownVisible);
                     }} style={{ cursor: 'pointer', fontSize: '10px' }} className='px-2'>
                         <HiOutlineDotsHorizontal size={15} />
-                        {/* View */}
                     </span>
 
                     <div className='table-dropdown py-2'
-                        style={dropDownVisible && viewDetailId === order.id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
+                        style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
                             console.log("View Details");
                         }}>View Details</p>
-                    </div>
+                    </div> */}
 
                 </div>
             )
         }
         if (order.status === 'Denied') {
             return (
-                <div className='d-flex align-items-center gap-3 justify-content-end'>
+                <div className='d-flex align-items-center gap-3 justify-content-center'>
                     <p style={{ color: 'red' }}>Denied</p>
 
                     {/* <select value={""} style={{ border: 'none', background: '#dbdbdb', outline: 'none' }} name="" id="">
@@ -348,22 +361,21 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                             <option>View</option>
                             </select> */}
 
-                    <span onClick={(e) => {
+                    {/* <span onClick={(e) => {
                         e.stopPropagation();
-                        setViewDetailId(order.id)
+                        setViewDetailId(order.order_id)
                         changeDropdownVisible(!dropDownVisible);
                     }} style={{ cursor: 'pointer', fontSize: '10px' }} className='px-2'>
                         <HiOutlineDotsHorizontal size={15} />
-                        {/* View */}
                     </span>
 
                     <div className='table-dropdown py-2'
-                        style={dropDownVisible && viewDetailId === order.id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
+                        style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
                             console.log("View Details");
                         }}>View Details</p>
-                    </div>
+                    </div> */}
 
                 </div>
             )
@@ -371,34 +383,38 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     }
 
     const loadOrders = () => {
-        axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).then((res) => {
-            console.log(res);
-            setTotalOrdersLength(res.data.total_record)
-            setIsDataLoading(false)
-            setFetchedOrderList(res.data.data)
-            setFilteredOrderList(res.data.data)
-            let pages = Math.ceil(res.data.total_record / rowsPerPage);
-            setTotalPages(pages)
-        }).catch((error) => {
-            console.log(error);
-            setIsDataLoading(false)
-            errorPopup("Some Error Occured")
-        })
+        // axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
+        console.log(address);
+        if (address) {
+            axios.get(`${URLS.getPendingOrders}/${address}?page=${pageNo}&limit=${rowsPerPage}`, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then((res) => {
+                console.log(res);
+                setTotalOrdersLength(res.data.total_record)
+                setIsDataLoading(false)
+                setFetchedOrderList(res.data.data)
+                setFilteredOrderList(res.data.data)
+                let pages = Math.ceil(res.data.total_record / rowsPerPage);
+                setTotalPages(pages)
+            }).catch((error) => {
+                console.log(error);
+                setIsDataLoading(false)
+                errorPopup("Some Error Occured")
+            })
+        }
     }
 
     useEffect(() => {
         setIsDataLoading(true);
-        if (userInfo.email && !searchOrder) {
+        if (userInfo.email && !searchOrder && address) {
             loadOrders()
         }
     }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo])
 
     useEffect(() => {
-        if (searchOrder) {
+        if (searchOrder && address) {
             setIsDataLoading(true)
             axios.get(`${URLS.getOrder}/${userInfo.email}`, {
                 headers: {
@@ -407,12 +423,12 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
             }).then((res) => {
                 console.log(res);
                 let filteredItem = res.data.data.filter((order) => {
-                    return String(order.order_name).toLowerCase().includes(searchOrder) ||
-                        String(order.holder).toLowerCase().includes(searchOrder) ||
+                    return String(order.company_name).toLowerCase().includes(searchOrder) ||
+                        String(order.company_ticker).toLowerCase().includes(searchOrder) ||
                         String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
-                        String(order.quantity).toLowerCase().includes(searchOrder) ||
+                        String(order.share_amt).toLowerCase().includes(searchOrder) ||
                         String(order.share_type).toLowerCase().includes(searchOrder) ||
-                        String(order.offered_price).toLowerCase().includes(searchOrder) ||
+                        String(order.share_price).toLowerCase().includes(searchOrder) ||
                         String(order.status).toLowerCase().includes(searchOrder)
                 })
                 console.log(filteredItem);
@@ -433,12 +449,12 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
             })
 
             // let filteredItem = fetchedOrderList.filter((order) => {
-            //     return String(order.order_name).toLowerCase().includes(searchOrder) ||
-            //         String(order.holder).toLowerCase().includes(searchOrder) ||
+            //     return String(order.company_name).toLowerCase().includes(searchOrder) ||
+            //         String(order.company_ticker).toLowerCase().includes(searchOrder) ||
             //         String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
-            //         String(order.quantity).toLowerCase().includes(searchOrder) ||
+            //         String(order.share_amt).toLowerCase().includes(searchOrder) ||
             //         String(order.share_type).toLowerCase().includes(searchOrder) ||
-            //         String(order.offered_price).toLowerCase().includes(searchOrder) ||
+            //         String(order.share_price).toLowerCase().includes(searchOrder) ||
             //         String(order.status).toLowerCase().includes(searchOrder)
             // })
             // setFilteredOrderList(filteredItem)
@@ -487,18 +503,19 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                             customLoader() : filteredOrderList.length ?
                                 filteredOrderList.map((order) => {
                                     return (
-                                        <div key={order.id}>
-                                            <div id={order.id} onClick={(e) => {
+                                        <div key={order.order_id}>
+                                            <div id={order.order_id} onClick={(e) => {
                                                 e.stopPropagation();
-                                                rowID === order.id ? setRowID() : setRowID(order.id);
-                                                window.location.href = `#${order.id}`
+                                                console.log(rowID, order.order_id);
+                                                rowID === order.order_id ? setRowID() : setRowID(order.order_id);
+                                                window.location.href = `#${order.order_id}`
                                             }} className='incoming-orders-data-table-header-row d-flex py-3' >
-                                                <div>{order.order_name}</div>
-                                                <div>{order.holder}</div>
+                                                <div>{order.company_name}</div>
+                                                <div>{order.company_ticker}</div>
                                                 <div>{order.proposed_buyer}</div>
-                                                <div>{order.quantity}</div>
+                                                <div>{order.share_amt}</div>
                                                 <div>{order.share_type}</div>
-                                                <div>{order.offered_price}</div>
+                                                <div>{order.share_price}</div>
                                                 <div>
                                                     {
                                                         statusRender(order)
@@ -506,7 +523,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                                 </div>
                                             </div>
 
-                                            {rowID === order.id && table(order)}
+                                            {rowID === order.order_id && table(order)}
                                         </div>
                                     )
                                 }) : <p className='text-center py-4'>No Data Found</p>

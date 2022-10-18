@@ -218,10 +218,10 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
             bodyContent.append('share_price', share_price)
             bodyContent.append('share_type', share_type)
             bodyContent.append('shares', shares)
-            bodyContent.append('wallet_address', address)
+            bodyContent.append('email', userInfo?.email)
             bodyContent.append('file', issuedShareDocument)
 
-            axios.post(`${URLS.createIssuedShares}/${userInfo?.email}`, bodyContent, {
+            axios.post(`${URLS.createIssuedShares}/${address}`, bodyContent, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }

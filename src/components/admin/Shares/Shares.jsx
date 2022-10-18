@@ -46,7 +46,7 @@ export default function Shares() {
     const [isDataLoading, setIsDataLoading] = useState(true)
 
     let userDetails = useContext(UserContext)
-    const { userInfo } = userDetails
+    const { userInfo, address } = userDetails
     console.log(userInfo);
 
     const subHeaderComponent = () => {
@@ -106,7 +106,7 @@ export default function Shares() {
 
     useEffect(() => {
         if (userInfo.email) {
-            axios.get(`${URLS.getIssuedShares}/${userInfo.email}`, {
+            axios.get(`${URLS.getIssuedShares}/${address}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }

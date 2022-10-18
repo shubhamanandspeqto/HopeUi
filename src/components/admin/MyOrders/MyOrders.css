@@ -1,0 +1,29 @@
+.table-dropdown-self-orders {
+    background: #b3a6a6;
+    border-radius: 10px;
+    z-index: 1;
+    margin-right: -6px;
+}
+
+.table-dropdown-self-orders::before {
+    content: " ";
+    width: 15px;
+    height: 15px;
+    background-color: #b3a6a6;
+    position: absolute;
+    transform: rotate(45deg);
+    margin-top: -13px;
+    margin-left: 30px;
+    border-bottom-right-radius: 100%;
+}
+
+.table-dropdown-self-orders>p {
+    cursor: pointer;
+    padding: 3px 1rem;
+}
+
+.table-dropdown-self-orders>p:hover {
+    background: #738AFE;
+    border-radius: 6px;
+    color: #FFFFFF;
+}

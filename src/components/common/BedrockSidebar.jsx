@@ -142,6 +142,14 @@ export default function BedrockSidebar() {
                         </li>
 
                         <li className="w-100 d-flex">
+                            <Link to={'/dashboard/my-orders'} className="nav-link px-0 w-100">
+                                <span className="d-none d-sm-inline text-gray px-2">
+                                    My Orders
+                                </span>
+                            </Link>
+                        </li>
+
+                        <li className="w-100 d-flex">
                             <Link to={'/dashboard/order'} className="nav-link px-0 w-100">
                                 <span className="d-none d-sm-inline text-gray px-2">
                                     Orders Accepted

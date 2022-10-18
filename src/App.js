@@ -40,6 +40,7 @@ import WidgetBasic from "./components/admin/Widget/WidgetBasic";
 import WidgetChart from "./components/admin/WidgetChart/WidgetChart";
 import Maintenancee from "./components/common/Maintenancee";
 import AllSharesDashboard from "./components/Bedrock/Bedrock-dashboard/AllSharesDashboard";
+import MyOrders from "./components/admin/MyOrders/MyOrders";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
             <Route path="proofs" element={<Proofs />} />
             <Route path="shares" element={<Shares />} />
             <Route path="order" element={<BuyOrderAccepted />} />
+            <Route path="my-orders" element={<MyOrders />} />
             <Route path="map" element={<Vector />} />
             <Route path="package" element={<Packages />} />
             <Route path="incoming-orders" element={<IncomingOrders />} />

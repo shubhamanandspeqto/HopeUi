@@ -22,12 +22,12 @@ export default function AllSharesDashboardListing() {
     const [singleRowData, setSingleRowData] = useState()
 
     let userDetails = useContext(UserContext)
-    const { userInfo } = userDetails
+    const { userInfo, address } = userDetails
     console.log(userInfo.email);
 
     useEffect(() => {
         if (userInfo.email) {
-            axios.get(`${URLS.getIssuedShares}/${userInfo.email}`, {
+            axios.get(`${URLS.getAllShares}/${address}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }

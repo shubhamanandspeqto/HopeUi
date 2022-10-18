@@ -19,7 +19,7 @@ export default function Dashboard() {
       <div className="d-flex w-100 dark-mode">
         <div className="sidebar-parent-container" style={{ width: "20%", position: 'fixed', height: '100vh', overflow: 'auto' }}>
           {
-            location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' || location.pathname === '/dashboard/dashboard-bedrock' ? <BedrockSidebar /> : <Sidebar />
+            location.pathname === '/dashboard/bedrock' || location.pathname === '/dashboard/upload' || location.pathname === '/dashboardAi' || location.pathname === '/dashboard/documents' || location.pathname === '/dashboard/proofs' || location.pathname === '/dashboard/shares' || location.pathname === '/dashboard/incoming-orders' || location.pathname === '/dashboard/order' || location.pathname === '/dashboard/package' || location.pathname === '/dashboard/Ai' || location.pathname === '/dashboard/dashboard-bedrock' || location.pathname === "/dashboard/my-orders" ? <BedrockSidebar /> : <Sidebar />
           }
           {/* <Sidebar /> */}
           {/* <BedRock_Sidebar/> */}

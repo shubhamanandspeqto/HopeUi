@@ -149,24 +149,26 @@ export default function CreateOrder({ singleOrderData }) {
     const createOrder = (company_name, company_ticker, share_type, amountOfShare, pricePerShare) => {
         setIsLoading(true)
 
-        if (!orderDocument) {
-            setIsLoading(false)
-            return errorPopup("Please Upload Document First")
-        }
+        // if (!orderDocument) {
+        //     setIsLoading(false)
+        //     return errorPopup("Please Upload Document First")
+        // }
 
         let bodyContent = new FormData();
         bodyContent.append("company_name", company_name.trim())
         bodyContent.append("company_ticker", company_ticker.trim())
+        bodyContent.append("email", userInfo?.email)
         bodyContent.append("share_type", share_type.trim())
-        bodyContent.append("amountOfShare", amountOfShare.trim())
-        bodyContent.append("pricePerShare", pricePerShare.trim())
-        bodyContent.append("wallet_address", address)
+        bodyContent.append("share_amt", amountOfShare.trim())
+        bodyContent.append("share_price", pricePerShare.trim())
+        bodyContent.append("share_id", singleOrderData?.id)
+        bodyContent.append("proposed_buyer", userInfo?.name)
         // bodyContent.append("quantity", quantity.trim())
         // bodyContent.append("offered_price", offered_price.trim())
         // bodyContent.append("proposed_buyer", proposed_buyer.trim())
         // bodyContent.append("file", orderDocument)
 
-        axios.post(`${URLS.createOrder}/${userInfo.email}`, bodyContent, {
+        axios.post(`${URLS.createOrder}/${address}`, bodyContent, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -284,7 +286,11 @@ export default function CreateOrder({ singleOrderData }) {
                             <div className='d-flex m-0 p-0 gap-2'>
 
                                 <div defaultValue={""} className='d-flex flex-row align-items-center w-100 select-share-type'
-                                    onChange={(e) => { console.log(e.target.value); }}>
+                                    onChange={(e) => {
+                                        setCreateOrderFormData({
+                                            ...createOrderFormData, share_type: e.target.value
+                                        })
+                                    }}>
                                     <div className='w-50 d-flex align-items-center gap-2'>
                                         <input required type="radio" id="preferredShare" name="typeOfShare" defaultValue="Preffered" />
                                         <label htmlFor="preferredShare">Preferred Share</label><br />
@@ -362,7 +368,7 @@ export default function CreateOrder({ singleOrderData }) {
                                 {
                                     singleOrderData &&
                                     <a className='pb-2 w-100 text-center'
-                                        href={singleOrderData?.document_url} target='_blank'>View Document</a>
+                                        href={singleOrderData?.doc_url} target='_blank'>View Document</a>
                                 }
                             </div>
 
