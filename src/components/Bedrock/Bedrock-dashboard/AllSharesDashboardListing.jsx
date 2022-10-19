@@ -11,6 +11,7 @@ import { UserContext } from '../../../ContextAPI/Context';
 import { URLS } from '../../../utils/ApiURLs';
 import { errorPopup } from '../../../utils/PopupMessages';
 import CreateOrder from './CreateOrder';
+import { Modal } from 'bootstrap'
 
 export default function AllSharesDashboardListing() {
 
@@ -18,6 +19,7 @@ export default function AllSharesDashboardListing() {
     const [filteredIssuedShares, setFilteredIssuedShares] = useState([]);;
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [searchValue, setSearchValue] = useState("");
+    const [createOrderModal, setCreateOrderModal] = useState();
 
     const [singleRowData, setSingleRowData] = useState()
 
@@ -25,7 +27,18 @@ export default function AllSharesDashboardListing() {
     const { userInfo, address } = userDetails
     console.log(userInfo.email);
 
+    const showModal = () => {
+        createOrderModal.show()
+    }
+
+    const hideModal = () => {
+        createOrderModal.hide()
+    }
+
     useEffect(() => {
+        let createOrderModalElement = new Modal(document.getElementById('createNewOrderFromShare'), {});
+        setCreateOrderModal(createOrderModalElement);
+
         if (userInfo.email) {
             axios.get(`${URLS.getAllShares}/${address}`, {
                 headers: {
@@ -82,7 +95,10 @@ export default function AllSharesDashboardListing() {
                     <div>
                         <p onClick={() => {
                             setSingleRowData(row)
-                        }} data-bs-toggle="modal" data-bs-target="#createNewOrderFromShare">
+                            showModal()
+                        }}
+                        // data-bs-toggle="modal" data-bs-target="#createNewOrderFromShare"
+                        >
                             <FaRegEye style={{ cursor: 'pointer' }} size={20} />
                         </p>
 
@@ -123,6 +139,8 @@ export default function AllSharesDashboardListing() {
     ];
 
     useEffect(() => {
+
+
         if (searchValue) {
             let filteredItems = fetchedIssuedShares.filter((share) => {
                 return String(share.company_name).toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -183,7 +201,7 @@ export default function AllSharesDashboardListing() {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
-                            {singleRowData && <CreateOrder singleOrderData={singleRowData} />}
+                            {singleRowData && <CreateOrder hideModal={hideModal} singleOrderData={singleRowData} />}
                         </div>
                     </div>
                 </div>

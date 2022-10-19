@@ -1,10 +1,15 @@
 import React, { useContext } from 'react'
+import { useEffect } from 'react'
 import { UserContext } from '../../../ContextAPI/Context'
 import '../BuyOrder/BuyOrder.css'
 export default function BuyOrderAccepted() {
 
   let userDetails = useContext(UserContext)
   const { userInfo, address } = userDetails
+
+  // useEffect(() => {
+
+  // }, [])
 
   return (
     <>

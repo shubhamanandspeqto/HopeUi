@@ -88,23 +88,23 @@ export default function Navbar() {
                                         <Dropdown.Menu>
                                             <Dropdown.Item>
                                                 <p className='p-2 d-flex align-items-center gap-2'>
-                                                <HiOutlineUser />
-                                                <span>My Profile</span>
-                                            </p>
+                                                    <HiOutlineUser />
+                                                    <span>My Profile</span>
+                                                </p>
                                             </Dropdown.Item>
                                             <Dropdown.Item >
-                                                 <p data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                                className='p-2 d-flex align-items-center gap-2'>
-                                                <FiSettings />
-                                                <span>Settings</span>
-                                            </p>
+                                                <p data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    className='p-2 d-flex align-items-center gap-2'>
+                                                    <FiSettings />
+                                                    <span>Settings</span>
+                                                </p>
                                             </Dropdown.Item>
                                             <Dropdown.Item>
-                                                 <p onClick={() => { logoutFunction(torus) }} className='p-2 d-flex align-items-center gap-2'>
-                                                <FiLogOut />
-                                                <span>Logout</span>
-                                            </p>
+                                                <p onClick={() => { logoutFunction(torus) }} className='p-2 d-flex align-items-center gap-2'>
+                                                    <FiLogOut />
+                                                    <span>Logout</span>
+                                                </p>
                                             </Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>

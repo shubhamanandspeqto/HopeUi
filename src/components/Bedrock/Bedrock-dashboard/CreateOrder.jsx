@@ -14,7 +14,7 @@ import { URLS } from '../../../utils/ApiURLs';
 import { errorPopup, successPopup } from '../../../utils/PopupMessages';
 import { dropboxKey } from '../../../utils/Keys';
 
-export default function CreateOrder({ singleOrderData }) {
+export default function CreateOrder({ singleOrderData, hideModal }) {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [selectedFile, setSelectedFile] = useState();
@@ -79,8 +79,8 @@ export default function CreateOrder({ singleOrderData }) {
         }
 
         if (name === "amountOfShare") {
-            if (isNaN(+value)) return setFormError({ ...formError, quantity: "Quantity Must be a number" })
-            else if (!isNaN(+value) && (+value <= 0)) setFormError({ ...formError, quantity: "Quantity Must be greater than 0." })
+            if (isNaN(+value)) return setFormError({ ...formError, amountOfShare: "Quantity Must be a number" })
+            else if (!isNaN(+value) && (+value <= 0)) setFormError({ ...formError, amountOfShare: "Quantity Must be greater than 0." })
             if (value.includes('-') || value.startsWith(' ') || String(value).endsWith(' ')) return
             if (value.includes('.')) {
                 let count = 0;
@@ -90,13 +90,13 @@ export default function CreateOrder({ singleOrderData }) {
                 }
                 if (count > 1) return
             }
-            if (!isNaN(+value)) setFormError({ ...formError, quantity: "" })
-            else setFormError({ ...formError, quantity: "" })
+            if (!isNaN(+value)) setFormError({ ...formError, amountOfShare: "" })
+            else setFormError({ ...formError, amountOfShare: "" })
         }
 
         if (name === "pricePerShare") {
-            if (isNaN(+value)) return setFormError({ ...formError, offered_price: "Price Must be a number" })
-            else if (!isNaN(+value) && (+value <= 0)) setFormError({ ...formError, offered_price: "Price Must be greater than 0." })
+            if (isNaN(+value)) return setFormError({ ...formError, pricePerShare: "Price Must be a number" })
+            else if (!isNaN(+value) && (+value <= 0)) setFormError({ ...formError, pricePerShare: "Price Must be greater than 0." })
             if (value.includes('-') || value.startsWith(' ') || String(value).endsWith(' ')) return
             if (value.includes('.')) {
                 let count = 0;
@@ -106,8 +106,8 @@ export default function CreateOrder({ singleOrderData }) {
                 }
                 if (count > 1) return
             }
-            if (!isNaN(+value)) setFormError({ ...formError, offered_price: "" })
-            else setFormError({ ...formError, offered_price: "" })
+            if (!isNaN(+value)) setFormError({ ...formError, pricePerShare: "" })
+            else setFormError({ ...formError, pricePerShare: "" })
         }
 
         setCreateOrderFormData({
@@ -177,7 +177,7 @@ export default function CreateOrder({ singleOrderData }) {
             successPopup(res.data.message)
             setIsSubmitted(true)
             setIsLoading(false)
-            resetFormData()
+            // resetFormData()
         }).catch((error) => {
             console.log(error);
             setIsLoading(false)
@@ -392,7 +392,8 @@ export default function CreateOrder({ singleOrderData }) {
 
                         <div className='view-issued-shares d-flex justify-content-center'>
                             <button onClick={(e) => {
-                                e.preventDefault()
+                                e.preventDefault();
+                                hideModal();
                                 setIsSubmitted(false);
                             }} className='px-4 py-2'>View Created Orders</button>
                         </div>

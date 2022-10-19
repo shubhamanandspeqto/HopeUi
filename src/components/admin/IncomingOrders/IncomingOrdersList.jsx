@@ -36,6 +36,9 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     const [searchOrder, setSearchOrder] = useState("");
     const [isDataLoading, setIsDataLoading] = useState(true);
 
+    const [isLoading, setIsLoading] = useState(false);
+    const [loaderButton, setLoaderButton] = useState("");
+
     let userDetails = useContext(UserContext)
     const { userInfo, address } = userDetails
 
@@ -110,6 +113,8 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     // }, [])
     const handleUpdateOrderStatus = (e, status, id) => {
         e.preventDefault();
+        status === true ? setLoaderButton("Accept") : setLoaderButton("Decline")
+        setIsLoading(true)
         let bodyContent = new FormData();
         bodyContent.append('wallet_address', address)
         axios.put(`${URLS.updateOrderStatus}/${id}?status=${status ? "Approved" : "Denied"}`, bodyContent, {
@@ -118,9 +123,15 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
             }
         }).then((res) => {
             console.log(res);
+            successPopup(res.data.message)
+            setLoaderButton();
+            setIsLoading(false)
             handleRefreshOnly();
         }).catch((err) => {
             console.log(err);
+            setLoaderButton();
+            setIsLoading(false)
+            errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured")
         })
     }
 
@@ -171,26 +182,32 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                 <th className='text-end'>Price</th>
                                 <th className='text-end'>Totals</th>
                             </tr>
+                            {
+                                order?.share_type === "Preffered" &&
+                                <tr>
+                                    <td className='pb-2'>
+                                        <p>Preferred Shares</p>
+                                        <p>Preferential shares of stock in SpaceX. </p>
+                                    </td>
+                                    <td className='text-end'>${order?.share_amt}</td>
+                                    <td className='text-end'>${order?.share_price}</td>
+                                    <td className='text-end'>${+order?.share_amt * +order?.share_price}</td>
+                                </tr>
+                            }
 
-                            <tr>
-                                <td className='pb-2'>
-                                    <p>Preferred Shares</p>
-                                    <p>Preferential shares of stock in SpaceX. </p>
-                                </td>
-                                <td className='text-end'>10000</td>
-                                <td className='text-end'>$100.00</td>
-                                <td className='text-end'>$100,000</td>
-                            </tr>
+                            {
+                                order?.share_type === "Common" &&
+                                <tr>
+                                    <td className='pb-2'>
+                                        <p>Common Shares</p>
+                                        <p>Common shares of stock in SpaceX. </p>
+                                    </td>
+                                    <td className='text-end'>${order?.share_amt}</td>
+                                    <td className='text-end'>${order?.share_price}</td>
+                                    <td className='text-end'>${+order?.share_amt * +order?.share_price}</td>
+                                </tr>
+                            }
 
-                            <tr>
-                                <td className='pb-2'>
-                                    <p>Common Shares</p>
-                                    <p>Common shares of stock in SpaceX. </p>
-                                </td>
-                                <td className='text-end'>10000</td>
-                                <td className='text-end'>$100.00</td>
-                                <td className='text-end'>$100,000</td>
-                            </tr>
 
                             <tr>
                                 <td className='pb-2'>
@@ -198,7 +215,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                 </td>
                                 <td className='text-end'></td>
                                 <td className='text-end'></td>
-                                <td className='text-end'>$100,000</td>
+                                <td className='text-end'>${+order?.share_amt * +order?.share_price}</td>
                             </tr>
 
                             <tr className='incoming-order-view-table-border'>
@@ -216,7 +233,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                 </td>
                                 <td className='text-end'></td>
                                 <td className='text-end'></td>
-                                <td className='text-end'><p>$105,000</p></td>
+                                <td className='text-end'><p>${+order?.share_amt * +order?.share_price}</p></td>
                             </tr>
                         </tbody>
                     </table>
@@ -233,8 +250,16 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
                     <div className='d-flex flex-column gap-3 justify-content-center align-items-center flex-wrap'>
                         <div className='d-flex gap-3'>
-                            <button onClick={(e) => handleUpdateOrderStatus(e, true, order.order_id)} className='incoming-orders-accept-btn px-5 py-2'>Accept</button>
-                            <button onClick={(e) => handleUpdateOrderStatus(e, false, order.order_id)} className='incoming-orders-decline-btn px-5 py-2'>Decline</button>
+                            <button disabled={isLoading} onClick={(e) => handleUpdateOrderStatus(e, true, order.order_id)} className='incoming-orders-accept-btn px-5 py-2 d-flex gap-2 align-items-center'>Accept
+                                {
+                                    isLoading && loaderButton === "Accept" && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                }
+                            </button>
+                            <button disabled={isLoading} onClick={(e) => handleUpdateOrderStatus(e, false, order.order_id)} className='incoming-orders-decline-btn px-5 py-2 d-flex gap-2 align-items-center'>Decline
+                                {
+                                    isLoading && loaderButton === "Decline" && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                }
+                            </button>
                             {/* {
                                 order.status === "Pending" && <>
                                     <button onClick={(e) => {
@@ -407,16 +432,15 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     }
 
     useEffect(() => {
+        console.log("hello");
         setIsDataLoading(true);
         if (userInfo.email && !searchOrder && address) {
             loadOrders()
         }
-    }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo])
 
-    useEffect(() => {
         if (searchOrder && address) {
             setIsDataLoading(true)
-            axios.get(`${URLS.getOrder}/${userInfo.email}`, {
+            axios.get(`${URLS.getPendingOrders}/${address}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
@@ -447,22 +471,59 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 setIsDataLoading(false)
                 errorPopup("Some Error Occured")
             })
-
-            // let filteredItem = fetchedOrderList.filter((order) => {
-            //     return String(order.company_name).toLowerCase().includes(searchOrder) ||
-            //         String(order.company_ticker).toLowerCase().includes(searchOrder) ||
-            //         String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
-            //         String(order.share_amt).toLowerCase().includes(searchOrder) ||
-            //         String(order.share_type).toLowerCase().includes(searchOrder) ||
-            //         String(order.share_price).toLowerCase().includes(searchOrder) ||
-            //         String(order.status).toLowerCase().includes(searchOrder)
-            // })
-            // setFilteredOrderList(filteredItem)
-        } else {
-            // setFilteredOrderList(fetchedOrderList)
-            loadOrders()
         }
-    }, [searchOrder, rowsPerPage, pageNo, refreshOrderComponent])
+    }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo, searchOrder])
+
+    // useEffect(() => {
+    //     if (searchOrder && address) {
+    //         setIsDataLoading(true)
+    //         axios.get(`${URLS.getPendingOrders}/${address}`, {
+    //             headers: {
+    //                 'Access-Control-Allow-Origin': '*'
+    //             }
+    //         }).then((res) => {
+    //             console.log(res);
+    //             let filteredItem = res.data.data.filter((order) => {
+    //                 return String(order.company_name).toLowerCase().includes(searchOrder) ||
+    //                     String(order.company_ticker).toLowerCase().includes(searchOrder) ||
+    //                     String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
+    //                     String(order.share_amt).toLowerCase().includes(searchOrder) ||
+    //                     String(order.share_type).toLowerCase().includes(searchOrder) ||
+    //                     String(order.share_price).toLowerCase().includes(searchOrder) ||
+    //                     String(order.status).toLowerCase().includes(searchOrder)
+    //             })
+    //             console.log(filteredItem);
+    //             setIsDataLoading(false)
+    //             let pages = Math.ceil(filteredItem.length / rowsPerPage);
+    //             setTotalPages(pages)
+    //             setTotalOrdersLength(filteredItem.length)
+
+    //             if (rowsPerPage * pageNo - rowsPerPage > filteredItem.length) setPageNo(pageNo - 1)
+    //             let totalFilteredData = filteredItem
+    //             let filterByPagination = totalFilteredData.slice(rowsPerPage * pageNo - rowsPerPage, rowsPerPage * pageNo)
+    //             console.log(filterByPagination);
+    //             setFilteredOrderList(filterByPagination)
+    //         }).catch((error) => {
+    //             console.log(error);
+    //             setIsDataLoading(false)
+    //             errorPopup("Some Error Occured")
+    //         })
+
+    //         // let filteredItem = fetchedOrderList.filter((order) => {
+    //         //     return String(order.company_name).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.company_ticker).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.proposed_buyer).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.share_amt).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.share_type).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.share_price).toLowerCase().includes(searchOrder) ||
+    //         //         String(order.status).toLowerCase().includes(searchOrder)
+    //         // })
+    //         // setFilteredOrderList(filteredItem)
+    //     } else {
+    //         // setFilteredOrderList(fetchedOrderList)
+    //         loadOrders()
+    //     }
+    // }, [searchOrder, rowsPerPage, pageNo, refreshOrderComponent])
 
     const customLoader = () => {
         return (

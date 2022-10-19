@@ -18,6 +18,7 @@ import { dropboxKey } from '../../../utils/Keys';
 export default function EditOrder({ handleRefresh, singleOrderData }) {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [loaderButton, setLoaderButton] = useState("")
     const [selectedFile, setSelectedFile] = useState();
 
     const [orderDocument, setorderDocument] = useState("");
@@ -190,6 +191,8 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
     }
 
     const deleteOrder = (e) => {
+        setLoaderButton("Delete")
+        setIsLoading(true)
         e.preventDefault();
         axios.delete(`${URLS.deleteOrder}/${address}/${singleOrderData.order_id}`, {
             headers: {
@@ -198,12 +201,19 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
         }).then((res) => {
             console.log(res);
             successPopup(res.data.message)
+            setLoaderButton("")
+            setIsLoading(false);
+            handleRefresh()
         }).catch((err) => {
             console.log(err);
+            setLoaderButton("")
+            setIsLoading(false)
+            errorPopup("Some Error Occured")
         })
     }
 
     const updateOrder = (id, company_name, company_ticker, proposed_buyer, share_amt, share_type, share_price) => {
+        setLoaderButton("Update")
         setIsLoading(true)
         console.log(id);
         let bodyContent = new FormData();
@@ -223,10 +233,12 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
             console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
+            setLoaderButton()
             setIsLoading(false)
-            resetFormData()
+            // resetFormData()
         }).catch((error) => {
             console.log(error);
+            setLoaderButton();
             setIsLoading(false)
             errorPopup("Some Error Occured")
         })
@@ -284,7 +296,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                     <h3 className='text-center'>Order</h3>
                     <p className='text-center pb-3'>Create a new Order</p>
                     <div>
-                        <form onSubmit={handleOrderSubmit} className='d-flex flex-column gap-4 issue-new-form px-5'>
+                        <form onSubmit={singleOrderData?.status === "Pending" ? handleOrderSubmit : (e) => { e.preventDefault() }} className='d-flex flex-column gap-4 issue-new-form px-5'>
 
                             <div className='d-flex m-0 p-0 gap-2'>
                                 <div className='w-50 m-0 p-0'>
@@ -344,23 +356,29 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                             </div>
 
                             <div className='d-flex justify-content-center issue-new-create-button gap-4'>
-                                <button
-                                    // onClick={() => { setIsSubmitted(true) }} 
-                                    // disabled={formError.company_name || !createOrderFormData.company_name || formError.company_ticker || !createOrderFormData.company_ticker || formError.proposed_buyer || !createOrderFormData.proposed_buyer || formError.share_amt || !createOrderFormData.share_amt || formError.share_type || !createOrderFormData.share_type || formError.share_price || !createOrderFormData.share_price}
-                                    className='py-2 px-4 d-flex gap-2 align-items-center' type='submit'>
-                                    Create
-                                    {
-                                        isLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
-                                    }
-                                </button>
-                                <button
-                                    onClick={(e) => { deleteOrder(e) }}
-                                    className='py-2 px-4 d-flex gap-2 align-items-center btn-danger' >
-                                    Delete
-                                    {
-                                        isLoading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
-                                    }
-                                </button>
+                                {
+                                    singleOrderData?.status === "Pending" &&
+                                    <>
+                                        <button
+                                            // onClick={() => { setIsSubmitted(true) }} 
+                                            // disabled={formError.company_name || !createOrderFormData.company_name || formError.company_ticker || !createOrderFormData.company_ticker || formError.proposed_buyer || !createOrderFormData.proposed_buyer || formError.share_amt || !createOrderFormData.share_amt || formError.share_type || !createOrderFormData.share_type || formError.share_price || !createOrderFormData.share_price}
+                                            className='py-2 px-4 d-flex gap-2 align-items-center' type='submit'>
+                                            Update
+                                            {
+                                                isLoading && loaderButton === "Update" && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                            }
+                                        </button>
+                                        <button
+                                            style={{ cursor: 'pointer', background: '#a52834' }}
+                                            onClick={(e) => { deleteOrder(e) }}
+                                            className='py-2 px-4 d-flex gap-2 align-items-center btn btn-danger' >
+                                            Delete
+                                            {
+                                                isLoading && loaderButton === "Delete" && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                                            }
+                                        </button>
+                                    </>
+                                }
                             </div>
                         </form>
                     </div>

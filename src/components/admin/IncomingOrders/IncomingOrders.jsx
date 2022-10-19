@@ -245,7 +245,6 @@ export default function IncomingOrders() {
                     </div>
                 </div>
             </div>
-
             {
                 <IncomingOrdersList
                     changeDropdownVisible={changeDropdownVisible}

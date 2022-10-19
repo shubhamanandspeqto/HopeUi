@@ -52,6 +52,7 @@ export default function MyOrders() {
     const [createOrderModal, setCreateOrderModal] = useState();
     const [refreshOrderComponent, setRefreshOrderComponent] = useState(false);
     const [singleOrderData, setSingleOrderData] = useState();
+    const [isDataLoading, setIsDataLoading] = useState(true)
 
     const [searchInput, setSearchInput] = useState("");
     const [totalOrders, setTotalOrders] = useState([]);
@@ -178,6 +179,7 @@ export default function MyOrders() {
     }
 
     const getSelfOrders = () => {
+        setIsDataLoading(true)
         axios.get(`${URLS.getSelfOrders}/${address}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
@@ -186,7 +188,9 @@ export default function MyOrders() {
             console.log(res);
             setTotalOrders(res.data.data)
             setFilteredOrders(res.data.data)
+            setIsDataLoading(false)
         }).catch((err) => {
+            setIsDataLoading(false)
             console.log(err);
         })
     }
@@ -200,7 +204,7 @@ export default function MyOrders() {
         if (address) {
             getSelfOrders()
         }
-    }, [address])
+    }, [address, refreshOrderComponent])
 
     useEffect(() => {
         if (searchInput) {
@@ -221,6 +225,14 @@ export default function MyOrders() {
 
     const handleRefreshOnly = () => {
         setRefreshOrderComponent(!refreshOrderComponent)
+    }
+
+    const customLoader = () => {
+        return (
+            <>
+                <i className="fa fa-circle-o-notch fa-spin py-5" style={{ fontSize: 50 }} />
+            </>
+        )
     }
 
     return (
@@ -294,6 +306,8 @@ export default function MyOrders() {
                     subHeader
                     subHeaderComponent={subHeaderComponent()}
                     pagination
+                    progressComponent={customLoader()}
+                    progressPending={isDataLoading}
                 />
             </div>
 
