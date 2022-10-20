@@ -144,6 +144,28 @@ export default function BuyOrderAccepted() {
 
   }, [address])
 
+  useEffect(() => {
+    if (searchValue) {
+      let filteredDetails = totalHistoryDetails.filter((detail) => {
+        return String(detail?.company_name).includes(searchValue) ||
+          String(detail?.company_ticket).includes(searchValue) ||
+          String(detail?.email).includes(searchValue) ||
+          String(detail?.proposed_buyer).includes(searchValue) ||
+          String(detail?.share_amt).includes(searchValue) ||
+          String(detail?.share_price).includes(searchValue) ||
+          String(detail?.share_type).includes(searchValue) ||
+          String(detail?.order_action).includes(searchValue) ||
+          String(detail?.status).includes(searchValue) ||
+          String(detail?.order_wallet).includes(searchValue) ||
+          String(detail?.shares_wallet).includes(searchValue)
+      })
+      console.log(filteredDetails);
+      setFilteredHistoryDetails(filteredDetails)
+    } else {
+      setFilteredHistoryDetails(totalHistoryDetails)
+    }
+  }, [searchValue])
+
   const subHeaderComponent = () => {
     return (
       <div className='d-flex align-items-center'>
