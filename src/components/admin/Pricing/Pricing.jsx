@@ -25,7 +25,7 @@ export default function Pricing() {
                         <p className='price-para text-gray'>2GB of storage</p>
                         <p className='price-para text-gray'>Email support</p>
                         <p className='price-para text-gray'>Help center access</p>
-                        <button type="button" class="btn btn-outline-secondary" disabled>Sign Up For Free</button>
+                        <button type="button" className="btn btn-outline-secondary" disabled>Sign Up For Free</button>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@ export default function Pricing() {
                         <p className='price-para text-gray'>10GB of storage</p>
                         <p className='price-para text-gray'>Priority Email support</p>
                         <p className='price-para text-gray'>Help center access</p>
-                        <button type="button" class="btn btn-outline-secondary" disabled>Get Started</button>
+                        <button type="button" className="btn btn-outline-secondary" disabled>Get Started</button>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@ export default function Pricing() {
                         <p className='price-para text-gray'>15GB of storage</p>
                         <p className='price-para text-gray'>Call and email support</p>
                         <p className='price-para text-gray'>Help center access</p>
-                        <button type="button" class="btn prim">Get Started</button>
+                        <button type="button" className="btn prim">Get Started</button>
                     </div>
                 </div>
                 <div className="price-card col-md-3 " >
@@ -60,7 +60,7 @@ export default function Pricing() {
                         <p className='price-para text-gray'>60GB of storage</p>
                         <p className='price-para text-gray'>24 x 7 call support</p>
                         <p className='price-para text-gray'>Help center access</p>
-                        <button type="button" class="btn orange" >Get Started</button>
+                        <button type="button" className="btn orange" >Get Started</button>
                     </div>
                 </div>
             </div>

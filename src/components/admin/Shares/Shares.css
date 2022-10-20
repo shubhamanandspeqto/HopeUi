@@ -84,6 +84,11 @@
     background: #738AFE;
     border-radius: 50px;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.issue-new-upload-button>input {
+    display: none;
 }
 
 .issue-new-conditions>span {
@@ -95,11 +100,19 @@
     color: #8A92A6;
 }
 
+.issue-new-conditions>input {
+    cursor: pointer;
+}
+
 .issue-new-create-button>button {
     all: unset;
     background: #3A57E8;
     border-radius: 4px;
     color: #FFFFFF;
+}
+
+.issue-new-create-button>button:disabled {
+    opacity: 0.60;
 }
 
 #issueNewShare .modal-content {
@@ -165,4 +178,20 @@
     box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
     border-radius: 4px;
     color: #FFFFFF;
+}
+
+.issued-shares-table header {
+    padding: 1rem;
+    background-color: #E5E5E5;
+}
+
+.issued-shares-table .rdt_TableHeadRow, .issued-shares-table .rdt_TableBody, .issued-shares-table .rdt_Pagination {
+    background: #E5E5E5;
+}
+
+.issued-shares-table .rdt_TableRow {
+    background: #dbdbdb;
+    border: 1px solid darkgray !important;
+    border-radius: 8px;
+    margin: 0.5rem 0;
 }

@@ -34,6 +34,8 @@
 
 .incoming-order-view-container {
     background-color: #FFFFFF;
+    animation: all 0.2s;
+    transition: all 0.5s;
 }
 
 .incoming-order-view-table-border {
@@ -77,6 +79,22 @@
     color: #FFFFFF;
 }
 
+.incoming-orders-edit-btn {
+    all: unset;
+    background: #0f61dc;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.incoming-orders-delete-btn {
+    all: unset;
+    background: #DC3545;
+    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
 .incoming-orders-counteroffer-btn {
     all: unset;
     background: #CC8039;
@@ -105,4 +123,120 @@
     font-size: 16px;
     line-height: 175%;
     color: #04040B;
+}
+
+.incoming-orders-table header {
+    padding: 1rem;
+    background-color: #E5E5E5;
+}
+
+.incoming-orders-table .rdt_TableHeadRow, .incoming-orders-table .rdt_TableBody, .incoming-orders-table .rdt_Pagination {
+    background: #E5E5E5;
+}
+
+.incoming-orders-table .rdt_TableRow {
+    background: #dbdbdb;
+    border: 1px solid darkgray !important;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.table-dropdown {
+    background: #b3a6a6;
+    border-radius: 10px;
+    z-index: 1;
+    margin-right: -6px;
+}
+
+.table-dropdown::before {
+    content: " ";
+    width: 15px;
+    height: 15px;
+    background-color: #b3a6a6;
+    position: absolute;
+    transform: rotate(45deg);
+    margin-top: -13px;
+    margin-left: 30px;
+    border-bottom-right-radius: 100%;
+}
+
+.table-dropdown>p {
+    cursor: pointer;
+    padding: 3px 1rem;
+}
+
+.table-dropdown>p:hover {
+    background: #738AFE;
+    border-radius: 6px;
+    color: #FFFFFF;
+}
+
+.incoming-orders-data-table-header>div {
+    width: calc(100% / 7);
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.incoming-orders-data-table-header-row>div {
+    width: calc(100% / 7);
+    text-align: center;
+    word-break: break-all;
+    font-size: 0.9rem;
+}
+
+.incoming-orders-data-table-header-row {
+    background: #dbdbdb;
+    border: 1px solid darkgray !important;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.incoming-orders-data-table>table>tr:first-child, .incoming-orders-data-table-header {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, .12);
+    border-bottom-style: solid;
+    padding: 0 0 15px 0;
+}
+
+.incoming-orders-data-table>table>tr>th, .incoming-orders-data-table>table>tr>td {
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 5px 0 10px 0;
+}
+
+.list-container {
+    scroll-behavior: smooth;
+    animation: all 0.5s;
+}
+
+.incoming-orders-data-table-footer {
+    border-top: 1px solid rgba(0, 0, 0, .12);
+}
+
+.incoming-orders-data-table-footer>div>p {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 0.8rem;
+}
+
+.incoming-orders-data-table-footer>div>select {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0 5px 0 0;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.incoming-orders-data-table-footer>div>svg {
+    cursor: pointer;
+}
+
+.incoming-orders-data-table-footer>div>span {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 0.8rem;
 }

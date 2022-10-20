@@ -12,9 +12,6 @@ export default function Footer() {
           <p>Privacy Policy</p>
           <p>Terms of Use</p>
         </div>
-        <div className="text-center">
-          © 2021 Hope UI, Made with ❤ by IQONIC Design.
-        </div>
       </footer>
     </>
   );

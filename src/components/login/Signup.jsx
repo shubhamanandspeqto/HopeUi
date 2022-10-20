@@ -2,7 +2,38 @@ import React from 'react'
 import './Signup.css'
 import { useNavigate } from 'react-router-dom'
 
+import { Web3Auth } from "@web3auth/web3auth";
+import { web3authClientID } from '../../utils/Keys';
+import { useEffect } from 'react';
+
 export default function Signup() {
+
+    let web3auth;
+
+    const web3connect = async () => {
+        web3auth = new Web3Auth({
+            clientId: web3authClientID,
+            chainConfig: {
+                chainNamespace: "eip155",
+                chainId: "0x1",
+            },
+        });
+
+        let response = await web3auth.initModal();
+        // console.log(response);
+    }
+
+    useEffect(() => {
+        web3connect();
+    }, [])
+
+    const login = async (e) => {
+        e.preventDefault();
+        let res = await web3auth.connect();
+        // console.log(res);
+    }
+
+
     const navigate = useNavigate()
     return (
         <div className='w-100 d-flex signup-container'>
@@ -58,8 +89,11 @@ export default function Signup() {
 
 
                 <button
-                    onClick={() => {
-                        navigate('/signed-up')
+                    // onClick={() => {
+                    //     navigate('/signed-up')
+                    // }}
+                    onClick={(e) => {
+                        login(e)
                     }}
                     className='mt-3' type="submit">Sign up</button>
 

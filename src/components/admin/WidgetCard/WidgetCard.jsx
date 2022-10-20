@@ -222,9 +222,9 @@ export default function WidgetCard() {
                                 <input type="text" className="form-control conversion-form" aria-label="Amount (to the nearest dollar)"placeholder='Recipient’s Username'><span> <img src="..\assets\Sphere-min.png" alt="" /></span></input>
 
                             </div> */}
-                              <div className=" input-group input-with-img input-icons">
-                            <input className="form-control conversion-form input-field" type="text" placeholder='Recipient’s Username'/>
-                            <span className="icon" ><img src="..\assets\telegram-img.png" alt="" /></span>
+                            <div className=" input-group input-with-img input-icons">
+                                <input className="form-control conversion-form input-field" type="text" placeholder='Recipient’s Username' />
+                                <span className="icon" ><img src="..\assets\telegram-img.png" alt="" /></span>
                             </div>
                         </div>
                     </div>
@@ -259,8 +259,8 @@ export default function WidgetCard() {
                                 </div>
                             </div>
 
-                             <div class="stories-btn">
-                            <button type="button" className="btn btn-primary  button-background">See All</button>
+                            <div className="stories-btn">
+                                <button type="button" className="btn btn-primary  button-background">See All</button>
                             </div>
                         </div>
 
@@ -280,39 +280,39 @@ export default function WidgetCard() {
                                 </div>
                             </div>
                             <div>
-                            <div className="row d-flex mb-5">
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35676.png" alt="" />
+                                <div className="row d-flex mb-5">
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35676.png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35677.png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35678.png" alt="" />
+                                    </div>
                                 </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35677.png" alt="" />
+                                <div className="row d-flex mb-5">
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35679 (1).png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35680.png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35681.png" alt="" />
+                                    </div>
                                 </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35678.png" alt="" />
+                                <div className="row d-flex">
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35677.png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35679 (1).png" alt="" />
+                                    </div>
+                                    <div className="col-md-4 shape-img">
+                                        <img src="..\assets\Frame 35678.png" alt="" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="row d-flex mb-5">
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35679 (1).png" alt="" />
-                                </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35680.png" alt="" />
-                                </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35681.png" alt="" />
-                                </div>
-                            </div>
-                            <div className="row d-flex">
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35677.png" alt="" />
-                                </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35679 (1).png" alt="" />
-                                </div>
-                                <div className="col-md-4 shape-img">
-                                    <img src="..\assets\Frame 35678.png" alt="" />
-                                </div>
-                            </div>
                             </div>
 
                         </div>
@@ -336,7 +336,7 @@ export default function WidgetCard() {
                                             <img src="..\assets\Orion_checkmark 1.png" alt="" />
                                         </div>
                                         {/* <div className="col-md-2"> */}
-                                            
+
                                         {/* </div> */}
                                     </div>
                                 </div>
@@ -365,7 +365,7 @@ export default function WidgetCard() {
                                             <img src="..\assets\Orion_checkmark 1.png" alt="" />
                                         </div>
                                         {/* <div className="col-md-2"> */}
-                                            
+
                                         {/* </div> */}
                                     </div>
                                 </div>

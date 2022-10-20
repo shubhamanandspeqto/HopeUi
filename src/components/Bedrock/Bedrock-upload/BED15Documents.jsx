@@ -1,5 +1,4 @@
 import React from 'react'
-import './MyDocumentsSelected.css'
 
 import DataTable from 'react-data-table-component';
 import { BiSearch } from 'react-icons/bi'
@@ -13,28 +12,7 @@ import { URLS } from '../../../utils/ApiURLs';
 import { useState } from 'react';
 import { errorPopup } from '../../../utils/PopupMessages';
 
-// const data = [
-//     {
-//         id: 1,
-//         title: "atul",
-//         description: "desc",
-//         file_url: "https://res.cloudinary.com/bedrock/image/upload/v1663313519/qjnjqxvoodaq6pyb7dzb.jpg",
-//         timestamp: '01/01/2022',
-//         email: "abc@gmail.com",
-//         wallet_address: "0x1234567890123456789012345"
-//     },
-//     {
-//         id: 2,
-//         title: "sumit",
-//         description: "desc 2",
-//         file_url: "https://res.cloudinary.com/bedrock/image/upload/v1663315755/nbm8u7wksoxeqs7i0qvh.pdf",
-//         createdDate: '01/01/2022',
-//         email: "abc@gmail.com",
-//         wallet_address: "0x1234567890123456789012345"
-//     },
-// ]
-
-export default function MyDocumentsSelected() {
+export default function BED15Documents() {
 
     const [fetchedDocumentData, setFetchedDocumentData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -105,6 +83,7 @@ export default function MyDocumentsSelected() {
     useEffect(() => {
 
         if (userInfo.email) {
+
             axios.get(`${URLS.getDocumentDetails}/${userInfo.email}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
@@ -116,63 +95,24 @@ export default function MyDocumentsSelected() {
             }).catch((err) => {
                 // console.log(err);
                 setLoading(false)
-                errorPopup("Some Error Occured, Please Try Again")
+                errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         }
+
 
     }, [userInfo.email])
 
     return (
-        <div className='documents-page-container pb-3'>
-
-            <div className='d-flex justify-content-between documents-page-heading py-5 px-4'>
-                <div className='d-flex flex-column'>
-                    <h4>Hello! Welcome to Bedrock.</h4>
-                    <p>You are currently using the invite-only product version of Bedrock.</p>
-                </div>
-            </div>
-
-            <div className='m-3 documents-page-content d-flex p-0 gap-5 align-items-center'>
-                <div className='ps-3 d-flex gap-5 align-items-center documents-page-img-container'>
-                    {
-                        userInfo?.profileImage ?
-                            <img className='pb-3' src={userInfo?.profileImage} alt="Profile Image" />
-                            :
-                            <img className='pb-3' src="/assets/beared-guy.png" alt="" />
-                    }
-                    {/* <p className='ps-5 d-flex gap-2'>My Documents <span>- user name</span></p> */}
-                </div>
-                <div className='d-flex gap-3 pe-3 documents-page-btn-container'>
-                    <button>Upload</button>
-                    <button className='px-3 py-1'>My Documents</button>
-                </div>
-            </div>
-
-            {/* <div className='m-3 mt-5 d-flex flex-column gap-4'>
-
-                <div className='documents-page-row d-flex justify-content-between align-items-center'>
-                    <h5 className='px-5 py-4 w-50'>document name 1</h5>
-                    <p className='mx-5 px-5 w-50'>- created 01/20/2022</p>
-                </div>
-
-                <div className='documents-page-row d-flex justify-content-between align-items-center'>
-                    <h5 className='px-5 py-4 w-50'>document name 2</h5>
-                    <p className='mx-5 px-5 w-50'>- created 01/20/2022</p>
-                </div>
-            </div> */}
-
-            <div className='m-3 mt-5 BED80documentsTable'>
-                <DataTable
-                    columns={columns}
-                    data={fetchedDocumentData}
-                    subHeader
-                    subHeaderComponent={subHeaderComponent()}
-                    pagination
-                    progressPending={loading}
-                    progressComponent={customLoader()}
-                />
-            </div>
-
+        <div className='mt-5 BED80documentsTable'>
+            <DataTable
+                columns={columns}
+                data={fetchedDocumentData}
+                subHeader
+                subHeaderComponent={subHeaderComponent()}
+                pagination
+                progressPending={loading}
+                progressComponent={customLoader()}
+            />
         </div>
     )
 }

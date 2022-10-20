@@ -1,16 +1,36 @@
 import React from 'react'
 import './Login.css'
 import { useNavigate } from 'react-router-dom'
+// import Torus from "@toruslabs/torus-embed";
+// import Web3 from "web3";
+// import { useEffect } from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../../ContextAPI/Context';
+import { useState } from 'react';
+
 export default function Login() {
 
+    const [loading, setLoading] = useState(false)
+    const context = useContext(UserContext)
+    let { loginFunction } = context;
     const navigate = useNavigate();
+    // let torus;
+
+    const login = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        let result = await loginFunction()
+        // console.log(result);
+        if (result?.torus) navigate('/dashboard/bedrock');
+        setLoading(false);
+    }
 
     return (
         <div className='w-100 d-flex login-container'>
             <div className='w-50 d-flex flex-column login-form justify-content-center align-items-center'>
                 <h3>Bedrock Private Data</h3>
                 <p>Sign in to get started</p>
-                <div className='d-flex flex-column w-100 pt-3'>
+                {/* <div className='d-flex flex-column w-100 pt-3'>
                     <label className='text-left' htmlFor="email">Email</label>
                     <input type="email" name="email" id="email" />
                 </div>
@@ -22,17 +42,23 @@ export default function Login() {
                             navigate('/reset-password')
                         }}
                     >Reset Password</p>
-                </div>
+                </div> */}
 
                 <button
-                    onClick={() => {
-                        navigate('/dashboard')
+                    onClick={(e) => {
+                        // navigate('/dashboard')
+                        login(e)
                     }}
-                    className='mt-3' type="submit">Log in</button>
+                    className='mt-3 d-flex gap-2' type="submit">Log in
+                    {
+                        loading && <i className="fa fa-circle-o-notch fa-spin" style={{ fontSize: 16 }} />
+                    }
+                </button>
 
                 <p onClick={() => {
                     navigate('/sign-up')
                 }} className='create-account'>Create Account</p>
+                {/* <p onClick={logout}>Logout</p> */}
             </div>
 
             <div className='w-50 login-background-container' >

@@ -1,0 +1,28 @@
+.bedrock-sidebar a {
+    all: unset;
+    cursor: pointer;
+    padding: 3px 0;
+}
+
+.bedrock-sidebar a:hover, .bedrock-sidebar a:hover p, .bedrock-sidebar a:hover span {
+    background: #aab5ec;
+    color: #ffffff !important;
+}
+
+.bedrock-sidebar p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+}
+
+.bedrock-sidebar-subheading {
+    font-weight: 600 !important;
+    cursor: context-menu;
+}
+
+.bedrock-sidebar li {
+    padding: 10px 0;
+}

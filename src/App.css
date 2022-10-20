@@ -37,6 +37,11 @@ div {
 
 }
 
+.form-error-value {
+  font-size: 12px;
+  color: red;
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -46,4 +51,15 @@ div {
   to {
     transform: rotate(360deg);
   }
+}
+
+.sidebar-parent-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-parent-container {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

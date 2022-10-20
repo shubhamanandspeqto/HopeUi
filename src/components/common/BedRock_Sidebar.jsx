@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import "../common/BedRock_sidebar.css"
 
+
+// Not in Use
+
 export default function BedRock_Sidebar() {
   return (
     <>
@@ -30,7 +33,7 @@ export default function BedRock_Sidebar() {
                   </li>
                   <li>
                     <Link
-                      to={"/"}
+                      to={"/dashboard"}
                       type="button"
                       className="text-gray"
                       style={{ textDecoration: "none" }}
