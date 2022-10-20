@@ -20,7 +20,7 @@ export default function Login() {
         e.preventDefault()
         setLoading(true)
         let result = await loginFunction()
-        console.log(result);
+        // console.log(result);
         if (result?.torus) navigate('/dashboard/bedrock');
         setLoading(false);
     }

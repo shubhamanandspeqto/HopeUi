@@ -11,7 +11,7 @@ import BedrockSidebar from "../common/BedrockSidebar";
 
 export default function Dashboard() {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   return (
     <div className="d-flex flex-column">

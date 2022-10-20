@@ -47,7 +47,7 @@ export default function Shares() {
 
     let userDetails = useContext(UserContext)
     const { userInfo, address } = userDetails
-    console.log(userInfo);
+    // console.log(userInfo);
 
     const subHeaderComponent = () => {
         return (
@@ -62,7 +62,7 @@ export default function Shares() {
     }
 
     const editShares = (data) => {
-        console.log(data);
+        // console.log(data);
         setSingleFormData(data)
         issuedShareModal.show()
     }
@@ -73,21 +73,21 @@ export default function Shares() {
     }
 
     const deleteShares = (id) => {
-        console.log(id);
+        // console.log(id);
         setIsLoading(true)
         axios.delete(`${URLS.deleteIssuedShare}/${id}`, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             setRefreshDataTable(!refreshDataTable)
             successPopup(res.data.message)
             setIsLoading(false)
             deleteShareModal.hide()
         }).catch((error) => {
-            console.log(error);
-            errorPopup("Some Error Occured")
+            // console.log(error);
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
             setIsLoading(false)
         })
     }
@@ -111,14 +111,14 @@ export default function Shares() {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setFetchedIssuedShares(res.data.data)
                 setFilteredIssuedShares(res.data.data)
                 setIsDataLoading(false)
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
                 setIsDataLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         }
     }, [userInfo, refreshDataTable])

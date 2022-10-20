@@ -44,7 +44,7 @@ export default function Upload() {
   });
 
   // let files = acceptedFiles.map(file => {
-  //   console.log(file);
+  //   // console.log(file);
   //   return ({
   //     html: <li key={file.path}>
   //       {file.path} - {file.size} bytes
@@ -58,7 +58,7 @@ export default function Upload() {
 
   // For Drag and Drop or Browse From Computer
   useEffect(() => {
-    console.log(acceptedFiles);
+    // console.log(acceptedFiles);
     if (!acceptedFiles.length) return
     let newImage = {
       html: <li key={acceptedFiles[0].name}>
@@ -73,7 +73,7 @@ export default function Upload() {
 
   // For Select File From Dropbox
   const onSuccess = (file) => {
-    console.log(file);
+    // console.log(file);
     let newImage = {
       html: <li key={file[0].name}>
         {file[0].name} - {file[0].bytes} bytes
@@ -86,7 +86,7 @@ export default function Upload() {
 
   // For Cancel Upload Of Dropbox
   const onCancel = () => {
-    console.log("User Cancelled Upload");
+    // console.log("User Cancelled Upload");
   }
 
   // Google Drive
@@ -107,9 +107,9 @@ export default function Upload() {
   //     // customViews: customViewsArray, // custom view
   //     callbackFunction: (data) => {
   //       if (data.action === 'cancel') {
-  //         console.log('User clicked cancel/close button')
+  //         // console.log('User clicked cancel/close button')
   //       }
-  //       console.log(data)
+  //       // console.log(data)
   //     },
   //   })
   // }
@@ -118,7 +118,7 @@ export default function Upload() {
   const uploadFile = (e) => {
     e.preventDefault();
     if (!selectedFile) return errorPopup("File Not Selected")
-    console.log(selectedFile);
+    // console.log(selectedFile);
 
     setFileUploadLoading(true)
     let formData = new FormData();
@@ -129,14 +129,14 @@ export default function Upload() {
         'Access-Control-Allow-Origin': '*'
       }
     }).then((res) => {
-      console.log(res);
+      // console.log(res);
       setUploadedFileUrl(res?.data?.data)
       successPopup(res?.data?.message)
       setAlertMessage("File Uploaded Succesfully, *Add Documents Details Below")
       setFileUploadLoading(false)
     }).catch((err) => {
-      console.log(err);
-      errorPopup(err?.response?.data?.message)
+      // console.log(err);
+      errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured, Please Try Again")
       setFileUploadLoading(false)
     })
 
@@ -157,7 +157,7 @@ export default function Upload() {
       file_url: uploadedFileUrl
     }
 
-    console.log(data);
+    // console.log(data);
 
     setDocumentSubmitLoading(true)
     axios.post(URLS.submitDocumentDetails, data, {
@@ -165,13 +165,13 @@ export default function Upload() {
         'Access-Control-Allow-Origin': '*'
       }
     }).then((res) => {
-      console.log(res);
+      // console.log(res);
       successPopup(res.data.message)
       setDocumentSubmitLoading(false)
 
       resetAllFields()
     }).catch((err) => {
-      console.log(err);
+      // console.log(err);
       setDocumentSubmitLoading(false)
     })
 

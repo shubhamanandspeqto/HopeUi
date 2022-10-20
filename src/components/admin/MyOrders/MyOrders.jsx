@@ -12,6 +12,7 @@ import { URLS } from '../../../utils/ApiURLs'
 import { useContext } from 'react'
 import { UserContext } from '../../../ContextAPI/Context'
 import EditOrder from './EditOrder'
+import { errorPopup } from '../../../utils/PopupMessages'
 
 const data = [
     {
@@ -115,7 +116,7 @@ export default function MyOrders() {
                                 style={dropDownVisible ? { position: 'absolute', display: 'block' } : { display: 'none' }}>
                                 <p onClick={(e) => {
                                     e.preventDefault();
-                                    console.log("View Details");
+                                    // console.log("View Details");
                                 }}>View Details</p>
                             </div> */}
                         </div>
@@ -185,13 +186,14 @@ export default function MyOrders() {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             setTotalOrders(res.data.data)
             setFilteredOrders(res.data.data)
             setIsDataLoading(false)
         }).catch((err) => {
             setIsDataLoading(false)
-            console.log(err);
+            // console.log(err);
+            errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 

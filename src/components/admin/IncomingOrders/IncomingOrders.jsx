@@ -122,7 +122,7 @@ export default function IncomingOrders() {
                                 style={dropDownVisible ? { position: 'absolute', display: 'block' } : { display: 'none' }}>
                                 <p onClick={(e) => {
                                     e.preventDefault();
-                                    console.log("View Details");
+                                    // console.log("View Details");
                                 }}>View Details</p>
                             </div>
 

@@ -178,15 +178,15 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
             setIsLoading(false)
             resetFormData()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setIsLoading(false)
-            errorPopup("Some Error Occured")
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 
@@ -199,23 +199,23 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setLoaderButton("")
             setIsLoading(false);
             handleRefresh()
         }).catch((err) => {
-            console.log(err);
+            // console.log(err);
             setLoaderButton("")
             setIsLoading(false)
-            errorPopup("Some Error Occured")
+            errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 
     const updateOrder = (id, company_name, company_ticker, proposed_buyer, share_amt, share_type, share_price) => {
         setLoaderButton("Update")
         setIsLoading(true)
-        console.log(id);
+        // console.log(id);
         let bodyContent = new FormData();
         bodyContent.append("company_name", company_name.trim())
         bodyContent.append("company_ticker", company_ticker.trim())
@@ -230,17 +230,17 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
             setLoaderButton()
             setIsLoading(false)
             // resetFormData()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setLoaderButton();
             setIsLoading(false)
-            errorPopup("Some Error Occured")
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 
@@ -257,7 +257,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
     }
 
     // useEffect(() => {
-    //     console.log(acceptedFiles);
+    //     // console.log(acceptedFiles);
     //     if (!acceptedFiles.length) return
     //     let newImage = {
     //         html: <li key={acceptedFiles[0].name}>
@@ -273,7 +273,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
 
     // For Select File From Dropbox
     // const onSuccess = (file) => {
-    //     console.log(file);
+    //     // console.log(file);
     //     let newImage = {
     //         html: <li key={file[0].name}>
     //             {file[0].name} - {file[0].bytes} bytes
@@ -286,7 +286,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
 
     // // For Cancel Upload Of Dropbox
     // const onCancel = () => {
-    //     console.log("User Cancelled Upload");
+    //     // console.log("User Cancelled Upload");
     // }
 
     return (
@@ -301,7 +301,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                             <div className='d-flex m-0 p-0 gap-2'>
                                 <div className='w-50 m-0 p-0'>
                                     <label htmlFor="company_name" >Company Name</label>
-                                    <input value={createOrderFormData.company_name} onChange={handleInputChange} className='w-100' type="text" name="company_name" id="company_name" required />
+                                    <input disabled value={createOrderFormData.company_name} onChange={handleInputChange} className='w-100' type="text" name="company_name" id="company_name" required />
                                     {
                                         formError.company_name &&
                                         <span className='form-error-value'>{formError.company_name}</span>
@@ -309,7 +309,7 @@ export default function EditOrder({ handleRefresh, singleOrderData }) {
                                 </div>
                                 <div className='w-50 m-0 p-0'>
                                     <label htmlFor="company_ticker" >Company Ticker</label>
-                                    <input value={createOrderFormData.company_ticker} onChange={handleInputChange} className='w-100' type="text" name="company_ticker" id="company_ticker" required />
+                                    <input disabled value={createOrderFormData.company_ticker} onChange={handleInputChange} className='w-100' type="text" name="company_ticker" id="company_ticker" required />
                                     {
                                         formError.company_ticker &&
                                         <span className='form-error-value'>{formError.company_ticker}</span>

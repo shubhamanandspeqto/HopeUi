@@ -177,21 +177,21 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
             setIsLoading(false)
             resetFormData()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setIsLoading(false)
-            errorPopup("Some Error Occured")
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 
     const updateOrder = (id, order_name, holder, proposed_buyer, quantity, share_type, offered_price) => {
         setIsLoading(true)
-        console.log(id);
+        // console.log(id);
         let bodyContent = new FormData();
         bodyContent.append("order_name", order_name.trim())
         bodyContent.append("holder", holder.trim())
@@ -206,13 +206,13 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
             setIsLoading(false)
             resetFormData()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setIsLoading(false)
             errorPopup("Some Error Occured")
         })
@@ -231,7 +231,7 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
     }
 
     useEffect(() => {
-        console.log(acceptedFiles);
+        // console.log(acceptedFiles);
         if (!acceptedFiles.length) return
         let newImage = {
             html: <li key={acceptedFiles[0].name}>
@@ -247,7 +247,7 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
 
     // For Select File From Dropbox
     const onSuccess = (file) => {
-        console.log(file);
+        // console.log(file);
         let newImage = {
             html: <li key={file[0].name}>
                 {file[0].name} - {file[0].bytes} bytes
@@ -260,7 +260,7 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
 
     // For Cancel Upload Of Dropbox
     const onCancel = () => {
-        console.log("User Cancelled Upload");
+        // console.log("User Cancelled Upload");
     }
 
     return (
@@ -331,7 +331,7 @@ export default function CreateOrder({ handleRefresh, singleOrderData }) {
 
                             <div className="drag-drop-container">
                                 <div {...getRootProps({ className: 'dropzone' })}>
-                                    {console.log({ ...getInputProps() })}
+                                    {/* { console.log({ ...getInputProps() })} */}
                                     <input {...getInputProps()} />
                                     <p>Drag 'n' drop some file here</p>
                                     <div className="btn-group">

@@ -19,7 +19,7 @@ export default function BED15Documents() {
 
     let userDetails = useContext(UserContext)
     const { userInfo } = userDetails
-    console.log(userInfo.email);
+    // console.log(userInfo.email);
 
     const subHeaderComponent = () => {
         return (
@@ -89,13 +89,13 @@ export default function BED15Documents() {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setFetchedDocumentData(res.data.data)
                 setLoading(false)
             }).catch((err) => {
-                console.log(err);
+                // console.log(err);
                 setLoading(false)
-                errorPopup("Some Error Occured, Please Try Again")
+                errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         }
 

@@ -56,11 +56,12 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             handleRefresh()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
         })
     }
 
@@ -122,46 +123,46 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setLoaderButton();
             setIsLoading(false)
             handleRefreshOnly();
         }).catch((err) => {
-            console.log(err);
+            // console.log(err);
             setLoaderButton();
             setIsLoading(false)
             errorPopup(err.response?.data?.message ? err.response?.data?.message : "Some Error Occured")
         })
     }
 
-    const handleAcceptOrder = (e, id) => {
-        e.preventDefault();
-        axios.put(`${URLS.updateOrderStatus}/${id}?status=Approved`, {}, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).then((res) => {
-            console.log(res);
-            handleRefreshOnly()
-        }).catch((error) => {
-            console.log(error);
-        })
-    }
+    // const handleAcceptOrder = (e, id) => {
+    //     e.preventDefault();
+    //     axios.put(`${URLS.updateOrderStatus}/${id}?status=Approved`, {}, {
+    //         headers: {
+    //             'Access-Control-Allow-Origin': '*'
+    //         }
+    //     }).then((res) => {
+    //         // console.log(res);
+    //         handleRefreshOnly()
+    //     }).catch((error) => {
+    //         // console.log(error);
+    //     })
+    // }
 
-    const handleDeclineOrder = (e, id) => {
-        e.preventDefault();
-        axios.put(`${URLS.updateOrderStatus}/${id}?status=Denied`, {}, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        }).then((res) => {
-            console.log(res);
-            handleRefreshOnly()
-        }).catch((error) => {
-            console.log(error);
-        })
-    }
+    // const handleDeclineOrder = (e, id) => {
+    //     e.preventDefault();
+    //     axios.put(`${URLS.updateOrderStatus}/${id}?status=Denied`, {}, {
+    //         headers: {
+    //             'Access-Control-Allow-Origin': '*'
+    //         }
+    //     }).then((res) => {
+    //         // console.log(res);
+    //         handleRefreshOnly()
+    //     }).catch((error) => {
+    //         // console.log(error);
+    //     })
+    // }
 
     const table = (order) => {
         return (
@@ -264,7 +265,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                 order.status === "Pending" && <>
                                     <button onClick={(e) => {
                                         e.stopPropagation();
-                                        console.log("Edit Details");
+                                        // console.log("Edit Details");
                                         handleSingleOrderData(order);
                                         showModal()
                                     }} className='incoming-orders-edit-btn px-5 py-2'>Edit</button>
@@ -292,7 +293,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                         <button data-bs-dismiss="modal" onClick={(e) => {
                                             e.stopPropagation();
-                                            console.log("View Details");
+                                            // console.log("View Details");
                                             deleteOrder(order.order_id);
                                         }} type="button" className="btn btn-danger">Delete</button>
                                     </div>
@@ -332,14 +333,14 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '105px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
-                            console.log("Edit Details");
+                            // console.log("Edit Details");
                             handleSingleOrderData(order);
                             showModal()
                         }}>Edit Details</p>
 
                         <p onClick={(e) => {
                             e.stopPropagation();
-                            console.log("View Details");
+                            // console.log("View Details");
                             deleteOrder(order.order_id)
                         }}>Delete Details</p>
                     </div> */}
@@ -369,7 +370,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
-                            console.log("View Details");
+                            // console.log("View Details");
                         }}>View Details</p>
                     </div> */}
 
@@ -398,7 +399,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         style={dropDownVisible && viewDetailId === order.order_id ? { position: 'absolute', marginTop: '75px' } : { display: 'none' }}>
                         <p onClick={(e) => {
                             e.stopPropagation();
-                            console.log("View Details");
+                            // console.log("View Details");
                         }}>View Details</p>
                     </div> */}
 
@@ -409,14 +410,14 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
 
     const loadOrders = () => {
         // axios.get(`${URLS.getOrder}/${userInfo.email}?page=${pageNo}&limit=${rowsPerPage}`, {
-        console.log(address);
+        // console.log(address);
         if (address) {
             axios.get(`${URLS.getPendingOrders}/${address}?page=${pageNo}&limit=${rowsPerPage}`, {
                 headers: {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setTotalOrdersLength(res.data.total_record)
                 setIsDataLoading(false)
                 setFetchedOrderList(res.data.data)
@@ -424,15 +425,15 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 let pages = Math.ceil(res.data.total_record / rowsPerPage);
                 setTotalPages(pages)
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
                 setIsDataLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured")
             })
         }
     }
 
     useEffect(() => {
-        console.log("hello");
+        // console.log("hello");
         setIsDataLoading(true);
         if (userInfo.email && !searchOrder && address) {
             loadOrders()
@@ -445,7 +446,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 let filteredItem = res.data.data.filter((order) => {
                     return String(order.company_name).toLowerCase().includes(searchOrder) ||
                         String(order.company_ticker).toLowerCase().includes(searchOrder) ||
@@ -455,7 +456,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                         String(order.share_price).toLowerCase().includes(searchOrder) ||
                         String(order.status).toLowerCase().includes(searchOrder)
                 })
-                console.log(filteredItem);
+                // console.log(filteredItem);
                 setIsDataLoading(false)
                 let pages = Math.ceil(filteredItem.length / rowsPerPage);
                 setTotalPages(pages)
@@ -464,12 +465,12 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                 if (rowsPerPage * pageNo - rowsPerPage > filteredItem.length) setPageNo(pageNo - 1)
                 let totalFilteredData = filteredItem
                 let filterByPagination = totalFilteredData.slice(rowsPerPage * pageNo - rowsPerPage, rowsPerPage * pageNo)
-                console.log(filterByPagination);
+                // console.log(filterByPagination);
                 setFilteredOrderList(filterByPagination)
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
                 setIsDataLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         }
     }, [refreshOrderComponent, userInfo, rowsPerPage, pageNo, searchOrder])
@@ -482,7 +483,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     //                 'Access-Control-Allow-Origin': '*'
     //             }
     //         }).then((res) => {
-    //             console.log(res);
+    //             // console.log(res);
     //             let filteredItem = res.data.data.filter((order) => {
     //                 return String(order.company_name).toLowerCase().includes(searchOrder) ||
     //                     String(order.company_ticker).toLowerCase().includes(searchOrder) ||
@@ -492,7 +493,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     //                     String(order.share_price).toLowerCase().includes(searchOrder) ||
     //                     String(order.status).toLowerCase().includes(searchOrder)
     //             })
-    //             console.log(filteredItem);
+    //             // console.log(filteredItem);
     //             setIsDataLoading(false)
     //             let pages = Math.ceil(filteredItem.length / rowsPerPage);
     //             setTotalPages(pages)
@@ -501,10 +502,10 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
     //             if (rowsPerPage * pageNo - rowsPerPage > filteredItem.length) setPageNo(pageNo - 1)
     //             let totalFilteredData = filteredItem
     //             let filterByPagination = totalFilteredData.slice(rowsPerPage * pageNo - rowsPerPage, rowsPerPage * pageNo)
-    //             console.log(filterByPagination);
+    //             // console.log(filterByPagination);
     //             setFilteredOrderList(filterByPagination)
     //         }).catch((error) => {
-    //             console.log(error);
+    //             // console.log(error);
     //             setIsDataLoading(false)
     //             errorPopup("Some Error Occured")
     //         })
@@ -567,7 +568,7 @@ export default function IncomingOrdersList({ changeDropdownVisible, dropDownVisi
                                         <div key={order.order_id}>
                                             <div id={order.order_id} onClick={(e) => {
                                                 e.stopPropagation();
-                                                console.log(rowID, order.order_id);
+                                                // console.log(rowID, order.order_id);
                                                 rowID === order.order_id ? setRowID() : setRowID(order.order_id);
                                                 window.location.href = `#${order.order_id}`
                                             }} className='incoming-orders-data-table-header-row d-flex py-3' >

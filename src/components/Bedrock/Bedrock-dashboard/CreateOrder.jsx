@@ -39,7 +39,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
 
     useEffect(() => {
         if (singleOrderData) {
-            console.log(singleOrderData);
+            // console.log(singleOrderData);
             setCreateOrderFormData({
                 ...createOrderFormData,
                 company_name: singleOrderData?.company_name,
@@ -57,7 +57,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
     let userDetails = useContext(UserContext)
     const { userInfo, address } = userDetails
 
-    console.log(singleOrderData);
+    // console.log(singleOrderData);
 
     const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
         // Disable click and keydown behavior
@@ -173,21 +173,21 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
                 'Access-Control-Allow-Origin': '*'
             }
         }).then((res) => {
-            console.log(res);
+            // console.log(res);
             successPopup(res.data.message)
             setIsSubmitted(true)
             setIsLoading(false)
             // resetFormData()
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setIsLoading(false)
-            errorPopup("Some Error Occured")
+            errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured")
         })
     }
 
     // const updateOrder = (id, company_name, company_ticker, proposed_buyer, quantity, share_type, offered_price) => {
     //     setIsLoading(true)
-    //     console.log(id);
+    //     // console.log(id);
     //     let bodyContent = new FormData();
     //     bodyContent.append("company_name", company_name.trim())
     //     bodyContent.append("company_ticker", company_ticker.trim())
@@ -202,13 +202,13 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
     //             'Access-Control-Allow-Origin': '*'
     //         }
     //     }).then((res) => {
-    //         console.log(res);
+    //         // console.log(res);
     //         successPopup(res.data.message)
     //         setIsSubmitted(true)
     //         setIsLoading(false)
     //         resetFormData()
     //     }).catch((error) => {
-    //         console.log(error);
+    //         // console.log(error);
     //         setIsLoading(false)
     //         errorPopup("Some Error Occured")
     //     })
@@ -223,7 +223,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
     }
 
     useEffect(() => {
-        console.log(acceptedFiles);
+        // console.log(acceptedFiles);
         if (!acceptedFiles.length) return
         let newImage = {
             html: <li key={acceptedFiles[0].name}>
@@ -239,7 +239,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
 
     // For Select File From Dropbox
     const onSuccess = (file) => {
-        console.log(file);
+        // console.log(file);
         let newImage = {
             html: <li key={file[0].name}>
                 {file[0].name} - {file[0].bytes} bytes
@@ -252,7 +252,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
 
     // For Cancel Upload Of Dropbox
     const onCancel = () => {
-        console.log("User Cancelled Upload");
+        // console.log("User Cancelled Upload");
     }
 
     return (
@@ -324,7 +324,7 @@ export default function CreateOrder({ singleOrderData, hideModal }) {
                             {/* Drag and File Upload */}
                             {/* <div className="drag-drop-container">
                                 <div {...getRootProps({ className: 'dropzone' })}>
-                                    {console.log({ ...getInputProps() })}
+                                    {// console.log({ ...getInputProps() })}
                                     <input {...getInputProps()} />
                                     <p>Drag 'n' drop some file here</p>
                                     <div className="btn-group">

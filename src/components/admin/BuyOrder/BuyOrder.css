@@ -115,3 +115,23 @@
 
 
 }
+
+.rdt_TableCell>div {
+    overflow: auto !important;
+}
+
+.rdt_TableCell>div::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.rdt_TableCell>div {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll {
+    cursor: default;
+}

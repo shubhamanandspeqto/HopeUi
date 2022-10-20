@@ -28,9 +28,9 @@ export default function Navbar() {
     let userDetails = useContext(UserContext)
     const { logoutFunction, torus } = userDetails
 
-    let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    let userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
 
-    console.log(userDetails, userInfo);
+    // console.log(userDetails, userInfo);
 
     useEffect(() => {
         if (!userInfo) {

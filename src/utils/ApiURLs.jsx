@@ -1,5 +1,5 @@
 export const host = "https://bedrock-backend.herokuapp.com"
-export const testhost = "https://sharp-wasps-shout-119-82-83-164.loca.lt"
+export const testhost = "https://khaki-hotels-hang-119-82-83-164.loca.lt"
 
 export const URLS = {
     //Dashboard
@@ -14,12 +14,14 @@ export const URLS = {
     updateIssuedShare: `${host}/issuedshares/update`,
     deleteIssuedShare: `${host}/issuedshares/delete`,
     // Orders
-    createOrder: `${testhost}/orders`,
+    createOrder: `${host}/orders`,
     getOrder: `${host}/orders`,
     updateOrder: `${host}/orders/update`,
     deleteOrder: `${host}/orders/delete`,
-    updateOrderStatus: `${testhost}/updatestatus`,
+    updateOrderStatus: `${host}/updatestatus`,
     //
-    getPendingOrders: `${testhost}/getpendingorders`,
-    getSelfOrders: `${host}/orders`
+    getPendingOrders: `${host}/getpendingorders`,
+    getSelfOrders: `${host}/orders`,
+    getOrderHistory: `${host}/getorderhistory`
+    // 
 }

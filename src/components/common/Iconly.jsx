@@ -141,7 +141,7 @@ export default function Iconly() {
 
 
     for (let i = 0; i < elements.length; i++) {
-      console.log(elements[i].classList);
+      // console.log(elements[i].classList);
       elements[i].classList.remove("dark-mode-dashboard-card")
       // elements[i].classList.remove("dashboard-card")
     }
@@ -163,10 +163,10 @@ export default function Iconly() {
     let enterprise = document.getElementsByClassName('dark-background')
 
 
-    console.log(elements);
-    console.log(elements[0]);
+    // console.log(elements);
+    // console.log(elements[0]);
     for (let i = 0; i < elements.length; i++) {
-      console.log(elements[i].classList);
+      // console.log(elements[i].classList);
       elements[i].classList.add("dark-mode-dashboard-card")
       // elements[i].classList.remove("dashboard-card")
     }

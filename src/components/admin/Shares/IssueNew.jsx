@@ -48,7 +48,7 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
     });
 
     useEffect(() => {
-        console.log(singleFormData);
+        // console.log(singleFormData);
         if (singleFormData) {
             const { company_name, company_ticker, market_value, share_price, share_type, shares, document_url } = singleFormData;
             setIssuedShareFormData({
@@ -169,8 +169,8 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
         e.preventDefault();
         // setIsSubmitted(true)
         setIsLoading(true);
-        console.log(issuedShareFormData);
-        console.log(issuedShareDocument);
+        // console.log(issuedShareFormData);
+        // console.log(issuedShareDocument);
 
 
         const { company_name, company_ticker, market_value, share_price, share_type, shares } = issuedShareFormData;
@@ -184,7 +184,7 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
             bodyContent.append('share_type', share_type)
             bodyContent.append('shares', shares)
             if (issuedShareDocument) {
-                console.log(issuedShareDocument);
+                // console.log(issuedShareDocument);
                 bodyContent.append('file', issuedShareDocument)
             } else {
                 bodyContent.append('file', "")
@@ -195,16 +195,16 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setIsLoading(false)
                 resetFormData()
                 successPopup(res.data.message)
                 handleRefresh();
                 // setIsSubmitted(true);
             }).catch(error => {
-                console.log(error);
+                // console.log(error);
                 setIsLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         } else {
             if (!issuedShareDocument) {
@@ -226,22 +226,22 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setIsLoading(false)
                 resetFormData()
                 successPopup(res.data.message)
                 setIsSubmitted(true)
                 // handleRefresh()
             }).catch(error => {
-                console.log(error);
+                // console.log(error);
                 setIsLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured, Please Try Again")
             })
         }
     }
 
     useEffect(() => {
-        console.log(acceptedFiles);
+        // console.log(acceptedFiles);
         if (!acceptedFiles.length) return
         let newImage = {
             html: <li key={acceptedFiles[0].name}>
@@ -257,7 +257,7 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
 
     // For Select File From Dropbox
     const onSuccess = (file) => {
-        console.log(file);
+        // console.log(file);
         let newImage = {
             html: <li key={file[0].name}>
                 {file[0].name} - {file[0].bytes} bytes
@@ -270,7 +270,7 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
 
     // For Cancel Upload Of Dropbox
     const onCancel = () => {
-        console.log("User Cancelled Upload");
+        // console.log("User Cancelled Upload");
     }
 
     return (
@@ -382,7 +382,7 @@ export default function IssueNew({ singleFormData, handleRefresh }) {
 
                                 <aside>
                                     {
-                                        selectedFile && <ul className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
+                                        selectedFile && <ul style={{ wordBreak: 'break-all' }} className="my-0 py-0 pt-1">{selectedFile?.html}</ul>
                                     }
                                     {
                                         // alertMessage && <span style={{ fontSize: '14px', color: 'red' }}>{alertMessage}</span>

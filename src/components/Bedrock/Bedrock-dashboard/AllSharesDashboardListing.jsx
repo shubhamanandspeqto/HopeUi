@@ -25,7 +25,7 @@ export default function AllSharesDashboardListing() {
 
     let userDetails = useContext(UserContext)
     const { userInfo, address } = userDetails
-    console.log(userInfo.email);
+    // console.log(userInfo.email);
 
     const showModal = () => {
         createOrderModal.show()
@@ -45,14 +45,14 @@ export default function AllSharesDashboardListing() {
                     'Access-Control-Allow-Origin': '*'
                 }
             }).then((res) => {
-                console.log(res);
+                // console.log(res);
                 setFetchedIssuedShares(res.data.data)
                 setFilteredIssuedShares(res.data.data)
                 setIsDataLoading(false)
             }).catch((error) => {
-                console.log(error);
+                // console.log(error);
                 setIsDataLoading(false)
-                errorPopup("Some Error Occured")
+                errorPopup(error.response?.data?.message ? error.response?.data?.message : "Some Error Occured")
             })
         }
     }, [userInfo])

@@ -20,7 +20,7 @@ export default function Signup() {
         });
 
         let response = await web3auth.initModal();
-        console.log(response);
+        // console.log(response);
     }
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function Signup() {
     const login = async (e) => {
         e.preventDefault();
         let res = await web3auth.connect();
-        console.log(res);
+        // console.log(res);
     }
 
 
